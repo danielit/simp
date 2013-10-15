@@ -1,0 +1,66 @@
+var form = Ext.widget('form',{
+    border:false,
+    bodyPadding:10,
+    fieldDefaults:{
+        labelAlign:'left',
+        labelWidth:55,
+        labelStyle:'font-weight:bold'
+        },
+        defaults:{
+            margins:'0 0 10 0'
+        }
+        items:[{
+            xtype:'textfield',
+            fieldLabel:'USER',
+            blankText:'Input your id',
+            name:'user',
+            id:'user',
+            allowBlank:false,
+            width:240
+        },{
+            xtype:'textfield',
+            fieldLabel:'PASS',
+            blankText:'Input your password',
+            name:'pwd',
+            id:'id',
+            allowBlank:false,
+            width:240,
+            inputType:'password'
+        }],
+        buttons:[{
+            text:'Login',
+            handler:function(){
+                var form = this.up('form').getForm();
+                // var win = this.up('windown') 
+                if(form.isValid()){
+                    form.submit({
+                        clientValidation:ture,
+                        waitMsg:'Please Waiting...',
+                        waitTitle:'Check Login',
+                        url:'127.0.0.1:8888/login',
+                        success:function(){
+                            //win.hide
+
+                        },
+                        failure:function(form,action){
+                            Ext.MessageBox.show({
+                                width:150,
+                                title:'Login Failed'
+
+                             })
+                        },
+                    })
+                    }
+                },
+
+        }],
+    }) ;
+Ext.application({
+    name: 'login',
+    launch:function(){
+        Ext.create('Ext.window.Window',{
+            layout:'fit',
+            items:form,
+            }
+        }
+});

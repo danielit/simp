@@ -1,0 +1,29 @@
+Study Sumary
+1. Tornado is used to deal some dynamic http request,when you need to get a static file ,you need to setting it ,that means you should tell tornado where the static direction is, it will deal static file with tornado.web.StaticFileHandler
+
+
+2. It is impossible to use ajax in the same ip ,such as you use a apache server ,and send a ajax requst to a tornado ,whose port is different from apache,but ip is the same . That named "同源策略"，the detail is :
+出于安全原因，浏览器对页面中的ajax请求（XMLHTTPRequest）有同源策略的限制。
+
+如果两个页面的协议、域名和端口是完全相同的，那么它们就是同源的。当前加载页面只能发出同源的ajax请求。
+比如说你的当前页面是http://www.example.com/test.html，那么这个页面中的只能发出 http://www.example.com/ 下的请求。
+
+一、协议指：http、https、ftp等属于不同的协议，尤其是http和https也是不同的协议。
+二、域名指不同：
+顶级域名不同。如 www.abc.com的页面中不能向 www.def.com发出http请求。
+IP与域名也被认为是不同的，即便他们是一回事。比如在开发的时候，你自己的本机局域网地址是192.168.1.106，你用 localhost 打开当前页面，而页面中请求的却是192.168.1.106也不行的。总之，域名和IP被认为是不同的域名，包括 localhost ，所以要么全用域名，要么全用IP。
+相同顶级域名，但二级域名不同也是不同的。这个要求对同一域名下的各个子服务之间访问造成了一些限制。比如 www.example.com 和 download.example.com 就是不同的，www.example.com 和 example.com也是不同的。不过javascript中允许设置 document.domain 变量为 当前域名更短的域名，比如当前访问的是www.example.com，可以设置 document.domain 为example.com，这样就可以访问 example.com
+下的请求。一种跨子域的解决方法就是，x子域的当前页面包括一个y子域的iframe，当前页面和这个frame分别将自己的document.domain设置为根域名，这样当前x子域的页面就可以通过这个y子域的页面代理访问y子域的请求。
+三、端口不同：这个大家都明白，比如80和8080是不同的。
+
+注意：script标签的src属性是没有同源限制的，你的网页上可以加载互联网上任何url的js，比如在页面中嵌入Google 分析的js代码。类似的，img标签也可以加载任何url的图片，比如你的网站上链接的是别人的图片，这些都不受同源策略的限制。利用这一点，也可以实现一定程度的跨域请求，比如你可以利用js修改script或img等标签的src属性，就等于在向任意url发出了一个get请求。
+iframe也可以是任意url，但当前页面只能向自己的同源发出请求。
+
+同源策略在带来安全性的同时，也对应用程序造成了很多限制，所以又引出了ajax跨域问题解决方法。除了前面说到的方法，一般的跨域就是类似代理的方法了。现在也有用jQuery的跨域解决方案，搜索“jquery 跨域”就可以找到相关介绍。不过，各种跨域解决方案存在一些不足、同时又增加了复杂性
+
+3. Tornado's running path is the default Web Root PATH
+
+4. IE Browse has some different with Chrome and Firefox ,such as:
+    [{},{},{},] , the last "," is not allowed in IE, but Chrome and Firefox
+
+5. :

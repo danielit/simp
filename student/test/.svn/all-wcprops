@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/ku6-transcode/!svn/ver/560/trunk/myapi/feed/test
+END
+test.log
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/ku6-transcode/!svn/ver/560/trunk/myapi/feed/test/test.log
+END
+ActFilterTest.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/ku6-transcode/!svn/ver/560/trunk/myapi/feed/test/ActFilterTest.py
+END
+test_logger.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/ku6-transcode/!svn/ver/560/trunk/myapi/feed/test/test_logger.py
+END

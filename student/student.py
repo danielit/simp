@@ -27,8 +27,10 @@ NOTICES="notices"
 BULLENTINS="bulletins"
 
 
-TABLE_STU_NAME2ID = "student_name2id"
-TABLE_TEAC_NAME2ID = "teacher_name2id"
+TABLE_STUNAME2ID = "stuname2id"
+TABLE_STUID2NAME = "stuid2name"
+TABLE_TEACNAME2ID = "teacname2id"
+TABLE_TEACID2NAME = "teacid2name"
 
 class student(object):
     #global instance of DBop
@@ -70,6 +72,12 @@ class student(object):
         if type(value)== type(dict()):
             value = json.dumps(value)
         return value
+
+    def str2dict(self,value):
+        if type(value)==type(str()):
+            value = json.loads(value)
+        return value
+
     def today(self):
         #print datetime.date.today()
         return str(datetime.date.today())
@@ -113,8 +121,25 @@ class student(object):
         return rets
 
     ### --section 3 : class information --###
-    # key=>value: class:[id] => {'id':1001,'quan':100,'num':45,'headTeacher':1022,'monitor':12345,'field':1001,'other':''}
+    def getAllClassIDs(self):
+        key= CLASS_PREFIX + "ids"
+        return self.str2dict(self.redis.get(key))
 
+    def setClassID(self,newClass):
+        key= CLASS_PREFIX + "ids"
+        classes = self.getAllClassIDs()
+        if type(classes) == type([]) :
+            print "not empty :",classes
+            classes.append(newClass)
+        else:
+            classes = []
+            classes.append(newClass)
+            print "new one:",classes
+        classes = json.dumps(classes)
+        self.redis.set(key,classes)
+        return True
+
+    # key=>value: class:[id] => {'id':1001,'quan':100,'num':45,'headTeacher':1022,'monitor':12345,'field':1001,'other':''}
     #return None if key not exist
     def getClassInfo(self,classid): # 获取某个班级的信息
         key = CLASS_PREFIX+str(classid).strip()
@@ -124,6 +149,8 @@ class student(object):
         value = self.dict2str(value)
         return self.redis.set(key,value)
 
+    def getClassStudentIDs(self,classid) :
+        pass
     ### --section 4: student information --###
     # key=>vlaue ,teacher:[id] => {'name':"zhangsan",'id':10021213,'type':0~9,'phone':13021590177,'tel':'','office':402,'other':''}
     def getTeacInfo(self,teacid): # 获取某个老师的信息
@@ -184,6 +211,7 @@ class student(object):
         if not info:
             return False
         return self.redis.set(key,info)
+
     ### -- section 6, student quan -- ##
     def getStuQuanInfo(self,stuid):     #获取某个学生的量化信息
         pass
@@ -217,23 +245,44 @@ class student(object):
         info = self.dict2str(info)
         return self.redis.set(key,info)
 
-    #students:[class_id]={id1,id2,id3,id4}  set
+    def setQuanType(self,quanid,name):
+        key = QUAN_PREFIX + 'type'
+        return self.redis.hset(key,quanid,name)
+
+    def getQuanTypes(self):
+        key = QUAN_PREFIX + 'type'
+        return self.redis.hgetall(key)
+
+    #students:class:[class_id]={id1,id2,id3,id4}  set
     def getStuIdsofClass(self,classid) : #获取某个班级的所有学生的学号
         classid = str(classid).strip()
-        key = STUS_PREFIX+classid
+        key = STUS_PREFIX + CLASS_PREFIX + classid
         return self.redis.smembers(key)
 
     def setStuIDofClass(self,stuid,classid):
         classid = str(classid).strip()
-        key = STUS_PREFIX+classid
+        key = STUS_PREFIX + CLASS_PREFIX + classid
         stuid = str(stuid).strip()
-
+        print key,stuid
         return self.redis.sadd(key,stuid)
 
     # type:hash
     #table name is stu_name2id
-    def getStuIdBaseOnName(self,name): #获取某个学生的学号
-        return self.redis.hget(TABLE_STU_NAME2ID,name)
+    def getStuIdOnName(self,name): #获取某个学生的学号
+        if self.redis.hexists(TABLE_STUNAME2ID,name):
+            return self.redis.hget(TABLE_STUNAME2ID,name)
+        return ""
+
+    def setStuIdOnName(self,name,stuid):
+        return self.redis.hset(TABLE_STU_NAME2ID,name,stuid)
+
+    def getStuNameOnId(self,stuid):
+        if self.redis.hexists(TABLE_STUID2NAME,stuid):
+            return self.redis.hget(TABLE_STUID2NAME,stuid)
+        return ""
+
+    def setStuNameOnId(self,stuid,name):
+        return self.redis.hset(TABLE_STUID2NAME,stuid,name)
 
     #type :hash
     #table name is teac_name2id

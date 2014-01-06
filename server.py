@@ -7,8 +7,9 @@ import tornado.web
 import tornado.escape
 from tornado.options import define, options
 
-ROOT=os.path.dirname(__file__)
-EXT_PATH=ROOT+"/extjs"
+from student.student import student
+from student.student_handler import *
+
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -30,6 +31,21 @@ class NullHandler(tornado.web.RequestHandler):
 class ManageHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("main.html") ;
+
+class GridHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("grid.html") ;
+
+class QuanHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("qu.html") ;
+
+class FormHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("form.html") ;
+
+
+
 
 
 
@@ -71,6 +87,14 @@ if __name__ == "__main__":
         (r"/null",NullHandler),
         (r"/login",StuHandler),
         (r"/manage",ManageHandler),
+        (r"/grid",GridHandler),
+        (r"/getallstuinfo",GetAllStuInfo),
+        (r"/getclassids",GetAllClassIDs),
+        (r"/getquantypes",GetQuanTypes),
+        (r"/getstunameidsonclassid",GetStuNameIDsOnClassID),
+        (r"/quan",QuanHandler),
+        (r"/addquaninfos",SetQuanInfos),
+        (r"/form",FormHandler)
         ],
         **settings
         )

@@ -28,6 +28,9 @@ class GetAllStuInfo(APIHandler):
             print e
             raise tornado.web.HTTPError(404)
         else:
+            results = {'results':len(ret)}
+            ret = {"users":ret}
+            ret.update(results)
             self.finish("users",ret)
 
 
@@ -44,6 +47,66 @@ class GetAllStuInfo(APIHandler):
             raise tornado.webHTTPError(404)
         else:
             self.finish("users",ret)
+
+class GetAllClassIDs(APIHandler):
+    def get(self):
+        try:
+            stu = student.instance()
+            ret = stu.getAllClassIDs()
+            self.finish("classids",ret)
+        except Exception ,e :
+            raise tornado.web.HTTPError(404)
+
+class GetQuanTypes(APIHandler):
+    def get(self):
+        try:
+            stu = student.instance()
+            types = stu.getQuanTypes()
+            ret = []
+            for key in types:
+                ret.append({"id":key,"name":types[key]})
+            self.finish("quantypes",ret)
+        except Exception ,e :
+            raise tornado.web.HTTPError(404)
+
+
+#get stu name and id of some class
+class GetStuNameIDsOnClassID(APIHandler):
+    def get(self):
+        stu = None
+        try:
+            stu = student.instance()
+            classid = self.get_argument('classid')
+
+            stuids = stu.getStuIdsofClass(classid)
+
+            stu.logger.info(stuids)
+            stuInfo = []
+            for stuid in stuids:
+                name = stu.getStuNameOnId(stuid)
+                if name == "":
+                    stu.logger.info(stuid+" is not fond in db")
+                else:
+                    stuInfo.append({"name":name,"id":stuid})
+
+            self.finish("stunameids",stuInfo)
+        except Exception ,e :
+            stu.logger.warning(e)
+            raise tornado.web.HTTPError(404)
+#set quan infos
+class SetQuanInfos(APIHandler):
+    def get(self):
+        pass
+    def post(self):
+        try:
+            stu = student.instance()
+            #infos = self.get_argument('quaninfos')
+            #for k,v in self.request.arguments:
+            quaninfos = json.loads(self.request.body)
+            stu.logger.info(quaninfos)
+            stu.logger.info(quaninfos['quaninfos'][0]['quan_reason'])
+        except Exception,e:
+            stu.logger.error(e)
 
 def main():
     stu = student.instance()

@@ -1,0 +1,18 @@
+1. when op a grid ,
+    1.1we define a store, which is very important to get or post data from server,when define the store ,we should point the reader which is used for get data from server, and the writer which is used to update date to server;
+    1.2 we can op the store through add,insert,remove,sync
+    1.3 we can load date from server through load,loadPage,loadXXX way ,which use proxy's reader to get date from server
+    
+    see example http://127.0.0.1:8888/static/extjs/docs/index.html#!/example/restful/restful.html
+
+2. add a cell editor or row editor to the grid 
+ 
+    2.1 we can point the type of the column's xtype or vtype ,such as numberfield as xtype , email as vtype
+    
+    see file:///var/simp/static/extjs/examples/grid/locking-cell-editing-grid.html
+    or file:///var/simp/static/extjs/examples/grid/row-editing.html
+
+3. add buttens to grid at bbar or tbar 
+   
+   see example at the front session (s2)
+

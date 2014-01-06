@@ -1,0 +1,8 @@
+#!/bin/bash
+
+/bin/ps -ef | /bin/grep "server.py" | /bin/grep -v grep | /usr/bin/cut -c9-15 | /usr/bin/xargs /bin/kill -9 
+/usr/bin/nohup /usr/bin/python ./server.py &  
+/usr/bin/clear
+    
+
+

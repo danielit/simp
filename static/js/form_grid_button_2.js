@@ -199,9 +199,11 @@ Ext.define('Quan.Form', {
 	xtype: 'form-quan',
 
 	frame: true,
-	title: 'Complete Check Out',
+	title: '量化登记表',
 	bodyPadding: 5,
-
+    closeable:true,
+    closeAction:'hide',
+    collapsible:'ture'
 	initComponent: function() {
 
 		/*var states = new Ext.data.Store({
@@ -865,7 +867,6 @@ Ext.onReady(function() {
 			}
 		}]
 	});
-/*
 	//define a tree
 	var mgrTree = Ext.create('Ext.tree.Panel', {
 		title: '学生工作',
@@ -994,6 +995,5 @@ Ext.onReady(function() {
 			items: [mgrTabpanel, ]
 		}]
 	});
-*/
 });
 

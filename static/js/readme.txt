@@ -4,3 +4,6 @@ form.Panel.submit call form.
 
 submit( options )
 This is a proxy for the underlying BasicForm's Ext.form.Basic.submit call.
+
+in order to clear a store , use the following command
+store.loadData([],false) ;

@@ -570,55 +570,7 @@ Ext.define('Quan.Form', {
             //quangrid = Ext.getCmp('quangrid') ;
             //console.log(quangrid.getHeight()) ;
 
-/*
-            qg = Ext.getCmp('quangrid') ;
-            console.log(qg.getCollapsed()) ;
-            if(qg.getCollapsed() == false){ //if not collasped return false ,else return top left buttom right 
-                ret = qg.collapse() ;
-                console.log('collapse') ;
-
-                console.log(ret) ;
-                
-            }else {
-                qg.expand() ;
-                console.log('expand') ;
-            }
- */           
 		}
-	},
-
-	onMailingAddrFieldChange: function(field) {
-		var copyToBilling = this.down('[name=billingSameAsMailing]').getValue(),
-		copyField = this.down('[name=' + field.billingFieldName + ']');
-
-		if (copyToBilling) {
-			copyField.setValue(field.getValue());
-		} else {
-			copyField.clearInvalid();
-		}
-	},
-
-	/**
-                     *      * Enables or disables the billing address fields according to whether the checkbox is checked.
-                     *           * In addition to disabling the fields, they are animated to a low opacity so they don't take
-                     *                * up visual attention.
-                     *                     */
-	onSameAddressChange: function(box, checked) {
-		var fieldset = box.ownerCt;
-		Ext.Array.forEach(fieldset.previousSibling().query('textfield'), this.onMailingAddrFieldChange, this);
-		Ext.Array.forEach(fieldset.query('textfield'), function(field) {
-			field.setDisabled(checked);
-			// Animate the opacity on each field. Would be more efficient to wrap them in a container
-			// and animate the opacity on just the single container element, but IE has a bug where
-			// the alpha filter does not get applied on position:relative children.
-			// This must only be applied when it is not IE6, as it has issues with opacity when cleartype
-			// is enabled
-			if (!Ext.isIE6) {
-				field.el.animate({
-					opacity: checked ? 0.3: 1
-				});
-			}
-		});
 	}
 });
 

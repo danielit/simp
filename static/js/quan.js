@@ -162,6 +162,7 @@ var week_list_store =Ext.create('Ext.data.Store',{
     ]
 }) ;
 
+
 var class_id_store = Ext.create('Ext.data.Store', {
 	model: 'Quan.ClassID',
 	autoLoad: true,

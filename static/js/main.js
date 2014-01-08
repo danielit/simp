@@ -1,7 +1,7 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
-var HOST = "127.0.0.1"
-var PORT = "8888"
+var HOST = "42.96.152.39"
+var PORT = "80"
 /*
  * 工具栏的内容以及对应的id号 
  * */
@@ -282,6 +282,16 @@ function treeItemClick(view, record, item, index, e) {
 	//alert(record.raw.id) ;
 	//alert(record.raw.text) ;
 	var n = mgrList[record.raw.id];
+    var cmpId = record.raw.id ;
+    if (cmpId=="q.weeksummary"){
+    } else if (cmpId=="q.detail"){
+    } else if (cmpId=="q.fillin"){
+    } else if (cmpId=="ss.reward"){
+    } else if (cmpId=="ss.help"){
+    } else if (cmpId=="ss.loan"){
+    } else {
+    }
+    /*
 	switch (n) {
 
 	case 0:
@@ -314,8 +324,8 @@ function treeItemClick(view, record, item, index, e) {
 		//		add2tabpanel(mgrTabpanel, testGrid);
 		break;
 	default:
-		alert(n);
-	}
+		Ext.MessageBox.alert("提示",record.raw.id);
+	}*/
 }
 
 var mgrTree = Ext.create('Ext.tree.Panel', {
@@ -332,44 +342,65 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 		text: '学生管理',
 		expanded: true,
 		children: [{
-			id: 'dayQuan',
+			id: 'quan',
 			text: '日常量化',
-			leaf: true
+            children:[{
+                id:'q.weeksummary',
+                text:'周量化汇总表',
+                leaf:true
+            },
+            {
+                id:'q.detail',
+                text:'量化详单',
+                leaf:true
+            },
+            {
+                id:'q.fillin',
+                text:'量化信息登记',
+                leaf:true
+            }]
 		},
 		{
-			id: 'money',
+			id: 'scholarship',
 			text: '奖助学金',
-			leaf: true
-		},
-		{
-			id: 'stuInfo',
-			text: '学生信息',
-			leaf: true
-		},
-		{
+            children:[{
+                id:'ss.reward',
+                text:'奖学金',
+                leaf:true
+            },{
+                id:'ss.help',
+                text:'助学金',
+                leaf:true
+            },{
+                id:'ss.loan',
+                text:'助学贷款',
+                leaf:true
+            }]
+		}/*,
+	    {
 			id: 'vacation',
 			text: '学生请假',
 			children: [{
-				id: 'askVacation',
+				id: 'v.ask',
 				text: '请假申请',
 				leaf: true
 			},
 			{
-				id: 'reviewAskVacation',
+				id: 'v.review',
 				text: '请假审批',
 				leaf: true
 			}]
-		},
+		}*/,
 		{
 			text: '在校情况',
-			id: 'stuInSchool',
+			id: 'studentinschool',
 			children: [{
-				id: 'inSchoolStu',
+				id: 's.in',
 				text: '在校学生',
 				leaf: true
 			},
 			{
-				id: 'outSchoolStu',
+				id: 's.out',
 				text: '离校学生',
 				leaf: true
 			}]
@@ -383,6 +414,8 @@ Ext.onReady(function() {
 	// setup the state provider, all state information will be saved to a cookie
 	//Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
 	teststore.loadPage(1); // this would send params page=1&start=0&limit=25
+
+    
 	Ext.create('Ext.container.Viewport', {
 		layout: {
 			type: 'border',
@@ -407,7 +440,16 @@ Ext.onReady(function() {
 			collapsible: true,
 
 			items: [
-			mgrTree, {
+			mgrTree,{
+				title: '学生请假',
+				html: 'Student Ask for Vacation'
+			},
+
+            {
+				title: '学生信息',
+				html: 'Student Information Management'
+			},
+            {
 				title: '系统管理',
 				html: 'System Management'
 			},
@@ -423,8 +465,15 @@ Ext.onReady(function() {
 		{
 			region: 'center',
 			layout: 'fit',
-			items: [mgrTabpanel, ]
+			items: [mgrTabpanel]
 		}]
 	});
+    obj ={ 
+        title:'量化',
+        id:'quantest',
+        itemId:'quantest',
+        xtype:'quancontainer'
+    } ;
+    add2tabpanel(mgrTabpanel,obj);
 });
 

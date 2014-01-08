@@ -101,6 +101,7 @@ Ext.define('Quan.Info', {
     }]
 });
 
+
 Ext.define('Quan.WeekInfo', {
 	extend: 'Ext.data.Model',
 	fields: [{
@@ -242,6 +243,41 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 		type: 'ajax',
         
 		api: {
+            //read: SERVER+ '/getquaninfos',
+			write: SERVER + '/writequaninfos',
+            //update: SERVER + '/updatequaninfos',
+            create: SERVER + '/addquaninfos'
+		},
+		reader: {
+			type: 'json',
+			successProperty: 'success',
+			root: 'quan',
+			messageProperty: 'message',
+            idProperty:'id',
+		},
+        writer : {
+			type: 'json',
+			root: 'quaninfos',
+            writeAllFields: true,
+            idProperty:'id'
+		},
+
+		listeners: {
+			exception: function(proxy, response, operation) {
+                console.log(operation.getError()) ;
+			}
+		}
+	},
+});
+
+var quan_detail_store = Ext.create('Ext.data.Store', {
+	model: 'Quan.Info',
+	autoLoad: true,
+	//autoSync: true,
+	proxy: {
+		type: 'ajax',
+        
+		api: {
             read: SERVER+ '/getquaninfos',
 			write: SERVER + '/writequaninfos',
             update: SERVER + '/updatequaninfos',
@@ -268,6 +304,7 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 		}
 	},
 });
+
 
 var quan_week_store = Ext.create('Ext.data.Store', {
     model:'Quan.WeekInfo',
@@ -832,6 +869,172 @@ Ext.define('Quan.Grid', {
       	}
 });
 
+Ext.define('Quan.DeatilGrid', {
+	extend: 'Ext.grid.Panel',
+	alias: 'widget.quandetailgrid',
+
+	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
+
+	initComponent: function() {
+
+		this.editing = Ext.create('Ext.grid.plugin.CellEditing', {
+			clickToEdit: 1
+		});
+
+		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
+		this.pBar = Ext.create('Ext.PagingToolbar', {
+			store: this.store,
+            id:'quangridpbar',
+			displayInfo: true,
+			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
+			emptyMsg: "没有数据"
+		});
+
+		Ext.apply(this, {
+			iconCls: 'icon-grid',
+			frame: true,
+            //closeable:true,
+			//closeAction: 'hiden',
+            collapsible:'ture',
+			selModel: this.CboxModel,
+			bbar: this.pBar,
+			plugins: [this.editing],
+			dockedItems: [{
+				xtype: 'toolbar',
+				items: [{
+					xtype: 'datefield',
+					id: 'quan.detail.bdate',
+                    format:'Y/m/d',
+					fieldLabel: '开始日期',
+                    width:300,
+					name: 'quan_date',
+					//allowBlank: false,
+					margins: '0 6 0 0',
+					maxValue: new Date()
+				},
+                {
+					xtype: 'datefield',
+					id: 'quan.detail.edate',
+                    format:'Y/m/d',
+					fieldLabel: '结束日期',
+                    width:300,
+					name: 'quan_date',
+					//allowBlank: false,
+					margins: '0 6 0 0',
+					maxValue: new Date()
+				},
+                {
+					iconCls: 'icon-search',
+					text: '查询',
+					scope: this,
+					handler: this.onSearchClick
+				}]
+			}],
+			columns: [{
+				text: '序号',
+                style:{textAlign:'center'},
+				sortable: true,
+				resizable: false,
+				draggable: false,
+				hideable: false,
+				menuDisabled: true,
+				dataIndex: 'idc'
+			},
+			{
+				header: '班级',
+				sortable: true,
+                style:{textAlign:'center'},
+				dataIndex: 'class',
+				field: {
+					type: 'textfield'
+				}
+			},
+			{
+				header: '学生',
+				sortable: true,
+                style:{textAlign:'center'},
+				dataIndex: 'student',
+				field: {
+					type: 'textfield'
+				}
+			},
+            {
+				header: '类型',
+                style:{textAlign:'center'},
+				sortable: true,
+				dataIndex: 'quan_type',
+				field: {
+					type: 'textfield'
+				}
+			},
+            {
+				header: '日期',
+                style:{textAlign:'center'},
+				sortable: true,
+				dataIndex: 'quan_date',
+				field: {
+					type: 'textfield'
+				}
+			},
+            {
+				header: '量化',
+                style:{textAlign:'center'},
+				sortable: true,
+				dataIndex: 'quan_score',
+				field: {
+					type: 'textfield'
+				}
+			},
+            {
+				header: '原由',
+                style:{textAlign:'center'},
+				width: 200,
+				sortable: false,
+				menuDisabled: true,
+				dataIndex: 'quan_reason',
+				field: {
+					type: 'textfield'
+				}
+			}]
+		});
+		this.callParent();
+		this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
+	},
+    
+    onSearchClick: function(){
+        var bdate = Ext.getCmp('quan.detail.bdate').getRawValue() ;
+        var edate = Ext.getCmp('quan.detail.edate').getRawValue() ;
+        if (bdate && edate) {
+            console.log(bdate) ;
+            console.log(edate) ;
+            this.store.load({
+                params:{
+                    begin:bdate,
+                    end:edate
+                },
+                scope:this,
+                callback:function(records,operations,success){
+                    if (success === false){
+                        Ext.MessageBox.show({
+                            title: '量化查询失败',
+                            msg: '远程服务器错误，<br/>请联系系统管理员！',
+					        //msg: operation.getError(),
+					        icon: Ext.MessageBox.ERROR,
+					        buttons: Ext.Msg.OK
+			            });
+                        console.log(operation.getError()) ;
+                        return ; 
+                    }
+                    if (records && records.length === 0){
+                        console.log(records) ;
+                    }
+                }
+            }) ;
+        } else {
+            Ext.MessageBox.alert("提示",'请选“开始日期” 和 “结束日期”') ;
+        }
+    }
+});
 //define the grid of displaying quan of week
 Ext.define('Quan.Grid.Week', {
 	extend: 'Ext.grid.Panel',
@@ -1108,16 +1311,26 @@ Ext.define('Quan.window', {
 				store: quan_week_store,
 				listeners: {
 					selectionchange: function(selModel, selected) {
-						value = null
+						/*
+                        value = null
 						if (selected && selected[0]) {
 							console.log(selected[0]);
 							value = selected[0].raw;
                             console.log(value) ;
 						}
 						//Ext.getCmp('quanform').setValue(value);
+                        */
 					}
 				}
 			},
+            {
+                id:'quandetailgrid',
+                title:'信息工程系量化详单',
+                xtype:'quandetailgrid',
+				margins: '0 0 0 0',
+                store:quan_detail_store
+                //hidden:false
+            },
             {// add new quan info form
 				itemId: 'quanform',
 				id: 'quanform',
@@ -1138,7 +1351,7 @@ Ext.define('Quan.window', {
 		this.callParent();
 	}
 });
-
+/*
 Ext.onReady(function() {
  var main = Ext.create('Ext.container.Viewport', {
 		layout: {
@@ -1155,4 +1368,5 @@ Ext.onReady(function() {
 		}]
     }) ;
 }) ;
+*/
 

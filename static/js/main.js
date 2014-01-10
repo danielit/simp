@@ -1,5 +1,6 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
+
 var HOST = "42.96.152.39"
 var PORT = "80"
 /*
@@ -31,12 +32,6 @@ var mgrTabpanel = Ext.create('Ext.tab.Panel', {
 		title: '通知/公告',
 		icon: 'static/pic/css/tabs.gif',
 		html: 'A simple tab'
-	},
-	{
-		id: 'tab2',
-		title: 'Tab 2',
-		html: 'Another one',
-		closable: true
 	}]
 });
 
@@ -278,14 +273,41 @@ function add2tabpanel(tabs, obj) {
 	// set the tab to be activity
 	tabs.setActiveTab(obj);
 }
+/*
+function getQuanWin(){
+    var quanWin = Ext.getCmp('quantest') ;
+    if (quanWin==null){
+        quanWin = Ext.create('Quan.window',{
+            title:'信息工程系量化管理平台',
+            id:'quantest',
+            itemId:'quantest',
+            xtype:'quancontainer',
+		    icon: 'static/pic/css/tabs.gif'
+        }) ; 
+    } 
+    return quanWin ;
+}
+*/
 function treeItemClick(view, record, item, index, e) {
-	//alert(record.raw.id) ;
 	//alert(record.raw.text) ;
 	var n = mgrList[record.raw.id];
     var cmpId = record.raw.id ;
-    if (cmpId=="q.weeksummary"){
+
+    if(cmpId=="q.weeksummary"){         
+        var quanWin = getQuanWin() ;
+        add2tabpanel(mgrTabpanel,quanWin) ;
+        //show quangridweek and quanformdetail
+        setQuanWinsShow(2) ; 
     } else if (cmpId=="q.detail"){
+        var quanWin = getQuanWin() ;
+        add2tabpanel(mgrTabpanel,quanWin) ;
+        //show quangriddetail
+        setQuanWinsShow(4) ; 
     } else if (cmpId=="q.fillin"){
+        var quanWin = getQuanWin() ;
+        add2tabpanel(mgrTabpanel,quanWin) ;
+        //show quangridweek and quanformdetail
+        setQuanWinsShow(9) ; 
     } else if (cmpId=="ss.reward"){
     } else if (cmpId=="ss.help"){
     } else if (cmpId=="ss.loan"){
@@ -409,8 +431,45 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 	}
 });
 
-Ext.onReady(function() {
+var mgrStuInfoTree = Ext.create('Ext.tree.Panel', {
+	title: '学生信息',
+	deferRowRender: true,
+	useArrows: true,
+	listeners: {
+		itemclick: {
+			fn: treeItemClick
+		},
+	},
+	root: {
+		id: 'stuInfoRoot',
+		text: '学生信息',
+		expanded: true,
+		children: [{
+			id: 'si.baseinfo',
+			text: '基本信息',
+            leaf:true		
+        },
+		{
+			id: 'si.resume',
+			text: '个人简历',
+            leaf:true
+        },
+	    {
+			id: 'si.activity',
+			text: '参加活动及获奖情况',
+            leaf:true
+			
+		},
+		{
+			id: 'si.family',
+			text: '家庭主要成员',
+		    leaf :true	
+		}]
+	}
+});
 
+Ext.onReady(function() {
+    Ext.Loader.injectScriptElement("static/extjs/locale/ext-lang-zh_CN.js") ;
 	// setup the state provider, all state information will be saved to a cookie
 	//Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
 	teststore.loadPage(1); // this would send params page=1&start=0&limit=25
@@ -440,14 +499,11 @@ Ext.onReady(function() {
 			collapsible: true,
 
 			items: [
-			mgrTree,{
+			mgrTree,
+            mgrStuInfoTree,
+            {
 				title: '学生请假',
 				html: 'Student Ask for Vacation'
-			},
-
-            {
-				title: '学生信息',
-				html: 'Student Information Management'
 			},
             {
 				title: '系统管理',
@@ -468,12 +524,6 @@ Ext.onReady(function() {
 			items: [mgrTabpanel]
 		}]
 	});
-    obj ={ 
-        title:'量化',
-        id:'quantest',
-        itemId:'quantest',
-        xtype:'quancontainer'
-    } ;
-    add2tabpanel(mgrTabpanel,obj);
+    
 });
 

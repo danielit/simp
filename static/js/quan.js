@@ -733,6 +733,7 @@ Ext.define('Quan.Grid', {
 			{
 				header: '班级',
 				//flex: 1,
+                width:160,
 				sortable: true,
 				//dataIndex: 'classname',
                 style:{textAlign:'center'},
@@ -788,7 +789,7 @@ Ext.define('Quan.Grid', {
             {
 				header: '原由',
                 style:{textAlign:'center'},
-				//width: 100,
+				width: 200,
 				sortable: false,
 				menuDisabled: true,
 				//dataIndex: 'quanreason',
@@ -942,6 +943,7 @@ Ext.define('Quan.DeatilGrid', {
 			},
 			{
 				header: '班级',
+                width:160,
 				sortable: true,
                 style:{textAlign:'center'},
 				dataIndex: 'class',
@@ -1123,7 +1125,7 @@ Ext.define('Quan.Grid.Week', {
 				text: '序号',
                 style:{textAlign:'center'},
                 algin:'center',
-				width: 80,
+				width: 60,
 				sortable: true,
 				resizable: false,
 				draggable: false,
@@ -1148,9 +1150,9 @@ Ext.define('Quan.Grid.Week', {
 				header: '纪律',
                 menuDisabled:true,
                 columns:[
-                {text:'分数',dataIndex:'disc_score',width:80,sortable:true},
-                {text:'量化分',dataIndex:'disc_quan',width:80,sortable:true},
-                {text:'排名',dataIndex:'disc_rank',width:80,sortable:true}
+                {text:'分数',dataIndex:'disc_score',width:60,sortable:true},
+                {text:'量化分',dataIndex:'disc_quan',width:60,sortable:true},
+                {text:'排名',dataIndex:'disc_rank',width:60,sortable:true}
                 ]
 			},
             {
@@ -1159,27 +1161,27 @@ Ext.define('Quan.Grid.Week', {
 				//width: 100,
 				//dataIndex: 'quantype',
                 columns:[
-                {text:'分数',dataIndex:'heal_score',width:80,sortable:true},
-                {text:'量化分',dataIndex:'heal_quan',width:80,sortable:true},
-                {text:'排名',dataIndex:'heal_rank',width:80,sortable:true}
+                {text:'分数',dataIndex:'heal_score',width:60,sortable:true},
+                {text:'量化分',dataIndex:'heal_quan',width:60,sortable:true},
+                {text:'排名',dataIndex:'heal_rank',width:60,sortable:true}
                 ]
 			},
             {
 				header: '宿舍',
                 menuDisabled:true,
                 columns:[
-                {text:'分数',dataIndex:'domi_score',width:80,sortable:true},
-                {text:'量化分',dataIndex:'domi_quan',width:80,sortable:true},
-                {text:'排名',dataIndex:'domi_rank',width:80,sortable:true}
+                {text:'分数',dataIndex:'domi_score',width:60,sortable:true},
+                {text:'量化分',dataIndex:'domi_quan',width:60,sortable:true},
+                {text:'排名',dataIndex:'domi_rank',width:60,sortable:true}
                 ]
 			},
             {
 				header: '活动及其它',
                 menuDisabled:true,
                  columns:[
-                {text:'分数',dataIndex:'acti_score',width:80,sortable:true},
-                {text:'量化分',dataIndex:'acti_quan',width:80,sortable:true},
-                {text:'排名',dataIndex:'acti_rank',width:80,sortable:true}
+                {text:'分数',dataIndex:'acti_score',width:60,sortable:true},
+                {text:'量化分',dataIndex:'acti_quan',width:60,sortable:true},
+                {text:'排名',dataIndex:'acti_rank',width:60,sortable:true}
                 ]
 			},
             {
@@ -1269,8 +1271,9 @@ Ext.define('Quan.window', {
 				itemId: 'quangrid',
 				id: 'quangrid',
 				xtype: 'quangrid',
-				title: '量化信息',
+				title: '量化信息登记表',
 				flex: 1,
+                hidden:true,
                 //minHeight:200,
                 //maxHeight:500,
 				store: quan_info_store,
@@ -1304,8 +1307,9 @@ Ext.define('Quan.window', {
 				itemId: 'quangridweek',
 				id: 'quangridweek',
 				xtype: 'quangridweek',
-				title: '信息工程系周量化汇总表',
+				title: '周量化汇总表',
 				flex: 1,
+                hidden:true,
                 //minHeight:200,
                 //maxHeight:500,
 				store: quan_week_store,
@@ -1324,10 +1328,12 @@ Ext.define('Quan.window', {
 				}
 			},
             {
-                id:'quandetailgrid',
-                title:'信息工程系量化详单',
+                id:'quangriddetail',
+                title:'量化详单',
                 xtype:'quandetailgrid',
 				margins: '0 0 0 0',
+                hidden:true,
+				flex: 1,
                 store:quan_detail_store
                 //hidden:false
             },
@@ -1335,15 +1341,18 @@ Ext.define('Quan.window', {
 				itemId: 'quanform',
 				id: 'quanform',
 				xtype: 'quanform',
+                title:'量化信息登记',
                 minHeight:100,
                 maxHeight:500,
-				hidden: false,
+				hidden: true,
 				manageHeight: false,
 				margins: '0 0 0 0',
 			},
             {
-                id:'quandetailform',
+                id:'quanformdetail',
                 xtype:'quandetailform',
+                title: '班级量化详单',
+                hidden:true ,
 				margins: '0 0 0 0',
                 //hidden:false
             }]
@@ -1370,3 +1379,35 @@ Ext.onReady(function() {
 }) ;
 */
 
+function getQuanWin(){
+    var quanWin = Ext.getCmp('quanwin') ;
+    if (quanWin==null){
+        quanWin = Ext.create('Quan.window',{
+            title:'信息工程系量化管理平台',
+            id:'quanwin',
+            itemId:'quanwin',
+            xtype:'quancontainer',
+		    icon: 'static/pic/css/tabs.gif'
+        }) ; 
+    } 
+    return quanWin ;
+}
+function setQuanWinShow(id,sure){
+    var cmp = Ext.getCmp(id) ;
+    if(cmp==null){
+        console.log('cant find the id of ext cmp') ;
+    }
+    if(sure){
+        cmp.show() ;
+    }else{
+        cmp.hide() ;
+    }
+}
+
+function setQuanWinsShow(mask) {
+    setQuanWinShow('quangrid',mask & 1) ;
+    setQuanWinShow('quangridweek',mask & 2) ;
+    setQuanWinShow('quangriddetail',mask & 4) ;
+    setQuanWinShow('quanform',mask & 8) ;
+    //setQuanWinShow('quanformdetail',mask & 16) ;
+} 

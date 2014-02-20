@@ -1,7 +1,7 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
 
-var HOST = "42.96.152.39"
+var HOST = "192.168.85.77"
 var PORT = "80"
 /*
  * 工具栏的内容以及对应的id号 

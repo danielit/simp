@@ -7,6 +7,6 @@ redisMasterHosts={'host': '127.0.0.1', 'port': 6379, 'db': 0}
 ActivityNumLimit = 20
 
 LogConfiguration = {
-    "prefix": "/log/student/student.log",
+    "prefix": "/opt/simp/log/student.log",
     "when": "D" # "H" or "D" or "W" or "midnight"
 }

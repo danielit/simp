@@ -1,9 +1,9 @@
 // define const var
-HOST = "http://42.96.152.39"
-PORT = "80"
-SERVER = HOST + ":" + PORT
+var HOST = "http://192.168.85.77"
+var PORT = "80"
+var SERVER = HOST + ":" + PORT
 
-QUAN_COUNTER = 0
+var QUAN_COUNTER = 0
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);

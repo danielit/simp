@@ -1,0 +1,2922 @@
+*2
+$6
+SELECT
+$1
+0
+*4
+$4
+hset
+$9
+hashtable
+$4
+name
+$5
+zhang
+*4
+$4
+hset
+$9
+hashtable
+$3
+pwd
+$6
+abc123
+*3
+$3
+set
+$8
+stu:1001
+$3
+123
+*3
+$3
+set
+$8
+stu:1001
+$6
+123456
+*3
+$3
+SET
+$4
+abcc
+$4
+1234
+*3
+$3
+SET
+$4
+abcc
+$4
+1234
+*3
+$4
+SADD
+$3
+abc
+$3
+123
+*3
+$4
+SADD
+$3
+abc
+$4
+x123
+*3
+$4
+SREM
+$3
+abc
+$4
+x123
+*4
+$4
+hset
+$11
+stu_name_id
+$5
+zhang
+$4
+1000
+*4
+$4
+hset
+$11
+stu_name_id
+$2
+li
+$4
+1001
+*2
+$6
+SELECT
+$1
+0
+*3
+$3
+SET
+$20
+student:201305300101
+$403
+{"name": "\u5f20\u4e2d\u6d32", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6e05\u5e02\u65b0\u534e\u529e\u4e8b\u5904\u4e1c\u5173\u6751\u4e1c\u5174\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941108", "identify": "371581199411085119", "type": "\u666e\u901a", "examid": "13372502130047", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13287563665"}
+*3
+$3
+SET
+$20
+student:201305300101
+$364
+{"name": "\u53f8\u6cd5", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9f99\u9633\u9547\u524d\u53f8\u5802\u6751214\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940427", "identify": "370481199404271611", "type": "\u666e\u901a", "examid": "13370481112013", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006775213"}
+*3
+$3
+SET
+$20
+student:201305300101
+$367
+{"name": "\u5218\u90a6\u95ef", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5de8\u91ce\u53bf\u592a\u5e73\u6bd5\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930708", "identify": "372926199307081837", "type": "\u666e\u901a", "examid": "13372926130468", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15269069588"}
+*3
+$3
+SET
+$20
+student:201305300101
+$379
+{"name": "\u5415\u663e\u4fca", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u53f0\u513f\u5e84\u533a\u6ce5\u6c9f\u9547\u90b5\u91cc\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940112", "identify": "370405199401124011", "type": "\u666e\u901a", "examid": "13370402110493", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18206503695"}
+*3
+$3
+SET
+$20
+student:201305300101
+$381
+{"name": "\u5f90\u56fd\u8d85", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u804a\u57ce\u5e02\u51a0\u53bf\u548c\u5e73\u5357\u8def28\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930920", "identify": "37152519930920001X", "type": "\u666e\u901a", "examid": "13372523150011", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15224290738"}
+*3
+$3
+SET
+$20
+student:201305300101
+$399
+{"name": "\u738b\u96ea\u741b", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u674f\u575b\u4e1c\u8def28\u53f7\u78a7\u8d35\u5706\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941005", "identify": "370481199410057056", "type": "\u666e\u901a", "examid": "13370481132091", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13589624032"}
+*3
+$3
+SET
+$20
+student:201305300101
+$385
+{"name": "\u7da6\u5e06", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u9752\u5c9b\u5e02\u5e73\u5ea6\u5e02\u5357\u6751\u9547\u4e5d\u7532\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19951023", "identify": "370283199510232669", "type": "\u666e\u901a", "examid": "13370283130459", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15153299908"}
+*3
+$3
+SET
+$20
+student:201305300101
+$363
+{"name": "\u6ee1\u6587\u4e3d", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u7ea7\u7d22\u9547\u7f8a\u4e8c\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950421", "identify": "370481199504213822", "type": "\u666e\u901a", "examid": "13370404800107", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "2448321"}
+*3
+$3
+SET
+$20
+student:201305300101
+$397
+{"name": "\u4e54\u70ab\u70ab", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5b81\u5e02\u6cd7\u6c34\u53bf\u91d1\u5e84\u9547\u4e09\u89d2\u6e7e\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931031", "identify": "370831199310311529", "type": "\u666e\u901a", "examid": "13370831110316", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18254716439"}
+*3
+$3
+SET
+$20
+student:201305300101
+$385
+{"name": "\u59da\u5175", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5c71\u4e1c\u7701\u82cd\u5c71\u53bf\u795e\u5c71\u9547\u897f\u9053\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940506", "identify": "371311199405063132", "type": "\u666e\u901a", "examid": "13371302132243", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853926083"}
+*3
+$3
+SET
+$20
+student:201305300101
+$373
+{"name": "\u5b59\u5d07\u53d1", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6c82\u5e02\u6587\u77b3\u9547\u65b0\u5b98\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941226", "identify": "371327199412261517", "type": "\u666e\u901a", "examid": "13371327112183", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969676324"}
+*3
+$3
+SET
+$20
+student:201305300101
+$415
+{"name": "\u5468\u957f\u9e64", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u90d3\u57ce\u53bf\u6b66\u5b89\u9547\u706b\u738b\u5927\u961f\u5f20\u53f8\u5e84\u884c\u653f\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930314", "identify": "372928199303141233", "type": "\u666e\u901a", "examid": "13372928111108", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13855301183"}
+*3
+$3
+SET
+$20
+student:201305300101
+$400
+{"name": "\u674e\u680b", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5c71\u4e1c\u7701\u91d1\u4e61\u53bf\u594e\u661f\u8857\u5317\u6bb5\u4e8c18\u5df74\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940703", "identify": "370828199407030012", "type": "\u666e\u901a", "examid": "13370828110073", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15165375715"}
+*3
+$3
+SET
+$20
+student:201305300101
+$393
+{"name": "\u5434\u5e05\u5e05", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9752\u5c9b\u5e73\u5ea6\u5e02\u5e97\u5b50\u9547\u4e1d\u5be8\u675165\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941011", "identify": "370283199410117014", "type": "\u666e\u901a", "examid": "13370283111428", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13792878413"}
+*3
+$3
+SET
+$20
+student:201305300101
+$367
+{"name": "\u5218\u4eae", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6c82\u5e02\u7f57\u5e84\u533a\u65b0\u534e\u91cc", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940617", "identify": "371302199406170216", "type": "\u666e\u901a", "examid": "13371311110978", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853952211"}
+*3
+$3
+SET
+$20
+student:201305300101
+$415
+{"name": "\u4e8e\u4e1c\u73b2", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6f4d\u574a\u5e02\u5ce1\u5c71\u533a\u592a\u5821\u8857\u9053\u5c9e\u5c71\u7ad9\u897f\u590f\u6e7e", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941203", "identify": "370786199412035414", "type": "\u666e\u901a", "examid": "13370786111833", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13280701303"}
+*3
+$3
+SET
+$20
+student:201305300101
+$403
+{"name": "\u8d3e\u68a6\u83b9", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u6210\u6b66\u53bf\u82df\u6751\u9547\u5b54\u697c\u897f\u8d3e\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931019", "identify": "372924199310192420", "type": "\u666e\u901a", "examid": "13372924130790", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15063482289"}
+*3
+$3
+SET
+$20
+student:201305300101
+$385
+{"name": "\u5f20\u542b", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u67a3\u5e84\u5e02\u5cc4\u57ce\u533a\u9634\u5e73\u9547\u65b0\u5c4b\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950612", "identify": "370404199506122243", "type": "\u666e\u901a", "examid": "13370403150135", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13913063832"}
+*3
+$3
+SET
+$20
+student:201305300101
+$373
+{"name": "\u989c\u5a07\u5a07", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u7ea7\u7d22\u9547\u989c\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940711", "identify": "37048119940711382X", "type": "\u666e\u901a", "examid": "13370481170156", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969493318"}
+*3
+$3
+SET
+$20
+student:201305300101
+$391
+{"name": "\u5f20\u96ea", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u65e5\u7167\u5e02\u5c9a\u5c71\u533a\u5c9a\u5c71\u5934\u8857\u9053\u4e00\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931208", "identify": "371102199312083305", "type": "\u666e\u901a", "examid": "13371103130299", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13562350027"}
+*3
+$3
+SET
+$20
+student:201305300101
+$385
+{"name": "\u5f20\u989c", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u5b9a\u9676\u53bf\u9a6c\u96c6\u9547\u5f20\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930301", "identify": "372923199303011744", "type": "\u666e\u901a", "examid": "13372923110683", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15965879396"}
+*3
+$3
+SET
+$20
+student:201305300101
+$391
+{"name": "\u8303\u9759\u9759", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u9104\u57ce\u53bf\u5f15\u9a6c\u4e61\u8303\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950318", "identify": "372929199503186926", "type": "\u666e\u901a", "examid": "13372929110879", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15020506255"}
+*3
+$3
+SET
+$20
+student:201305300101
+$361
+{"name": "\u5362\u4e91", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u535a\u5174\u53bf\u9648\u6237\u9547\u7eaf\u6881", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941210", "identify": "372328199412101828", "type": "\u666e\u901a", "examid": "13370530130346", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13793876704"}
+*3
+$3
+SET
+$20
+student:201305300101
+$411
+{"name": "\u8d3e\u4fca\u5b87", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u5fb7\u5dde\u5e02\u5fb7\u57ce\u533a\u65b0\u57ce\u529e\u4e8b\u5904\u90ed\u5bb6\u5eb530\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950714", "identify": "371402199507146421", "type": "\u666e\u901a", "examid": "13371402130946", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15865345098"}
+*3
+$3
+SET
+$20
+student:201305300101
+$385
+{"name": "\u738b\u4fca", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6dc4\u535a\u5e02\u4e34\u6dc4\u533a\u7687\u57ce\u9547\u9ad8\u5bb6\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950118", "identify": "370305199501183742", "type": "\u666e\u901a", "examid": "13370305130195", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13573348534"}
+*3
+$3
+SET
+$20
+student:201305300101
+$412
+{"name": "\u6a0a\u60a6\u9633", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5357\u5e02\u5386\u57ce\u533a\u6e2f\u6c9f\u9547\u5b89\u5bb6\u5e84\u4e8c\u533a146\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950219", "identify": "370112199502192926", "type": "\u666e\u901a", "examid": "13370112111599", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006512375"}
+*3
+$3
+SET
+$20
+student:201305300101
+$418
+{"name": "\u6bb5\u5c0f\u9759", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5b81\u5e02\u5156\u5dde\u5e02\u94c1\u8def\u4e8c\u533a\u4e00\u5355\u5143\u4e00\u53f7\u697c403", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950604", "identify": "370882199506040062", "type": "\u666e\u901a", "examid": "13370882110653", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13054979845"}
+*3
+$3
+SET
+$20
+student:201305300101
+$382
+{"name": "\u5434\u5f00\u83b9", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6d4e\u5b81\u5e02\u5fae\u5c71\u53bf\u7559\u5e84\u9547\u4e09\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921212", "identify": "370826199212124657", "type": "\u9884\u79d1", "examid": "xxxxxxxxxxx", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15854768476"}
+*3
+$3
+SET
+$20
+student:201305300101
+$379
+{"name": "\u9a6c\u51e4\u5ce6", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u5357\u5f90\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941015", "identify": "370481199410153523", "type": "\u9884\u79d1", "examid": "13370481112719", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13516329393"}
+*3
+$3
+SET
+$20
+student:201305300101
+$367
+{"name": "\u9c81\u83f2", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u59dc\u5c6f\u9547\u97e9\u573a\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921211", "identify": "370481199212112229", "type": "\u9884\u79d1", "examid": "13370481112715", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18266273168"}
+*3
+$3
+SET
+$20
+student:201305300101
+$385
+{"name": "\u5e9e\u7965\u5f6c", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6cf0\u5b89\u5e02\u4e1c\u5e73\u53bf\u5927\u7f8a\u4e61\u8bb8\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940214", "identify": "370923199402141219", "type": "\u666e\u901a", "examid": "13370923170256", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13501241932"}
+*3
+$3
+SET
+$20
+student:201305300101
+$439
+{"name": "\u6768\u8def\u5e73", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u5c71\u4e1c\u7701\u9104\u57ce\u53bf\u51e4\u51f0\u4e61\u897f\u4faf\u697c\u884c\u653f\u6751\u6c34\u5751\u738b\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19920109", "identify": "372929199201090929", "type": "\u666e\u901a", "examid": "13372929130357", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13954012680"}
+*3
+$3
+SET
+$20
+student:201305300101
+$385
+{"name": "\u7a0b\u7d20\u6625", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u5355\u53bf\u5355\u57ce\u9547\u77fe\u68da\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940210", "identify": "372925199402107728", "type": "\u666e\u901a", "examid": "13372925111789", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13625305549"}
+*3
+$3
+SET
+$20
+student:201305300101
+$391
+{"name": "\u5b59\u50b2", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9ed1\u9f99\u6c5f\u54c8\u5c14\u6ee8\u547c\u5170\u533a\u6021\u56ed\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940519", "identify": "230121199405190019", "type": "\u666e\u901a", "examid": "13230121050856", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18661911665"}
+*3
+$3
+SET
+$20
+student:201305300101
+$403
+{"name": "\u5f20\u4e2d\u6d32", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6e05\u5e02\u65b0\u534e\u529e\u4e8b\u5904\u4e1c\u5173\u6751\u4e1c\u5174\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941108", "identify": "371581199411085119", "type": "\u666e\u901a", "examid": "13372502130047", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13287563665"}
+*3
+$3
+SET
+$20
+student:201305300102
+$364
+{"name": "\u53f8\u6cd5", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9f99\u9633\u9547\u524d\u53f8\u5802\u6751214\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940427", "identify": "370481199404271611", "type": "\u666e\u901a", "examid": "13370481112013", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006775213"}
+*3
+$3
+SET
+$20
+student:201305300103
+$367
+{"name": "\u5218\u90a6\u95ef", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5de8\u91ce\u53bf\u592a\u5e73\u6bd5\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930708", "identify": "372926199307081837", "type": "\u666e\u901a", "examid": "13372926130468", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15269069588"}
+*3
+$3
+SET
+$20
+student:201305300104
+$379
+{"name": "\u5415\u663e\u4fca", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u53f0\u513f\u5e84\u533a\u6ce5\u6c9f\u9547\u90b5\u91cc\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940112", "identify": "370405199401124011", "type": "\u666e\u901a", "examid": "13370402110493", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18206503695"}
+*3
+$3
+SET
+$20
+student:201305300105
+$381
+{"name": "\u5f90\u56fd\u8d85", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u804a\u57ce\u5e02\u51a0\u53bf\u548c\u5e73\u5357\u8def28\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930920", "identify": "37152519930920001X", "type": "\u666e\u901a", "examid": "13372523150011", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15224290738"}
+*3
+$3
+SET
+$20
+student:201305300106
+$399
+{"name": "\u738b\u96ea\u741b", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u674f\u575b\u4e1c\u8def28\u53f7\u78a7\u8d35\u5706\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941005", "identify": "370481199410057056", "type": "\u666e\u901a", "examid": "13370481132091", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13589624032"}
+*3
+$3
+SET
+$20
+student:201305300107
+$385
+{"name": "\u7da6\u5e06", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u9752\u5c9b\u5e02\u5e73\u5ea6\u5e02\u5357\u6751\u9547\u4e5d\u7532\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19951023", "identify": "370283199510232669", "type": "\u666e\u901a", "examid": "13370283130459", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15153299908"}
+*3
+$3
+SET
+$20
+student:201305300108
+$363
+{"name": "\u6ee1\u6587\u4e3d", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u7ea7\u7d22\u9547\u7f8a\u4e8c\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950421", "identify": "370481199504213822", "type": "\u666e\u901a", "examid": "13370404800107", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "2448321"}
+*3
+$3
+SET
+$20
+student:201305300109
+$397
+{"name": "\u4e54\u70ab\u70ab", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5b81\u5e02\u6cd7\u6c34\u53bf\u91d1\u5e84\u9547\u4e09\u89d2\u6e7e\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931031", "identify": "370831199310311529", "type": "\u666e\u901a", "examid": "13370831110316", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18254716439"}
+*3
+$3
+SET
+$20
+student:201305300110
+$385
+{"name": "\u59da\u5175", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5c71\u4e1c\u7701\u82cd\u5c71\u53bf\u795e\u5c71\u9547\u897f\u9053\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940506", "identify": "371311199405063132", "type": "\u666e\u901a", "examid": "13371302132243", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853926083"}
+*3
+$3
+SET
+$20
+student:201305300111
+$373
+{"name": "\u5b59\u5d07\u53d1", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6c82\u5e02\u6587\u77b3\u9547\u65b0\u5b98\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941226", "identify": "371327199412261517", "type": "\u666e\u901a", "examid": "13371327112183", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969676324"}
+*3
+$3
+SET
+$20
+student:201305300112
+$415
+{"name": "\u5468\u957f\u9e64", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u90d3\u57ce\u53bf\u6b66\u5b89\u9547\u706b\u738b\u5927\u961f\u5f20\u53f8\u5e84\u884c\u653f\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930314", "identify": "372928199303141233", "type": "\u666e\u901a", "examid": "13372928111108", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13855301183"}
+*3
+$3
+SET
+$20
+student:201305300113
+$400
+{"name": "\u674e\u680b", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5c71\u4e1c\u7701\u91d1\u4e61\u53bf\u594e\u661f\u8857\u5317\u6bb5\u4e8c18\u5df74\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940703", "identify": "370828199407030012", "type": "\u666e\u901a", "examid": "13370828110073", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15165375715"}
+*3
+$3
+SET
+$20
+student:201305300114
+$393
+{"name": "\u5434\u5e05\u5e05", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9752\u5c9b\u5e73\u5ea6\u5e02\u5e97\u5b50\u9547\u4e1d\u5be8\u675165\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941011", "identify": "370283199410117014", "type": "\u666e\u901a", "examid": "13370283111428", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13792878413"}
+*3
+$3
+SET
+$20
+student:201305300115
+$367
+{"name": "\u5218\u4eae", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6c82\u5e02\u7f57\u5e84\u533a\u65b0\u534e\u91cc", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940617", "identify": "371302199406170216", "type": "\u666e\u901a", "examid": "13371311110978", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853952211"}
+*3
+$3
+SET
+$20
+student:201305300116
+$415
+{"name": "\u4e8e\u4e1c\u73b2", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6f4d\u574a\u5e02\u5ce1\u5c71\u533a\u592a\u5821\u8857\u9053\u5c9e\u5c71\u7ad9\u897f\u590f\u6e7e", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941203", "identify": "370786199412035414", "type": "\u666e\u901a", "examid": "13370786111833", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13280701303"}
+*3
+$3
+SET
+$20
+student:201305300117
+$403
+{"name": "\u8d3e\u68a6\u83b9", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u6210\u6b66\u53bf\u82df\u6751\u9547\u5b54\u697c\u897f\u8d3e\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931019", "identify": "372924199310192420", "type": "\u666e\u901a", "examid": "13372924130790", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15063482289"}
+*3
+$3
+SET
+$20
+student:201305300118
+$385
+{"name": "\u5f20\u542b", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u67a3\u5e84\u5e02\u5cc4\u57ce\u533a\u9634\u5e73\u9547\u65b0\u5c4b\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950612", "identify": "370404199506122243", "type": "\u666e\u901a", "examid": "13370403150135", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13913063832"}
+*3
+$3
+SET
+$20
+student:201305300119
+$373
+{"name": "\u989c\u5a07\u5a07", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u7ea7\u7d22\u9547\u989c\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940711", "identify": "37048119940711382X", "type": "\u666e\u901a", "examid": "13370481170156", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969493318"}
+*3
+$3
+SET
+$20
+student:201305300120
+$391
+{"name": "\u5f20\u96ea", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u65e5\u7167\u5e02\u5c9a\u5c71\u533a\u5c9a\u5c71\u5934\u8857\u9053\u4e00\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931208", "identify": "371102199312083305", "type": "\u666e\u901a", "examid": "13371103130299", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13562350027"}
+*3
+$3
+SET
+$20
+student:201305300121
+$385
+{"name": "\u5f20\u989c", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u5b9a\u9676\u53bf\u9a6c\u96c6\u9547\u5f20\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930301", "identify": "372923199303011744", "type": "\u666e\u901a", "examid": "13372923110683", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15965879396"}
+*3
+$3
+SET
+$20
+student:201305300122
+$391
+{"name": "\u8303\u9759\u9759", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u9104\u57ce\u53bf\u5f15\u9a6c\u4e61\u8303\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950318", "identify": "372929199503186926", "type": "\u666e\u901a", "examid": "13372929110879", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15020506255"}
+*3
+$3
+SET
+$20
+student:201305300123
+$361
+{"name": "\u5362\u4e91", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u535a\u5174\u53bf\u9648\u6237\u9547\u7eaf\u6881", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941210", "identify": "372328199412101828", "type": "\u666e\u901a", "examid": "13370530130346", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13793876704"}
+*3
+$3
+SET
+$20
+student:201305300124
+$411
+{"name": "\u8d3e\u4fca\u5b87", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u5fb7\u5dde\u5e02\u5fb7\u57ce\u533a\u65b0\u57ce\u529e\u4e8b\u5904\u90ed\u5bb6\u5eb530\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950714", "identify": "371402199507146421", "type": "\u666e\u901a", "examid": "13371402130946", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15865345098"}
+*3
+$3
+SET
+$20
+student:201305300125
+$385
+{"name": "\u738b\u4fca", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6dc4\u535a\u5e02\u4e34\u6dc4\u533a\u7687\u57ce\u9547\u9ad8\u5bb6\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950118", "identify": "370305199501183742", "type": "\u666e\u901a", "examid": "13370305130195", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13573348534"}
+*3
+$3
+SET
+$20
+student:201305300126
+$412
+{"name": "\u6a0a\u60a6\u9633", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5357\u5e02\u5386\u57ce\u533a\u6e2f\u6c9f\u9547\u5b89\u5bb6\u5e84\u4e8c\u533a146\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950219", "identify": "370112199502192926", "type": "\u666e\u901a", "examid": "13370112111599", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006512375"}
+*3
+$3
+SET
+$20
+student:201305300127
+$418
+{"name": "\u6bb5\u5c0f\u9759", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5b81\u5e02\u5156\u5dde\u5e02\u94c1\u8def\u4e8c\u533a\u4e00\u5355\u5143\u4e00\u53f7\u697c403", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950604", "identify": "370882199506040062", "type": "\u666e\u901a", "examid": "13370882110653", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13054979845"}
+*3
+$3
+SET
+$20
+student:201305300128
+$382
+{"name": "\u5434\u5f00\u83b9", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6d4e\u5b81\u5e02\u5fae\u5c71\u53bf\u7559\u5e84\u9547\u4e09\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921212", "identify": "370826199212124657", "type": "\u9884\u79d1", "examid": "xxxxxxxxxxx", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15854768476"}
+*3
+$3
+SET
+$20
+student:201305300129
+$379
+{"name": "\u9a6c\u51e4\u5ce6", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u5357\u5f90\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941015", "identify": "370481199410153523", "type": "\u9884\u79d1", "examid": "13370481112719", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13516329393"}
+*3
+$3
+SET
+$20
+student:201305300130
+$367
+{"name": "\u9c81\u83f2", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u59dc\u5c6f\u9547\u97e9\u573a\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921211", "identify": "370481199212112229", "type": "\u9884\u79d1", "examid": "13370481112715", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18266273168"}
+*3
+$3
+SET
+$20
+student:201305300131
+$385
+{"name": "\u5e9e\u7965\u5f6c", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6cf0\u5b89\u5e02\u4e1c\u5e73\u53bf\u5927\u7f8a\u4e61\u8bb8\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940214", "identify": "370923199402141219", "type": "\u666e\u901a", "examid": "13370923170256", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13501241932"}
+*3
+$3
+SET
+$20
+student:201305300132
+$439
+{"name": "\u6768\u8def\u5e73", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u5c71\u4e1c\u7701\u9104\u57ce\u53bf\u51e4\u51f0\u4e61\u897f\u4faf\u697c\u884c\u653f\u6751\u6c34\u5751\u738b\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19920109", "identify": "372929199201090929", "type": "\u666e\u901a", "examid": "13372929130357", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13954012680"}
+*3
+$3
+SET
+$20
+student:201305300133
+$385
+{"name": "\u7a0b\u7d20\u6625", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u5355\u53bf\u5355\u57ce\u9547\u77fe\u68da\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940210", "identify": "372925199402107728", "type": "\u666e\u901a", "examid": "13372925111789", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13625305549"}
+*3
+$3
+SET
+$20
+student:201305300134
+$391
+{"name": "\u5b59\u50b2", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9ed1\u9f99\u6c5f\u54c8\u5c14\u6ee8\u547c\u5170\u533a\u6021\u56ed\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940519", "identify": "230121199405190019", "type": "\u666e\u901a", "examid": "13230121050856", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18661911665"}
+*3
+$3
+SET
+$20
+student:201305300101
+$403
+{"name": "\u5f20\u4e2d\u6d32", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6e05\u5e02\u65b0\u534e\u529e\u4e8b\u5904\u4e1c\u5173\u6751\u4e1c\u5174\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941108", "identify": "371581199411085119", "type": "\u666e\u901a", "examid": "13372502130047", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13287563665"}
+*3
+$3
+SET
+$20
+student:201305300102
+$364
+{"name": "\u53f8\u6cd5", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9f99\u9633\u9547\u524d\u53f8\u5802\u6751214\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940427", "identify": "370481199404271611", "type": "\u666e\u901a", "examid": "13370481112013", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006775213"}
+*3
+$3
+SET
+$20
+student:201305300103
+$367
+{"name": "\u5218\u90a6\u95ef", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5de8\u91ce\u53bf\u592a\u5e73\u6bd5\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930708", "identify": "372926199307081837", "type": "\u666e\u901a", "examid": "13372926130468", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15269069588"}
+*3
+$3
+SET
+$20
+student:201305300104
+$379
+{"name": "\u5415\u663e\u4fca", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u53f0\u513f\u5e84\u533a\u6ce5\u6c9f\u9547\u90b5\u91cc\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940112", "identify": "370405199401124011", "type": "\u666e\u901a", "examid": "13370402110493", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18206503695"}
+*3
+$3
+SET
+$20
+student:201305300105
+$381
+{"name": "\u5f90\u56fd\u8d85", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u804a\u57ce\u5e02\u51a0\u53bf\u548c\u5e73\u5357\u8def28\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930920", "identify": "37152519930920001X", "type": "\u666e\u901a", "examid": "13372523150011", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15224290738"}
+*3
+$3
+SET
+$20
+student:201305300106
+$399
+{"name": "\u738b\u96ea\u741b", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u674f\u575b\u4e1c\u8def28\u53f7\u78a7\u8d35\u5706\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941005", "identify": "370481199410057056", "type": "\u666e\u901a", "examid": "13370481132091", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13589624032"}
+*3
+$3
+SET
+$20
+student:201305300107
+$385
+{"name": "\u7da6\u5e06", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u9752\u5c9b\u5e02\u5e73\u5ea6\u5e02\u5357\u6751\u9547\u4e5d\u7532\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19951023", "identify": "370283199510232669", "type": "\u666e\u901a", "examid": "13370283130459", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15153299908"}
+*3
+$3
+SET
+$20
+student:201305300108
+$363
+{"name": "\u6ee1\u6587\u4e3d", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u7ea7\u7d22\u9547\u7f8a\u4e8c\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950421", "identify": "370481199504213822", "type": "\u666e\u901a", "examid": "13370404800107", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "2448321"}
+*3
+$3
+SET
+$20
+student:201305300109
+$397
+{"name": "\u4e54\u70ab\u70ab", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5b81\u5e02\u6cd7\u6c34\u53bf\u91d1\u5e84\u9547\u4e09\u89d2\u6e7e\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931031", "identify": "370831199310311529", "type": "\u666e\u901a", "examid": "13370831110316", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18254716439"}
+*3
+$3
+SET
+$20
+student:201305300110
+$385
+{"name": "\u59da\u5175", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5c71\u4e1c\u7701\u82cd\u5c71\u53bf\u795e\u5c71\u9547\u897f\u9053\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940506", "identify": "371311199405063132", "type": "\u666e\u901a", "examid": "13371302132243", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853926083"}
+*3
+$3
+SET
+$20
+student:201305300111
+$373
+{"name": "\u5b59\u5d07\u53d1", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6c82\u5e02\u6587\u77b3\u9547\u65b0\u5b98\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941226", "identify": "371327199412261517", "type": "\u666e\u901a", "examid": "13371327112183", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969676324"}
+*3
+$3
+SET
+$20
+student:201305300112
+$415
+{"name": "\u5468\u957f\u9e64", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u90d3\u57ce\u53bf\u6b66\u5b89\u9547\u706b\u738b\u5927\u961f\u5f20\u53f8\u5e84\u884c\u653f\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930314", "identify": "372928199303141233", "type": "\u666e\u901a", "examid": "13372928111108", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13855301183"}
+*3
+$3
+SET
+$20
+student:201305300113
+$400
+{"name": "\u674e\u680b", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u5c71\u4e1c\u7701\u91d1\u4e61\u53bf\u594e\u661f\u8857\u5317\u6bb5\u4e8c18\u5df74\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940703", "identify": "370828199407030012", "type": "\u666e\u901a", "examid": "13370828110073", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15165375715"}
+*3
+$3
+SET
+$20
+student:201305300114
+$393
+{"name": "\u5434\u5e05\u5e05", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9752\u5c9b\u5e73\u5ea6\u5e02\u5e97\u5b50\u9547\u4e1d\u5be8\u675165\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941011", "identify": "370283199410117014", "type": "\u666e\u901a", "examid": "13370283111428", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13792878413"}
+*3
+$3
+SET
+$20
+student:201305300115
+$367
+{"name": "\u5218\u4eae", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u4e34\u6c82\u5e02\u7f57\u5e84\u533a\u65b0\u534e\u91cc", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940617", "identify": "371302199406170216", "type": "\u666e\u901a", "examid": "13371311110978", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853952211"}
+*3
+$3
+SET
+$20
+student:201305300116
+$415
+{"name": "\u4e8e\u4e1c\u73b2", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6f4d\u574a\u5e02\u5ce1\u5c71\u533a\u592a\u5821\u8857\u9053\u5c9e\u5c71\u7ad9\u897f\u590f\u6e7e", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941203", "identify": "370786199412035414", "type": "\u666e\u901a", "examid": "13370786111833", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13280701303"}
+*3
+$3
+SET
+$20
+student:201305300117
+$403
+{"name": "\u8d3e\u68a6\u83b9", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u6210\u6b66\u53bf\u82df\u6751\u9547\u5b54\u697c\u897f\u8d3e\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931019", "identify": "372924199310192420", "type": "\u666e\u901a", "examid": "13372924130790", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15063482289"}
+*3
+$3
+SET
+$20
+student:201305300118
+$385
+{"name": "\u5f20\u542b", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u67a3\u5e84\u5e02\u5cc4\u57ce\u533a\u9634\u5e73\u9547\u65b0\u5c4b\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950612", "identify": "370404199506122243", "type": "\u666e\u901a", "examid": "13370403150135", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13913063832"}
+*3
+$3
+SET
+$20
+student:201305300119
+$373
+{"name": "\u989c\u5a07\u5a07", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u7ea7\u7d22\u9547\u989c\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940711", "identify": "37048119940711382X", "type": "\u666e\u901a", "examid": "13370481170156", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969493318"}
+*3
+$3
+SET
+$20
+student:201305300120
+$391
+{"name": "\u5f20\u96ea", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u65e5\u7167\u5e02\u5c9a\u5c71\u533a\u5c9a\u5c71\u5934\u8857\u9053\u4e00\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931208", "identify": "371102199312083305", "type": "\u666e\u901a", "examid": "13371103130299", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13562350027"}
+*3
+$3
+SET
+$20
+student:201305300121
+$385
+{"name": "\u5f20\u989c", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u5b9a\u9676\u53bf\u9a6c\u96c6\u9547\u5f20\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930301", "identify": "372923199303011744", "type": "\u666e\u901a", "examid": "13372923110683", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15965879396"}
+*3
+$3
+SET
+$20
+student:201305300122
+$391
+{"name": "\u8303\u9759\u9759", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u9104\u57ce\u53bf\u5f15\u9a6c\u4e61\u8303\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950318", "identify": "372929199503186926", "type": "\u666e\u901a", "examid": "13372929110879", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15020506255"}
+*3
+$3
+SET
+$20
+student:201305300123
+$361
+{"name": "\u5362\u4e91", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u535a\u5174\u53bf\u9648\u6237\u9547\u7eaf\u6881", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941210", "identify": "372328199412101828", "type": "\u666e\u901a", "examid": "13370530130346", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13793876704"}
+*3
+$3
+SET
+$20
+student:201305300124
+$411
+{"name": "\u8d3e\u4fca\u5b87", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u5fb7\u5dde\u5e02\u5fb7\u57ce\u533a\u65b0\u57ce\u529e\u4e8b\u5904\u90ed\u5bb6\u5eb530\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950714", "identify": "371402199507146421", "type": "\u666e\u901a", "examid": "13371402130946", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15865345098"}
+*3
+$3
+SET
+$20
+student:201305300125
+$385
+{"name": "\u738b\u4fca", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6dc4\u535a\u5e02\u4e34\u6dc4\u533a\u7687\u57ce\u9547\u9ad8\u5bb6\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950118", "identify": "370305199501183742", "type": "\u666e\u901a", "examid": "13370305130195", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13573348534"}
+*3
+$3
+SET
+$20
+student:201305300126
+$412
+{"name": "\u6a0a\u60a6\u9633", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5357\u5e02\u5386\u57ce\u533a\u6e2f\u6c9f\u9547\u5b89\u5bb6\u5e84\u4e8c\u533a146\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950219", "identify": "370112199502192926", "type": "\u666e\u901a", "examid": "13370112111599", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006512375"}
+*3
+$3
+SET
+$20
+student:201305300127
+$418
+{"name": "\u6bb5\u5c0f\u9759", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6d4e\u5b81\u5e02\u5156\u5dde\u5e02\u94c1\u8def\u4e8c\u533a\u4e00\u5355\u5143\u4e00\u53f7\u697c403", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950604", "identify": "370882199506040062", "type": "\u666e\u901a", "examid": "13370882110653", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13054979845"}
+*3
+$3
+SET
+$20
+student:201305300128
+$382
+{"name": "\u5434\u5f00\u83b9", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6d4e\u5b81\u5e02\u5fae\u5c71\u53bf\u7559\u5e84\u9547\u4e09\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921212", "identify": "370826199212124657", "type": "\u9884\u79d1", "examid": "xxxxxxxxxxx", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15854768476"}
+*3
+$3
+SET
+$20
+student:201305300129
+$379
+{"name": "\u9a6c\u51e4\u5ce6", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u5357\u5f90\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941015", "identify": "370481199410153523", "type": "\u9884\u79d1", "examid": "13370481112719", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13516329393"}
+*3
+$3
+SET
+$20
+student:201305300130
+$367
+{"name": "\u9c81\u83f2", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u59dc\u5c6f\u9547\u97e9\u573a\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921211", "identify": "370481199212112229", "type": "\u9884\u79d1", "examid": "13370481112715", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18266273168"}
+*3
+$3
+SET
+$20
+student:201305300131
+$385
+{"name": "\u5e9e\u7965\u5f6c", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u6cf0\u5b89\u5e02\u4e1c\u5e73\u53bf\u5927\u7f8a\u4e61\u8bb8\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940214", "identify": "370923199402141219", "type": "\u666e\u901a", "examid": "13370923170256", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13501241932"}
+*3
+$3
+SET
+$20
+student:201305300132
+$439
+{"name": "\u6768\u8def\u5e73", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u5c71\u4e1c\u7701\u9104\u57ce\u53bf\u51e4\u51f0\u4e61\u897f\u4faf\u697c\u884c\u653f\u6751\u6c34\u5751\u738b\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19920109", "identify": "372929199201090929", "type": "\u666e\u901a", "examid": "13372929130357", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13954012680"}
+*3
+$3
+SET
+$20
+student:201305300133
+$385
+{"name": "\u7a0b\u7d20\u6625", "headteac": "\u9648\u514b\u5766", "gender": "\u5973", "address": "\u83cf\u6cfd\u5e02\u5355\u53bf\u5355\u57ce\u9547\u77fe\u68da\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940210", "identify": "372925199402107728", "type": "\u666e\u901a", "examid": "13372925111789", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13625305549"}
+*3
+$3
+SET
+$20
+student:201305300134
+$391
+{"name": "\u5b59\u50b2", "headteac": "\u9648\u514b\u5766", "gender": "\u7537", "address": "\u9ed1\u9f99\u6c5f\u54c8\u5c14\u6ee8\u547c\u5170\u533a\u6021\u56ed\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940519", "identify": "230121199405190019", "type": "\u666e\u901a", "examid": "13230121050856", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18661911665"}
+*3
+$3
+SET
+$20
+student:201305300135
+$383
+{"name": "\u987e\u58eb\u6d69", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547\u4e2d\u97e9\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19960206", "identify": "370481199602066010", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13181292418"}
+*3
+$3
+SET
+$20
+student:201305300136
+$397
+{"name": "\u970d\u672c\u946b", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053\u8d75\u738b\u6cb3\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a", "birthday": "19960325", "identify": "370481199603250012", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "5592817"}
+*3
+$3
+SET
+$20
+student:201305300137
+$383
+{"name": "\u9a6c\u555f\u6d32", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u754c\u6cb3\u9547\u540e\u67a3\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19930303", "identify": "370481199303031870", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "18511031765"}
+*3
+$3
+SET
+$20
+student:201305300138
+$383
+{"name": "\u9ec4\u8363\u4f1f", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u4e1c\u90ed\u9547\u4e1c\u660e\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19931216", "identify": "370481199312167710", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15965117983"}
+*3
+$3
+SET
+$20
+student:201305300139
+$371
+{"name": "\u9a6c\u4f73\u5947", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u5fae\u5c71\u53bf\u5fa1\u666f\u82b1\u56ed", "field": "\u8ba1\u7b97\u673a", "birthday": "19950719", "identify": "370826199507196455", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13964914058"}
+*3
+$3
+SET
+$20
+student:201305300140
+$389
+{"name": "\u5f20\u6210\u9e4f", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u67f4\u80e1\u5e97\u9547\u5b98\u573a\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19950803", "identify": "37048119950803643X", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13581121600"}
+*3
+$3
+SET
+$20
+student:201305300141
+$385
+{"name": "\u8d75\u771f\u94ed", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u8857\u9053\u7a0b\u5802\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19960701", "identify": "370406199607015036", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "5687116"}
+*3
+$3
+SET
+$20
+student:201305300142
+$377
+{"name": "\u674e\u653f", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547\u826f\u91cc\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19940603", "identify": "37048119940603605X", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13562222524"}
+*3
+$3
+SET
+$20
+student:201305300143
+$393
+{"name": "\u5218\u8000\u9686", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053\u6587\u5e99\u885710\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19960421", "identify": "37048119960421091X", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "3955144"}
+*3
+$3
+SET
+$20
+student:201305300144
+$383
+{"name": "\u6768\u5a01", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u8857\u9053\u5357\u4faf\u5e84", "field": "\u8ba1\u7b97\u673a", "birthday": "19911218", "identify": "370481199112181251", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13455751510"}
+*3
+$3
+SET
+$20
+student:201305300145
+$371
+{"name": "\u4faf\u8273\u5a77", "headteac": "\u5f20\u6ce2", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053", "field": "\u8ba1\u7b97\u673a", "birthday": "19950812", "identify": "370481199508121220", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15154051689"}
+*3
+$3
+SET
+$20
+student:201305300146
+$379
+{"name": "\u5f90\u58ee", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u897f\u5317\u575b\u4e03\u5df733\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19961010", "identify": "370481199610105630", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13156322902"}
+*3
+$3
+SET
+$20
+student:201305300147
+$383
+{"name": "\u515a\u540c\u8d85", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u4e1c\u6c99\u6cb3\u9547\u515a\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19950414", "identify": "370481199504147415", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "18266034343"}
+*3
+$3
+SET
+$20
+student:201305300148
+$383
+{"name": "\u5b5f\u8273\u505c", "headteac": "\u5f20\u6ce2", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547\u5fd7\u95e8\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19941220", "identify": "370481199412206043", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15166321529"}
+*3
+$3
+SET
+$20
+student:201305300149
+$383
+{"name": "\u5218\u94f6\u73e0", "headteac": "\u5f20\u6ce2", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u67f4\u80e1\u5e97\u9547\u5218\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19960102", "identify": "370481199601026447", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13884772767"}
+*3
+$3
+SET
+$20
+student:201305300150
+$377
+{"name": "\u5f90\u7433", "headteac": "\u5f20\u6ce2", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u8346\u5584\u5b89\u5c45\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a", "birthday": "19941212", "identify": "370481199412120020", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "18265210633"}
+*3
+$3
+SET
+$20
+student:201305300151
+$377
+{"name": "\u7518\u9716", "headteac": "\u5f20\u6ce2", "gender": "\u5973", "address": "\u5c71\u4ead\u533a\u897f\u96c6\u9547\u5efa\u65b0\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19921118", "identify": "37040619921118452X", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15263220513"}
+*3
+$3
+SET
+$20
+student:201305300152
+$389
+{"name": "\u7f57\u8d85", "headteac": "\u5f20\u6ce2", "gender": "\u5973", "address": "\u5e02\u4e2d\u533a\u77ff\u8857\u9053\u4e1c\u4e95\u65b0\u4e00\u533a", "field": "\u8ba1\u7b97\u673a", "birthday": "19940529", "identify": "370402199405290624", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15949952838"}
+*3
+$3
+SET
+$20
+student:201305300153
+$389
+{"name": "\u5218\u7a33", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6d4e\u5b81\u5e02\u5609\u7965\u53bf\u7eb8\u574a\u9547\u5218\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19970828", "identify": "37082919970828205X", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13563791393"}
+*3
+$3
+SET
+$20
+student:201305300154
+$377
+{"name": "\u6797\u864e", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5f20\u6c6a\u9547\u8f9b\u5e84\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19940801", "identify": "370481199408015631", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15666716368"}
+*3
+$3
+SET
+$20
+student:201305300155
+$389
+{"name": "\u9ec4\u9999\u7fe0", "headteac": "\u5f20\u6ce2", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u8346\u6cb3\u8857\u9053\u4f55\u5e84\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19941109", "identify": "370481199411090923", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15854686059"}
+*3
+$3
+SET
+$20
+student:201305300156
+$368
+{"name": "\u5f20\u4fca", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u5c71\u4ead\u533a\u5e9c\u524d\u8def216\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19951226", "identify": "370406199512260119", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13581108399"}
+*3
+$3
+SET
+$20
+student:201305300157
+$379
+{"name": "\u4faf\u7ecd\u6c11", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u5c71\u4ead\u533a\u57ce\u5934\u9547\u4f0d\u5e84\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19930828", "identify": "370406199308286012", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "8713229"}
+*3
+$3
+SET
+$20
+student:201305300158
+$410
+{"name": "\u5019\u4f20\u7a0b", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u67a3\u5e84\u5e02\u5e02\u4e2d\u533a\u7acb\u65b0\u5c0f\u533a1\u5355\u514310\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19930816", "identify": "370402199308161513", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13561110944"}
+*3
+$3
+SET
+$20
+student:201305300159
+$389
+{"name": "\u7a0b\u660e\u707f", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u8857\u9053\u7a0b\u5802\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19950120", "identify": "37048119950120121x", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13969433207"}
+*3
+$3
+SET
+$20
+student:201305300160
+$389
+{"name": "\u5f20\u6d0b", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053\u524d\u8fdb\u82b1\u56ed", "field": "\u8ba1\u7b97\u673a", "birthday": "19960608", "identify": "370481199606081234", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13562216473"}
+*3
+$3
+SET
+$20
+student:201305300161
+$377
+{"name": "\u77f3\u8d85", "headteac": "\u5f20\u6ce2", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5584\u5357\u8857\u9053\u8d3e\u5e84", "field": "\u8ba1\u7b97\u673a", "birthday": "19921207", "identify": "37048119921207121x", "type": "\u9884\u79d1", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15318066139"}
+*3
+$3
+SET
+$20
+student:201305300162
+$399
+{"name": "\u621a\u5174\u5b87", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u8499\u9634\u53bf\u579b\u5e84\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950306", "identify": "37132819950306251x", "type": "\u666e\u901a", "examid": "13371312130240", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13053185614"}
+*3
+$3
+SET
+$20
+student:201305300163
+$405
+{"name": "\u674e\u9e4f", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u90e2\u57ce\u53bf\u674e\u6751\u884c\u653f\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19911120", "identify": "372929199112087218", "type": "\u666e\u901a", "examid": "13372929110731", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15264402903"}
+*3
+$3
+SET
+$20
+student:201305300164
+$405
+{"name": "\u9a6c\u6587\u6377", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u67f4\u91cc\u7164\u77ff", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950608", "identify": "370481199506088471", "type": "\u666e\u901a", "examid": "13370481130992", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18266281507"}
+*3
+$3
+SET
+$20
+student:201305300165
+$399
+{"name": "\u8d3e\u5bcc\u5f3a", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6d4e\u5b81\u5e02\u9a6c\u5e99\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19931221", "identify": "370828199312214054", "type": "\u666e\u901a", "examid": "13370828170019", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15166371611"}
+*3
+$3
+SET
+$20
+student:201305300166
+$417
+{"name": "\u9648\u73ae\u5b66", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u5c71\u4e1c\u7701\u5373\u58a8\u5e02\u5c71\u4e1c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19941121", "identify": "370282199411216915", "type": "\u666e\u901a", "examid": "13370282140201", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15621006728"}
+*3
+$3
+SET
+$20
+student:201305300167
+$381
+{"name": "\u4e01\u540c\u6839", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u5fae\u5c71\u53bf", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940818", "identify": "37082619940818407x", "type": "\u666e\u901a", "examid": "13370826151023", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13561146654"}
+*3
+$3
+SET
+$20
+student:201305300168
+$411
+{"name": "\u4e8e\u6d9b", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6d77\u9633\u5e02\u51e4\u57ce\u9547\u65b0\u5b89\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940719", "identify": "370687199407190410", "type": "\u666e\u901a", "examid": "13370687150807", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18863804539"}
+*3
+$3
+SET
+$20
+student:201305300169
+$390
+{"name": "\u9093\u8d85", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u8f9b\u5174\u5317\u533a12-1--201", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951229", "identify": "370481199512290959", "type": "\u666e\u901a", "examid": "13370481132411", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13806328672"}
+*3
+$3
+SET
+$20
+student:201305300170
+$411
+{"name": "\u845b\u51e1\u6770", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u677f\u6cc9\u9547\u524d\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19941002", "identify": "371327199410021237", "type": "\u666e\u901a", "examid": "13371327112116", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15153911255"}
+*3
+$3
+SET
+$20
+student:201305300171
+$399
+{"name": "\u9648\u6d2a\u6c9b", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u65e5\u7167\u5e02\u5c9a\u5c71\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950601", "identify": "371102199506018173", "type": "\u666e\u901a", "examid": "13371102130609", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13256338879"}
+*3
+$3
+SET
+$20
+student:201305300172
+$411
+{"name": "\u9b4f\u8273\u519b", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u90e2\u57ce\u53bf\u674e\u6751\u884c\u653f\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930614", "identify": "372929199306142422", "type": "\u666e\u901a", "examid": "13372929110774", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15253039680"}
+*3
+$3
+SET
+$20
+student:201305300173
+$387
+{"name": "\u5b59\u56ed\u56ed", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u5c71\u4e1c\u66f9\u53bf", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19900530", "identify": "372922199005305246", "type": "\u666e\u901a", "examid": "13372922111016", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15264074260"}
+*3
+$3
+SET
+$20
+student:201305300174
+$411
+{"name": "\u738b\u8fea", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u6cb3\u5357\u7701\u5546\u4e18\u5e02\u590f\u9091\u53bf", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940603", "identify": "412326199406030322", "type": "\u666e\u901a", "examid": "13411312112159", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13148090679"}
+*3
+$3
+SET
+$20
+student:201305300175
+$399
+{"name": "\u738b\u5ef6\u6e05", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u4e1c\u5347\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19980908", "identify": "370481199809087733", "type": "\u666e\u901a", "examid": "13370481111104", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15154076879"}
+*3
+$3
+SET
+$20
+student:201305300176
+$417
+{"name": "\u738b\u4e9a\u6960", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u6dc4\u535a\u5e02\u6dc4\u5ddd\u533a\u6606\u4ed1\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19941014", "identify": "370302199410146023", "type": "\u666e\u901a", "examid": "13370302110710", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15169349962"}
+*3
+$3
+SET
+$20
+student:201305300177
+$423
+{"name": "\u8d75\u663e\u6d69", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u83cf\u6cfd\u5e02\u90e2\u57ce\u53bf\u516b\u91cc\u6cb3\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950308", "identify": "372928199503080236", "type": "\u666e\u901a", "examid": "13372928130451", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13854046858"}
+*3
+$3
+SET
+$20
+student:201305300178
+$423
+{"name": "\u4f55\u987a", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u83cf\u6cfd\u5e02\u5355\u53bf\u5b59\u6e9c\u9547\u51e1\u697c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940915", "identify": "372925199409150710", "type": "\u666e\u901a", "examid": "13372925150016", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13153090456"}
+*3
+$3
+SET
+$20
+student:201305300179
+$405
+{"name": "\u90ed\u7d20\u6c5d", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u5c71\u4ead\u9547\u6734\u5c71\u524d\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951119", "identify": "370406199511190024", "type": "\u666e\u901a", "examid": "13370406150389", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15098295909"}
+*3
+$3
+SET
+$20
+student:201305300180
+$399
+{"name": "\u5355\u5b50\u94ed", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u9ad8\u5bc6\u5e02\u5a18\u5a18\u5e99", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930626", "identify": "370785199306260910", "type": "\u666e\u901a", "examid": "13370785111405", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15053670666"}
+*3
+$3
+SET
+$20
+student:201305300181
+$405
+{"name": "\u5b8b\u5148\u5e7f", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u754c\u6cb3\u9547\u803f\u5e84", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960202", "identify": "370481199602021816", "type": "\u666e\u901a", "examid": "13370481112011", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13969400874"}
+*3
+$3
+SET
+$20
+student:201305300182
+$405
+{"name": "\u79e6\u7ecd\u96c1", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u83cf\u6cfd\u5355\u53bf\u5f20\u96c6\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940821", "identify": "372925299408216132", "type": "\u666e\u901a", "examid": "13372925153801", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15098224033"}
+*3
+$3
+SET
+$20
+student:201305300183
+$423
+{"name": "\u738b\u666f\u9633", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u5357\u5f90\u697c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19970105", "identify": "370481199701053522", "type": "\u666e\u901a", "examid": "13370404800070", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13858195000"}
+*3
+$3
+SET
+$20
+student:201305300184
+$435
+{"name": "\u5c1a\u5955\u5f64", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u67a3\u5e84\u5c71\u4ead\u533a\u5f90\u5e84\u9547\u846b\u82a6\u5957\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940110", "identify": "370406199401102265", "type": "\u666e\u901a", "examid": "13370404800089", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13969424291"}
+*3
+$3
+SET
+$20
+student:201305300185
+$417
+{"name": "\u97e9\u5584\u82b1", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u540e\u53e4\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940209", "identify": "370481199402093225", "type": "\u666e\u901a", "examid": "13370404800050", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15098249951"}
+*3
+$3
+SET
+$20
+student:201305300186
+$381
+{"name": "\u5b59\u52a0\u78ca", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19921024", "identify": "37048119921024181x", "type": "\u666e\u901a", "examid": "13370404800093", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15564685607"}
+*3
+$3
+SET
+$20
+student:201305300187
+$423
+{"name": "\u9c81\u7389\u9f99", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u8346\u6cb3\u8857\u9053\u8def\u4e1c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19920305", "identify": "370481199203051292", "type": "\u666e\u901a", "examid": "13370404800074", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13561131748"}
+*3
+$3
+SET
+$20
+student:201305300188
+$405
+{"name": "\u738b\u660c\u76db", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5b89\u5eb7\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950119", "identify": "370481199501190012", "type": "\u666e\u901a", "examid": "13370404800064", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13626329508"}
+*3
+$3
+SET
+$20
+student:201305300189
+$375
+{"name": "\u6e20\u9716", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950718", "identify": "370481199507180923", "type": "\u666e\u901a", "examid": "13370404800060", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13563230039"}
+*3
+$3
+SET
+$20
+student:201305300190
+$423
+{"name": "\u674e\u6d69", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u529e\u4e8b\u5904\u5201\u5e84\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930301", "identify": "370481199303017454", "type": "\u666e\u901a", "examid": "13370404800035", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13869406691"}
+*3
+$3
+SET
+$20
+student:201305300191
+$405
+{"name": "\u5f90\u7edf\u5e05", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u8346\u6cb3\u897f\u8def", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930913", "identify": "370481199309130319", "type": "\u666e\u901a", "examid": "13370404800031", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13869422116"}
+*3
+$3
+SET
+$20
+student:201305300192
+$383
+{"name": "\u8d75\u5a01", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5bb6\u4e50\u56ed", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960409", "identify": "370481199604090014", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18678266009"}
+*3
+$3
+SET
+$20
+student:201305300193
+$389
+{"name": "\u6768\u7487\u7487", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960710", "identify": "370481199607106026", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15866225728"}
+*3
+$3
+SET
+$20
+student:201305300194
+$389
+{"name": "\u4e8e\u6da6\u6d69", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u67a3\u5e84\u5e02\u5e02\u4e2d\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960416", "identify": "370402199604167717", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "06323345885"}
+*3
+$3
+SET
+$20
+student:201305300195
+$401
+{"name": "\u5b59\u9759\u9759", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u67a3\u5e84\u5c71\u4ead\u533a\u5e97\u5b50\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19961002", "identify": "370406199610027468", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "06328982112"}
+*3
+$3
+SET
+$20
+student:201305300196
+$389
+{"name": "\u5de6\u7fd4\u5347", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u4e1c\u6c99\u6cb3", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960516", "identify": "370481199605167415", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13562206177"}
+*3
+$3
+SET
+$20
+student:201305300197
+$389
+{"name": "\u5415\u4f1f\u6e90", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u9c8d\u6c9f\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951121", "identify": "370481199511214639", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13736046835"}
+*3
+$3
+SET
+$20
+student:201305300198
+$389
+{"name": "\u90b1\u96e8\u99a8", "headteac": "\u674e\u4f1f", "gender": "\u5973", "address": "\u6ed5\u5dde\u8346\u5584\u5b89\u5c45", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951015", "identify": "370481199510150928", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13501881096"}
+*3
+$3
+SET
+$20
+student:201305300199
+$391
+{"name": "\u5b8b\u6797\u864e", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u8d75\u738b\u6cb3\u5c0f\u533a28-2-102", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960901", "identify": "370481199609010933", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18363744131"}
+*3
+$3
+SET
+$20
+student:201305300200
+$377
+{"name": "\u674e\u5cf0\u5b87", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u8d35\u548c", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960517", "identify": "370481199605170032", "type": "\u4e09\u4e8c", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15224465090"}
+*3
+$3
+SET
+$20
+student:201305300201
+$371
+{"name": "\u9b4f\u8fea", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u90be\u57ce", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950321", "identify": "370481199503211518", "type": "\u4e94\u5e74", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18266298902"}
+*3
+$3
+SET
+$20
+student:201305300202
+$377
+{"name": "\u738b\u7fd4", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u5bb6\u4e50\u56ed\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950709", "identify": "370481199507090610", "type": "\u4e94\u5e74", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15698020449"}
+*3
+$3
+SET
+$20
+student:201305300203
+$371
+{"name": "\u515a\u6d69\u8fde", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u4e1c\u6c99\u6cb3", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960415", "identify": "370481199604157434", "type": "\u4e94\u5e74", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18266004226"}
+*3
+$3
+SET
+$20
+student:201305300204
+$377
+{"name": "\u90b5\u957f\u5e05", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u571f\u57ce", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940108", "identify": "370406199401086613", "type": "\u4e94\u5e74", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15398283549"}
+*3
+$3
+SET
+$20
+student:201305300205
+$377
+{"name": "\u8096\u7965", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u524d\u8fdb\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960616", "identify": "370481199606160039", "type": "\u4e94\u5e74", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15266265672"}
+*3
+$3
+SET
+$20
+student:201305300206
+$377
+{"name": "\u5f90\u5f3a", "headteac": "\u674e\u4f1f", "gender": "\u7537", "address": "\u6ed5\u5dde\u9f99\u6cc9\u82d1", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951122", "identify": "370481199511225012", "type": "\u4e94\u5e74", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13963265817"}
+*3
+$3
+SET
+$20
+student:201305300207
+$380
+{"name": "\u97e9\u7389\u5a07", "headteac": "\u7518\u4fe1\u5f3a", "gender": "\u5973", "address": "\u6d4e\u5b81\u5e02\u6cd7\u6c34\u53bf\u6cc9\u6797\u9547\u97e9\u5bb6\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1994-5-6", "identify": "370831199405063000", "type": "\u666e\u901a", "examid": "13370831151098", "class": "13\u7ea7", "homephone": "0537-4010690"}
+*3
+$3
+SET
+$20
+student:201305300208
+$410
+{"name": "\u5f20\u5f1b", "headteac": "\u7518\u4fe1\u5f3a", "gender": "\u7537", "address": "\u67a3\u5e84\u5e02\u5e02\u4e2d\u533a\u6e05\u6cc9\u4e1c\u8def\u5341\u7535\u82b1\u82d11\u53f7\u697c4\u680b402", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-10-16", "identify": "370402199310162515", "type": "\u666e\u901a", "examid": "13370402150610", "class": "13\u7ea7", "homephone": "15949948997"}
+*3
+$3
+SET
+$20
+student:201305300209
+$367
+{"name": "\u6ee1\u5baa\u6210", "headteac": "\u7518\u4fe1\u5f3a", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u897f\u5c97\u9547\u897f\u6cb3\u5c94\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1994-7-1", "identify": "370481199407014290", "type": "\u666e\u901a", "examid": "13370404800105", "class": "13\u7ea7", "homephone": "18206420251"}
+*3
+$3
+SET
+$20
+student:201305300210
+$368
+{"name": "\u674e\u6768", "headteac": "\u7518\u4fe1\u5f3a", "gender": "\u7537", "address": "\u6ed5\u5dde\u5e02\u5b66\u9662\u4e1c\u8def\u4e1c\u5174\u5c0f\u533a", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1996-4-20", "identify": "370481199604200930", "type": "\u666e\u901a", "examid": "13370404800045", "class": "13\u7ea7", "homephone": "13793741171"}
+*3
+$3
+SET
+$20
+student:201305300211
+$370
+{"name": "\u79e6\u54b8\u7136", "headteac": "\u7518\u4fe1\u5f3a", "gender": "\u7537", "address": "\u67a3\u5e84\u5e02\u5c71\u4ead\u533a\u51af\u536f\u9547\u8d75\u6cc9\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-7-15", "identify": "370406199307156638", "type": "\u9884\u79d1", "examid": "xxxx", "class": "13\u7ea7", "homephone": "15864340506"}
+*3
+$3
+SET
+$20
+student:201305300212
+$370
+{"name": "\u8d75\u8d85", "headteac": "\u7518\u4fe1\u5f3a", "gender": "\u7537", "address": "\u67a3\u5e84\u5e02\u5c71\u4ead\u533a\u57ce\u5934\u9547\u9a6c\u5c71\u5934\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-9-29", "identify": "370406199309296036", "type": "\u9884\u79d1", "examid": "xxxx", "class": "13\u7ea7", "homephone": "15098291209"}
+*3
+$3
+SET
+$20
+student:201305300213
+$360
+{"name": "\u8463\u4e7e", "headteac": "\u7518\u4fe1\u5f3a", "gender": "\u7537", "address": "\u6c5f\u82cf\u7701\u4e30\u53bf\u57ce\u4e1c\u5317\u4e00\u5df786\u53f7", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-7-25", "identify": "320321199307254659", "type": "\u9884\u79d1", "examid": "xxxx", "class": "13\u7ea7", "homephone": "15589226852"}
+*3
+$3
+SET
+$20
+student:201305300101
+$428
+{"type": "\u666e\u901a", "name": "\u5f20\u4e2d\u6d32", "headteac": "\u9648\u514b\u5766", "stuid": "201305300101", "address": "\u4e34\u6e05\u5e02\u65b0\u534e\u529e\u4e8b\u5904\u4e1c\u5173\u6751\u4e1c\u5174\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941108", "identify": "371581199411085119", "gender": "\u7537", "examid": "13372502130047", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13287563665"}
+*3
+$3
+SET
+$20
+student:201305300102
+$389
+{"type": "\u666e\u901a", "name": "\u53f8\u6cd5", "headteac": "\u9648\u514b\u5766", "stuid": "201305300102", "address": "\u9f99\u9633\u9547\u524d\u53f8\u5802\u6751214\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940427", "identify": "370481199404271611", "gender": "\u7537", "examid": "13370481112013", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006775213"}
+*3
+$3
+SET
+$20
+student:201305300103
+$392
+{"type": "\u666e\u901a", "name": "\u5218\u90a6\u95ef", "headteac": "\u9648\u514b\u5766", "stuid": "201305300103", "address": "\u5de8\u91ce\u53bf\u592a\u5e73\u6bd5\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930708", "identify": "372926199307081837", "gender": "\u7537", "examid": "13372926130468", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15269069588"}
+*3
+$3
+SET
+$20
+student:201305300104
+$404
+{"type": "\u666e\u901a", "name": "\u5415\u663e\u4fca", "headteac": "\u9648\u514b\u5766", "stuid": "201305300104", "address": "\u53f0\u513f\u5e84\u533a\u6ce5\u6c9f\u9547\u90b5\u91cc\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940112", "identify": "370405199401124011", "gender": "\u7537", "examid": "13370402110493", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18206503695"}
+*3
+$3
+SET
+$20
+student:201305300105
+$406
+{"type": "\u666e\u901a", "name": "\u5f90\u56fd\u8d85", "headteac": "\u9648\u514b\u5766", "stuid": "201305300105", "address": "\u804a\u57ce\u5e02\u51a0\u53bf\u548c\u5e73\u5357\u8def28\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930920", "identify": "37152519930920001X", "gender": "\u7537", "examid": "13372523150011", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15224290738"}
+*3
+$3
+SET
+$20
+student:201305300106
+$424
+{"type": "\u666e\u901a", "name": "\u738b\u96ea\u741b", "headteac": "\u9648\u514b\u5766", "stuid": "201305300106", "address": "\u6ed5\u5dde\u5e02\u674f\u575b\u4e1c\u8def28\u53f7\u78a7\u8d35\u5706\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941005", "identify": "370481199410057056", "gender": "\u7537", "examid": "13370481132091", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13589624032"}
+*3
+$3
+SET
+$20
+student:201305300107
+$410
+{"type": "\u666e\u901a", "name": "\u7da6\u5e06", "headteac": "\u9648\u514b\u5766", "stuid": "201305300107", "address": "\u9752\u5c9b\u5e02\u5e73\u5ea6\u5e02\u5357\u6751\u9547\u4e5d\u7532\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19951023", "identify": "370283199510232669", "gender": "\u5973", "examid": "13370283130459", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15153299908"}
+*3
+$3
+SET
+$20
+student:201305300108
+$388
+{"type": "\u666e\u901a", "name": "\u6ee1\u6587\u4e3d", "headteac": "\u9648\u514b\u5766", "stuid": "201305300108", "address": "\u6ed5\u5dde\u7ea7\u7d22\u9547\u7f8a\u4e8c\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950421", "identify": "370481199504213822", "gender": "\u5973", "examid": "13370404800107", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "2448321"}
+*3
+$3
+SET
+$20
+student:201305300109
+$422
+{"type": "\u666e\u901a", "name": "\u4e54\u70ab\u70ab", "headteac": "\u9648\u514b\u5766", "stuid": "201305300109", "address": "\u6d4e\u5b81\u5e02\u6cd7\u6c34\u53bf\u91d1\u5e84\u9547\u4e09\u89d2\u6e7e\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931031", "identify": "370831199310311529", "gender": "\u5973", "examid": "13370831110316", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18254716439"}
+*3
+$3
+SET
+$20
+student:201305300110
+$410
+{"type": "\u666e\u901a", "name": "\u59da\u5175", "headteac": "\u9648\u514b\u5766", "stuid": "201305300110", "address": "\u5c71\u4e1c\u7701\u82cd\u5c71\u53bf\u795e\u5c71\u9547\u897f\u9053\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940506", "identify": "371311199405063132", "gender": "\u7537", "examid": "13371302132243", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853926083"}
+*3
+$3
+SET
+$20
+student:201305300111
+$398
+{"type": "\u666e\u901a", "name": "\u5b59\u5d07\u53d1", "headteac": "\u9648\u514b\u5766", "stuid": "201305300111", "address": "\u4e34\u6c82\u5e02\u6587\u77b3\u9547\u65b0\u5b98\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941226", "identify": "371327199412261517", "gender": "\u7537", "examid": "13371327112183", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969676324"}
+*3
+$3
+SET
+$20
+student:201305300112
+$440
+{"type": "\u666e\u901a", "name": "\u5468\u957f\u9e64", "headteac": "\u9648\u514b\u5766", "stuid": "201305300112", "address": "\u90d3\u57ce\u53bf\u6b66\u5b89\u9547\u706b\u738b\u5927\u961f\u5f20\u53f8\u5e84\u884c\u653f\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930314", "identify": "372928199303141233", "gender": "\u7537", "examid": "13372928111108", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13855301183"}
+*3
+$3
+SET
+$20
+student:201305300113
+$425
+{"type": "\u666e\u901a", "name": "\u674e\u680b", "headteac": "\u9648\u514b\u5766", "stuid": "201305300113", "address": "\u5c71\u4e1c\u7701\u91d1\u4e61\u53bf\u594e\u661f\u8857\u5317\u6bb5\u4e8c18\u5df74\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940703", "identify": "370828199407030012", "gender": "\u7537", "examid": "13370828110073", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15165375715"}
+*3
+$3
+SET
+$20
+student:201305300114
+$418
+{"type": "\u666e\u901a", "name": "\u5434\u5e05\u5e05", "headteac": "\u9648\u514b\u5766", "stuid": "201305300114", "address": "\u9752\u5c9b\u5e73\u5ea6\u5e02\u5e97\u5b50\u9547\u4e1d\u5be8\u675165\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941011", "identify": "370283199410117014", "gender": "\u7537", "examid": "13370283111428", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13792878413"}
+*3
+$3
+SET
+$20
+student:201305300115
+$392
+{"type": "\u666e\u901a", "name": "\u5218\u4eae", "headteac": "\u9648\u514b\u5766", "stuid": "201305300115", "address": "\u4e34\u6c82\u5e02\u7f57\u5e84\u533a\u65b0\u534e\u91cc", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940617", "identify": "371302199406170216", "gender": "\u7537", "examid": "13371311110978", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13853952211"}
+*3
+$3
+SET
+$20
+student:201305300116
+$440
+{"type": "\u666e\u901a", "name": "\u4e8e\u4e1c\u73b2", "headteac": "\u9648\u514b\u5766", "stuid": "201305300116", "address": "\u6f4d\u574a\u5e02\u5ce1\u5c71\u533a\u592a\u5821\u8857\u9053\u5c9e\u5c71\u7ad9\u897f\u590f\u6e7e", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941203", "identify": "370786199412035414", "gender": "\u7537", "examid": "13370786111833", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13280701303"}
+*3
+$3
+SET
+$20
+student:201305300117
+$428
+{"type": "\u666e\u901a", "name": "\u8d3e\u68a6\u83b9", "headteac": "\u9648\u514b\u5766", "stuid": "201305300117", "address": "\u83cf\u6cfd\u5e02\u6210\u6b66\u53bf\u82df\u6751\u9547\u5b54\u697c\u897f\u8d3e\u5e84", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931019", "identify": "372924199310192420", "gender": "\u5973", "examid": "13372924130790", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15063482289"}
+*3
+$3
+SET
+$20
+student:201305300118
+$410
+{"type": "\u666e\u901a", "name": "\u5f20\u542b", "headteac": "\u9648\u514b\u5766", "stuid": "201305300118", "address": "\u67a3\u5e84\u5e02\u5cc4\u57ce\u533a\u9634\u5e73\u9547\u65b0\u5c4b\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950612", "identify": "370404199506122243", "gender": "\u5973", "examid": "13370403150135", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13913063832"}
+*3
+$3
+SET
+$20
+student:201305300119
+$398
+{"type": "\u666e\u901a", "name": "\u989c\u5a07\u5a07", "headteac": "\u9648\u514b\u5766", "stuid": "201305300119", "address": "\u6ed5\u5dde\u5e02\u7ea7\u7d22\u9547\u989c\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940711", "identify": "37048119940711382X", "gender": "\u5973", "examid": "13370481170156", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13969493318"}
+*3
+$3
+SET
+$20
+student:201305300120
+$416
+{"type": "\u666e\u901a", "name": "\u5f20\u96ea", "headteac": "\u9648\u514b\u5766", "stuid": "201305300120", "address": "\u65e5\u7167\u5e02\u5c9a\u5c71\u533a\u5c9a\u5c71\u5934\u8857\u9053\u4e00\u8857", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19931208", "identify": "371102199312083305", "gender": "\u5973", "examid": "13371103130299", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13562350027"}
+*3
+$3
+SET
+$20
+student:201305300121
+$410
+{"type": "\u666e\u901a", "name": "\u5f20\u989c", "headteac": "\u9648\u514b\u5766", "stuid": "201305300121", "address": "\u83cf\u6cfd\u5e02\u5b9a\u9676\u53bf\u9a6c\u96c6\u9547\u5f20\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19930301", "identify": "372923199303011744", "gender": "\u5973", "examid": "13372923110683", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15965879396"}
+*3
+$3
+SET
+$20
+student:201305300122
+$416
+{"type": "\u666e\u901a", "name": "\u8303\u9759\u9759", "headteac": "\u9648\u514b\u5766", "stuid": "201305300122", "address": "\u83cf\u6cfd\u5e02\u9104\u57ce\u53bf\u5f15\u9a6c\u4e61\u8303\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950318", "identify": "372929199503186926", "gender": "\u5973", "examid": "13372929110879", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15020506255"}
+*3
+$3
+SET
+$20
+student:201305300123
+$386
+{"type": "\u666e\u901a", "name": "\u5362\u4e91", "headteac": "\u9648\u514b\u5766", "stuid": "201305300123", "address": "\u535a\u5174\u53bf\u9648\u6237\u9547\u7eaf\u6881", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941210", "identify": "372328199412101828", "gender": "\u5973", "examid": "13370530130346", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13793876704"}
+*3
+$3
+SET
+$20
+student:201305300124
+$436
+{"type": "\u666e\u901a", "name": "\u8d3e\u4fca\u5b87", "headteac": "\u9648\u514b\u5766", "stuid": "201305300124", "address": "\u5fb7\u5dde\u5e02\u5fb7\u57ce\u533a\u65b0\u57ce\u529e\u4e8b\u5904\u90ed\u5bb6\u5eb530\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950714", "identify": "371402199507146421", "gender": "\u5973", "examid": "13371402130946", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15865345098"}
+*3
+$3
+SET
+$20
+student:201305300125
+$410
+{"type": "\u666e\u901a", "name": "\u738b\u4fca", "headteac": "\u9648\u514b\u5766", "stuid": "201305300125", "address": "\u6dc4\u535a\u5e02\u4e34\u6dc4\u533a\u7687\u57ce\u9547\u9ad8\u5bb6\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950118", "identify": "370305199501183742", "gender": "\u5973", "examid": "13370305130195", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13573348534"}
+*3
+$3
+SET
+$20
+student:201305300126
+$437
+{"type": "\u666e\u901a", "name": "\u6a0a\u60a6\u9633", "headteac": "\u9648\u514b\u5766", "stuid": "201305300126", "address": "\u6d4e\u5357\u5e02\u5386\u57ce\u533a\u6e2f\u6c9f\u9547\u5b89\u5bb6\u5e84\u4e8c\u533a146\u53f7", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950219", "identify": "370112199502192926", "gender": "\u5973", "examid": "13370112111599", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15006512375"}
+*3
+$3
+SET
+$20
+student:201305300127
+$443
+{"type": "\u666e\u901a", "name": "\u6bb5\u5c0f\u9759", "headteac": "\u9648\u514b\u5766", "stuid": "201305300127", "address": "\u6d4e\u5b81\u5e02\u5156\u5dde\u5e02\u94c1\u8def\u4e8c\u533a\u4e00\u5355\u5143\u4e00\u53f7\u697c403", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19950604", "identify": "370882199506040062", "gender": "\u5973", "examid": "13370882110653", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13054979845"}
+*3
+$3
+SET
+$20
+student:201305300128
+$407
+{"type": "\u9884\u79d1", "name": "\u5434\u5f00\u83b9", "headteac": "\u9648\u514b\u5766", "stuid": "201305300128", "address": "\u6d4e\u5b81\u5e02\u5fae\u5c71\u53bf\u7559\u5e84\u9547\u4e09\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921212", "identify": "370826199212124657", "gender": "\u7537", "examid": "xxxxxxxxxxx", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "15854768476"}
+*3
+$3
+SET
+$20
+student:201305300129
+$404
+{"type": "\u9884\u79d1", "name": "\u9a6c\u51e4\u5ce6", "headteac": "\u9648\u514b\u5766", "stuid": "201305300129", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u5357\u5f90\u697c\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19941015", "identify": "370481199410153523", "gender": "\u5973", "examid": "13370481112719", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13516329393"}
+*3
+$3
+SET
+$20
+student:201305300130
+$392
+{"type": "\u9884\u79d1", "name": "\u9c81\u83f2", "headteac": "\u9648\u514b\u5766", "stuid": "201305300130", "address": "\u6ed5\u5dde\u5e02\u59dc\u5c6f\u9547\u97e9\u573a\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19921211", "identify": "370481199212112229", "gender": "\u5973", "examid": "13370481112715", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18266273168"}
+*3
+$3
+SET
+$20
+student:201305300131
+$410
+{"type": "\u666e\u901a", "name": "\u5e9e\u7965\u5f6c", "headteac": "\u9648\u514b\u5766", "stuid": "201305300131", "address": "\u6cf0\u5b89\u5e02\u4e1c\u5e73\u53bf\u5927\u7f8a\u4e61\u8bb8\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940214", "identify": "370923199402141219", "gender": "\u7537", "examid": "13370923170256", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13501241932"}
+*3
+$3
+SET
+$20
+student:201305300132
+$464
+{"type": "\u666e\u901a", "name": "\u6768\u8def\u5e73", "headteac": "\u9648\u514b\u5766", "stuid": "201305300132", "address": "\u5c71\u4e1c\u7701\u9104\u57ce\u53bf\u51e4\u51f0\u4e61\u897f\u4faf\u697c\u884c\u653f\u6751\u6c34\u5751\u738b\u5e84\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19920109", "identify": "372929199201090929", "gender": "\u5973", "examid": "13372929130357", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13954012680"}
+*3
+$3
+SET
+$20
+student:201305300133
+$410
+{"type": "\u666e\u901a", "name": "\u7a0b\u7d20\u6625", "headteac": "\u9648\u514b\u5766", "stuid": "201305300133", "address": "\u83cf\u6cfd\u5e02\u5355\u53bf\u5355\u57ce\u9547\u77fe\u68da\u6751", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940210", "identify": "372925199402107728", "gender": "\u5973", "examid": "13372925111789", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "13625305549"}
+*3
+$3
+SET
+$20
+student:201305300134
+$416
+{"type": "\u666e\u901a", "name": "\u5b59\u50b2", "headteac": "\u9648\u514b\u5766", "stuid": "201305300134", "address": "\u9ed1\u9f99\u6c5f\u54c8\u5c14\u6ee8\u547c\u5170\u533a\u6021\u56ed\u5c0f\u533a", "field": "\u7269\u6d41\u7ba1\u7406", "birthday": "19940519", "identify": "230121199405190019", "gender": "\u7537", "examid": "13230121050856", "class": "13\u7ea7\u7269\u6d41\u7ba1\u7406", "homephone": "18661911665"}
+*3
+$3
+SET
+$20
+student:201305300135
+$408
+{"type": "\u9884\u79d1", "name": "\u987e\u58eb\u6d69", "headteac": "\u5f20\u6ce2", "stuid": "201305300135", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547\u4e2d\u97e9\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19960206", "identify": "370481199602066010", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13181292418"}
+*3
+$3
+SET
+$20
+student:201305300136
+$422
+{"type": "\u9884\u79d1", "name": "\u970d\u672c\u946b", "headteac": "\u5f20\u6ce2", "stuid": "201305300136", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053\u8d75\u738b\u6cb3\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a", "birthday": "19960325", "identify": "370481199603250012", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "5592817"}
+*3
+$3
+SET
+$20
+student:201305300137
+$408
+{"type": "\u9884\u79d1", "name": "\u9a6c\u555f\u6d32", "headteac": "\u5f20\u6ce2", "stuid": "201305300137", "address": "\u6ed5\u5dde\u5e02\u754c\u6cb3\u9547\u540e\u67a3\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19930303", "identify": "370481199303031870", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "18511031765"}
+*3
+$3
+SET
+$20
+student:201305300138
+$408
+{"type": "\u9884\u79d1", "name": "\u9ec4\u8363\u4f1f", "headteac": "\u5f20\u6ce2", "stuid": "201305300138", "address": "\u6ed5\u5dde\u5e02\u4e1c\u90ed\u9547\u4e1c\u660e\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19931216", "identify": "370481199312167710", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15965117983"}
+*3
+$3
+SET
+$20
+student:201305300139
+$396
+{"type": "\u9884\u79d1", "name": "\u9a6c\u4f73\u5947", "headteac": "\u5f20\u6ce2", "stuid": "201305300139", "address": "\u5fae\u5c71\u53bf\u5fa1\u666f\u82b1\u56ed", "field": "\u8ba1\u7b97\u673a", "birthday": "19950719", "identify": "370826199507196455", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13964914058"}
+*3
+$3
+SET
+$20
+student:201305300140
+$414
+{"type": "\u9884\u79d1", "name": "\u5f20\u6210\u9e4f", "headteac": "\u5f20\u6ce2", "stuid": "201305300140", "address": "\u6ed5\u5dde\u5e02\u67f4\u80e1\u5e97\u9547\u5b98\u573a\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19950803", "identify": "37048119950803643X", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13581121600"}
+*3
+$3
+SET
+$20
+student:201305300141
+$410
+{"type": "\u9884\u79d1", "name": "\u8d75\u771f\u94ed", "headteac": "\u5f20\u6ce2", "stuid": "201305300141", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u8857\u9053\u7a0b\u5802\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19960701", "identify": "370406199607015036", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "5687116"}
+*3
+$3
+SET
+$20
+student:201305300142
+$402
+{"type": "\u9884\u79d1", "name": "\u674e\u653f", "headteac": "\u5f20\u6ce2", "stuid": "201305300142", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547\u826f\u91cc\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19940603", "identify": "37048119940603605X", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13562222524"}
+*3
+$3
+SET
+$20
+student:201305300143
+$418
+{"type": "\u9884\u79d1", "name": "\u5218\u8000\u9686", "headteac": "\u5f20\u6ce2", "stuid": "201305300143", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053\u6587\u5e99\u885710\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19960421", "identify": "37048119960421091X", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "3955144"}
+*3
+$3
+SET
+$20
+student:201305300144
+$408
+{"type": "\u9884\u79d1", "name": "\u6768\u5a01", "headteac": "\u5f20\u6ce2", "stuid": "201305300144", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u8857\u9053\u5357\u4faf\u5e84", "field": "\u8ba1\u7b97\u673a", "birthday": "19911218", "identify": "370481199112181251", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13455751510"}
+*3
+$3
+SET
+$20
+student:201305300145
+$396
+{"type": "\u9884\u79d1", "name": "\u4faf\u8273\u5a77", "headteac": "\u5f20\u6ce2", "stuid": "201305300145", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053", "field": "\u8ba1\u7b97\u673a", "birthday": "19950812", "identify": "370481199508121220", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15154051689"}
+*3
+$3
+SET
+$20
+student:201305300146
+$404
+{"type": "\u9884\u79d1", "name": "\u5f90\u58ee", "headteac": "\u5f20\u6ce2", "stuid": "201305300146", "address": "\u6ed5\u5dde\u5e02\u897f\u5317\u575b\u4e03\u5df733\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19961010", "identify": "370481199610105630", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13156322902"}
+*3
+$3
+SET
+$20
+student:201305300147
+$408
+{"type": "\u9884\u79d1", "name": "\u515a\u540c\u8d85", "headteac": "\u5f20\u6ce2", "stuid": "201305300147", "address": "\u6ed5\u5dde\u5e02\u4e1c\u6c99\u6cb3\u9547\u515a\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19950414", "identify": "370481199504147415", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "18266034343"}
+*3
+$3
+SET
+$20
+student:201305300148
+$408
+{"type": "\u9884\u79d1", "name": "\u5b5f\u8273\u505c", "headteac": "\u5f20\u6ce2", "stuid": "201305300148", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547\u5fd7\u95e8\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19941220", "identify": "370481199412206043", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15166321529"}
+*3
+$3
+SET
+$20
+student:201305300149
+$408
+{"type": "\u9884\u79d1", "name": "\u5218\u94f6\u73e0", "headteac": "\u5f20\u6ce2", "stuid": "201305300149", "address": "\u6ed5\u5dde\u5e02\u67f4\u80e1\u5e97\u9547\u5218\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19960102", "identify": "370481199601026447", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13884772767"}
+*3
+$3
+SET
+$20
+student:201305300150
+$402
+{"type": "\u9884\u79d1", "name": "\u5f90\u7433", "headteac": "\u5f20\u6ce2", "stuid": "201305300150", "address": "\u6ed5\u5dde\u5e02\u8346\u5584\u5b89\u5c45\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a", "birthday": "19941212", "identify": "370481199412120020", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "18265210633"}
+*3
+$3
+SET
+$20
+student:201305300151
+$402
+{"type": "\u9884\u79d1", "name": "\u7518\u9716", "headteac": "\u5f20\u6ce2", "stuid": "201305300151", "address": "\u5c71\u4ead\u533a\u897f\u96c6\u9547\u5efa\u65b0\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19921118", "identify": "37040619921118452X", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15263220513"}
+*3
+$3
+SET
+$20
+student:201305300152
+$414
+{"type": "\u9884\u79d1", "name": "\u7f57\u8d85", "headteac": "\u5f20\u6ce2", "stuid": "201305300152", "address": "\u5e02\u4e2d\u533a\u77ff\u8857\u9053\u4e1c\u4e95\u65b0\u4e00\u533a", "field": "\u8ba1\u7b97\u673a", "birthday": "19940529", "identify": "370402199405290624", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15949952838"}
+*3
+$3
+SET
+$20
+student:201305300153
+$414
+{"type": "\u9884\u79d1", "name": "\u5218\u7a33", "headteac": "\u5f20\u6ce2", "stuid": "201305300153", "address": "\u6d4e\u5b81\u5e02\u5609\u7965\u53bf\u7eb8\u574a\u9547\u5218\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19970828", "identify": "37082919970828205X", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13563791393"}
+*3
+$3
+SET
+$20
+student:201305300154
+$402
+{"type": "\u9884\u79d1", "name": "\u6797\u864e", "headteac": "\u5f20\u6ce2", "stuid": "201305300154", "address": "\u6ed5\u5dde\u5e02\u5f20\u6c6a\u9547\u8f9b\u5e84\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19940801", "identify": "370481199408015631", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15666716368"}
+*3
+$3
+SET
+$20
+student:201305300155
+$414
+{"type": "\u9884\u79d1", "name": "\u9ec4\u9999\u7fe0", "headteac": "\u5f20\u6ce2", "stuid": "201305300155", "address": "\u6ed5\u5dde\u5e02\u8346\u6cb3\u8857\u9053\u4f55\u5e84\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19941109", "identify": "370481199411090923", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15854686059"}
+*3
+$3
+SET
+$20
+student:201305300156
+$393
+{"type": "\u9884\u79d1", "name": "\u5f20\u4fca", "headteac": "\u5f20\u6ce2", "stuid": "201305300156", "address": "\u5c71\u4ead\u533a\u5e9c\u524d\u8def216\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19951226", "identify": "370406199512260119", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13581108399"}
+*3
+$3
+SET
+$20
+student:201305300157
+$404
+{"type": "\u9884\u79d1", "name": "\u4faf\u7ecd\u6c11", "headteac": "\u5f20\u6ce2", "stuid": "201305300157", "address": "\u5c71\u4ead\u533a\u57ce\u5934\u9547\u4f0d\u5e84\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19930828", "identify": "370406199308286012", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "8713229"}
+*3
+$3
+SET
+$20
+student:201305300158
+$435
+{"type": "\u9884\u79d1", "name": "\u5019\u4f20\u7a0b", "headteac": "\u5f20\u6ce2", "stuid": "201305300158", "address": "\u67a3\u5e84\u5e02\u5e02\u4e2d\u533a\u7acb\u65b0\u5c0f\u533a1\u5355\u514310\u53f7", "field": "\u8ba1\u7b97\u673a", "birthday": "19930816", "identify": "370402199308161513", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13561110944"}
+*3
+$3
+SET
+$20
+student:201305300159
+$414
+{"type": "\u9884\u79d1", "name": "\u7a0b\u660e\u707f", "headteac": "\u5f20\u6ce2", "stuid": "201305300159", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u8857\u9053\u7a0b\u5802\u6751", "field": "\u8ba1\u7b97\u673a", "birthday": "19950120", "identify": "37048119950120121x", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13969433207"}
+*3
+$3
+SET
+$20
+student:201305300160
+$414
+{"type": "\u9884\u79d1", "name": "\u5f20\u6d0b", "headteac": "\u5f20\u6ce2", "stuid": "201305300160", "address": "\u6ed5\u5dde\u5e02\u5317\u8f9b\u8857\u9053\u524d\u8fdb\u82b1\u56ed", "field": "\u8ba1\u7b97\u673a", "birthday": "19960608", "identify": "370481199606081234", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "13562216473"}
+*3
+$3
+SET
+$20
+student:201305300161
+$402
+{"type": "\u9884\u79d1", "name": "\u77f3\u8d85", "headteac": "\u5f20\u6ce2", "stuid": "201305300161", "address": "\u6ed5\u5dde\u5e02\u5584\u5357\u8857\u9053\u8d3e\u5e84", "field": "\u8ba1\u7b97\u673a", "birthday": "19921207", "identify": "37048119921207121x", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "homephone": "15318066139"}
+*3
+$3
+SET
+$20
+student:201305300162
+$424
+{"type": "\u666e\u901a", "name": "\u621a\u5174\u5b87", "headteac": "\u674e\u4f1f", "stuid": "201305300162", "address": "\u8499\u9634\u53bf\u579b\u5e84\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950306", "identify": "37132819950306251x", "gender": "\u7537", "examid": "13371312130240", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13053185614"}
+*3
+$3
+SET
+$20
+student:201305300163
+$430
+{"type": "\u666e\u901a", "name": "\u674e\u9e4f", "headteac": "\u674e\u4f1f", "stuid": "201305300163", "address": "\u90e2\u57ce\u53bf\u674e\u6751\u884c\u653f\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19911120", "identify": "372929199112087218", "gender": "\u7537", "examid": "13372929110731", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15264402903"}
+*3
+$3
+SET
+$20
+student:201305300164
+$430
+{"type": "\u666e\u901a", "name": "\u9a6c\u6587\u6377", "headteac": "\u674e\u4f1f", "stuid": "201305300164", "address": "\u6ed5\u5dde\u5e02\u67f4\u91cc\u7164\u77ff", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950608", "identify": "370481199506088471", "gender": "\u7537", "examid": "13370481130992", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18266281507"}
+*3
+$3
+SET
+$20
+student:201305300165
+$424
+{"type": "\u666e\u901a", "name": "\u8d3e\u5bcc\u5f3a", "headteac": "\u674e\u4f1f", "stuid": "201305300165", "address": "\u6d4e\u5b81\u5e02\u9a6c\u5e99\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19931221", "identify": "370828199312214054", "gender": "\u7537", "examid": "13370828170019", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15166371611"}
+*3
+$3
+SET
+$20
+student:201305300166
+$442
+{"type": "\u666e\u901a", "name": "\u9648\u73ae\u5b66", "headteac": "\u674e\u4f1f", "stuid": "201305300166", "address": "\u5c71\u4e1c\u7701\u5373\u58a8\u5e02\u5c71\u4e1c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19941121", "identify": "370282199411216915", "gender": "\u7537", "examid": "13370282140201", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15621006728"}
+*3
+$3
+SET
+$20
+student:201305300167
+$406
+{"type": "\u666e\u901a", "name": "\u4e01\u540c\u6839", "headteac": "\u674e\u4f1f", "stuid": "201305300167", "address": "\u5fae\u5c71\u53bf", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940818", "identify": "37082619940818407x", "gender": "\u7537", "examid": "13370826151023", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13561146654"}
+*3
+$3
+SET
+$20
+student:201305300168
+$436
+{"type": "\u666e\u901a", "name": "\u4e8e\u6d9b", "headteac": "\u674e\u4f1f", "stuid": "201305300168", "address": "\u6d77\u9633\u5e02\u51e4\u57ce\u9547\u65b0\u5b89\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940719", "identify": "370687199407190410", "gender": "\u7537", "examid": "13370687150807", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18863804539"}
+*3
+$3
+SET
+$20
+student:201305300169
+$415
+{"type": "\u666e\u901a", "name": "\u9093\u8d85", "headteac": "\u674e\u4f1f", "stuid": "201305300169", "address": "\u8f9b\u5174\u5317\u533a12-1--201", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951229", "identify": "370481199512290959", "gender": "\u7537", "examid": "13370481132411", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13806328672"}
+*3
+$3
+SET
+$20
+student:201305300170
+$436
+{"type": "\u666e\u901a", "name": "\u845b\u51e1\u6770", "headteac": "\u674e\u4f1f", "stuid": "201305300170", "address": "\u6ed5\u5dde\u5e02\u677f\u6cc9\u9547\u524d\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19941002", "identify": "371327199410021237", "gender": "\u7537", "examid": "13371327112116", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15153911255"}
+*3
+$3
+SET
+$20
+student:201305300171
+$424
+{"type": "\u666e\u901a", "name": "\u9648\u6d2a\u6c9b", "headteac": "\u674e\u4f1f", "stuid": "201305300171", "address": "\u65e5\u7167\u5e02\u5c9a\u5c71\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950601", "identify": "371102199506018173", "gender": "\u7537", "examid": "13371102130609", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13256338879"}
+*3
+$3
+SET
+$20
+student:201305300172
+$436
+{"type": "\u666e\u901a", "name": "\u9b4f\u8273\u519b", "headteac": "\u674e\u4f1f", "stuid": "201305300172", "address": "\u90e2\u57ce\u53bf\u674e\u6751\u884c\u653f\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930614", "identify": "372929199306142422", "gender": "\u5973", "examid": "13372929110774", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15253039680"}
+*3
+$3
+SET
+$20
+student:201305300173
+$412
+{"type": "\u666e\u901a", "name": "\u5b59\u56ed\u56ed", "headteac": "\u674e\u4f1f", "stuid": "201305300173", "address": "\u5c71\u4e1c\u66f9\u53bf", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19900530", "identify": "372922199005305246", "gender": "\u5973", "examid": "13372922111016", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15264074260"}
+*3
+$3
+SET
+$20
+student:201305300174
+$436
+{"type": "\u666e\u901a", "name": "\u738b\u8fea", "headteac": "\u674e\u4f1f", "stuid": "201305300174", "address": "\u6cb3\u5357\u7701\u5546\u4e18\u5e02\u590f\u9091\u53bf", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940603", "identify": "412326199406030322", "gender": "\u5973", "examid": "13411312112159", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13148090679"}
+*3
+$3
+SET
+$20
+student:201305300175
+$424
+{"type": "\u666e\u901a", "name": "\u738b\u5ef6\u6e05", "headteac": "\u674e\u4f1f", "stuid": "201305300175", "address": "\u6ed5\u5dde\u5e02\u4e1c\u5347\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19980908", "identify": "370481199809087733", "gender": "\u7537", "examid": "13370481111104", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15154076879"}
+*3
+$3
+SET
+$20
+student:201305300176
+$442
+{"type": "\u666e\u901a", "name": "\u738b\u4e9a\u6960", "headteac": "\u674e\u4f1f", "stuid": "201305300176", "address": "\u6dc4\u535a\u5e02\u6dc4\u5ddd\u533a\u6606\u4ed1\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19941014", "identify": "370302199410146023", "gender": "\u5973", "examid": "13370302110710", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15169349962"}
+*3
+$3
+SET
+$20
+student:201305300177
+$448
+{"type": "\u666e\u901a", "name": "\u8d75\u663e\u6d69", "headteac": "\u674e\u4f1f", "stuid": "201305300177", "address": "\u83cf\u6cfd\u5e02\u90e2\u57ce\u53bf\u516b\u91cc\u6cb3\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950308", "identify": "372928199503080236", "gender": "\u7537", "examid": "13372928130451", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13854046858"}
+*3
+$3
+SET
+$20
+student:201305300178
+$448
+{"type": "\u666e\u901a", "name": "\u4f55\u987a", "headteac": "\u674e\u4f1f", "stuid": "201305300178", "address": "\u83cf\u6cfd\u5e02\u5355\u53bf\u5b59\u6e9c\u9547\u51e1\u697c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940915", "identify": "372925199409150710", "gender": "\u7537", "examid": "13372925150016", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13153090456"}
+*3
+$3
+SET
+$20
+student:201305300179
+$430
+{"type": "\u666e\u901a", "name": "\u90ed\u7d20\u6c5d", "headteac": "\u674e\u4f1f", "stuid": "201305300179", "address": "\u5c71\u4ead\u9547\u6734\u5c71\u524d\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951119", "identify": "370406199511190024", "gender": "\u5973", "examid": "13370406150389", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15098295909"}
+*3
+$3
+SET
+$20
+student:201305300180
+$424
+{"type": "\u666e\u901a", "name": "\u5355\u5b50\u94ed", "headteac": "\u674e\u4f1f", "stuid": "201305300180", "address": "\u9ad8\u5bc6\u5e02\u5a18\u5a18\u5e99", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930626", "identify": "370785199306260910", "gender": "\u7537", "examid": "13370785111405", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15053670666"}
+*3
+$3
+SET
+$20
+student:201305300181
+$430
+{"type": "\u666e\u901a", "name": "\u5b8b\u5148\u5e7f", "headteac": "\u674e\u4f1f", "stuid": "201305300181", "address": "\u6ed5\u5dde\u754c\u6cb3\u9547\u803f\u5e84", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960202", "identify": "370481199602021816", "gender": "\u7537", "examid": "13370481112011", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13969400874"}
+*3
+$3
+SET
+$20
+student:201305300182
+$430
+{"type": "\u666e\u901a", "name": "\u79e6\u7ecd\u96c1", "headteac": "\u674e\u4f1f", "stuid": "201305300182", "address": "\u83cf\u6cfd\u5355\u53bf\u5f20\u96c6\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940821", "identify": "372925299408216132", "gender": "\u7537", "examid": "13372925153801", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15098224033"}
+*3
+$3
+SET
+$20
+student:201305300183
+$448
+{"type": "\u666e\u901a", "name": "\u738b\u666f\u9633", "headteac": "\u674e\u4f1f", "stuid": "201305300183", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u5357\u5f90\u697c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19970105", "identify": "370481199701053522", "gender": "\u5973", "examid": "13370404800070", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13858195000"}
+*3
+$3
+SET
+$20
+student:201305300184
+$460
+{"type": "\u666e\u901a", "name": "\u5c1a\u5955\u5f64", "headteac": "\u674e\u4f1f", "stuid": "201305300184", "address": "\u67a3\u5e84\u5c71\u4ead\u533a\u5f90\u5e84\u9547\u846b\u82a6\u5957\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940110", "identify": "370406199401102265", "gender": "\u5973", "examid": "13370404800089", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13969424291"}
+*3
+$3
+SET
+$20
+student:201305300185
+$442
+{"type": "\u666e\u901a", "name": "\u97e9\u5584\u82b1", "headteac": "\u674e\u4f1f", "stuid": "201305300185", "address": "\u6ed5\u5dde\u5e02\u6ee8\u6e56\u9547\u540e\u53e4\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940209", "identify": "370481199402093225", "gender": "\u5973", "examid": "13370404800050", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15098249951"}
+*3
+$3
+SET
+$20
+student:201305300186
+$406
+{"type": "\u666e\u901a", "name": "\u5b59\u52a0\u78ca", "headteac": "\u674e\u4f1f", "stuid": "201305300186", "address": "\u6ed5\u5dde\u5e02", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19921024", "identify": "37048119921024181x", "gender": "\u7537", "examid": "13370404800093", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15564685607"}
+*3
+$3
+SET
+$20
+student:201305300187
+$448
+{"type": "\u666e\u901a", "name": "\u9c81\u7389\u9f99", "headteac": "\u674e\u4f1f", "stuid": "201305300187", "address": "\u6ed5\u5dde\u5e02\u8346\u6cb3\u8857\u9053\u8def\u4e1c\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19920305", "identify": "370481199203051292", "gender": "\u7537", "examid": "13370404800074", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13561131748"}
+*3
+$3
+SET
+$20
+student:201305300188
+$430
+{"type": "\u666e\u901a", "name": "\u738b\u660c\u76db", "headteac": "\u674e\u4f1f", "stuid": "201305300188", "address": "\u6ed5\u5dde\u5e02\u5b89\u5eb7\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950119", "identify": "370481199501190012", "gender": "\u7537", "examid": "13370404800064", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13626329508"}
+*3
+$3
+SET
+$20
+student:201305300189
+$400
+{"type": "\u666e\u901a", "name": "\u6e20\u9716", "headteac": "\u674e\u4f1f", "stuid": "201305300189", "address": "\u6ed5\u5dde\u5e02", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950718", "identify": "370481199507180923", "gender": "\u5973", "examid": "13370404800060", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13563230039"}
+*3
+$3
+SET
+$20
+student:201305300190
+$448
+{"type": "\u666e\u901a", "name": "\u674e\u6d69", "headteac": "\u674e\u4f1f", "stuid": "201305300190", "address": "\u6ed5\u5dde\u5e02\u9f99\u6cc9\u529e\u4e8b\u5904\u5201\u5e84\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930301", "identify": "370481199303017454", "gender": "\u7537", "examid": "13370404800035", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13869406691"}
+*3
+$3
+SET
+$20
+student:201305300191
+$430
+{"type": "\u666e\u901a", "name": "\u5f90\u7edf\u5e05", "headteac": "\u674e\u4f1f", "stuid": "201305300191", "address": "\u6ed5\u5dde\u5e02\u8346\u6cb3\u897f\u8def", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19930913", "identify": "370481199309130319", "gender": "\u7537", "examid": "13370404800031", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13869422116"}
+*3
+$3
+SET
+$20
+student:201305300192
+$408
+{"type": "\u4e09\u4e8c", "name": "\u8d75\u5a01", "headteac": "\u674e\u4f1f", "stuid": "201305300192", "address": "\u6ed5\u5dde\u5e02\u5bb6\u4e50\u56ed", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960409", "identify": "370481199604090014", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18678266009"}
+*3
+$3
+SET
+$20
+student:201305300193
+$414
+{"type": "\u4e09\u4e8c", "name": "\u6768\u7487\u7487", "headteac": "\u674e\u4f1f", "stuid": "201305300193", "address": "\u6ed5\u5dde\u5e02\u5b98\u6865\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960710", "identify": "370481199607106026", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15866225728"}
+*3
+$3
+SET
+$20
+student:201305300194
+$414
+{"type": "\u4e09\u4e8c", "name": "\u4e8e\u6da6\u6d69", "headteac": "\u674e\u4f1f", "stuid": "201305300194", "address": "\u67a3\u5e84\u5e02\u5e02\u4e2d\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960416", "identify": "370402199604167717", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "06323345885"}
+*3
+$3
+SET
+$20
+student:201305300195
+$426
+{"type": "\u4e09\u4e8c", "name": "\u5b59\u9759\u9759", "headteac": "\u674e\u4f1f", "stuid": "201305300195", "address": "\u67a3\u5e84\u5c71\u4ead\u533a\u5e97\u5b50\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19961002", "identify": "370406199610027468", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "06328982112"}
+*3
+$3
+SET
+$20
+student:201305300196
+$414
+{"type": "\u4e09\u4e8c", "name": "\u5de6\u7fd4\u5347", "headteac": "\u674e\u4f1f", "stuid": "201305300196", "address": "\u6ed5\u5dde\u5e02\u4e1c\u6c99\u6cb3", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960516", "identify": "370481199605167415", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13562206177"}
+*3
+$3
+SET
+$20
+student:201305300197
+$414
+{"type": "\u4e09\u4e8c", "name": "\u5415\u4f1f\u6e90", "headteac": "\u674e\u4f1f", "stuid": "201305300197", "address": "\u6ed5\u5dde\u5e02\u9c8d\u6c9f\u9547", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951121", "identify": "370481199511214639", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13736046835"}
+*3
+$3
+SET
+$20
+student:201305300198
+$414
+{"type": "\u4e09\u4e8c", "name": "\u90b1\u96e8\u99a8", "headteac": "\u674e\u4f1f", "stuid": "201305300198", "address": "\u6ed5\u5dde\u8346\u5584\u5b89\u5c45", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951015", "identify": "370481199510150928", "gender": "\u5973", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13501881096"}
+*3
+$3
+SET
+$20
+student:201305300199
+$416
+{"type": "\u4e09\u4e8c", "name": "\u5b8b\u6797\u864e", "headteac": "\u674e\u4f1f", "stuid": "201305300199", "address": "\u8d75\u738b\u6cb3\u5c0f\u533a28-2-102", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960901", "identify": "370481199609010933", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18363744131"}
+*3
+$3
+SET
+$20
+student:201305300200
+$402
+{"type": "\u4e09\u4e8c", "name": "\u674e\u5cf0\u5b87", "headteac": "\u674e\u4f1f", "stuid": "201305300200", "address": "\u6ed5\u5dde\u8d35\u548c", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960517", "identify": "370481199605170032", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15224465090"}
+*3
+$3
+SET
+$20
+student:201305300201
+$396
+{"type": "\u4e94\u5e74", "name": "\u9b4f\u8fea", "headteac": "\u674e\u4f1f", "stuid": "201305300201", "address": "\u6ed5\u5dde\u90be\u57ce", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950321", "identify": "370481199503211518", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18266298902"}
+*3
+$3
+SET
+$20
+student:201305300202
+$402
+{"type": "\u4e94\u5e74", "name": "\u738b\u7fd4", "headteac": "\u674e\u4f1f", "stuid": "201305300202", "address": "\u5bb6\u4e50\u56ed\u5c0f\u533a", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19950709", "identify": "370481199507090610", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15698020449"}
+*3
+$3
+SET
+$20
+student:201305300203
+$396
+{"type": "\u4e94\u5e74", "name": "\u515a\u6d69\u8fde", "headteac": "\u674e\u4f1f", "stuid": "201305300203", "address": "\u4e1c\u6c99\u6cb3", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960415", "identify": "370481199604157434", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "18266004226"}
+*3
+$3
+SET
+$20
+student:201305300204
+$402
+{"type": "\u4e94\u5e74", "name": "\u90b5\u957f\u5e05", "headteac": "\u674e\u4f1f", "stuid": "201305300204", "address": "\u6ed5\u5dde\u571f\u57ce", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19940108", "identify": "370406199401086613", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15398283549"}
+*3
+$3
+SET
+$20
+student:201305300205
+$402
+{"type": "\u4e94\u5e74", "name": "\u8096\u7965", "headteac": "\u674e\u4f1f", "stuid": "201305300205", "address": "\u6ed5\u5dde\u524d\u8fdb\u6751", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19960616", "identify": "370481199606160039", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "15266265672"}
+*3
+$3
+SET
+$20
+student:201305300206
+$402
+{"type": "\u4e94\u5e74", "name": "\u5f90\u5f3a", "headteac": "\u674e\u4f1f", "stuid": "201305300206", "address": "\u6ed5\u5dde\u9f99\u6cc9\u82d1", "field": "\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f", "birthday": "19951122", "identify": "370481199511225012", "gender": "\u7537", "examid": "xxxx", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "homephone": "13963265817"}
+*3
+$3
+SET
+$20
+student:201305300207
+$405
+{"type": "\u666e\u901a", "name": "\u97e9\u7389\u5a07", "headteac": "\u7518\u4fe1\u5f3a", "stuid": "201305300207", "address": "\u6d4e\u5b81\u5e02\u6cd7\u6c34\u53bf\u6cc9\u6797\u9547\u97e9\u5bb6\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1994-5-6", "identify": "370831199405063000", "gender": "\u5973", "examid": "13370831151098", "class": "13\u7ea7", "homephone": "0537-4010690"}
+*3
+$3
+SET
+$20
+student:201305300208
+$435
+{"type": "\u666e\u901a", "name": "\u5f20\u5f1b", "headteac": "\u7518\u4fe1\u5f3a", "stuid": "201305300208", "address": "\u67a3\u5e84\u5e02\u5e02\u4e2d\u533a\u6e05\u6cc9\u4e1c\u8def\u5341\u7535\u82b1\u82d11\u53f7\u697c4\u680b402", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-10-16", "identify": "370402199310162515", "gender": "\u7537", "examid": "13370402150610", "class": "13\u7ea7", "homephone": "15949948997"}
+*3
+$3
+SET
+$20
+student:201305300209
+$392
+{"type": "\u666e\u901a", "name": "\u6ee1\u5baa\u6210", "headteac": "\u7518\u4fe1\u5f3a", "stuid": "201305300209", "address": "\u6ed5\u5dde\u5e02\u897f\u5c97\u9547\u897f\u6cb3\u5c94\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1994-7-1", "identify": "370481199407014290", "gender": "\u7537", "examid": "13370404800105", "class": "13\u7ea7", "homephone": "18206420251"}
+*3
+$3
+SET
+$20
+student:201305300210
+$393
+{"type": "\u666e\u901a", "name": "\u674e\u6768", "headteac": "\u7518\u4fe1\u5f3a", "stuid": "201305300210", "address": "\u6ed5\u5dde\u5e02\u5b66\u9662\u4e1c\u8def\u4e1c\u5174\u5c0f\u533a", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1996-4-20", "identify": "370481199604200930", "gender": "\u7537", "examid": "13370404800045", "class": "13\u7ea7", "homephone": "13793741171"}
+*3
+$3
+SET
+$20
+student:201305300211
+$395
+{"type": "\u9884\u79d1", "name": "\u79e6\u54b8\u7136", "headteac": "\u7518\u4fe1\u5f3a", "stuid": "201305300211", "address": "\u67a3\u5e84\u5e02\u5c71\u4ead\u533a\u51af\u536f\u9547\u8d75\u6cc9\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-7-15", "identify": "370406199307156638", "gender": "\u7537", "examid": "xxxx", "class": "13\u7ea7", "homephone": "15864340506"}
+*3
+$3
+SET
+$20
+student:201305300212
+$395
+{"type": "\u9884\u79d1", "name": "\u8d75\u8d85", "headteac": "\u7518\u4fe1\u5f3a", "stuid": "201305300212", "address": "\u67a3\u5e84\u5e02\u5c71\u4ead\u533a\u57ce\u5934\u9547\u9a6c\u5c71\u5934\u6751", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-9-29", "identify": "370406199309296036", "gender": "\u7537", "examid": "xxxx", "class": "13\u7ea7", "homephone": "15098291209"}
+*3
+$3
+SET
+$20
+student:201305300213
+$385
+{"type": "\u9884\u79d1", "name": "\u8463\u4e7e", "headteac": "\u7518\u4fe1\u5f3a", "stuid": "201305300213", "address": "\u6c5f\u82cf\u7701\u4e30\u53bf\u57ce\u4e1c\u5317\u4e00\u5df786\u53f7", "field": "\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b", "birthday": "1993-7-25", "identify": "320321199307254659", "gender": "\u7537", "examid": "xxxx", "class": "13\u7ea7", "homephone": "15589226852"}
+*2
+$6
+SELECT
+$1
+0
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$4
+null
+*3
+$3
+SET
+$9
+class:ids
+$98
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}]
+*3
+$3
+SET
+$9
+class:ids
+$196
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}]
+*3
+$3
+SET
+$9
+class:ids
+$294
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}]
+*3
+$3
+SET
+$9
+class:ids
+$368
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}]
+*3
+$3
+SET
+$9
+class:ids
+$442
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}, {"name": "2012\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2012000301"}]
+*3
+$3
+SET
+$9
+class:ids
+$528
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}, {"name": "2012\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2012000301"}, {"name": "2012\u7ea7\u56fe\u5f62\u56fe\u50cf\u8bbe\u8ba1\u73ed", "id": "2012000401"}]
+*3
+$3
+SET
+$9
+class:ids
+$626
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}, {"name": "2012\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2012000301"}, {"name": "2012\u7ea7\u56fe\u5f62\u56fe\u50cf\u8bbe\u8ba1\u73ed", "id": "2012000401"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2013000001"}]
+*3
+$3
+SET
+$9
+class:ids
+$724
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}, {"name": "2012\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2012000301"}, {"name": "2012\u7ea7\u56fe\u5f62\u56fe\u50cf\u8bbe\u8ba1\u73ed", "id": "2012000401"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2013000001"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2013000002"}]
+*3
+$3
+SET
+$9
+class:ids
+$822
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}, {"name": "2012\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2012000301"}, {"name": "2012\u7ea7\u56fe\u5f62\u56fe\u50cf\u8bbe\u8ba1\u73ed", "id": "2012000401"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2013000001"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2013000002"}, {"name": "2013\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2013000101"}]
+*3
+$3
+SET
+$9
+class:ids
+$896
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}, {"name": "2012\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2012000301"}, {"name": "2012\u7ea7\u56fe\u5f62\u56fe\u50cf\u8bbe\u8ba1\u73ed", "id": "2012000401"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2013000001"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2013000002"}, {"name": "2013\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2013000101"}, {"name": "2013\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2013000301"}]
+*3
+$3
+SET
+$9
+class:ids
+$983
+[{"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2012000001"}, {"name": "2012\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2012000002"}, {"name": "2012\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2012000101"}, {"name": "2012\u7ea7\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2012000201"}, {"name": "2012\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2012000301"}, {"name": "2012\u7ea7\u56fe\u5f62\u56fe\u50cf\u8bbe\u8ba1\u73ed", "id": "2012000401"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "id": "2013000001"}, {"name": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "id": "2013000002"}, {"name": "2013\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "id": "2013000101"}, {"name": "2013\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "id": "2013000301"}, {"name": "2013\u7ea7\u56fe\u50cf-\u827a\u672f\u8bbe\u8ba1\u73ed", "id": "2013000501"}]
+*2
+$6
+SELECT
+$1
+0
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1000
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1001
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1002
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1003
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1004
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1005
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1006
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1007
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1008
+*3
+$4
+SADD
+$19
+students:2012000001
+$4
+1009
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1000
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1001
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1002
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1003
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1004
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1005
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1006
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1007
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1008
+*3
+$4
+SADD
+$25
+students:class:2012000001
+$4
+1009
+*4
+$4
+hset
+$6
+htable
+$1
+a
+$3
+100
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1009
+$4
+JJJJ
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1008
+$4
+IIII
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1007
+$4
+HHHH
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1006
+$4
+GGGG
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1005
+$4
+FFFF
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1004
+$4
+EEEE
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1003
+$4
+DDDD
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1002
+$4
+CCCC
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1001
+$4
+BBBB
+*4
+$4
+HSET
+$10
+stuname2id
+$4
+1000
+$4
+AAAA
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1009
+$4
+JJJJ
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1008
+$4
+IIII
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1007
+$4
+HHHH
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1006
+$4
+GGGG
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1005
+$4
+FFFF
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1004
+$4
+EEEE
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1003
+$4
+DDDD
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1002
+$4
+CCCC
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1001
+$4
+BBBB
+*4
+$4
+HSET
+$10
+stuid2name
+$4
+1000
+$4
+AAAA
+*4
+$4
+HSET
+$9
+quan:type
+$4
+1007
+$6
+活动
+*4
+$4
+HSET
+$9
+quan:type
+$4
+1005
+$6
+卫生
+*4
+$4
+HSET
+$9
+quan:type
+$4
+1003
+$6
+宿舍
+*4
+$4
+HSET
+$9
+quan:type
+$4
+9001
+$6
+其他
+*4
+$4
+HSET
+$9
+quan:type
+$4
+1001
+$6
+纪检

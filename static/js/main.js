@@ -1,8 +1,8 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
 
-var HOST = "192.168.85.77"
-var PORT = "80"
+var HOST = "127.0.0.1"
+var PORT = "8888"
 /*
  * 工具栏的内容以及对应的id号 
  * */
@@ -267,7 +267,8 @@ function add2tabpanel(tabs, obj) {
 	// if already added to panel,do nothing
 	if (tabs == obj.ownerCt) {
 		// do something
-	} else {
+    } else {
+        //obj.ownerCt = tabs ;
 		tabs.add(obj);
 	}
 	// set the tab to be activity
@@ -310,6 +311,17 @@ function treeItemClick(view, record, item, index, e) {
         setQuanWinsShow(9) ; 
     } else if (cmpId=="ss.reward"){
     } else if (cmpId=="ss.help"){
+    } else if (cmpId=="ss.loan"){
+    } else if (cmpId=="ss.loan"){
+        // student information
+    } else if (cmpId=="si.baseinfo"){
+        var siForm = getStuBaseInfoForm() ;
+        add2tabpanel(mgrTabpanel,siForm) ;
+
+    } else if (cmpId=="ss.loan"){
+    } else if (cmpId=="ss.loan"){
+    } else if (cmpId=="ss.loan"){
+    } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
     } else {
     }

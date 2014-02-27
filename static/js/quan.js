@@ -1,6 +1,6 @@
 // define const var
-var HOST = "http://192.168.85.77"
-var PORT = "80"
+var HOST = "http://127.0.0.1"
+var PORT = "8888"
 var SERVER = HOST + ":" + PORT
 
 var QUAN_COUNTER = 0

@@ -36,20 +36,38 @@ class BaseHandler(BaseRequestHandler):
 class RequestHandler(BaseHandler):
     pass
 
+class APISecureHandler(BaseHandler):
+
+    def get_current_user(self):
+        rem = self.get_secure_cookie("remb")
+        user = self.get_secure_cookie("user")
+        if rem=='0' or rem==None:
+            return None
+        elif rem=='1' :
+            return user
+
+
 
 class APIHandler(BaseHandler):
 
     def get_current_user(self):
-        pass
+        rem = self.get_secure_cookie("remb")
+        user = self.get_secure_cookie("user")
+        if rem=='0' or rem==None:
+            return None
+        elif rem=='1' :
+            return user
 
-    def finish(self, key=None,chunk=None, notification=None):
+    def finish(self, key=None,chunk=None, notification=None,success=True):
         if chunk is None:
             chunk = {}
 
         if isinstance(chunk, list):
             chunk = {"success": True, key: chunk}
         elif isinstance(chunk,dict):
-            chunk.update({"success":True})
+            chunk.update({"success":success})
+        elif chunk==None:
+            chunk={"success":success}
 
         if notification:
             chunk["notification"] = {"message": notification}

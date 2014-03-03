@@ -32,7 +32,7 @@ TABLE_STUID2NAME = "stuid2name"
 TABLE_TEACNAME2ID = "teacname2id"
 TABLE_TEACID2NAME = "teacid2name"
 
-class student(object):
+class Student(object):
     #global instance of DBop
 
     @staticmethod
@@ -40,16 +40,16 @@ class student(object):
     def instance():
         """Returns a global `feed` instance."""
 
-        if not hasattr(student, "_instance"):
-            student._instance = student()
+        if not hasattr(Student, "_instance"):
+            Student._instance = Student()
 
-        return student._instance
+        return Student._instance
 
     def __init__(self):
 
         logger = logging.getLogger("student")
         logger.setLevel(logging.INFO)
-        formatter = logging.Formatter('%(name)-6s %(asctime)s %(levelname)-8s %(message)s',
+        formatter = logging.Formatter('%(filename)s %(funcName)s %(lineno)s %(asctime)s %(levelname)-8s %(message)s',
             '%a, %d %b %Y %H:%M:%S',)
 
         stream_handler = logging.StreamHandler(sys.stderr)
@@ -81,9 +81,11 @@ class student(object):
     def today(self):
         #print datetime.date.today()
         return str(datetime.date.today())
+    def getDB(self):
+        return self.redis
 
     ### --section 1 : system user information --###
-    # key=>value : user:[id]=>{"id":1234,"name":"","pwd":"","type":"","other":""}
+    # key=>value : user:[id]=>{"user":stuid,pwd":"","role":""}
     # type : string
 
     # return None if key not exist
@@ -310,7 +312,7 @@ class student(object):
 
 def main():
     #dbOp = DBOperation()
-    rdb = student.instance()
+    rdb = Student.instance()
     print rdb.today()
     stuid="201305300102"
     ret = rdb.getAllStuInfo()

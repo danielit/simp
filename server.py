@@ -7,29 +7,47 @@ import tornado.web
 import tornado.escape
 from tornado.options import define, options
 
-from student.student import student
+from student.student import Student
 from student.student_handler import *
 
 
 class MainHandler(tornado.web.RequestHandler):
+    def get_current_user(self):
+        rem = self.get_secure_cookie('remb')
+        user = self.get_secure_cookie('user')
+        if rem == '0' or rem== None:
+            return None
+        elif rem=='1':
+            return user
+
     def get(self):
-        self.render("index.html")
+        simp = Student.instance()
+        simp.logger.info("main handler enter get")
+        if not self.current_user:
+            simp.logger.info('render to login.html')
+            #self.redirect('/login')
+            self.render('login.html')
+            return
+        else:
+            simp.logger.info('has cooki redirect')
+            role = self.get_secure_cookie('role')
+            if role=="80000":#studnet
+                slef.redirect('student?student='+self.current_user)
+            elif role=="80011": #teacher
+                self.redirect('manage?teacher='+self.current_user)
+            elif role=="80088": #administrator ,for now it is the same to 'teacher'
+                self.redirect('manage?teacher='+self.current_user)
 
 class NullHandler(tornado.web.RequestHandler):
     def get(self):
-        params={}
-        params['user'] = self.get_argument('userLoginForm.userName')
-        self.write("get")
-        self.write(params)
+        pass
 
     def post(self):
-        params={}
-        params['user'] = self.get_argument('userLoginForm.userName')
-        self.write("post")
-        self.write(params)
+        pass
 
 class ManageHandler(tornado.web.RequestHandler):
     def get(self):
+        stu = Student.instance()
         self.render("main.html") ;
 
 class GridHandler(tornado.web.RequestHandler):
@@ -52,24 +70,10 @@ class FormHandler(tornado.web.RequestHandler):
 class StuHandler(tornado.web.RequestHandler):
 
     def post(self):
-        params={}
-        params['user'] = self.get_argument('userLoginForm.userName')
-        #params['passwd'] = self.get_argument('password')
-        #params['user'] = self.get_argument('user')
-        #params['pwd'] = self.get_argument('pwd')
-        params['success']='true'
-        self.write(params)
-        print "post"
-        print params
-
-   # def set_default_headers(self):
-   #     self.set_header("Access-Control-Allow-Headers", "accept, cache-control, origin, x-requested-with, x-file-name, content-type")
-   #     self.set_header("Access-Control-Allow-Origin", "*")
-
+        pass
 
     def get(self):
         params={}
-        #params['user'] = self.get_argument('userLoginForm.userName')
         params['pwd'] = self.get_argument('password')
         #params['pwd'] = self.get_argument('pwd')
         self.write("get")
@@ -79,13 +83,14 @@ class StuHandler(tornado.web.RequestHandler):
 
 if __name__ == "__main__":
     settings = {
-        "static_path": os.path.join(os.path.dirname(__file__), "static")
+        "static_path": os.path.join(os.path.dirname(__file__), "static"),
+        "cookie_secret":"74deccaf0bfc574e7487f931b9c07d16=+-_"
         }
 
     application = tornado.web.Application([
         (r"/",MainHandler,),
         (r"/null",NullHandler),
-        (r"/login",StuHandler),
+        (r"/login",LoginHandler),
         (r"/manage",ManageHandler),
         (r"/grid",GridHandler),
         (r"/getallstuinfo",GetAllStuInfo),

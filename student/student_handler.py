@@ -7,8 +7,8 @@ import logging
 import logging.handlers
 import json
 
-from handler import APIHandler
-from student import student
+from handler import APIHandler,APISecureHandler
+from student import Student
 
 from tornado.escape import json_encode
 # constant definitions
@@ -107,6 +107,53 @@ class SetQuanInfos(APIHandler):
             stu.logger.info(quaninfos['quaninfos'][0]['quan_reason'])
         except Exception,e:
             stu.logger.error(e)
+
+class LoginHandler(APIHandler):
+    def post(self):
+        #get argument
+        rdb = Student.instance()
+        rdb.logger.info("login handler")
+        user = self.get_argument('user',None)
+        pwd = self.get_argument('pwd',None)
+        remb = self.get_argument('remb','0')
+        rdb.logger.info("in login handler user:"+user)
+        rdb.logger.info("in login handler pwd:"+pwd)
+        rdb.logger.info("in login handler rem:"+remb)
+        #audit the user
+        if user==None or pwd==None :
+            self.finish(success=False)
+            return
+
+        else:#audit from db
+            rdb.logger.info('go on check user in db')
+            userInfo = rdb.getUserInfo(user)
+            rdb.logger.info("user"+user)
+            if userInfo:
+                userInfo = json.loads(userInfo)
+                rdb.logger.info("userinfo from db")
+                rdb.logger.info(userInfo)
+                if userInfo['pwd'] and userInfo['pwd'] == pwd:
+                    rdb.logger.info("login success")
+                    self.set_secure_cookie('remb',remb)
+                    self.set_secure_cookie('user',user)
+                    self.set_secure_cookie('role',userInfo['role'])
+                    self.set_cookie('stuid',user)
+                    self.set_cookie('type',userInfo['role'])
+                    self.finish()
+                    return
+
+            else:
+                rdb.logger.info("check failed in db")
+                self.finish(success=False)
+                return
+
+
+    def get(self):
+
+        stu = Student.instance()
+        stu.logger.info("in login handler get ,render to login")
+        self.render('../login.html')
+        return
 
 def main():
     stu = student.instance()

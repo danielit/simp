@@ -23,6 +23,8 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         simp = Student.instance()
         simp.logger.info("main handler enter get")
+        simp.logger.info(self.get_secure_cookie('remb'))
+        simp.logger.info(self.get_secure_cookie('user'))
         if not self.current_user:
             simp.logger.info('render to login.html')
             #self.redirect('/login')
@@ -95,10 +97,11 @@ if __name__ == "__main__":
         (r"/grid",GridHandler),
         (r"/getallstuinfo",GetAllStuInfo),
         (r"/getclassids",GetAllClassIDs),
-        (r"/getquantypes",GetQuanTypes),
+        (r"/getquantypes",GetQuanTypesHandler),
         (r"/getstunameidsonclassid",GetStuNameIDsOnClassID),
         (r"/quan",QuanHandler),
-        (r"/addquaninfos",SetQuanInfos),
+        (r"/addquaninfos",AddQuanInfosHandler),
+        (r"/getquaninfos",GetQuanInfosHandler),
         (r"/form",FormHandler)
         ],
         **settings

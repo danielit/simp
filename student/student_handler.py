@@ -6,6 +6,7 @@ import time
 import logging
 import logging.handlers
 import json
+import tornado
 
 from handler import APIHandler,APISecureHandler
 from student import Student
@@ -22,7 +23,7 @@ class GetAllStuInfo(APIHandler):
             raise tornado.web.HTTPError(404)
 
         try:
-            stu = student.instance()
+            stu = Student.instance()
             ret = stu.getAllStuInfo()
         except Exception,e:
             print e
@@ -41,7 +42,7 @@ class GetAllStuInfo(APIHandler):
             raise tornado.web.HTTPError(404)
 
         try:
-            stu = student.instance()
+            stu = Student.instance()
             ret = stu.getAllStuInfo()
         except Exception,e:
             raise tornado.webHTTPError(404)
@@ -51,21 +52,20 @@ class GetAllStuInfo(APIHandler):
 class GetAllClassIDs(APIHandler):
     def get(self):
         try:
-            stu = student.instance()
+            stu = Student.instance()
+            stu.logger.info("in getAllClassIDs")
             ret = stu.getAllClassIDs()
             self.finish("classids",ret)
         except Exception ,e :
             raise tornado.web.HTTPError(404)
 
-class GetQuanTypes(APIHandler):
+class GetQuanTypesHandler(APIHandler):
     def get(self):
         try:
-            stu = student.instance()
+            stu = Student.instance()
+            stu.logger.info('in GetQuanTypesHandler')
             types = stu.getQuanTypes()
-            ret = []
-            for key in types:
-                ret.append({"id":key,"name":types[key]})
-            self.finish("quantypes",ret)
+            self.finish("quantypes",types)
         except Exception ,e :
             raise tornado.web.HTTPError(404)
 
@@ -75,7 +75,7 @@ class GetStuNameIDsOnClassID(APIHandler):
     def get(self):
         stu = None
         try:
-            stu = student.instance()
+            stu = Student.instance()
             classid = self.get_argument('classid')
 
             stuids = stu.getStuIdsofClass(classid)
@@ -83,7 +83,10 @@ class GetStuNameIDsOnClassID(APIHandler):
             stu.logger.info(stuids)
             stuInfo = []
             for stuid in stuids:
-                name = stu.getStuNameOnId(stuid)
+                si = stu.getStuInfo(stuid)
+                if si == None:
+                    continue
+                name = si['name']
                 if name == "":
                     stu.logger.info(stuid+" is not fond in db")
                 else:
@@ -93,18 +96,72 @@ class GetStuNameIDsOnClassID(APIHandler):
         except Exception ,e :
             stu.logger.warning(e)
             raise tornado.web.HTTPError(404)
+
+class GetQuanInfosHandler(APIHandler):
+    def get(self):
+        stu = Student.instance()
+        begin = self.get_argument('begin',0)
+        stu.logger.info(begin)
+        end = self.get_argument('end',0)
+        stu.logger.info(end)
+        if begin=='0' and end=='0':
+            #get the last week quan info
+            # end = now
+            # begin = end -7
+            pass
+        qinfos = stu.getAllQuanInfos()
+        for qi in qinfos:
+            date = qi[quan_date]
+            #cmp the time between begin and end
+            pass
+
+
+        pass
+    def post(self):
+        pass
 #set quan infos
-class SetQuanInfos(APIHandler):
+class AddQuanInfosHandler(APIHandler):
     def get(self):
         pass
     def post(self):
         try:
-            stu = student.instance()
+            stu = Student.instance()
             #infos = self.get_argument('quaninfos')
             #for k,v in self.request.arguments:
             quaninfos = json.loads(self.request.body)
-            stu.logger.info(quaninfos)
-            stu.logger.info(quaninfos['quaninfos'][0]['quan_reason'])
+            qis = quaninfos['quaninfos']
+            if type(qis)==type({}):
+                qis = [qis]
+            for qi in qis:
+                cn = qi['class']
+                cid = stu.getClassIDbyName(cn)
+                stu.logger.info(cid)
+                stu.logger.info(cn)
+                if cid == 0:
+                    stu.logger.error('cant find class in db' + cn)
+                    self.finish(success=False)
+                    continue
+                sn = qi['student']
+                sid = stu.getStuIdOnName(sn)
+                stu.logger.info(sn)
+                stu.logger.info(sid)
+                if sid == 0:
+                    stu.logger.error('cant find student in db'+sn)
+                    self.finish(success=False)
+                    continue
+                qn = qi['quan_type']
+                qid = stu.getQuanIdOnName(qn)
+                if qid == 0:
+                    stu.logger.error('cant find quan type in db'+qn)
+                    self.finish(success=False)
+                    continue
+
+                qi['class'] = int(cid)
+                qi['student'] = int(sid)
+                qi['quan_type'] = int(qid)
+
+                stu.setQuanInfo(cid,qi)
+            stu.logger.info(stu.getQuanInfo(cid))
         except Exception,e:
             stu.logger.error(e)
 
@@ -127,7 +184,7 @@ class LoginHandler(APIHandler):
         else:#audit from db
             rdb.logger.info('go on check user in db')
             userInfo = rdb.getUserInfo(user)
-            rdb.logger.info("user"+user)
+            rdb.logger.info("user:"+user)
             if userInfo:
                 userInfo = json.loads(userInfo)
                 rdb.logger.info("userinfo from db")
@@ -141,12 +198,10 @@ class LoginHandler(APIHandler):
                     self.set_cookie('type',userInfo['role'])
                     self.finish()
                     return
-
-            else:
-                rdb.logger.info("check failed in db")
-                self.finish(success=False)
-                return
-
+        # audit login from db failed
+        rdb.logger.info("check failed in db")
+        self.finish(success=False)
+        return
 
     def get(self):
 
@@ -156,7 +211,7 @@ class LoginHandler(APIHandler):
         return
 
 def main():
-    stu = student.instance()
+    stu = Student.instance()
     stu.logger.info("hello from feed module")
 
 if __name__ == "__main__":

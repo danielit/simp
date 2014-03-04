@@ -1,5 +1,5 @@
 // define const var
-var HOST = "http://127.0.0.1"
+var HOST = "http://192.168.85.77"
 var PORT = "8888"
 var SERVER = HOST + ":" + PORT
 
@@ -244,7 +244,7 @@ var quan_info_store = Ext.create('Ext.data.Store', {
         
 		api: {
             //read: SERVER+ '/getquaninfos',
-			write: SERVER + '/writequaninfos',
+			write: SERVER + '/addquaninfos',
             //update: SERVER + '/updatequaninfos',
             create: SERVER + '/addquaninfos'
 		},
@@ -586,6 +586,8 @@ Ext.define('Quan.Form', {
 			//Ext.MessageBox.alert('Submitted Values', form.getValues(true));
             
             val = form.getValues() ;
+            console.log("get from form");
+            console.log(val)
             val.class = Ext.getCmp('cbclass').getRawValue() ;
             val.student = Ext.getCmp('cbname').getRawValue() ;
             val.quan_type = Ext.getCmp('cbquantype').getRawValue() ;
@@ -843,10 +845,6 @@ Ext.define('Quan.Grid', {
             Ext.getCmp('cbquantype').setRawValue(value.quan_type) ;
             Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
             Ext.getCmp('quanreason').setValue(value.quan_reason) ;
-            //date = value.quan_date ;
-            //date = date.replace('年','/') ;
-            //date = date.replace('月','/') ;
-            //date = date.replace('日','') ;
             Ext.getCmp('quandate').setRawValue(value.quan_date) ;
 
             this.store.remove(selected) ;

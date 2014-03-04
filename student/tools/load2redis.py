@@ -27,7 +27,7 @@ def load2Redis(fileName):
                 stuinfo['address'] = info[7]
                 stuinfo['homephone'] = info[8]
                 stuinfo['other'] = info[9]
-                stuinfo['class'] = "2013级"+info[10]
+                stuinfo['class'] = info[10]
                 stuinfo['teacher'] = info[11]
                 stuinfo['field'] = info[12]
             else:
@@ -41,7 +41,7 @@ def load2Redis(fileName):
 
 
 def main():
-    fileName="students-13.txt"
+    fileName="students.txt"
     load2Redis(fileName)
 
 if __name__=="__main__":

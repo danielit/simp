@@ -158,6 +158,13 @@ class Student(object):
         value = self.dict2str(value)
         return self.redis.set(key,value)
 
+    def getClassNameOnId(self,cid):
+        ret = self.getClassInfo(cid)
+        if ret != None:
+            return ret['name']
+        else:
+            return str(cid)
+
     # if in db ,return a int or 0
     def getClassIDbyName(self,name):
         ids = self.getAllClassIDs()
@@ -278,6 +285,12 @@ class Student(object):
             ret.append(v)
         return ret
         #return self.redis.hgetall(key)
+    def getQuanNameOnId(self,qid):
+        rets = self.getQuanTypes()
+        for r in rets:
+            if str(r['id'])== str(qid):
+                return r['name']
+        return ''
 
     def setQuanInfo(self,classid,qinfo):
         key = QUAN_PREFIX+CLASS_PREFIX+str(classid)
@@ -352,12 +365,19 @@ class Student(object):
         return self.redis.hset(TABLE_STUNAME2ID,name,stuid)
 
     def getStuNameOnId(self,stuid):
+        ret = self.getStuInfo(stuid)
+        if ret!=None:
+            name = ret['name']
+            return name
+        '''
         if self.redis.hexists(TABLE_STUID2NAME,stuid):
             return int(self.redis.hget(TABLE_STUID2NAME,stuid))
         return 0
-
+        '''
+    '''
     def setStuNameOnId(self,stuid,name):
         return self.redis.hset(TABLE_STUID2NAME,stuid,name)
+    '''
 
 
 

@@ -393,3 +393,10 @@
 [5057] 04 Mar 01:51:39.019 * DB saved on disk
 [5057] 04 Mar 01:51:39.019 * RDB: 0 MB of memory used by copy-on-write
 [2152] 04 Mar 01:51:39.112 * Background saving terminated with success
+[45945] 05 Mar 16:33:06.734 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
+[45945] 05 Mar 16:33:06.820 # Creating Server TCP listening socket *:6379: bind: Address already in use
+[2152] 05 Mar 21:19:43.694 * 1 changes in 900 seconds. Saving...
+[2152] 05 Mar 21:19:43.729 * Background saving started by pid 61919
+[61919] 05 Mar 21:19:44.272 * DB saved on disk
+[61919] 05 Mar 21:19:44.273 * RDB: 0 MB of memory used by copy-on-write
+[2152] 05 Mar 21:19:44.330 * Background saving terminated with success

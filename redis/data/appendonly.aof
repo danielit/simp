@@ -46999,3 +46999,10 @@ $21
 quan:class:2013000501
 $150
 {"quan_reason": "dasdfadsfa", "quan_score": 4, "class": 2013000501, "quan_type": 1003, "student": 20130428010006, "quan_date": "2014/03/04", "idc": 2}
+*3
+$5
+LPUSH
+$21
+quan:class:2012000301
+$140
+{"quan_reason": "ss", "quan_score": 2, "class": 2012000301, "quan_type": 1001, "student": 201204300101, "quan_date": "2014/03/04", "idc": 1}

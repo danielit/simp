@@ -725,7 +725,7 @@ Ext.define('Quan.Grid', {
 				text: '序号',
 				//width: 40,
                 style:{textAlign:'center'},
-				sortable: true,
+				sortable: false,
 				resizable: false,
 				draggable: false,
 				hideable: false,

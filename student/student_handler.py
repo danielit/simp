@@ -8,6 +8,8 @@ import logging.handlers
 import json
 import tornado
 
+from datetime import *
+
 from handler import APIHandler,APISecureHandler
 from student import Student
 
@@ -100,23 +102,40 @@ class GetStuNameIDsOnClassID(APIHandler):
 class GetQuanInfosHandler(APIHandler):
     def get(self):
         stu = Student.instance()
-        begin = self.get_argument('begin',0)
+        begin = self.get_argument('begin','0')
         stu.logger.info(begin)
-        end = self.get_argument('end',0)
+        end = self.get_argument('end','0')
         stu.logger.info(end)
         if begin=='0' and end=='0':
+            stu.logger.info('begin =0 and end =0,so return the lastest 7 days quaninfo')
             #get the last week quan info
-            # end = now
-            # begin = end -7
-            pass
+            end = datetime.today()
+            begin = end - timedelta(6)
+        else:
+            begin = datetime.strptime(begin,'%Y/%m/%d')
+            end = datetime.strptime(end,'%Y/%m/%d')
+
+        ret = []
         qinfos = stu.getAllQuanInfos()
+        idc=0
         for qi in qinfos:
-            date = qi[quan_date]
+            date = datetime.strptime(str(qi['quan_date']),'%Y/%m/%d')
+            if begin<= date and end>= date:
+                stu.logger.info(qi)
+                try:
+                    qi['student'] = stu.getStuNameOnId(qi['student'])
+                    qi['quan_type'] = stu.getQuanNameOnId(qi['quan_type'])
+                    qi['class'] = stu.getClassNameOnId(qi['class'])
+                except Exception,e:
+                    stu.logger.error(e)
+                    continue
+
+                idc = idc + 1
+                qi['idc'] = idc
+                ret.append(qi)
             #cmp the time between begin and end
-            pass
+        self.finish('quan',ret)
 
-
-        pass
     def post(self):
         pass
 #set quan infos

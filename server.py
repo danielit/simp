@@ -101,6 +101,7 @@ if __name__ == "__main__":
         (r"/getstunameidsonclassid",GetStuNameIDsOnClassID),
         (r"/quan",QuanHandler),
         (r"/addquaninfos",AddQuanInfosHandler),
+        (r"/getclassquanofweek",GetQuanSummaryOfWeekHandler),
         (r"/getquaninfos",GetQuanInfosHandler),
         (r"/form",FormHandler)
         ],

@@ -10,3 +10,5 @@ LogConfiguration = {
     "prefix": "/opt/simp/log/students.log",
     "when": "D" # "H" or "D" or "W" or "midnight"
 }
+
+firstDayOfTerm='2014/2/17'

@@ -12,9 +12,47 @@ from datetime import *
 
 from handler import APIHandler,APISecureHandler
 from student import Student
+from student_config import firstDayOfTerm as firstDayTerm
 
 from tornado.escape import json_encode
 # constant definitions
+
+def getDateOfNWeek(nWeek):
+    global firstDayTerm
+    nWeek = int(nWeek)
+    firstDay=lastDay=datetime.today()
+    if nWeek <= 0:
+        today = datetime.today()
+        firstDay = today - timedelta(today.weekday())
+        lastDay = firstDay + timedelta(6)
+    else:
+        firstDayOfTerm = datetime.strptime(firstDayTerm,'%Y/%m/%d')
+        firstDay = firstDayOfTerm + timedelta((int(nWeek) - 1) * 7)
+        lastDay = firstDay + timedelta(6)
+
+    return (firstDay,lastDay)
+
+def getQuanInfoBetween(begin,end):
+    stu = Student.instance()
+    ret = []
+    qinfos = stu.getAllQuanInfos()
+    idc=0
+    for qi in qinfos:
+        date = datetime.strptime(str(qi['quan_date']),'%Y/%m/%d')
+        if begin<= date and end>= date:
+            stu.logger.info(qi)
+            try:
+                qi['student'] = stu.getStuNameOnId(qi['student'])
+                qi['quan_type'] = stu.getQuanNameOnId(qi['quan_type'])
+                qi['class'] = stu.getClassNameOnId(qi['class'])
+            except Exception,e:
+                stu.logger.error(e)
+                continue
+
+            idc = idc + 1
+            qi['idc'] = idc
+            ret.append(qi)
+    return ret
 
 class GetAllStuInfo(APIHandler):
     def get(self):
@@ -115,6 +153,9 @@ class GetQuanInfosHandler(APIHandler):
             begin = datetime.strptime(begin,'%Y/%m/%d')
             end = datetime.strptime(end,'%Y/%m/%d')
 
+        ret = getQuanInfoBetween(begin,end)
+        self.finish('quan',ret)
+'''
         ret = []
         qinfos = stu.getAllQuanInfos()
         idc=0
@@ -135,9 +176,8 @@ class GetQuanInfosHandler(APIHandler):
                 ret.append(qi)
             #cmp the time between begin and end
         self.finish('quan',ret)
+'''
 
-    def post(self):
-        pass
 #set quan infos
 class AddQuanInfosHandler(APIHandler):
     def get(self):
@@ -229,9 +269,56 @@ class LoginHandler(APIHandler):
         self.render('../login.html')
         return
 
+class GetQuanSummaryOfWeekHandler(APIHandler):
+    def compRank(self,data,key):
+        pass
+    def get(self):
+        nWeek = self.get_argument('week',0)
+        if nWeek=='':
+            nWeek = 0
+        begin,end = getDateOfNWeek(nWeek)
+
+        qinfos = getQuanInfoBetween(begin,end)
+        #statics
+        #init the static table
+        sTable={}
+        linfo={'class':'','disp_score':30,'disp_quan':0,'disp_rank':0,\
+                'heal_score':20,'heal_quan':0,'heal_rank':0,\
+                'domi_score':40,'domi_quan':0,'domi_rank':0,\
+                'acti_score':10,'acti_quan':0,'acti_rank':0,\
+                'total':100,'rank:':0}
+        for qi in qinfos:
+            cname = qi['class']
+            if sTable.has_key(cname):
+                pass
+            else:
+                sTable[cname] = linfo
+                sTable[cname]['class'] = cname
+            qtype = stu.getQuanIdOnName(qi['quan_type'])
+            if qtype==1001: # discipline
+                sTable[cname]['disp_score'] += qi['quan_score']
+                sTable[cname]['disp_quan'] += qi['quan_score'] *0.3
+                pass
+            elif qtype==1002: #health
+                sTable[cname]['heal_score'] += qi['quan_score']
+                sTable[cname]['heal_quan'] += qi['quan_score'] *0.2
+                pass
+            elif qtype==1003: # domi
+                sTable[cname]['domi_score'] += qi['quan_score']
+                sTable[cname]['domi_quan'] += qi['quan_score'] *0.4
+                pass
+            elif qtype=1004: #activity
+                sTable[cname]['acti_score'] += qi['quan_score']
+                sTable[cname]['acti_quan'] += qi['quan_score'] *0.1
+        for c in sTable :
+            c['total'] = c['disp_quan'] + c['heal_quan'] + c['domi_quan'] + c['acti_quan']
+        self.finish('classquanweek',qinfos)
+
 def main():
     stu = Student.instance()
     stu.logger.info("hello from feed module")
+    ret = getDayOfNWeek(2)
+    print ret
 
 if __name__ == "__main__":
     instance = feed()

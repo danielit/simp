@@ -292,10 +292,22 @@ class Student(object):
                 return r['name']
         return ''
 
+    #return a list, get quan info of classid
+    def getQuanInfo(self,classid):
+        key = QUAN_PREFIX+CLASS_PREFIX+str(classid)
+        ret = self.redis.lrange(key,0,-1)
+        tmp=[]
+        for r in ret:
+            r = json.loads(r)
+            tmp.append(r)
+        return tmp
+
+
     def setQuanInfo(self,classid,qinfo):
         key = QUAN_PREFIX+CLASS_PREFIX+str(classid)
         qinfo = self.dict2str(qinfo)
         return self.redis.lpush(key,qinfo)
+
     #get all classes of quaninfos
     def getAllQuanInfos(self):
         key = QUAN_PREFIX+CLASS_PREFIX+'20*'
@@ -325,16 +337,6 @@ class Student(object):
 
     def setClassIdOnName(self,cname,cid):
         return self.redis.hset(TABLE_QUANNAME2ID,cname,cid)
-
-    #return a list, get quan info of classid
-    def getQuanInfo(self,classid):
-        key = QUAN_PREFIX+CLASS_PREFIX+str(classid)
-        ret = self.redis.lrange(key,0,-1)
-        tmp=[]
-        for r in ret:
-            r = json.loads(r)
-            tmp.append(r)
-        return tmp
 
 
     #return list of stu ids

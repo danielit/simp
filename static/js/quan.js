@@ -1008,9 +1008,9 @@ Ext.define('Quan.DeatilGrid', {
             console.log(bdate) ;
             console.log(edate) ;
             this.store.load({
-                params:{
-                    begin:bdate,
-                    end:edate
+                'params':{
+                    'begin':bdate,
+                    'end':edate
                 },
                 scope:this,
                 callback:function(records,operations,success){
@@ -1076,7 +1076,7 @@ Ext.define('Quan.Grid.Week', {
 					displayField: 'week',
 					valueField: 'id',
 					queryMode: 'local',
-					emptyText: '第xx周量化汇总',
+					emptyText: '最近一周量化汇总',
 					fieldLabel: '请选择',
 					margins: '0 6 0 0',
 					store: week_list_store,
@@ -1222,10 +1222,10 @@ Ext.define('Quan.Grid.Week', {
     onLookOverWeekQuan: function(){
         var week = Ext.getCmp('quan.grid.cb.week').getValue() ;
         console.log('look over week quan of',week) ; 
-        quan_week_store.loadData([],false) ;
+        //quan_week_store.loadData([],false) ;
         quan_week_store.load({
-            params:{
-                week:week
+            'params':{
+                'week':week
             },
             scope:this,
             callback:function(records,operations,success){

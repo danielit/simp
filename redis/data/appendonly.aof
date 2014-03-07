@@ -47006,3 +47006,17 @@ $21
 quan:class:2012000301
 $140
 {"quan_reason": "ss", "quan_score": 2, "class": 2012000301, "quan_type": 1001, "student": 201204300101, "quan_date": "2014/03/04", "idc": 1}
+*3
+$5
+LPUSH
+$21
+quan:class:2012000002
+$180
+{"quan_reason": "\u5f88\u597d\uff0c\u8868\u73b0\u4e0d\u9519", "quan_score": 5, "class": 2012000002, "quan_type": 1001, "student": 201304155226, "quan_date": "2014/02/23", "idc": 1}
+*3
+$5
+LPUSH
+$21
+quan:class:2012000001
+$157
+{"quan_reason": "\u6709\u5f02\u5473", "quan_score": -4, "class": 2012000001, "quan_type": 1003, "student": 201204150116, "quan_date": "2014/02/24", "idc": 2}

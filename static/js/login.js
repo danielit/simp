@@ -185,15 +185,15 @@ function login(){
 
             },
             success:function(){
-                var stuid = getCookie("stuid") ;
+                var uid = getCookie("uid") ;
                 //alert(stuid) ;
                 var role = getCookie("type") ;
                 //alert(role) ;
                 var url = "" ;
                 if(role=="80000"){
-                    url = "/student?stuid="+stuid ;
+                    url = "/student?uid="+uid ;
                 }else {
-                    url = "/manage?stid="+stuid ;
+                    url = "/manage?uid="+uid ;
                 }
                 //Ext.getCmp("userLoginForm").hide() ;
                 window.location.href = url ;

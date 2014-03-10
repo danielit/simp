@@ -121,7 +121,7 @@ class Student(object):
 
     def getAllStuInfo(self) :
         rets = []
-        keys = self.redis.keys(STU_PREFIX+"*")
+        keys = self.redis.keys(STU_PREFIX+"20*")
         for key in keys:
             ret = self.redis.get(key)
             if ret != None:
@@ -146,6 +146,13 @@ class Student(object):
         classes = json.dumps(classes)
         self.redis.set(key,classes)
         return True
+
+    def getAllClassNames(self):
+        ids = self.getAllClassIDs()
+        names=[]
+        for i in ids:
+            names.append(i['name'])
+        return names
 
     # key=>value: class:[id] => {'id':1001,'quan':100,'num':45,'headTeacher':1022,'monitor':12345,'field':1001,'other':''}
 # for now key=>value class:id=>{id,teacher,name,stuids=[]}

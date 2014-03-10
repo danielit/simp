@@ -109,9 +109,9 @@ Ext.define('Quan.WeekInfo', {
 		type: 'int',
 	},
     'class', //class name
-    'dicp_score',// dicpline
-    'dicp_quan',
-    'dicp_rank',
+    'disp_score',// dicpline
+    'disp_quan',
+    'disp_rank',
     'heal_score',//health
     'heal_quan',
     'heal_rank',
@@ -120,7 +120,9 @@ Ext.define('Quan.WeekInfo', {
     'domi_rank',
     'acti_score',//activity or other
     'acti_quan',
-    'acti_rank'
+    'acti_rank',
+    'total',
+    'rank'
     ]
 });
 
@@ -1148,9 +1150,9 @@ Ext.define('Quan.Grid.Week', {
 				header: '纪律',
                 menuDisabled:true,
                 columns:[
-                {text:'分数',dataIndex:'disc_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'disc_quan',width:60,sortable:true},
-                {text:'排名',dataIndex:'disc_rank',width:60,sortable:true}
+                {text:'分数',dataIndex:'disp_score',width:60,sortable:true},
+                {text:'量化分',dataIndex:'disp_quan',width:60,sortable:true},
+                {text:'排名',dataIndex:'disp_rank',width:60,sortable:true}
                 ]
 			},
             {
@@ -1190,7 +1192,7 @@ Ext.define('Quan.Grid.Week', {
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
-				dataIndex: 'quan_total',
+				dataIndex: 'total',
 				field: {
 					type: 'int'
 				}
@@ -1203,7 +1205,7 @@ Ext.define('Quan.Grid.Week', {
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
-				dataIndex: 'quan_rank',
+				dataIndex: 'rank',
 				field: {
 					type: 'int'
 				}
@@ -1215,9 +1217,9 @@ Ext.define('Quan.Grid.Week', {
 	},
 
 	onSelectChange: function(selModel, selections) {
-        if (selections) {
+       /* if (selections) {
 		    this.down('#delete').setDisabled(selections.length === 0);
-        }
+        }*/
 	},
     onLookOverWeekQuan: function(){
         var week = Ext.getCmp('quan.grid.cb.week').getValue() ;

@@ -56,11 +56,8 @@ def getQuanInfoBetween(begin,end):
 
 class GetAllStuInfo(APIHandler):
     def get(self):
-        try:
-            #stuid = self.get_argument('stuid')
-            pass
-        except Exception,e:
-            raise tornado.web.HTTPError(404)
+
+        classid = self.get_argument('cid','')
 
         try:
             stu = Student.instance()
@@ -69,10 +66,29 @@ class GetAllStuInfo(APIHandler):
             print e
             raise tornado.web.HTTPError(404)
         else:
-            results = {'results':len(ret)}
-            ret = {"users":ret}
-            ret.update(results)
-            self.finish("users",ret)
+            cid2cname = {}
+            stuinfo=[]
+            idc = 0
+            for r in ret:
+                cid = r['class']
+                if classid != '' and classid != cid:
+                    continue
+                idc = idc + 1
+                r['idc'] = idc
+                if not cid2cname.has_key(cid):
+                    try:
+                        cid2cname[cid] = stu.getClassNameOnId(cid)
+                    except Exception,e:
+                        stu.logger.error(e)
+                        continue
+
+                r['class'] = cid2cname[cid]
+                stuinfo.append(r)
+
+            self.finish("data",stuinfo)
+            return
+
+        self.finish(success=False)
 
 
     def post(self):
@@ -232,9 +248,6 @@ class LoginHandler(APIHandler):
         user = self.get_argument('user',None)
         pwd = self.get_argument('pwd',None)
         remb = self.get_argument('remb','0')
-        rdb.logger.info("in login handler user:"+user)
-        rdb.logger.info("in login handler pwd:"+pwd)
-        rdb.logger.info("in login handler rem:"+remb)
         #audit the user
         if user==None or pwd==None :
             self.finish(success=False)
@@ -253,7 +266,7 @@ class LoginHandler(APIHandler):
                     self.set_secure_cookie('remb',remb)
                     self.set_secure_cookie('user',user)
                     self.set_secure_cookie('role',userInfo['role'])
-                    self.set_cookie('stuid',user)
+                    self.set_cookie('uid',user)
                     self.set_cookie('type',userInfo['role'])
                     self.finish()
                     return
@@ -270,30 +283,48 @@ class LoginHandler(APIHandler):
         return
 
 class GetQuanSummaryOfWeekHandler(APIHandler):
-    def compRank(self,data,key):
-        pass
+#computer rank base on key
+    def compRank(self,data,key,value):
+        stu = Student.instance()
+
+        tmp=[]
+        for d in data.values():
+            tmp.append(float(d[key]))
+        tmp = list(set(tmp))
+        tmp.sort(reverse=True)
+        for d in data.values():
+            d[value] = tmp.index(float(d[key])) + 1
+
+
+
     def get(self):
         nWeek = self.get_argument('week',0)
         if nWeek=='':
             nWeek = 0
         begin,end = getDateOfNWeek(nWeek)
-
         qinfos = getQuanInfoBetween(begin,end)
+
+        stu = Student.instance()
         #statics
         #init the static table
         sTable={}
-        linfo={'class':'','disp_score':30,'disp_quan':0,'disp_rank':0,\
-                'heal_score':20,'heal_quan':0,'heal_rank':0,\
-                'domi_score':40,'domi_quan':0,'domi_rank':0,\
-                'acti_score':10,'acti_quan':0,'acti_rank':0,\
-                'total':100,'rank:':0}
+        cnames = stu.getAllClassNames()
+        for cname in cnames:
+            sTable[cname] = {'class':'','disp_score':0,'disp_quan':30,'disp_rank':0,\
+                    'heal_score':0,'heal_quan':20,'heal_rank':0,\
+                    'domi_score':0,'domi_quan':40,'domi_rank':0,\
+                    'acti_score':0,'acti_quan':10,'acti_rank':0,\
+                    'total':100,'rank:':0}
+
+            sTable[cname]['class'] = cname
+
+
         for qi in qinfos:
             cname = qi['class']
-            if sTable.has_key(cname):
-                pass
-            else:
-                sTable[cname] = linfo
-                sTable[cname]['class'] = cname
+            if not sTable.has_key(cname):
+                stu.logger.error('There is no class has a name :' + str(cname))
+                self.finish(success=False)
+                return
             qtype = stu.getQuanIdOnName(qi['quan_type'])
             if qtype==1001: # discipline
                 sTable[cname]['disp_score'] += qi['quan_score']
@@ -307,12 +338,29 @@ class GetQuanSummaryOfWeekHandler(APIHandler):
                 sTable[cname]['domi_score'] += qi['quan_score']
                 sTable[cname]['domi_quan'] += qi['quan_score'] *0.4
                 pass
-            elif qtype=1004: #activity
+            elif qtype==1004: #activity
                 sTable[cname]['acti_score'] += qi['quan_score']
                 sTable[cname]['acti_quan'] += qi['quan_score'] *0.1
-        for c in sTable :
-            c['total'] = c['disp_quan'] + c['heal_quan'] + c['domi_quan'] + c['acti_quan']
-        self.finish('classquanweek',qinfos)
+            else:
+                stu.logger.error(qtype)
+
+        for c in sTable.values() :
+            c['total'] = float(c['disp_quan']) + float(c['heal_quan']) + float(c['domi_quan']) + float(c['acti_quan'])
+
+        self.compRank(sTable,'disp_quan','disp_rank')
+        self.compRank(sTable,'heal_quan','heal_rank')
+        self.compRank(sTable,'domi_quan','domi_rank')
+        self.compRank(sTable,'acti_quan','acti_rank')
+        self.compRank(sTable,'total','rank')
+
+        qWeekInfos = []
+        idc=0
+        for line in sTable.values():
+            idc = idc + 1
+            line['idc'] = idc
+            qWeekInfos.append(line)
+
+        self.finish('classquanweek',qWeekInfos)
 
 def main():
     stu = Student.instance()

@@ -309,6 +309,11 @@ function treeItemClick(view, record, item, index, e) {
         add2tabpanel(mgrTabpanel,quanWin) ;
         //show quangridweek and quanformdetail
         setQuanWinsShow(9) ; 
+
+    } else if (cmpId=="sit.stuinfo"){
+        //alert(cmpId) ;
+        var sitInfoGrid = getSitInfoGrid();
+        add2tabpanel(mgrTabpanel,sitInfoGrid) ;
     } else if (cmpId=="ss.reward"){
     } else if (cmpId=="ss.help"){
     } else if (cmpId=="ss.loan"){
@@ -393,7 +398,7 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
                 text:'量化信息登记',
                 leaf:true
             }]
-		},
+		},/*
 		{
 			id: 'scholarship',
 			text: '奖助学金',
@@ -410,21 +415,21 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
                 text:'助学贷款',
                 leaf:true
             }]
-		}/*,
+		},*/
 	    {
-			id: 'vacation',
-			text: '学生请假',
+			id: 'sit.info',
+			text: '学生信息',
 			children: [{
-				id: 'v.ask',
-				text: '请假申请',
+				id: 'sit.stuinfo',
+				text: '学生信息',
 				leaf: true
 			},
 			{
-				id: 'v.review',
-				text: '请假审批',
+				id: 'sit.score',
+				text: '学生成绩',
 				leaf: true
 			}]
-		}*/,
+		},
 		{
 			text: '在校情况',
 			id: 'studentinschool',

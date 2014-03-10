@@ -23,8 +23,7 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         simp = Student.instance()
         simp.logger.info("main handler enter get")
-        simp.logger.info(self.get_secure_cookie('remb'))
-        simp.logger.info(self.get_secure_cookie('user'))
+        user = self.get_secure_cookie('user')
         if not self.current_user:
             simp.logger.info('render to login.html')
             #self.redirect('/login')
@@ -33,6 +32,8 @@ class MainHandler(tornado.web.RequestHandler):
         else:
             simp.logger.info('has cooki redirect')
             role = self.get_secure_cookie('role')
+            self.set_cookie('uid',user)
+            self.set_cookie('type',role)
             if role=="80000":#studnet
                 slef.redirect('student?student='+self.current_user)
             elif role=="80011": #teacher

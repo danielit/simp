@@ -23,7 +23,8 @@ Ext.define('SI.AllStuInfo', {
 
 var all_stu_info_store= Ext.create('Ext.data.Store', {
     model:'SI.AllStuInfo',
-	autoLoad: true,
+	autoLoad: false,
+    pageSize:45,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',

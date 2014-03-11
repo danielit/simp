@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-redisMasterHosts={'host': '192.168.85.77', 'port': 6379, 'db': 0}
+redisMasterHosts={'host': '127.0.0.1', 'port': 6379, 'db': 0}
 
 #RedisSlaveHosts= [{'host': '192.168.84.251', 'port': 6379, 'db': 0},]
 

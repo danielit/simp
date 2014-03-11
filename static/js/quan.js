@@ -1,5 +1,5 @@
 // define const var
-var HOST = "http://192.168.85.77"
+var HOST = "http://127.0.0.1"
 var PORT = "8888"
 var SERVER = HOST + ":" + PORT
 
@@ -169,6 +169,7 @@ var week_list_store =Ext.create('Ext.data.Store',{
 var class_id_store = Ext.create('Ext.data.Store', {
 	model: 'Quan.ClassID',
 	autoLoad: true,
+    //pageSize:50,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',
@@ -274,7 +275,8 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 
 var quan_detail_store = Ext.create('Ext.data.Store', {
 	model: 'Quan.Info',
-	autoLoad: true,
+	autoLoad: false,
+    pageSize:45,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',
@@ -310,7 +312,8 @@ var quan_detail_store = Ext.create('Ext.data.Store', {
 
 var quan_week_store = Ext.create('Ext.data.Store', {
     model:'Quan.WeekInfo',
-	autoLoad: true,
+	autoLoad: false,
+    pageSize:45,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',

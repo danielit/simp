@@ -445,3 +445,1529 @@
 [8987] 09 Mar 23:15:05.608 * DB saved on disk
 [8987] 09 Mar 23:15:05.633 * RDB: 0 MB of memory used by copy-on-write
 [4700] 09 Mar 23:15:05.699 * Background saving terminated with success
+[2465] 10 Mar 20:05:18.961 * Background saving started by pid 3951
+[3951] 10 Mar 20:05:18.976 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:05:19.001 # Background saving error
+[2465] 10 Mar 20:06:11.605 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:06:18.153 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:07:48.192 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:07:51.782 * Background saving started by pid 4008
+[4008] 10 Mar 20:07:51.782 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:07:51.797 # Background saving error
+[2465] 10 Mar 20:08:28.219 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:08:31.262 * Background saving started by pid 4027
+[4027] 10 Mar 20:08:31.263 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:08:31.334 # Background saving error
+[4081] 10 Mar 20:10:56.425 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 2.8.6 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in stand alone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6378
+ |    `-._   `._    /     _.-'    |     PID: 4081
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+[4081] 10 Mar 20:10:56.474 # Server started, Redis version 2.8.6
+[4081] 10 Mar 20:10:56.474 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[4081] 10 Mar 20:10:56.474 * The server is now ready to accept connections on port 6378
+[4081] 10 Mar 20:12:23.697 * SLAVE OF 127.0.0.1:6379 enabled (user request)
+[4081] 10 Mar 20:12:23.945 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:23.945 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:23.946 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:23.963 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:24.955 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:24.955 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:24.955 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:24.956 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:25.961 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:25.961 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:25.961 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:25.961 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:26.966 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:26.966 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:26.966 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:26.966 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:27.972 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:27.972 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:27.972 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:27.972 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:28.979 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:28.979 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:28.979 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:28.979 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:29.985 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:29.986 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:29.986 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:29.986 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:30.992 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:30.993 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:30.993 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:30.993 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:31.999 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:31.999 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:31.999 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:32.000 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:33.004 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:33.004 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:33.004 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:33.005 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:34.011 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:34.011 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:34.011 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:34.012 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:35.017 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:35.017 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:35.017 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:35.017 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:36.023 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:36.023 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:36.023 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:36.023 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:37.030 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:37.030 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:37.030 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:37.030 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:38.035 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:38.036 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:38.036 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:38.036 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:39.043 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:39.043 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:39.043 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:39.044 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:40.050 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:40.050 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:40.050 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:40.051 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:41.056 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:41.056 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:41.056 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:41.056 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:42.062 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:42.062 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:42.062 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:42.062 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:43.068 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:43.068 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:43.068 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:43.068 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:44.075 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:44.075 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:44.075 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:44.076 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:45.081 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:45.081 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:45.081 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:45.081 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:46.087 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:46.088 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:46.088 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:46.088 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:47.094 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:47.094 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:47.094 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:47.095 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:48.100 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:48.100 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:48.100 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:48.101 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:49.107 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:49.107 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:49.107 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:49.108 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:50.113 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:50.113 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:50.113 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:50.113 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:51.120 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:51.120 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:51.120 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:51.120 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:52.127 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:52.127 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:52.127 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:52.127 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:53.133 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:53.134 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:53.134 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:53.134 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:54.140 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:54.140 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:54.140 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:54.141 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:55.146 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:55.146 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:55.146 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:55.147 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:56.152 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:56.152 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:56.152 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:56.152 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:57.159 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:57.159 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:57.159 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:57.159 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:58.166 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:58.166 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:58.166 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:58.166 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:12:59.172 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:12:59.173 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:12:59.173 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:12:59.173 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:00.179 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:00.179 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:00.179 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:00.180 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:01.185 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:01.185 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:01.185 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:01.186 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:02.191 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:02.191 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:02.191 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:02.191 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:03.197 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:03.197 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:03.197 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:03.197 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:04.220 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:04.220 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:04.221 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:04.221 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:05.226 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:05.226 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:05.226 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:05.227 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:06.232 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:06.232 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:06.232 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:06.232 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:07.238 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:07.238 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:07.238 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:07.238 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:08.245 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:08.245 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:08.245 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:08.245 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:09.251 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:09.252 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:09.252 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:09.253 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:10.257 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:10.258 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:10.258 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:10.258 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:11.264 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:11.264 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:11.264 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:11.265 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:12.270 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:12.270 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:12.270 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:12.271 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:13.276 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:13.276 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:13.276 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:13.277 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:14.282 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:14.282 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:14.282 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:14.283 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:15.288 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:15.288 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:15.288 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:15.288 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:16.294 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:16.295 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:16.295 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:16.295 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:17.301 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:17.302 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:17.302 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:17.302 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:18.308 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:18.309 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:18.309 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:18.309 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:19.315 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:19.315 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:19.315 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:19.316 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:20.321 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:20.321 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:20.321 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:20.321 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:21.328 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:21.328 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:21.328 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:21.328 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:22.336 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:22.336 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:22.336 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:22.336 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:23.342 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:23.343 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:23.343 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:23.343 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:24.349 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:24.349 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:24.349 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:24.350 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:25.355 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:25.356 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:25.356 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:25.356 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:26.362 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:26.362 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:26.362 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:26.362 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:27.369 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:27.369 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:27.369 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:27.369 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:28.376 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:28.376 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:28.376 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:28.376 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:29.382 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:29.383 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:29.383 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:29.383 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:30.388 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:30.389 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:30.389 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:30.389 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:31.395 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:31.395 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:31.395 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:31.396 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:32.401 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:32.401 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:32.401 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:32.402 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:33.410 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:33.410 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:33.410 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:33.411 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:34.426 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:34.426 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:34.426 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:34.427 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:35.469 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:35.469 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:35.469 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:35.470 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:36.547 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:36.547 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:36.547 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:36.548 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:37.641 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:37.641 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:37.641 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:37.641 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:38.735 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:38.735 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:38.735 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:38.735 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:39.828 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:39.829 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:39.829 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:39.830 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:40.879 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:40.879 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:40.879 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:40.879 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:41.885 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:41.885 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:41.885 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:41.885 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:42.896 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:42.896 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:42.896 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:42.896 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:43.911 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:43.912 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:43.912 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:43.912 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:44.927 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:44.927 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:44.927 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:44.928 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:45.943 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:45.943 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:45.943 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:45.943 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:46.958 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:46.959 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:46.959 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:46.959 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:47.974 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:47.974 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:47.974 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:47.974 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:48.985 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:48.985 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:48.985 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:48.985 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:49.991 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:49.991 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:49.991 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:49.992 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:50.997 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:50.997 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:50.997 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:50.998 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:52.003 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:52.003 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:52.003 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:52.004 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:53.008 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:53.008 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:53.008 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:53.009 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:54.014 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:54.014 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:54.014 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:54.015 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:55.020 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:55.020 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:55.021 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:55.021 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:55.602 * SLAVE OF would result into synchronization with the master we are already connected with. No operation performed.
+[4081] 10 Mar 20:13:56.026 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:56.027 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:56.027 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:56.027 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:57.033 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:57.034 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:57.034 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:57.034 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:58.040 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:58.041 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:58.041 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:58.041 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:13:59.047 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:13:59.048 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:13:59.048 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:13:59.048 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:00.054 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:00.055 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:00.055 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:00.055 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:01.062 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:01.062 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:01.062 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:01.062 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:02.069 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:02.069 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:02.069 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:02.069 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:03.076 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:03.076 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:03.076 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:03.076 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:04.083 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:04.083 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:04.083 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:04.083 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:05.090 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:05.090 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:05.090 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:05.090 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:06.096 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:06.096 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:06.096 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:06.096 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:07.102 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:07.102 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:07.102 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:07.102 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:08.109 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:08.109 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:08.109 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:08.109 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:09.116 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:09.116 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:09.116 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:09.116 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:10.123 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:10.123 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:10.123 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:10.124 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:11.130 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:11.130 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:11.130 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:11.131 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:12.137 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:12.137 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:12.137 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:12.138 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:13.143 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:13.143 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:13.143 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:13.143 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:14.149 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:14.149 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:14.149 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:14.149 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:15.155 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:15.155 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:15.155 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:15.156 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:16.163 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:16.164 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:16.164 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:16.164 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:17.170 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:17.170 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:17.170 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:17.170 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:18.177 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:18.177 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:18.177 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:18.177 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:19.185 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:19.185 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:19.185 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:19.186 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:20.191 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:20.191 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:20.191 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:20.192 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:21.199 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:21.199 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:21.199 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:21.199 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:22.206 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:22.206 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:22.206 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:22.206 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:23.212 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:23.212 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:23.212 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:23.212 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:24.219 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:24.219 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:24.219 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:24.219 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:25.226 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:25.226 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:25.226 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:25.227 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:26.232 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:26.232 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:26.232 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:26.232 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:27.241 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:27.241 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:27.241 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:27.241 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:28.248 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:28.248 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:28.248 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:28.248 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:29.255 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:29.255 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:29.255 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:29.255 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:30.262 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:30.262 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:30.262 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:30.263 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:31.268 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:31.268 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:31.268 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:31.268 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:32.275 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:32.275 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:32.275 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:32.275 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:33.282 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:33.282 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:33.282 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:33.282 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:34.289 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:34.289 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:34.289 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:34.289 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:35.296 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:35.296 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:35.296 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:35.296 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:36.301 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:36.302 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:36.302 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:36.302 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:37.308 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:37.309 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:37.309 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:37.309 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:38.315 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:38.316 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:38.316 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:38.316 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:39.322 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:39.323 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:39.323 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:39.323 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:40.329 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:40.330 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:40.330 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:40.330 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:41.336 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:41.337 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:41.337 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:41.337 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:42.343 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:42.343 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:42.344 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:42.344 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:43.350 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:43.350 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:43.350 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:43.351 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:44.356 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:44.356 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:44.356 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:44.357 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:45.362 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:45.362 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:45.362 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:45.363 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:46.368 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:46.368 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:46.368 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:46.369 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:47.374 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:47.374 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:47.374 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:47.375 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:48.380 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:48.380 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:48.380 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:48.381 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:49.386 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:49.386 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:49.386 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:49.387 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:50.392 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:50.392 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:50.392 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:50.393 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:51.398 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:51.398 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:51.398 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:51.398 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:52.404 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:52.404 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:52.404 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:52.404 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:53.411 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:53.411 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:53.411 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:53.411 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:54.417 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:54.418 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:54.418 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:54.418 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:55.424 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:55.424 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:55.424 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:55.425 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:56.430 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:56.430 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:56.430 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:56.431 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:57.436 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:57.436 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:57.436 * Non blocking connect for SYNC fired the event.
+4081] 10 Mar 20:14:57.436 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:58.443 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:58.443 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:58.443 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:58.443 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:14:59.448 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:14:59.449 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:14:59.449 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:14:59.449 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:29.642 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:29.642 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:29.643 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:29.643 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:30.649 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:30.650 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:30.650 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:30.650 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:31.656 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:31.656 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:31.656 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:31.656 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:32.665 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:32.665 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:32.665 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:32.665 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:33.671 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:33.672 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:33.672 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:33.672 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:34.678 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:34.679 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:34.679 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:34.679 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:35.684 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:35.684 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:35.684 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:35.685 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[2465] 10 Mar 20:15:35.760 * Background saving started by pid 4154
+[4154] 10 Mar 20:15:35.760 # Failed opening .rdb for saving: No such file or directory
+[2465] 10 Mar 20:15:35.846 # Background saving error
+[4081] 10 Mar 20:15:36.690 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:36.690 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:36.690 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:36.691 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:37.696 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:37.696 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:37.696 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:37.696 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:38.703 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:38.703 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:38.703 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:38.703 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:39.709 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:39.710 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:39.710 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:39.710 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:40.715 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:40.716 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:40.716 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:40.716 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:41.722 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:41.722 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:41.722 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:41.723 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:42.728 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:42.728 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:42.728 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:42.728 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:43.734 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:43.734 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:43.734 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:43.734 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:44.741 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:44.741 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:44.741 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:44.742 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:45.746 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:45.747 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:45.747 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:45.747 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:46.752 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:46.752 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:46.752 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:46.753 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:47.758 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:47.758 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:47.758 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:47.759 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:48.764 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:48.764 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:48.764 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:48.765 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:49.770 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:49.770 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:49.770 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:49.771 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:50.776 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:50.776 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:50.776 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:50.776 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:51.782 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:51.783 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:51.783 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:51.783 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:52.789 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:52.789 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:52.789 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:52.790 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:53.795 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:53.795 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:53.795 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:53.795 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:54.801 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:54.801 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:54.801 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:54.802 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:55.806 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:55.806 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:55.806 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:55.806 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:56.812 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:56.812 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:56.812 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:56.813 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:57.817 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:57.817 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:57.817 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:57.818 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:58.823 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:58.823 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:58.823 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:58.823 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:15:59.829 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:15:59.830 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:15:59.830 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:15:59.830 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:00.836 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:00.836 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:00.836 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:00.837 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:01.842 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:01.842 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:01.842 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:01.842 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:02.848 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:02.848 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:02.848 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:02.848 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:03.854 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:03.855 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:03.855 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:03.855 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:04.861 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:04.861 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:04.861 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:04.862 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:05.867 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:05.867 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:05.867 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:05.868 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:06.873 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:06.873 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:06.873 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:06.873 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:07.879 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:07.880 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:07.880 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:07.880 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:08.886 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:08.886 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:08.886 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:08.887 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:09.892 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:09.892 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:09.892 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:09.893 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:10.898 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:10.898 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:10.898 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:10.898 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:11.905 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:11.905 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:11.905 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:11.905 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:12.911 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:12.911 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:12.912 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:12.912 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:13.918 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:13.918 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:13.918 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:13.919 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:14.924 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:14.924 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:14.924 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:14.925 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:15.930 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:15.930 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:15.930 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:15.931 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:16.935 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:16.936 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:16.936 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:16.936 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:17.942 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:17.942 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:17.942 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:17.943 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:18.948 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:18.948 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:18.948 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:18.949 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:19.954 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:19.954 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:19.954 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:19.955 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:20.960 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:20.960 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:20.960 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:20.960 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:21.966 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:21.967 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:21.967 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:21.967 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:22.973 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:22.973 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:22.973 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:22.974 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:23.986 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:23.986 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:23.986 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:23.987 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:25.000 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:25.000 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:25.000 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:25.000 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:26.015 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:26.015 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:26.015 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:26.016 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:27.031 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:27.031 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:27.031 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:27.031 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:28.046 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:28.046 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:28.047 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:28.047 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:29.062 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:29.062 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:29.062 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:29.062 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:30.077 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:30.078 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:30.078 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:30.078 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:31.091 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:31.091 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:31.091 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:31.092 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[2465] 10 Mar 20:16:31.457 # Failed opening .rdb for saving: No such file or directory
+[4081] 10 Mar 20:16:32.107 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:32.107 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:32.107 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:32.107 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:33.122 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:33.122 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:33.122 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:33.123 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:34.138 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:34.138 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:34.138 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:34.138 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:35.153 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:35.154 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:35.154 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:35.154 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:36.169 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:36.169 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:36.169 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:36.169 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:37.184 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:37.185 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:37.185 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:37.185 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:38.200 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:38.200 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:38.200 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:38.201 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:39.216 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:39.216 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:39.216 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:39.216 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:40.232 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:40.232 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:40.232 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:40.232 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:41.247 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:41.247 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:41.247 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:41.247 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:42.262 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:42.263 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:42.263 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:42.263 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:43.278 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:43.278 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:43.278 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:43.278 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:44.294 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:44.294 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:44.294 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:44.294 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:45.309 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:45.309 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:45.309 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:45.310 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:46.325 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:46.325 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:46.325 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:46.325 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:47.340 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:47.341 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:47.341 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:47.341 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:48.356 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:48.356 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:48.356 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:48.356 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:49.371 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:49.372 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:49.372 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:49.372 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:50.387 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:50.387 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:50.387 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:50.388 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:51.397 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:51.397 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:51.397 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:51.397 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:52.403 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:52.404 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:52.404 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:52.404 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:53.410 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:53.411 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:53.411 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:53.411 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:54.417 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:54.417 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:54.418 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:54.418 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:55.423 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:55.423 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:55.423 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:55.424 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:56.429 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:56.429 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:56.429 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:56.430 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:57.435 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:57.435 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:57.435 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:57.436 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:58.441 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:58.441 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:58.441 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:58.442 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:16:59.447 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:16:59.447 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:16:59.447 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:16:59.447 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:00.453 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:00.453 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:00.453 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:00.454 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:01.459 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:01.459 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:01.459 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:01.459 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:02.476 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:02.476 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:02.476 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:02.476 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:03.483 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:03.483 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:03.483 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:03.483 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:04.489 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:04.490 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:04.490 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:04.490 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:05.496 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:05.497 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:05.497 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:05.497 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:06.503 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:06.503 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:06.503 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:06.504 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:07.508 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:07.508 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:07.508 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:07.509 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:08.514 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:08.514 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:08.514 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:08.515 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:09.520 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:09.520 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:09.520 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:09.521 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:10.526 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:10.526 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:10.526 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:10.527 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:11.532 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:11.532 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:11.532 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:11.532 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:12.540 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:12.540 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:12.540 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:12.540 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:13.547 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:13.547 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:13.547 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:13.547 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:14.554 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:14.554 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:14.554 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:14.554 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:15.561 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:15.561 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:15.561 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:15.561 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:16.567 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:16.568 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:16.568 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:16.568 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:17.574 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:17.575 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:17.575 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:17.575 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:18.581 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:18.581 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:18.581 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:18.582 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:19.587 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:19.587 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:19.587 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:19.588 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:20.593 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:20.593 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:20.593 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:20.594 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:21.599 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:21.599 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:21.599 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:21.599 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:22.606 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:22.606 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:22.606 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:22.607 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:23.621 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:23.621 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:23.621 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:23.621 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:24.637 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:24.637 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:24.637 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:24.637 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:25.652 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:25.652 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:25.652 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:25.653 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:26.668 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:26.668 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:26.668 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:26.668 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:27.684 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:27.684 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:27.684 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:27.684 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:28.697 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:28.698 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:28.698 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:28.698 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:29.713 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:29.713 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:29.713 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:29.713 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:30.725 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:30.726 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:30.726 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:30.726 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:31.740 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:31.741 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:31.741 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:31.741 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:32.754 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:32.754 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:32.754 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:32.755 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:33.770 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:33.770 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:33.770 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:33.770 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:34.786 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:34.786 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:34.786 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:34.786 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:35.799 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:35.799 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:35.800 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:35.800 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:36.815 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:36.815 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:36.815 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:36.815 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:37.831 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:37.831 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:37.831 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:37.831 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:38.846 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:38.847 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:38.847 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:38.847 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:39.862 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:39.862 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:39.862 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:39.863 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:40.876 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:40.876 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:40.876 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:40.877 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:41.891 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:41.892 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:41.892 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:41.892 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:42.907 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:42.907 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:42.907 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:42.908 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:43.923 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:43.923 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:43.923 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:43.923 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:44.938 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:44.939 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:44.939 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:44.939 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:45.954 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:45.954 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:45.954 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:45.955 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:46.970 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:46.970 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:46.970 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:46.970 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:47.986 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:47.986 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:47.986 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:47.986 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:49.019 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:49.019 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:49.020 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:49.020 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:50.081 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:50.081 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:50.081 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:50.081 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:51.097 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:51.097 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:51.097 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:51.097 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:52.111 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:52.111 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:52.111 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:52.111 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:53.117 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:53.117 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:53.117 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:53.117 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:54.124 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:54.124 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:54.124 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:54.124 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:55.131 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:55.131 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:55.131 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:55.131 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:56.137 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:56.138 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:56.138 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:56.138 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:57.143 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:57.144 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:57.144 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:57.144 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:58.150 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:58.150 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:58.151 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:58.151 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:17:59.157 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:17:59.157 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:17:59.157 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:17:59.158 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:00.163 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:00.163 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:00.163 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:00.164 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:01.169 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:01.169 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:01.169 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:01.170 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:02.175 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:02.175 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:02.175 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:02.175 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:03.182 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:03.182 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:03.182 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:03.182 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:04.189 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:04.189 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:04.189 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:04.189 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:05.195 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:05.196 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:05.196 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:05.196 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:06.206 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:06.206 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:06.206 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:06.207 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:07.212 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:07.212 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:07.212 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:07.213 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:08.218 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:08.218 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:08.218 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:08.219 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:09.223 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:09.223 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:09.223 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:09.224 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:10.229 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:10.229 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:10.229 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:10.229 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:11.235 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:11.235 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:11.235 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:11.235 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:12.242 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:12.242 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:12.242 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:12.242 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:13.249 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:13.249 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:13.249 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:13.249 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:14.255 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:14.256 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:14.256 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:14.256 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:15.262 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:15.263 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:15.263 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:15.263 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:16.269 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:16.269 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:16.269 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:16.270 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:17.275 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:17.275 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:17.275 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:17.276 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:18.281 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:18.281 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:18.281 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:18.282 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:19.287 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:19.287 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:19.287 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:19.287 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:20.294 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:20.294 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:20.294 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:20.294 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:21.302 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:21.302 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:21.302 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:21.303 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:22.315 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:22.315 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:22.315 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:22.315 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:23.321 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:23.321 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:23.322 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:23.322 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:24.328 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:24.328 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:24.328 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:24.329 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:25.334 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:25.334 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:25.334 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:25.335 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:26.340 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:26.340 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:26.340 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:26.341 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:27.346 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:27.346 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:27.346 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:27.346 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:28.353 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:28.353 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:28.353 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:28.353 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:29.360 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:29.360 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:29.360 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:29.360 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:30.366 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:30.367 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:30.367 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:30.367 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:31.373 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:31.374 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:31.374 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:31.374 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:32.379 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:32.379 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:32.379 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:32.380 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:33.385 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:33.385 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:33.385 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:33.386 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:34.391 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:34.391 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:34.391 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:34.392 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:35.397 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:35.397 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:35.397 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:35.397 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:36.404 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:36.404 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:36.404 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:36.405 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:37.410 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:37.410 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:37.410 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:37.410 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:38.417 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:38.417 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:38.417 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:38.417 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:39.423 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:39.424 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:39.424 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:39.424 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:40.430 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:40.431 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:40.431 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:40.431 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:41.437 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:41.437 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:41.437 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:41.438 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:42.443 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:42.443 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:42.443 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:42.444 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[4081] 10 Mar 20:18:43.449 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:43.449 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:43.449 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:43.449 # Error reply to PING from master: '-MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error.'
+[2465] 10 Mar 20:18:43.591 * Background saving started by pid 4235
+[4235] 10 Mar 20:18:43.600 * DB saved on disk
+[4235] 10 Mar 20:18:43.619 * RDB: 0 MB of memory used by copy-on-write
+[2465] 10 Mar 20:18:43.719 * Background saving terminated with success
+[4081] 10 Mar 20:18:44.455 * Connecting to MASTER 127.0.0.1:6379
+[4081] 10 Mar 20:18:44.455 * MASTER <-> SLAVE sync started
+[4081] 10 Mar 20:18:44.455 * Non blocking connect for SYNC fired the event.
+[4081] 10 Mar 20:18:44.455 * Master replied to PING, replication can continue...
+[4081] 10 Mar 20:18:44.455 * Partial resynchronization not possible (no cached master)
+[2465] 10 Mar 20:18:44.456 * Slave asks for synchronization
+[2465] 10 Mar 20:18:44.456 * Full resync requested by slave.
+[4081] 10 Mar 20:18:44.456 * Full resync from master: 462fb4e22a32c3bc2e55b124f085fa86f59b5317:1
+[2465] 10 Mar 20:18:44.456 * Starting BGSAVE for SYNC
+[2465] 10 Mar 20:18:44.456 * Background saving started by pid 4236
+[4236] 10 Mar 20:18:44.464 * DB saved on disk
+[4236] 10 Mar 20:18:44.464 * RDB: 0 MB of memory used by copy-on-write
+[2465] 10 Mar 20:18:44.523 * Background saving terminated with success
+[4081] 10 Mar 20:18:44.523 * MASTER <-> SLAVE sync: receiving 173788 bytes from master
+[4081] 10 Mar 20:18:44.538 * MASTER <-> SLAVE sync: Flushing old data
+[4081] 10 Mar 20:18:44.538 * MASTER <-> SLAVE sync: Loading DB in memory
+[4081] 10 Mar 20:18:44.541 * MASTER <-> SLAVE sync: Finished with success
+[2465] 10 Mar 20:18:44.549 * Synchronization with slave succeeded
+[4081] 10 Mar 20:18:44.556 * Background append only file rewriting started by pid 4237
+[4237] 10 Mar 20:18:44.558 * SYNC append only file rewrite performed
+[4237] 10 Mar 20:18:44.558 * AOF rewrite: 0 MB of memory used by copy-on-write
+[4081] 10 Mar 20:18:44.657 * Background AOF rewrite terminated with success
+[4081] 10 Mar 20:18:44.657 * Parent diff successfully flushed to the rewritten AOF (0 bytes)
+[4081] 10 Mar 20:18:44.657 * Background AOF rewrite finished successfully
+[2465] 10 Mar 20:18:46.423 * DB saved on disk
+[2465] 10 Mar 20:19:47.380 * DB saved on disk
+[2465] 10 Mar 20:19:51.131 * Background saving started by pid 4286
+[4286] 10 Mar 20:19:51.141 * DB saved on disk
+[4286] 10 Mar 20:19:51.141 * RDB: 0 MB of memory used by copy-on-write
+[2465] 10 Mar 20:19:51.231 * Background saving terminated with success
+[3049] 11 Mar 17:00:48.270 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
+[3049] 11 Mar 17:00:48.270 # Warning: 32 bit instance detected but no memory limit set. Setting 3 GB maxmemory limit with 'noeviction' policy now.
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 2.8.7 (00000000/0) 32 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in stand alone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 3049
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+[3049] 11 Mar 17:00:48.271 # Server started, Redis version 2.8.7
+[3049] 11 Mar 17:00:48.271 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[3049] 11 Mar 17:00:48.271 * The server is now ready to accept connections on port 6379
+[3049 | signal handler] (1394528575) Received SIGTERM, scheduling shutdown...
+[3049] 11 Mar 17:02:55.647 # User requested shutdown...
+[3049] 11 Mar 17:02:55.648 * Calling fsync() on the AOF file.
+[3049] 11 Mar 17:02:55.648 * Saving the final RDB snapshot before exiting.
+[3049] 11 Mar 17:02:55.683 * DB saved on disk
+[3049] 11 Mar 17:02:55.683 * Removing the pid file.
+[3049] 11 Mar 17:02:55.683 # Redis is now ready to exit, bye bye...
+[3117] 11 Mar 17:03:04.936 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
+[3117] 11 Mar 17:03:04.937 # Warning: 32 bit instance detected but no memory limit set. Setting 3 GB maxmemory limit with 'noeviction' policy now.
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 2.8.7 (00000000/0) 32 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in stand alone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 3117
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+[3117] 11 Mar 17:03:04.937 # Server started, Redis version 2.8.7
+[3117] 11 Mar 17:03:04.937 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[3117] 11 Mar 17:03:04.951 * DB loaded from append only file: 0.014 seconds
+[3117] 11 Mar 17:03:04.951 * The server is now ready to accept connections on port 6379
+[3117] 11 Mar 17:03:17.518 * Background saving started by pid 3123
+[3123] 11 Mar 17:03:17.590 * DB saved on disk
+[3123] 11 Mar 17:03:17.590 * RDB: 0 MB of memory used by copy-on-write
+[3117] 11 Mar 17:03:17.657 * Background saving terminated with success
+[3117] 11 Mar 17:03:36.223 * DB saved on disk

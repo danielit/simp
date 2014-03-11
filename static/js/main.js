@@ -265,14 +265,17 @@ function getGridPanel(identify, ti, cols, closeb) {
  */
 function add2tabpanel(tabs, obj) {
 	// if already added to panel,do nothing
+    var ret = 0 ;
 	if (tabs == obj.ownerCt) {
 		// do something
+        ret = 1 ;
     } else {
         //obj.ownerCt = tabs ;
 		tabs.add(obj);
 	}
 	// set the tab to be activity
 	tabs.setActiveTab(obj);
+    return ret ;
 }
 /*
 function getQuanWin(){
@@ -296,12 +299,19 @@ function treeItemClick(view, record, item, index, e) {
 
     if(cmpId=="q.weeksummary"){         
         var quanWin = getQuanWin() ;
-        add2tabpanel(mgrTabpanel,quanWin) ;
+        var ret = add2tabpanel(mgrTabpanel,quanWin) ;
+        if (ret==0){
+            quan_week_store.load() ;
+        }
+         
         //show quangridweek and quanformdetail
         setQuanWinsShow(2) ; 
     } else if (cmpId=="q.detail"){
         var quanWin = getQuanWin() ;
-        add2tabpanel(mgrTabpanel,quanWin) ;
+        var ret = add2tabpanel(mgrTabpanel,quanWin) ;
+        if (ret==0){
+            quan_detail_store.load() ;
+        }
         //show quangriddetail
         setQuanWinsShow(4) ; 
     } else if (cmpId=="q.fillin"){
@@ -313,7 +323,10 @@ function treeItemClick(view, record, item, index, e) {
     } else if (cmpId=="sit.stuinfo"){
         //alert(cmpId) ;
         var sitInfoGrid = getSitInfoGrid();
-        add2tabpanel(mgrTabpanel,sitInfoGrid) ;
+        var ret = add2tabpanel(mgrTabpanel,sitInfoGrid) ;
+        if (ret==0){
+            all_stu_info_store.load() ;
+        }
     } else if (cmpId=="ss.reward"){
     } else if (cmpId=="ss.help"){
     } else if (cmpId=="ss.loan"){
@@ -416,12 +429,30 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
                 leaf:true
             }]
 		},*/
+        {
+			id: 'studentcheck',
+			text: '学生考勤',
+            children:[{
+                id:'sc.lookup',
+                text:'考勤查询',
+                leaf:true
+            },{
+                id:'sc.input',
+                text:'考勤录入',
+                leaf:true
+            }]
+		},
 	    {
 			id: 'sit.info',
 			text: '学生信息',
 			children: [{
 				id: 'sit.stuinfo',
 				text: '学生信息',
+				leaf: true
+			},
+            {
+				id: 'sit.input',
+				text: '信息录入',
 				leaf: true
 			},
 			{
@@ -435,14 +466,14 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 			id: 'studentinschool',
 			children: [{
 				id: 's.in',
-				text: '在校学生',
+				text: '在校学生统计',
 				leaf: true
-			},
+			}/*,
 			{
 				id: 's.out',
 				text: '离校学生',
 				leaf: true
-			}]
+			}*/]
 
 		}]
 	}
@@ -485,6 +516,39 @@ var mgrStuInfoTree = Ext.create('Ext.tree.Panel', {
 	}
 });
 
+var mgrSysTree= Ext.create('Ext.tree.Panel', {
+	title: '系统管理',
+	deferRowRender: true,
+	useArrows: true,
+	listeners: {
+		itemclick: {
+			fn: treeItemClick
+		},
+	},
+	root: {
+		id: 'sysMangeRoot',
+		text: '系统管理',
+		expanded: true,
+		children: [{
+			id: 'sm.user',
+			text: '添加用户',
+            leaf:true		
+        },
+		{
+			id: 'sm.tips',
+			text: '添加公告',
+            leaf:true
+        },
+	    {
+			id: 'sm.notice',
+			text: '添加通知',
+            leaf:true
+			
+		}]
+	}
+});
+
+
 Ext.onReady(function() {
     Ext.Loader.injectScriptElement("static/extjs/locale/ext-lang-zh_CN.js") ;
 	// setup the state provider, all state information will be saved to a cookie
@@ -517,11 +581,8 @@ Ext.onReady(function() {
 
 			items: [
 			mgrTree,
-            mgrStuInfoTree,
-            {
-				title: '学生请假',
-				html: 'Student Ask for Vacation'
-			},
+            //mgrStuInfoTree,
+            mgrSysTree,
             {
 				title: '系统管理',
 				html: 'System Management'
@@ -529,10 +590,6 @@ Ext.onReady(function() {
 			{
 				title: '在线帮助',
 				html: 'Online Help'
-			},
-			{
-				title: '其他',
-				html: 'Other to Deal'
 			}]
 		},
 		{

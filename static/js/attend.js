@@ -1,75 +1,15 @@
-
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
 
+var ATTEND_COUNTER = 0 ;
 
-Ext.define('Quan.DetailForm', {
+Ext.define('Attend.Form', {
 	extend: 'Ext.form.Panel',
-	alias: 'widget.quandetailform',
-	xtype: 'quandetailform',
+	alias: 'widget.attendform',
 	requires: ['Ext.data.*', 'Ext.form.*'],
+	xtype: 'form-attend',
 	frame: true,
-	title: '量化详单',
-	bodyPadding: 5,
-
-	initComponent: function() {
-		Ext.apply(this, {
-			fieldDefaults: {
-				labelAlign: 'right',
-				msgTarget: 'qtip'
-			},
-            defaults:{
-                style:{
-                    textAlgin:'center'
-                }
-            },
-            iconCls: 'icon-form',
-			layout: 'anchor',
-			anchor: '100%',
-            collapsible:'ture',
-			align: 'center',
-            items:[{
-                xtype:'displayfield',
-                fieldLabel:'纪律',
-                name:'quan_disc',
-                id:'detailform.quan_disc',
-                value:'discipline'
-            },
-            {
-                xtype:'displayfield',
-                fieldLabel:'卫生',
-                name:'quan_heath',
-                id:'detailform.quan_heath',
-                value:'health'
-            },
-            {
-                xtype:'displayfield',
-                fieldLabel:'宿舍',
-                name:'quan_domi',
-                id:'detailform.quan_domi',
-                value:'domitory'
-            },
-            {
-                xtype:'displayfield',
-                fieldLabel:'活动及其它',
-                name:'quan_acti',
-                id:'detailform.quan_acti',
-                value:'activty'
-            }]
-        });
-	    this.callParent();
-    }
-});
-
-
-Ext.define('Quan.Form', {
-	extend: 'Ext.form.Panel',
-	alias: 'widget.quanform',
-	requires: ['Ext.data.*', 'Ext.form.*'],
-	xtype: 'form-quan',
-	frame: true,
-	title: '量化',
 	bodyPadding: 5,
     maxHeight:200,
     autoScroll:true,
@@ -95,7 +35,7 @@ Ext.define('Quan.Form', {
 				margin: '0 0 5 0',
 				items: [{
 					xtype: 'combobox',
-					id: 'cbclass',
+					id: 'attendform.class',
 					name: 'class',
                     width:300,
 					displayField: 'name',
@@ -124,10 +64,10 @@ Ext.define('Quan.Form', {
 					xtype: 'combobox',
 					name: 'student',
                     width:300,
-					id: 'cbname',
+					id: 'attendform.name',
 					displayField: 'name',
 					valueField: 'id',
-					queryMode: 'local',
+					queryMode: 'remote',
 					emptyText: '请选择姓名...',
 					fieldLabel: '姓名',
 					margins: '0 6 0 0',
@@ -148,22 +88,21 @@ Ext.define('Quan.Form', {
 				margin: '0 0 5 0',
 				items: [{
 					xtype: 'combobox',
-					id: 'cbquantype',
-					name: 'quan_type',
+					id: 'cbattendtype',
+					name: 'type',
                     width:300,
-					displayField: 'name',
-					valueField: 'id',
-					queryMode: 'remote',
-					emptyText: '请选择量化类型...',
+					displayField: 'type',
+					valueField: 'type',
+					queryMode: 'local',
+					emptyText: '请选择考勤类型...',
 					fieldLabel: '类型',
 					margins: '0 6 0 0',
-					store: quan_type_store,
+					store: attend_type_store,
 					allowBlank: false,
 					forceSelection: true
-
 				},
                 {
-					id: 'quanhidden',
+					id: 'attendhidden',
 					//fieldLabel: '日期',
                     width:300,
 					name: 'idc',
@@ -171,11 +110,11 @@ Ext.define('Quan.Form', {
 				},
 				{
 					xtype: 'datefield',
-					id: 'quandate',
+					id: 'attenddate',
                     format:'Y/m/d',
 					fieldLabel: '日期',
                     width:300,
-					name: 'quan_date',
+					name: 'date',
 					allowBlank: false,
 					margins: '0 6 0 0',
 					maxValue: new Date()
@@ -189,17 +128,19 @@ Ext.define('Quan.Form', {
 				defaultType: 'textfield',
 				margin: '0 0 5 0',
 				items: [{
-					xtype: 'numberfield',
-					id: 'quanscore',
-					name: 'quan_score',
+					xtype: 'combobox',
+					id: 'cbattendnclass',
+					name: 'nclass',
                     width:300,
-					fieldLabel: '量化',
+					displayField: 'nclass',
+					valueField: 'nclass',
+					queryMode: 'local',
+					emptyText: '请选择第几节课...',
+					fieldLabel: '节次',
 					margins: '0 6 0 0',
-					value: 0,
-					maxValue: 20,
-					minValue: - 20,
-					allowBlank: false
-
+					store: attend_nclass_store,
+					allowBlank: false,
+					forceSelection: true
 				}]
 			},
 			{
@@ -210,14 +151,14 @@ Ext.define('Quan.Form', {
 				margin: '0 0 5 0',
 				items: [{
 					xtype: 'textareafield',
-					id: 'quanreason',
+					id: 'attendreason',
 					grow: true,
 					margins: '0 6 0 0',
-					name: 'quan_reason',
-					fieldLabel: '原由',
-					allowBlank: false,
+					name: 'ps',
+					fieldLabel: '备注',
+					allowBlank: true,
 					width: 610,
-					emptyText: '请填写此次量化处理原因...'
+					emptyText: '如有需要，请在此填写备注...'
 				}]
 			},
             {
@@ -258,40 +199,37 @@ Ext.define('Quan.Form', {
 	onCompleteClick: function() {
 		var form = this.getForm();
 		if (form.isValid()) {
-			//Ext.MessageBox.alert('Submitted Values', form.getValues(true));
             
             val = form.getValues() ;
             console.log("get from form");
-            console.log(val)
-            val.class = Ext.getCmp('cbclass').getRawValue() ;
-            val.student = Ext.getCmp('cbname').getRawValue() ;
-            val.quan_type = Ext.getCmp('cbquantype').getRawValue() ;
-            dt = Ext.getCmp('quandate').getValue() ;
+            console.log(val);
+            val.class = Ext.getCmp('attendform.class').getRawValue() ;
+            val.student = Ext.getCmp('attendform.name').getRawValue() ;
+            val.idc = ++ATTEND_COUNTER ;
+            /*
+            val.attend_type = Ext.getCmp('cbattendtype').getRawValue() ;
+            dt = Ext.getCmp('attenddate').getValue() ;
             console.log(dt) ;
-            dtraw = Ext.getCmp('quandate').getRawValue() ;
+            dtraw = Ext.getCmp('attenddate').getRawValue() ;
             console.log(dtraw) ;
-            val.quan_date = new Date(dt).toLocaleDateString() ; 
-            val.quan_date = dtraw ; 
-            console.log(val.quan_date) ;
-            val.quan_score = Ext.getCmp('quanscore').getValue() ;
-            val.quan_reason = Ext.getCmp('quanreason').getValue() ;
-            val.idc = ++QUAN_COUNTER ;
+            val.attend_date = new Date(dt).toLocaleDateString() ; 
+            val.attend_date = dtraw ; 
+            console.log(val.attend_date) ;
+            val.attend_score = Ext.getCmp('attendscore').getValue() ;
+            val.attend_reason = Ext.getCmp('attendreason').getValue() ;
+            */
             
-            quan_info_store.add(val) ;
-
+            //attend_info_store.loadData([val]) ;
+            attend_info_store.add([val]) ;
             form.reset() ;
-            
-            //quangrid = Ext.getCmp('quangrid') ;
-            //console.log(quangrid.getHeight()) ;
-
 		}
 	}
 });
 
 //define the grid
-Ext.define('Quan.Grid', {
+Ext.define('Attend.Grid', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.quangrid',
+	alias: 'widget.attendgrid',
 
 	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
 
@@ -302,22 +240,22 @@ Ext.define('Quan.Grid', {
 		});
 
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
-		/*this.pBar = Ext.create('Ext.PagingToolbar', {
+		this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
-            id:'quangridpbar',
+            id:'attendgridpbar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
-		});*/
+		});
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
 			frame: true,
-            //closeable:true,
-			//closeAction: 'hiden',
+            closeable:true,
+			closeAction: 'hiden',
             collapsible:'ture',
 			selModel: this.CboxModel,
-			//bbar: this.pBar,
+			bbar: this.pBar,
 			plugins: [this.editing],
 			dockedItems: [{
 				xtype: 'toolbar',
@@ -330,6 +268,8 @@ Ext.define('Quan.Grid', {
                 {
 					iconCls: 'icon-modify',
 					text: '修改',
+                    disabled:true,
+                    itemId:'modify',
 					scope: this,
 					handler: this.onModifyClick
 				},'|',
@@ -340,7 +280,7 @@ Ext.define('Quan.Grid', {
 					itemId: 'delete',
 					scope: this,
 					handler: this.onDeleteClick
-				},'|', 
+				},'|'/*, 
                 {
 					//iconCls: 'icon-search',
 					width: 300,
@@ -348,7 +288,7 @@ Ext.define('Quan.Grid', {
 					labelWidth: 50,
 					xtype: 'searchfield',
 					store: this.store
-				}]
+				}*/]
 			},
 			{
 				weight: 1,
@@ -365,9 +305,9 @@ Ext.define('Quan.Grid', {
 					scope: this,
                     //hidden:true,
 					//handler: this.onSync
-                    id:'quangridsave',
+                    id:'attendgridsave',
                     handler:function(){
-                        ret = quan_info_store.sync({
+                        ret = attend_info_store.sync({
                             failure:function(batch){
                                 Ext.MessageBox.show({
                                     title: '提交失败',
@@ -376,7 +316,7 @@ Ext.define('Quan.Grid', {
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
-                                console.log("quan submit failure") ;
+                                console.log("attend submit failure") ;
                             },
                             success:function(batch){
                                 Ext.MessageBox.show({
@@ -386,10 +326,10 @@ Ext.define('Quan.Grid', {
 					                icon: Ext.MessageBox.INFO,
 					                buttons: Ext.Msg.OK
 			                    });
-                                //quan_info_store.removeAll() ;
-                                quan_info_store.loadData([],false) ;
-                                QUAN_COUNTER = 0 ;
-                                console.log("quan submit success") ;
+                                //attend_info_store.removeAll() ;
+                                attend_info_store.loadData([],false) ;
+                                ATTEND_COUNTER = 0 ;
+                                console.log("attend submit success") ;
                             }
                         }) ; 
                         console.log(ret) ;
@@ -412,7 +352,7 @@ Ext.define('Quan.Grid', {
 				//flex: 1,
                 width:160,
 				sortable: true,
-				//dataIndex: 'classname',
+				dataIndex: 'class',
                 style:{textAlign:'center'},
 				dataIndex: 'class',
 				field: {
@@ -425,7 +365,6 @@ Ext.define('Quan.Grid', {
 				sortable: true,
                 style:{textAlign:'center'},
 				dataIndex: 'student',
-				//dataIndex: 'stuname',
 				field: {
 					type: 'textfield'
 				}
@@ -435,8 +374,8 @@ Ext.define('Quan.Grid', {
                 style:{textAlign:'center'},
 				//width: 100,
 				sortable: true,
-				dataIndex: 'quan_type',
-				//dataIndex: 'quantype',
+				dataIndex: 'type',
+				//dataIndex: 'attendtype',
 				field: {
 					type: 'textfield'
 				}
@@ -446,31 +385,31 @@ Ext.define('Quan.Grid', {
                 style:{textAlign:'center'},
 				//width: 100,
 				sortable: true,
-				dataIndex: 'quan_date',
+				dataIndex: 'date',
 				//dataIndex: 'date',
 				field: {
 					type: 'textfield'
 				}
 			},
             {
-				header: '量化',
+				header: '节次',
                 style:{textAlign:'center'},
 				//width: 100,
 				sortable: true,
-				dataIndex: 'quan_score',
-				//dataIndex: 'quanscore',
+				dataIndex: 'nclass',
+				//dataIndex: 'attendscore',
 				field: {
 					type: 'textfield'
 				}
 			},
             {
-				header: '原由',
+				header: '备注',
                 style:{textAlign:'center'},
 				width: 200,
 				sortable: false,
 				menuDisabled: true,
-				//dataIndex: 'quanreason',
-				dataIndex: 'quan_reason',
+				//dataIndex: 'attendreason',
+				dataIndex: 'ps',
 				field: {
 					type: 'textfield'
 				}
@@ -483,11 +422,12 @@ Ext.define('Quan.Grid', {
 	onSelectChange: function(selModel, selections) {
         if (selections) {
 		    this.down('#delete').setDisabled(selections.length === 0);
+		    this.down('#modify').setDisabled(selections.length === 0);
         }
 	},
 
 	onSync: function() {
-		quan_info_store.sync();
+		attend_info_store.sync();
 	},
 
 	onDeleteClick: function() {
@@ -500,52 +440,40 @@ Ext.define('Quan.Grid', {
 	},
 //get the data from grid to form
 	onModifyClick: function() {
-		/*
-         *this is not finished , first set the value to form  
-         *then set value back to grid
-         *
-         */ 
+        //first let modify form show
+        setAttendWinShow('attendform',true) ;
+        setAttendWinShow('attendgridsave',true) ;
         //var selected = this.getView().getSelectionModel().getSelection()[0];
-        var selected = Ext.getCmp('quangrid').getSelectionModel().getSelection()[0];
+        
+        var selected = Ext.getCmp('attendgrid').getSelectionModel().getSelection()[0];
         var value = null ;
         if (selected){
             value = selected.raw ;
         }
         console.log(value) ;
-        //Ext.getCmp('quanform').setValue(value);
-        if (value != null){ 
-            console.log(value) ;
-            Ext.getCmp('cbclass').setRawValue(value.class) ;
-            Ext.getCmp('cbname').setRawValue(value.student) ;
-            Ext.getCmp('cbquantype').setRawValue(value.quan_type) ;
-            Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
-            Ext.getCmp('quanreason').setValue(value.quan_reason) ;
-            Ext.getCmp('quandate').setRawValue(value.quan_date) ;
-
-            this.store.remove(selected) ;
-            --QUAN_COUNTER ;
-        }else {
-            Ext.MessageBox.alert('提示',' 请选择需要修改的行') ;
-            console.log("the selected record is null or somthing") ;
-        }
-        console.log(selected);
-        /**/
-	},
+        console.log(selected) ;
+        //Ext.getCmp('attendform').loadRecord(value);
+        Ext.getCmp('attendform').loadRecord(selected);
+        Ext.getCmp('attendform.class').setRawValue(value.class) ;
+        Ext.getCmp('attendform.name').setRawValue(value.student) ;
+        this.store.remove(selected) ;
+        --ATTEND_COUNTER ;
+    },
 	onAddClick: function() {
-        quanform = Ext.getCmp('quanform') ;
-        if (quanform.isHidden()){
-            quanform.show() ;
+        attendform = Ext.getCmp('attendform') ;
+        if (attendform.isHidden()){
+            attendform.show() ;
         }
-        pbar = Ext.getCmp('quangridpbar') ;
+        pbar = Ext.getCmp('attendgridpbar') ;
         if (!pbar.isHidden()){
             pbar.hide() ;
         }
       	}
 });
 
-Ext.define('Quan.DeatilGrid', {
+Ext.define('attend.DeatilGrid', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.quandetailgrid',
+	alias: 'widget.attenddetailgrid',
 
 	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
 
@@ -558,7 +486,7 @@ Ext.define('Quan.DeatilGrid', {
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
 		this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
-            id:'quangridpbar',
+            id:'attendgridpbar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
@@ -577,22 +505,22 @@ Ext.define('Quan.DeatilGrid', {
 				xtype: 'toolbar',
 				items: [{
 					xtype: 'datefield',
-					id: 'quan.detail.bdate',
+					id: 'attend.detail.bdate',
                     format:'Y/m/d',
 					fieldLabel: '开始日期',
                     width:300,
-					name: 'quan_date',
+					name: 'attend_date',
 					//allowBlank: false,
 					margins: '0 6 0 0',
 					maxValue: new Date()
 				},
                 {
 					xtype: 'datefield',
-					id: 'quan.detail.edate',
+					id: 'attend.detail.edate',
                     format:'Y/m/d',
 					fieldLabel: '结束日期',
                     width:300,
-					name: 'quan_date',
+					name: 'attend_date',
 					//allowBlank: false,
 					margins: '0 6 0 0',
 					maxValue: new Date()
@@ -637,7 +565,7 @@ Ext.define('Quan.DeatilGrid', {
 				header: '类型',
                 style:{textAlign:'center'},
 				sortable: true,
-				dataIndex: 'quan_type',
+				dataIndex: 'type',
 				field: {
 					type: 'textfield'
 				}
@@ -646,7 +574,7 @@ Ext.define('Quan.DeatilGrid', {
 				header: '日期',
                 style:{textAlign:'center'},
 				sortable: true,
-				dataIndex: 'quan_date',
+				dataIndex: 'attend_date',
 				field: {
 					type: 'textfield'
 				}
@@ -655,7 +583,7 @@ Ext.define('Quan.DeatilGrid', {
 				header: '量化',
                 style:{textAlign:'center'},
 				sortable: true,
-				dataIndex: 'quan_score',
+				dataIndex: 'attend_score',
 				field: {
 					type: 'textfield'
 				}
@@ -666,7 +594,7 @@ Ext.define('Quan.DeatilGrid', {
 				width: 200,
 				sortable: false,
 				menuDisabled: true,
-				dataIndex: 'quan_reason',
+				dataIndex: 'attend_reason',
 				field: {
 					type: 'textfield'
 				}
@@ -677,8 +605,8 @@ Ext.define('Quan.DeatilGrid', {
 	},
     
     onSearchClick: function(){
-        var bdate = Ext.getCmp('quan.detail.bdate').getRawValue() ;
-        var edate = Ext.getCmp('quan.detail.edate').getRawValue() ;
+        var bdate = Ext.getCmp('attend.detail.bdate').getRawValue() ;
+        var edate = Ext.getCmp('attend.detail.edate').getRawValue() ;
         if (bdate && edate) {
             console.log(bdate) ;
             console.log(edate) ;
@@ -691,7 +619,7 @@ Ext.define('Quan.DeatilGrid', {
                 callback:function(records,operations,success){
                     if (success === false){
                         Ext.MessageBox.show({
-                            title: '量化查询失败',
+                            title: '查询失败',
                             msg: '远程服务器错误，<br/>请联系系统管理员！',
 					        //msg: operation.getError(),
 					        icon: Ext.MessageBox.ERROR,
@@ -710,10 +638,11 @@ Ext.define('Quan.DeatilGrid', {
         }
     }
 });
-//define the grid of displaying quan of week
-Ext.define('Quan.Grid.Week', {
+//define the grid of displaying attend of week
+/*
+Ext.define('attend.Grid.Week', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.quangridweek',
+	alias: 'widget.attendgridweek',
 
 	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
 
@@ -726,7 +655,7 @@ Ext.define('Quan.Grid.Week', {
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
 		this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
-            id:'quangridweekpbar',
+            id:'attendgridweekpbar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
@@ -745,7 +674,7 @@ Ext.define('Quan.Grid.Week', {
 				xtype: 'toolbar',
 				items: [                {
                 	xtype: 'combobox',
-                    id:'quan.grid.cb.week',
+                    id:'attend.grid.cb.week',
 					name: 'week',
                     width:300,
 					displayField: 'week',
@@ -765,31 +694,15 @@ Ext.define('Quan.Grid.Week', {
 					iconCls: 'icon-add',
 					text: '查看',
 					scope: this,
-					handler: this.onLookOverWeekQuan
-				}/*,
-                {
-					iconCls: 'icon-detail',
-					text: '显示量化详单',
-					scope: this,
-					handler: this.onLookOverWeekQuan
-				}*/]
+					handler: this.onLookOverWeekattend
+				}]
 			},
 			{
 				weight: 1,
 				xtype: 'toolbar',
 				dock: 'bottom',
 				ui: 'footer',
-				items: [/*'->', {
-					iconCls: 'icon-save',
-					text: '提交',
-					scope: this,
-                    //hidden:true,
-					//handler: this.onSync
-                    id:'quangridweeksave',
-                    handler:function(){
-                        console.log(ret) ;
-                    }
-				}*/]
+				items: []
 			}],
             defaults:{
                 menuDisabled:true
@@ -824,7 +737,7 @@ Ext.define('Quan.Grid.Week', {
                 menuDisabled:true,
                 columns:[
                 {text:'分数',dataIndex:'disp_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'disp_quan',width:60,sortable:true},
+                {text:'量化分',dataIndex:'disp_attend',width:60,sortable:true},
                 {text:'排名',dataIndex:'disp_rank',width:60,sortable:true}
                 ]
 			},
@@ -832,10 +745,10 @@ Ext.define('Quan.Grid.Week', {
 				header: '卫生',
                 menuDisabled:true,
 				//width: 100,
-				//dataIndex: 'quantype',
+				//dataIndex: 'attendtype',
                 columns:[
                 {text:'分数',dataIndex:'heal_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'heal_quan',width:60,sortable:true},
+                {text:'量化分',dataIndex:'heal_attend',width:60,sortable:true},
                 {text:'排名',dataIndex:'heal_rank',width:60,sortable:true}
                 ]
 			},
@@ -844,7 +757,7 @@ Ext.define('Quan.Grid.Week', {
                 menuDisabled:true,
                 columns:[
                 {text:'分数',dataIndex:'domi_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'domi_quan',width:60,sortable:true},
+                {text:'量化分',dataIndex:'domi_attend',width:60,sortable:true},
                 {text:'排名',dataIndex:'domi_rank',width:60,sortable:true}
                 ]
 			},
@@ -853,7 +766,7 @@ Ext.define('Quan.Grid.Week', {
                 menuDisabled:true,
                  columns:[
                 {text:'分数',dataIndex:'acti_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'acti_quan',width:60,sortable:true},
+                {text:'量化分',dataIndex:'acti_attend',width:60,sortable:true},
                 {text:'排名',dataIndex:'acti_rank',width:60,sortable:true}
                 ]
 			},
@@ -861,10 +774,9 @@ Ext.define('Quan.Grid.Week', {
 				text: '合计',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
 				sortable: true,
 				menuDisabled: false,
-				//dataIndex: 'quanreason',
+				//dataIndex: 'attendreason',
 				dataIndex: 'total',
 				field: {
 					type: 'int'
@@ -877,7 +789,7 @@ Ext.define('Quan.Grid.Week', {
 				//width: 100,
 				sortable: true,
 				menuDisabled: false,
-				//dataIndex: 'quanreason',
+				//dataIndex: 'attendreason',
 				dataIndex: 'rank',
 				field: {
 					type: 'int'
@@ -889,16 +801,12 @@ Ext.define('Quan.Grid.Week', {
 		this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
 	},
 
-	onSelectChange: function(selModel, selections) {
-       /* if (selections) {
-		    this.down('#delete').setDisabled(selections.length === 0);
-        }*/
-	},
-    onLookOverWeekQuan: function(){
-        var week = Ext.getCmp('quan.grid.cb.week').getValue() ;
-        console.log('look over week quan of',week) ; 
-        //quan_week_store.loadData([],false) ;
-        quan_week_store.load({
+	onSelectChange: function(selModel, selections) {},
+    onLookOverWeekattend: function(){
+        var week = Ext.getCmp('attend.grid.cb.week').getValue() ;
+        console.log('look over week attend of',week) ; 
+        //attend_week_store.loadData([],false) ;
+        attend_week_store.load({
             'params':{
                 'week':week
             },
@@ -922,150 +830,88 @@ Ext.define('Quan.Grid.Week', {
     }
 });
 
-
+*/
 Ext.require(['Ext.data.*', 'Ext.tip.QuickTipManager', 'Ext.window.MessageBox']);
 
-//define the container for quan 
-Ext.define('Quan.window', {
+//define the container for attend 
+Ext.define('attend.window', {
 	extend: 'Ext.container.Container',
-	alias: 'widget.quancontainer',
+	alias: 'widget.attendcontainer',
 
 	initComponent: function() {
 		Ext.apply(this, {
 			padding: '0 0 0 0',
-			//width: 700,
-			//height: Ext.themeName === 'neptune' ? 500: 450, renderTo: Ext.getBody(), title: '量化管理', icon: 'static/pic/css/tabs.gif',
 			layout: {
 				type: 'vbox',
 				align: 'stretch',
 				pack: 'start'
 			},
-			items: [{// quan add new info grid
-				itemId: 'quangrid',
-				id: 'quangrid',
-				xtype: 'quangrid',
-				title: '量化信息登记表',
+			items: [{// attend add new info grid
+				itemId: 'attendgrid',
+				id: 'attendgrid',
+				xtype: 'attendgrid',
+				title: '学生考勤',
 				flex: 1,
-                hidden:true,
+                hidden:false,
                 //minHeight:200,
                 //maxHeight:500,
-				store: quan_info_store,
+				store: attend_info_store,
 				listeners: {
-					selectionchange: function(selModel, selected) {
-						/*value = null
-						if (selected && selected[0]) {
-							console.log(selected[0]);
-							value = selected[0].raw;
-						}
-						//Ext.getCmp('quanform').setValue(value);
-                        if (value != null){ 
-                            console.log(value) ;
-                            Ext.getCmp('cbclass').setRawValue(value.class) ;
-                            Ext.getCmp('cbname').setRawValue(value.student) ;
-                            Ext.getCmp('cbquantype').setRawValue(value.quan_type) ;
-                            Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
-                            Ext.getCmp('quanreason').setValue(value.quan_reason) ;
-
-                            date = value.quan_date ;
-                            date = date.replace('年','/') ;
-                            date = date.replace('月','/') ;
-                            date = date.replace('日','') ;
-                            Ext.getCmp('quandate').setRawValue(date) ;
-
-                        }
-					*/}
+					selectionchange: function(selModel, selected) {}
 				}
-			},
-            {// quan add new info grid
-				itemId: 'quangridweek',
-				id: 'quangridweek',
-				xtype: 'quangridweek',
+			}/*,
+            {// attend add new info grid
+				itemId: 'attendgridweek',
+				id: 'attendgridweek',
+				xtype: 'attendgridweek',
 				title: '周量化汇总表',
 				flex: 1,
                 hidden:true,
-                //minHeight:200,
-                //maxHeight:500,
-				store: quan_week_store,
+				store: attend_week_store,
 				listeners: {
-					selectionchange: function(selModel, selected) {
-						/*
-                        value = null
-						if (selected && selected[0]) {
-							console.log(selected[0]);
-							value = selected[0].raw;
-                            console.log(value) ;
-						}
-						//Ext.getCmp('quanform').setValue(value);
-                        */
-					}
+					selectionchange: function(selModel, selected) {}
 				}
 			},
             {
-                id:'quangriddetail',
+                id:'attendgriddetail',
                 title:'量化详单',
-                xtype:'quandetailgrid',
+                xtype:'attenddetailgrid',
 				margins: '0 0 0 0',
-                hidden:true,
+                hidden:false,
 				flex: 1,
-                store:quan_detail_store
+                store:attend_info_store
                 //hidden:false
-            },
-            {// add new quan info form
-				itemId: 'quanform',
-				id: 'quanform',
-				xtype: 'quanform',
-                title:'量化信息登记',
+            }*/,
+            {// add new attend info form
+				itemId: 'attendform',
+				id: 'attendform',
+				xtype: 'attendform',
+                title:'学生考勤',
                 minHeight:100,
                 maxHeight:500,
-				hidden: true,
+				hidden: false,
 				manageHeight: false,
 				margins: '0 0 0 0'
-			},
-            {
-                id:'quanformdetail',
-                xtype:'quandetailform',
-                title: '班级量化详单',
-                hidden:true ,
-				margins: '0 0 0 0'
-                //hidden:false
-            }]
+			}]
 		});
 		this.callParent();
 	}
 });
-/*
-Ext.onReady(function() {
- var main = Ext.create('Ext.container.Viewport', {
-		layout: {
-			type: 'border',
-			padding: '5'
-		},
-		items: [{
-			region: 'north',
-			//height: 130,
-			bodyPadding: 0,
-			split: false,
-            xtype:'quancontainer',
-            id:'quancontainer'
-		}]
-    }) ;
-}) ;
-*/
 
-function getQuanWin(){
-    var quanWin = Ext.getCmp('quanwin') ;
-    if (quanWin==null){
-        quanWin = Ext.create('Quan.window',{
-            title:'信息工程系量化管理平台',
-            id:'quanwin',
-            itemId:'quanwin',
-            xtype:'quancontainer',
+function getAttendWin(){
+    var attendWin = Ext.getCmp('attendwin') ;
+    if (attendWin==null){
+        attendWin = Ext.create('attend.window',{
+            title:'信息工程系学生考勤管理',
+            id:'attendwin',
+            itemId:'attendwin',
+            xtype:'attendcontainer',
 		    icon: 'static/pic/css/tabs.gif'
         }) ; 
     } 
-    return quanWin ;
+    return attendWin ;
 }
-function setQuanWinShow(id,sure){
+function setAttendWinShow(id,sure){
     var cmp = Ext.getCmp(id) ;
     if(cmp==null){
         console.log('cant find the id of ext cmp') ;
@@ -1077,10 +923,10 @@ function setQuanWinShow(id,sure){
     }
 }
 
-function setQuanWinsShow(mask) {
-    setQuanWinShow('quangrid',mask & 1) ;
-    setQuanWinShow('quangridweek',mask & 2) ;
-    setQuanWinShow('quangriddetail',mask & 4) ;
-    setQuanWinShow('quanform',mask & 8) ;
-    //setQuanWinShow('quanformdetail',mask & 16) ;
+function setattendWinsShow(mask) {
+    setAttendWinShow('attendgrid',mask & 1) ;
+    setAttendWinShow('attendgridweek',mask & 2) ;
+    setAttendWinShow('attendgriddetail',mask & 4) ;
+    setAttendWinShow('attendform',mask & 8) ;
+    //setattendWinShow('attendformdetail',mask & 16) ;
 } 

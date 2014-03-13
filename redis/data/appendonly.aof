@@ -7780,3 +7780,22 @@ $17
 user:201104150224
 $60
 {"pwd": "08151870", "role": "80000", "user": "201104150224"}
+*2
+$6
+SELECT
+$1
+0
+*3
+$5
+LPUSH
+$21
+quan:class:2013000101
+$143
+{"quan_reason": "ss", "quan_score": -1, "class": 2013000101, "quan_type": 1003, "student": 20130416010004, "quan_date": "2014/03/13", "idc": 1}
+*3
+$5
+LPUSH
+$21
+quan:class:2013000001
+$144
+{"quan_reason": "sxxx", "quan_score": 0, "class": 2013000001, "quan_type": 1002, "student": 20130415010016, "quan_date": "2014/03/13", "idc": 2}

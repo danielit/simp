@@ -1,4 +1,4 @@
-var SERVER="192.168.85.77:8888"
+//var SERVER="192.168.85.77:8888"
 //用户登录窗口
 function getLoginWindow(){
     var loginWindow = Ext.WindowMgr.get('loginWindow');

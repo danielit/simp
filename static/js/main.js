@@ -1,8 +1,6 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
 
-var HOST = "127.0.0.1"
-var PORT = "8888"
 /*
  * 工具栏的内容以及对应的id号 
  * */
@@ -48,7 +46,7 @@ function getAjaxProxy(Url, Reader, Writer) {
 	return testAjaxProxy;
 }
 
-var U = Ext.String.format("http://{0}:{1}/getallstuinfo", HOST, PORT);
+var U = SERVER+"/getallstuinfo" ;
 //var U = "http://192.168.84.251:8888/getallstuinfo";
 var R = {
 	type: 'json',
@@ -302,6 +300,7 @@ function treeItemClick(view, record, item, index, e) {
         var ret = add2tabpanel(mgrTabpanel,quanWin) ;
         if (ret==0){
             quan_week_store.load() ;
+            quan_detail_store.load() ;
         }
          
         //show quangridweek and quanformdetail
@@ -327,8 +326,23 @@ function treeItemClick(view, record, item, index, e) {
         if (ret==0){
             all_stu_info_store.load() ;
         }
-    } else if (cmpId=="ss.reward"){
-    } else if (cmpId=="ss.help"){
+    } else if (cmpId=="sa.input"){
+        var attendWin = getAttendWin() ;
+        attend_info_store.loadData([]) ;
+        add2tabpanel(mgrTabpanel,attendWin) ;
+        attendWin.show() ; 
+        setAttendWinShow('attendform',true) ;
+        setAttendWinShow('attendgridsave',true) ;
+
+    } else if (cmpId=="sa.lookup"){
+        var attendWin = getAttendWin() ;
+        attend_info_store.loadData([]) ;
+        attend_info_store.load() ;
+        add2tabpanel(mgrTabpanel,attendWin) ;
+        attendWin.show() ; 
+        setAttendWinShow('attendform',false) ;
+        setAttendWinShow('attendgridsave',false) ;
+
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
         // student information
@@ -430,14 +444,14 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
             }]
 		},*/
         {
-			id: 'studentcheck',
+			id: 'studentattend',
 			text: '学生考勤',
             children:[{
-                id:'sc.lookup',
+                id:'sa.lookup',
                 text:'考勤查询',
                 leaf:true
             },{
-                id:'sc.input',
+                id:'sa.input',
                 text:'考勤录入',
                 leaf:true
             }]
@@ -454,12 +468,12 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 				id: 'sit.input',
 				text: '信息录入',
 				leaf: true
-			},
+			}/*,
 			{
 				id: 'sit.score',
 				text: '学生成绩',
 				leaf: true
-			}]
+			}*/]
 		},
 		{
 			text: '在校情况',
@@ -583,10 +597,6 @@ Ext.onReady(function() {
 			mgrTree,
             //mgrStuInfoTree,
             mgrSysTree,
-            {
-				title: '系统管理',
-				html: 'System Management'
-			},
 			{
 				title: '在线帮助',
 				html: 'Online Help'

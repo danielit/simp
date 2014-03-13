@@ -34,13 +34,14 @@ def getDateOfNWeek(nWeek):
 
 def getQuanInfoBetween(begin,end):
     stu = Student.instance()
+    stu.logger.info("begin:"+str(begin)+" end:"+str(end))
     ret = []
     qinfos = stu.getAllQuanInfos()
     idc=0
     for qi in qinfos:
         date = datetime.strptime(str(qi['quan_date']),'%Y/%m/%d')
         if begin<= date and end>= date:
-            stu.logger.info(qi)
+            stu.logger.info(qi['quan_date'])
             try:
                 qi['student'] = stu.getStuNameOnId(qi['student'])
                 qi['quan_type'] = stu.getQuanNameOnId(qi['quan_type'])
@@ -133,7 +134,9 @@ class GetStuNameIDsOnClassID(APIHandler):
         try:
             stu = Student.instance()
             classid = self.get_argument('classid')
-
+            stu.logger.info("############classid="+classid)
+            #classid = stu.getClassIdOnName(classid)
+            #stu.logger.info("############classname="+str(classid))
             stuids = stu.getStuIdsofClass(classid)
 
             stu.logger.info(stuids)

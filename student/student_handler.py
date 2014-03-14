@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#-*- coding=utf-8 -*-
 """ Feed module """
 
 import sys
@@ -16,6 +17,20 @@ from student_config import firstDayOfTerm as firstDayTerm
 
 from tornado.escape import json_encode
 # constant definitions
+
+def doPage(obj,ret) :
+    page = int(obj.get_argument('page',0))
+    start = int(obj.get_argument('start',0))
+    limit = int(obj.get_argument('limit',0))
+
+    if page == 0:
+        start = 0
+        end = len(ret)
+    else:
+        end = start + page * limit
+
+    return ret[start:end]
+
 
 def getDateOfNWeek(nWeek):
     global firstDayTerm
@@ -86,7 +101,10 @@ class GetAllStuInfo(APIHandler):
                 r['class'] = cid2cname[cid]
                 stuinfo.append(r)
 
-            self.finish("data",stuinfo)
+            total = len(stuinfo)
+            stuinfo = doPage(self,stuinfo)
+
+            self.finish("data",stuinfo,total=total)
             return
 
         self.finish(success=False)
@@ -112,6 +130,7 @@ class GetAllClassIDs(APIHandler):
             stu = Student.instance()
             stu.logger.info("in getAllClassIDs")
             ret = stu.getAllClassIDs()
+            ret = ret + [{'id':'0','name':'所有班级'}]
             self.finish("classids",ret)
         except Exception ,e :
             raise tornado.web.HTTPError(404)
@@ -133,8 +152,12 @@ class GetStuNameIDsOnClassID(APIHandler):
         stu = None
         try:
             stu = Student.instance()
-            classid = self.get_argument('classid')
+            classid = self.get_argument('classid','')
             stu.logger.info("############classid="+classid)
+            if classid == '':
+                stu.logger.warning('classid has no value')
+                self.finish(success=False)
+                return
             #classid = stu.getClassIdOnName(classid)
             #stu.logger.info("############classname="+str(classid))
             stuids = stu.getStuIdsofClass(classid)
@@ -150,7 +173,7 @@ class GetStuNameIDsOnClassID(APIHandler):
                     stu.logger.info(stuid+" is not fond in db")
                 else:
                     stuInfo.append({"name":name,"id":stuid})
-
+            stuInfo = stuInfo + [{'id':'0','name':'所有学生'}]
             self.finish("stunameids",stuInfo)
         except Exception ,e :
             stu.logger.warning(e)
@@ -173,7 +196,11 @@ class GetQuanInfosHandler(APIHandler):
             end = datetime.strptime(end,'%Y/%m/%d')
 
         ret = getQuanInfoBetween(begin,end)
-        self.finish('quan',ret)
+
+        total = len(ret)
+        ret = doPage(self,ret)
+
+        self.finish('quan',ret,total=total)
 '''
         ret = []
         qinfos = stu.getAllQuanInfos()
@@ -363,7 +390,102 @@ class GetQuanSummaryOfWeekHandler(APIHandler):
             line['idc'] = idc
             qWeekInfos.append(line)
 
-        self.finish('classquanweek',qWeekInfos)
+        total = len(qWeekInfos)
+        qWeekInfos = doPage(self,qWeekInfos)
+
+        self.finish('classquanweek',qWeekInfos,total=total)
+
+class GetAttendInfoHandler(APIHandler):
+    def getAttendInfoBetween(self,begin,end):
+        stu = Student.instance()
+        try:
+            if type(begin)==type(""):
+                begin = datetime.strptime(begin,'%Y/%m/%d')
+
+            if type(end) == type("") :
+                end = datetime.strptime(end,'%Y/%m/%d')
+            stu.logger.info(begin)
+            stu.logger.info(end)
+            if end < begin :
+                return []
+
+            days = (end-begin).days
+            stu.logger.info(days)
+            rets=[]
+            for n in range(0,days+1):
+                day = begin + timedelta(n)
+                day = day.strftime('%Y/%m/%d')
+                stu.logger.info(day)
+                ret = stu.getAttendInfo(day)
+                stu.logger.info(ret)
+                for info in ret:
+                    info = json.loads(info)
+                    rets.append(info)
+
+            return rets
+        except Exception,e:
+            stu.logger.error(e)
+
+    def get(self):
+        stu = Student.instance()
+        try:
+            cname = self.get_argument('class','')
+            bdate = self.get_argument('bdate','')
+            edate = self.get_argument('edate','')
+
+            firstDay,lastDay = getDateOfNWeek(0)
+
+            if bdate == '' :
+                bdate = firstDay.strftime('%Y/%m/%d')
+
+            if edate == '' :
+                edate = lastDay.strftime('%Y/%m/%d')
+            stu.logger.info(bdate)
+            stu.logger.info(edate)
+
+            attendInfos = self.getAttendInfoBetween(bdate,edate)
+            stu.logger.info(attendInfos)
+            ret = []
+            if cname == '':
+                ret = attendInfos
+            else:
+                for ai in attendInfos :
+                    print
+                    print cname
+                    print ai['class']
+                    if cname == ai['class']:
+                        ret.append(ai)
+
+            total = len(ret)
+            ret = doPage(self,ret)
+            stu.logger.info(ret)
+            self.finish('data',ret,total=total)
+        except Exception,e :
+            stu.logger.error(e)
+
+    def post(self):
+        pass
+
+
+class SetAttendInfoHandler(APIHandler):
+    def get(self):
+        pass
+    def post(self):
+        try:
+            stu = Student.instance()
+            ais = json.loads(self.request.body)['data']
+            if type(ais) == type({}):
+                ais= [ais]
+            for ai in ais :
+                day = ai['date']
+                ret = stu.setAttendInfo(day,ai)
+
+        except Exception,e:
+            stu.logger.error(e)
+        pass
+
+
+
 
 def main():
     stu = Student.instance()

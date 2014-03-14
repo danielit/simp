@@ -58,16 +58,17 @@ class APIHandler(BaseHandler):
         elif rem=='1' :
             return user
 
-    def finish(self, key=None,chunk=None, notification=None,success=True):
+    def finish(self, key=None,chunk=None, notification=None,success=True,total=0):
         if chunk is None:
             chunk = {}
 
         if isinstance(chunk, list):
-            chunk = {"success": True, key: chunk}
+            chunk = {"success": True, key: chunk,'total':total}
         elif isinstance(chunk,dict):
             chunk.update({"success":success})
+            chunk.update({"total":total})
         elif chunk==None:
-            chunk={"success":success}
+            chunk={"success":success,'total':total}
 
         if notification:
             chunk["notification"] = {"message": notification}

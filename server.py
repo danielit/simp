@@ -104,6 +104,8 @@ if __name__ == "__main__":
         (r"/addquaninfos",AddQuanInfosHandler),
         (r"/getclassquanofweek",GetQuanSummaryOfWeekHandler),
         (r"/getquaninfos",GetQuanInfosHandler),
+        (r"/getattendinfo",GetAttendInfoHandler),
+        (r"/setattendinfo",SetAttendInfoHandler),
         (r"/form",FormHandler)
         ],
         **settings

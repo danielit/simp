@@ -16,6 +16,7 @@ STU_PREFIX="student:"
 STUS_PREFIX="students:"
 TEAC_PREFIX="teacher:"
 CLASS_PREFIX="class:"
+ATTEND_PREFIX="attend:"
 
 VACATION_PREFIX="vacation:"
 
@@ -411,6 +412,18 @@ class Student(object):
             return self.redis.zrevrangebyscore(key,begin,end,start,num)
         else:
             return self.redis.zrangebyscore(key,begin,end,start,num)
+
+    def setAttendInfo(self,day,info):
+        key = ATTEND_PREFIX + str(day)
+        self.logger.info(key)
+        value = self.dict2str(info)
+        return self.redis.lpush(key,value)
+
+    def getAttendInfo(self,day):
+        key = ATTEND_PREFIX + str(day)
+        self.logger.info(key)
+        value = self.str2dict(self.redis.lrange(key,0,-1))
+        return value
 
 
 

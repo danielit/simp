@@ -93,12 +93,13 @@ var attend_info_store = Ext.create('Ext.data.Store', {
 		type: 'ajax',
         api: {
             read: SERVER+ '/getattendinfo',
-			write: SERVER + '/setattendinfos',
-            update: SERVER + '/setattendinfos',
-            create: SERVER + '/setattendifos'
+			write: SERVER + '/setattendinfo',
+            update: SERVER + '/setattendinfo',
+            create: SERVER + '/setattendinfo'
 		},
 		reader: {
 			type: 'json',
+            totalProperty:'total',
 			successProperty: 'success',
 			root: 'data',
 			messageProperty: 'message',

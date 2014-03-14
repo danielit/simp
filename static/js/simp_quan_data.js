@@ -175,7 +175,8 @@ var class_id_store = Ext.create('Ext.data.Store', {
 			type: 'json',
 			successProperty: 'success',
 			root: 'classids',
-			messageProperty: 'message'
+			messageProperty: 'message',
+			totalProperty: 'total'
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
@@ -187,7 +188,7 @@ var class_id_store = Ext.create('Ext.data.Store', {
 
 var student_name_id_store = Ext.create('Ext.data.Store', {
 	model: 'Quan.StudentID',
-	//autoLoad: true,
+	autoLoad: false,
 	//autoSync: true,
     //buffered: true,
 	proxy: {
@@ -197,6 +198,7 @@ var student_name_id_store = Ext.create('Ext.data.Store', {
 		},
 		reader: {
 			type: 'json',
+			totalProperty: 'total',
 			successProperty: 'success',
 			root: 'stunameids',
 			messageProperty: 'message'
@@ -221,6 +223,7 @@ var quan_type_store = Ext.create('Ext.data.Store', {
 		},
 		reader: {
 			type: 'json',
+			totalProperty: 'total',
 			successProperty: 'success',
 			root: 'quantypes',
 			messageProperty: 'message'
@@ -248,6 +251,7 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 		},
 		reader: {
 			type: 'json',
+			totalProperty: 'total',
 			successProperty: 'success',
 			root: 'quan',
 			messageProperty: 'message',
@@ -284,6 +288,7 @@ var quan_detail_store = Ext.create('Ext.data.Store', {
 		},
 		reader: {
 			type: 'json',
+			totalProperty: 'total',
 			successProperty: 'success',
 			root: 'quan',
 			messageProperty: 'message',
@@ -317,6 +322,7 @@ var quan_week_store = Ext.create('Ext.data.Store', {
 		},
 		reader: {
 			type: 'json',
+			totalProperty: 'total',
 			successProperty: 'success',
 			root: 'classquanweek',
 			messageProperty: 'message'

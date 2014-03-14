@@ -340,7 +340,7 @@ Ext.define('Quan.Grid', {
 					itemId: 'delete',
 					scope: this,
 					handler: this.onDeleteClick
-				},'|', 
+				}/*,'|', 
                 {
 					//iconCls: 'icon-search',
 					width: 300,
@@ -348,7 +348,7 @@ Ext.define('Quan.Grid', {
 					labelWidth: 50,
 					xtype: 'searchfield',
 					store: this.store
-				}]
+				}*/]
 			},
 			{
 				weight: 1,
@@ -1056,7 +1056,7 @@ function getQuanWin(){
     var quanWin = Ext.getCmp('quanwin') ;
     if (quanWin==null){
         quanWin = Ext.create('Quan.window',{
-            title:'信息工程系量化管理平台',
+            title:'量化管理',
             id:'quanwin',
             itemId:'quanwin',
             xtype:'quancontainer',

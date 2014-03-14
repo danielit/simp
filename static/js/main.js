@@ -1,19 +1,6 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
 
-/*
- * 工具栏的内容以及对应的id号 
- * */
-var mgrList = {
-	'dayQuan': 0,
-	'money': 1,
-	'stuInfo': 2,
-	'askVacation': 3,
-	'reviewAskVacation': 4,
-	'inSchoolStu': 5,
-	'outSchoolStu': 6,
-};
-
 var mgrTabpanel = Ext.create('Ext.tab.Panel', {
 	id: 'mgrTabpanel',
 	//name:"mgrTabpanel",
@@ -308,7 +295,8 @@ function treeItemClick(view, record, item, index, e) {
     } else if (cmpId=="q.detail"){
         var quanWin = getQuanWin() ;
         var ret = add2tabpanel(mgrTabpanel,quanWin) ;
-        if (ret==0){
+        if (ret == 0){
+            quan_week_store.load() ;
             quan_detail_store.load() ;
         }
         //show quangriddetail
@@ -331,8 +319,8 @@ function treeItemClick(view, record, item, index, e) {
         attend_info_store.loadData([]) ;
         add2tabpanel(mgrTabpanel,attendWin) ;
         attendWin.show() ; 
-        setAttendWinShow('attendform',true) ;
-        setAttendWinShow('attendgridsave',true) ;
+
+        setAttendWinsShow(true) ;
 
     } else if (cmpId=="sa.lookup"){
         var attendWin = getAttendWin() ;
@@ -340,8 +328,8 @@ function treeItemClick(view, record, item, index, e) {
         attend_info_store.load() ;
         add2tabpanel(mgrTabpanel,attendWin) ;
         attendWin.show() ; 
-        setAttendWinShow('attendform',false) ;
-        setAttendWinShow('attendgridsave',false) ;
+        
+        setAttendWinsShow(false) ;
 
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
@@ -357,41 +345,6 @@ function treeItemClick(view, record, item, index, e) {
     } else if (cmpId=="ss.loan"){
     } else {
     }
-    /*
-	switch (n) {
-
-	case 0:
-		add2tabpanel(mgrTabpanel, testGrid);
-		break;
-	case 1:
-		add2tabpanel(mgrTabpanel, testGrid2);
-		break;
-	case 2:
-		tabId = "tmp2";
-		var cmp = Ext.getCmp(tabId);
-		if (!cmp) {
-			tmpGrid = getGridPanel(tabId, 'tmp2', cols, true);
-			add2tabpanel(mgrTabpanel, tmpGrid);
-		} else {
-			//alert('aleray create the same id tab') ;
-			mgrTabpanel.setActiveTab(Ext.getCmp(tabId))
-		}
-		break;
-	case 3:
-		//	add2tabpanel(mgrTabpanel, testGrid);
-		break;
-	case 4:
-		//	add2tabpanel(mgrTabpanel, testGrid);
-		break;
-	case 5:
-		//  add2tabpanel(mgrTabpanel, testGrid);
-		break;
-	case 6:
-		//		add2tabpanel(mgrTabpanel, testGrid);
-		break;
-	default:
-		Ext.MessageBox.alert("提示",record.raw.id);
-	}*/
 }
 
 var mgrTree = Ext.create('Ext.tree.Panel', {

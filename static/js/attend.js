@@ -280,15 +280,56 @@ Ext.define('Attend.Grid', {
 					itemId: 'delete',
 					scope: this,
 					handler: this.onDeleteClick
-				},'|'/*, 
+				},'|',
                 {
-					//iconCls: 'icon-search',
-					width: 300,
-					fieldLabel: '搜索',
-					labelWidth: 50,
-					xtype: 'searchfield',
-					store: this.store
-				}*/]
+					xtype: 'combobox',
+					id: 'attendsearch.class',
+					name: 'class',
+                    width:300,
+                    labelWidth:40,
+					displayField: 'name',
+					valueField: 'id',
+					queryMode: 'remote',
+					emptyText: '请选择班级...',
+					fieldLabel: '班级',
+					hideLabel: false,
+					margins: '0 6 0 0',
+					store: class_id_store,
+					allowBlank: false,
+					forceSelection: true
+				},
+                {
+					xtype: 'datefield',
+					id: 'attendsearch.bdate',
+                    format:'Y/m/d',
+					fieldLabel: '开始日期',
+                    width:200,
+                    labelWidth:60,
+					name: 'bdate',
+					//allowBlank: false,
+					margins: '0 6 0 0',
+					maxValue: new Date()
+				},
+                {
+					xtype: 'datefield',
+					id: 'attendsearch.edate',
+                    format:'Y/m/d',
+					fieldLabel: '结束日期',
+                    width:200,
+                    labelWidth:60,
+					name: 'edate',
+					//allowBlank: false,
+					margins: '0 6 0 0',
+					maxValue: new Date()
+				},
+                {
+                    xtype:'button',
+                    id:'attendsearch.btn',
+                    iconCls:'icon-search',
+                    text:'查询',
+                    scope:this,
+                    handler:this.onSearchClick
+                }]
 			},
 			{
 				weight: 1,
@@ -299,9 +340,6 @@ Ext.define('Attend.Grid', {
 					iconCls: 'icon-save',
 					text: '提交',
 				    margins: '0 0 0 50%',
-                    /*style:{
-                        marginRight:'25%'
-                    },*/
 					scope: this,
                     //hidden:true,
 					//handler: this.onSync
@@ -312,7 +350,6 @@ Ext.define('Attend.Grid', {
                                 Ext.MessageBox.show({
                                     title: '提交失败',
                                     msg: '远程服务器错误，<br/>请联系系统管理员！',
-					                //msg: operation.getError(),
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
@@ -326,7 +363,6 @@ Ext.define('Attend.Grid', {
 					                icon: Ext.MessageBox.INFO,
 					                buttons: Ext.Msg.OK
 			                    });
-                                //attend_info_store.removeAll() ;
                                 attend_info_store.loadData([],false) ;
                                 ATTEND_COUNTER = 0 ;
                                 console.log("attend submit success") ;
@@ -419,7 +455,49 @@ Ext.define('Attend.Grid', {
 		this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
 	},
 
-	onSelectChange: function(selModel, selections) {
+    onSearchClick: function(){
+    
+        var cname = Ext.getCmp('attendsearch.class').getRawValue() ;
+        var bdate = Ext.getCmp('attendsearch.bdate').getRawValue() ;
+        var edate = Ext.getCmp('attendsearch.edate').getRawValue() ;
+        var cid= Ext.getCmp('attendsearch.class').getValue() ;
+        if (!bdate && !edate && !cname){
+            Ext.MessageBox.alert("提示",'至少选择一个查询条件!') ;
+            return ;
+        }
+        if (cid=='0'){
+            cname='' ;
+        }
+            console.log(cname) ;
+            console.log(bdate) ;
+            console.log(edate) ;
+            this.store.load({
+                'params':{
+                    'class':cname,
+                    'begin':bdate,
+                    'end':edate
+                },
+                scope:this,
+                callback:function(records,operations,success){
+                    if (success === false){
+                        Ext.MessageBox.show({
+                            title: '查询失败',
+                            msg: '远程服务器错误，<br/>请联系系统管理员！',
+					        //msg: operation.getError(),
+					        icon: Ext.MessageBox.ERROR,
+					        buttons: Ext.Msg.OK
+			            });
+                        console.log(operation.getError()) ;
+                        return ; 
+                    }
+                    if (records && records.length === 0){
+                        console.log(records) ;
+                    }
+                }
+            }) ;
+    },
+
+    onSelectChange: function(selModel, selections) {
         if (selections) {
 		    this.down('#delete').setDisabled(selections.length === 0);
 		    this.down('#modify').setDisabled(selections.length === 0);
@@ -471,373 +549,12 @@ Ext.define('Attend.Grid', {
       	}
 });
 
-Ext.define('attend.DeatilGrid', {
-	extend: 'Ext.grid.Panel',
-	alias: 'widget.attenddetailgrid',
-
-	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
-
-	initComponent: function() {
-
-		this.editing = Ext.create('Ext.grid.plugin.CellEditing', {
-			clickToEdit: 1
-		});
-
-		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
-		this.pBar = Ext.create('Ext.PagingToolbar', {
-			store: this.store,
-            id:'attendgridpbar',
-			displayInfo: true,
-			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
-			emptyMsg: "没有数据"
-		});
-
-		Ext.apply(this, {
-			iconCls: 'icon-grid',
-			frame: true,
-            //closeable:true,
-			//closeAction: 'hiden',
-            collapsible:'ture',
-			selModel: this.CboxModel,
-			bbar: this.pBar,
-			plugins: [this.editing],
-			dockedItems: [{
-				xtype: 'toolbar',
-				items: [{
-					xtype: 'datefield',
-					id: 'attend.detail.bdate',
-                    format:'Y/m/d',
-					fieldLabel: '开始日期',
-                    width:300,
-					name: 'attend_date',
-					//allowBlank: false,
-					margins: '0 6 0 0',
-					maxValue: new Date()
-				},
-                {
-					xtype: 'datefield',
-					id: 'attend.detail.edate',
-                    format:'Y/m/d',
-					fieldLabel: '结束日期',
-                    width:300,
-					name: 'attend_date',
-					//allowBlank: false,
-					margins: '0 6 0 0',
-					maxValue: new Date()
-				},
-                {
-					iconCls: 'icon-search',
-					text: '查询',
-					scope: this,
-					handler: this.onSearchClick
-				}]
-			}],
-			columns: [{
-				text: '序号',
-                style:{textAlign:'center'},
-				sortable: true,
-				resizable: false,
-				draggable: false,
-				hideable: false,
-				menuDisabled: true,
-				dataIndex: 'idc'
-			},
-			{
-				header: '班级',
-                width:160,
-				sortable: true,
-                style:{textAlign:'center'},
-				dataIndex: 'class',
-				field: {
-					type: 'textfield'
-				}
-			},
-			{
-				header: '学生',
-				sortable: true,
-                style:{textAlign:'center'},
-				dataIndex: 'student',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '类型',
-                style:{textAlign:'center'},
-				sortable: true,
-				dataIndex: 'type',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '日期',
-                style:{textAlign:'center'},
-				sortable: true,
-				dataIndex: 'attend_date',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '量化',
-                style:{textAlign:'center'},
-				sortable: true,
-				dataIndex: 'attend_score',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '原由',
-                style:{textAlign:'center'},
-				width: 200,
-				sortable: false,
-				menuDisabled: true,
-				dataIndex: 'attend_reason',
-				field: {
-					type: 'textfield'
-				}
-			}]
-		});
-		this.callParent();
-		this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
-	},
-    
-    onSearchClick: function(){
-        var bdate = Ext.getCmp('attend.detail.bdate').getRawValue() ;
-        var edate = Ext.getCmp('attend.detail.edate').getRawValue() ;
-        if (bdate && edate) {
-            console.log(bdate) ;
-            console.log(edate) ;
-            this.store.load({
-                'params':{
-                    'begin':bdate,
-                    'end':edate
-                },
-                scope:this,
-                callback:function(records,operations,success){
-                    if (success === false){
-                        Ext.MessageBox.show({
-                            title: '查询失败',
-                            msg: '远程服务器错误，<br/>请联系系统管理员！',
-					        //msg: operation.getError(),
-					        icon: Ext.MessageBox.ERROR,
-					        buttons: Ext.Msg.OK
-			            });
-                        console.log(operation.getError()) ;
-                        return ; 
-                    }
-                    if (records && records.length === 0){
-                        console.log(records) ;
-                    }
-                }
-            }) ;
-        } else {
-            Ext.MessageBox.alert("提示",'请选“开始日期” 和 “结束日期”') ;
-        }
-    }
-});
-//define the grid of displaying attend of week
-/*
-Ext.define('attend.Grid.Week', {
-	extend: 'Ext.grid.Panel',
-	alias: 'widget.attendgridweek',
-
-	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
-
-	initComponent: function() {
-
-		this.editing = Ext.create('Ext.grid.plugin.CellEditing', {
-			clickToEdit: 1
-		});
-
-		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
-		this.pBar = Ext.create('Ext.PagingToolbar', {
-			store: this.store,
-            id:'attendgridweekpbar',
-			displayInfo: true,
-			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
-			emptyMsg: "没有数据"
-		});
-
-		Ext.apply(this, {
-			iconCls: 'icon-grid',
-			frame: true,
-            //closeable:true,
-			//closeAction: 'hiden',
-            collapsible:'ture',
-			selModel: this.CboxModel,
-			bbar: this.pBar,
-			plugins: [this.editing],
-			dockedItems: [{
-				xtype: 'toolbar',
-				items: [                {
-                	xtype: 'combobox',
-                    id:'attend.grid.cb.week',
-					name: 'week',
-                    width:300,
-					displayField: 'week',
-					valueField: 'id',
-					queryMode: 'local',
-					emptyText: '最近一周量化汇总',
-					fieldLabel: '请选择',
-					margins: '0 6 0 0',
-					store: week_list_store,
-					allowBlank: false,
-					forceSelection: true,
-					listeners: {
-						scop: this,
-						'select': function(combo, records, index) {}
-					}
-                },{
-					iconCls: 'icon-add',
-					text: '查看',
-					scope: this,
-					handler: this.onLookOverWeekattend
-				}]
-			},
-			{
-				weight: 1,
-				xtype: 'toolbar',
-				dock: 'bottom',
-				ui: 'footer',
-				items: []
-			}],
-            defaults:{
-                menuDisabled:true
-            },
-			columns: [{
-				text: '序号',
-                style:{textAlign:'center'},
-                algin:'center',
-				width: 60,
-				sortable: true,
-				resizable: false,
-				draggable: false,
-				hideable: false,
-				//menuDisabled: true,
-				dataIndex: 'idc'
-			},
-			{
-				text: '班级',
-                style:{textAlign:'center'},
-                algin:'center',
-                width:160,
-				//flex: 1,
-				sortable: true,
-				//dataIndex: 'classname',
-				dataIndex: 'class',
-				field: {
-					type: 'textfield'
-				}
-			},
-			{
-				header: '纪律',
-                menuDisabled:true,
-                columns:[
-                {text:'分数',dataIndex:'disp_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'disp_attend',width:60,sortable:true},
-                {text:'排名',dataIndex:'disp_rank',width:60,sortable:true}
-                ]
-			},
-            {
-				header: '卫生',
-                menuDisabled:true,
-				//width: 100,
-				//dataIndex: 'attendtype',
-                columns:[
-                {text:'分数',dataIndex:'heal_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'heal_attend',width:60,sortable:true},
-                {text:'排名',dataIndex:'heal_rank',width:60,sortable:true}
-                ]
-			},
-            {
-				header: '宿舍',
-                menuDisabled:true,
-                columns:[
-                {text:'分数',dataIndex:'domi_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'domi_attend',width:60,sortable:true},
-                {text:'排名',dataIndex:'domi_rank',width:60,sortable:true}
-                ]
-			},
-            {
-				header: '活动及其它',
-                menuDisabled:true,
-                 columns:[
-                {text:'分数',dataIndex:'acti_score',width:60,sortable:true},
-                {text:'量化分',dataIndex:'acti_attend',width:60,sortable:true},
-                {text:'排名',dataIndex:'acti_rank',width:60,sortable:true}
-                ]
-			},
-            {
-				text: '合计',
-                style:{textAlign:'center'},
-                algin:'center',
-				sortable: true,
-				menuDisabled: false,
-				//dataIndex: 'attendreason',
-				dataIndex: 'total',
-				field: {
-					type: 'int'
-				}
-			},
-            {
-                text: '名次',
-                style:{textAlign:'center'},
-                algin:'center',
-				//width: 100,
-				sortable: true,
-				menuDisabled: false,
-				//dataIndex: 'attendreason',
-				dataIndex: 'rank',
-				field: {
-					type: 'int'
-				}
-
-            }]
-		});
-		this.callParent();
-		this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
-	},
-
-	onSelectChange: function(selModel, selections) {},
-    onLookOverWeekattend: function(){
-        var week = Ext.getCmp('attend.grid.cb.week').getValue() ;
-        console.log('look over week attend of',week) ; 
-        //attend_week_store.loadData([],false) ;
-        attend_week_store.load({
-            'params':{
-                'week':week
-            },
-            scope:this,
-            callback:function(records,operations,success){
-                if (success === false){
-                    Ext.MessageBox.show({
-                        title: '量化查询失败',
-                        msg: '远程服务器错误，<br/>请联系系统管理员！',
-					    //msg: operation.getError(),
-					    icon: Ext.MessageBox.ERROR,
-					    buttons: Ext.Msg.OK
-			        });
-                    return ; 
-                }
-                if (records && records.length === 0){
-                    console.log(records) ;
-                }
-            }
-        }) ;
-    }
-});
-
-*/
 Ext.require(['Ext.data.*', 'Ext.tip.QuickTipManager', 'Ext.window.MessageBox']);
 
 //define the container for attend 
 Ext.define('attend.window', {
 	extend: 'Ext.container.Container',
 	alias: 'widget.attendcontainer',
-
 	initComponent: function() {
 		Ext.apply(this, {
 			padding: '0 0 0 0',
@@ -859,29 +576,7 @@ Ext.define('attend.window', {
 				listeners: {
 					selectionchange: function(selModel, selected) {}
 				}
-			}/*,
-            {// attend add new info grid
-				itemId: 'attendgridweek',
-				id: 'attendgridweek',
-				xtype: 'attendgridweek',
-				title: '周量化汇总表',
-				flex: 1,
-                hidden:true,
-				store: attend_week_store,
-				listeners: {
-					selectionchange: function(selModel, selected) {}
-				}
 			},
-            {
-                id:'attendgriddetail',
-                title:'量化详单',
-                xtype:'attenddetailgrid',
-				margins: '0 0 0 0',
-                hidden:false,
-				flex: 1,
-                store:attend_info_store
-                //hidden:false
-            }*/,
             {// add new attend info form
 				itemId: 'attendform',
 				id: 'attendform',
@@ -902,7 +597,7 @@ function getAttendWin(){
     var attendWin = Ext.getCmp('attendwin') ;
     if (attendWin==null){
         attendWin = Ext.create('attend.window',{
-            title:'信息工程系学生考勤管理',
+            title:'学生考勤管理',
             id:'attendwin',
             itemId:'attendwin',
             xtype:'attendcontainer',
@@ -923,10 +618,12 @@ function setAttendWinShow(id,sure){
     }
 }
 
-function setattendWinsShow(mask) {
-    setAttendWinShow('attendgrid',mask & 1) ;
-    setAttendWinShow('attendgridweek',mask & 2) ;
-    setAttendWinShow('attendgriddetail',mask & 4) ;
-    setAttendWinShow('attendform',mask & 8) ;
+function setAttendWinsShow(mask) {
+    setAttendWinShow('attendsearch.class',!mask) ;
+    setAttendWinShow('attendsearch.bdate',!mask) ;
+    setAttendWinShow('attendsearch.edate',!mask) ;
+    setAttendWinShow('attendsearch.btn',!mask) ;
+    setAttendWinShow('attendgridsave',mask) ;
+    setAttendWinShow('attendform',mask) ;
     //setattendWinShow('attendformdetail',mask & 16) ;
 } 

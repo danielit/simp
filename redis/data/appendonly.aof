@@ -7799,3 +7799,43 @@ $21
 quan:class:2013000001
 $144
 {"quan_reason": "sxxx", "quan_score": 0, "class": 2013000001, "quan_type": 1002, "student": 20130415010016, "quan_date": "2014/03/13", "idc": 2}
+*2
+$6
+SELECT
+$1
+0
+*3
+$5
+LPUSH
+$17
+attend:2014/03/13
+$207
+{"ps": "nnnnnn", "nclass": "\u7b2c5-6\u8282", "class": "2013\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "student": "\u674e\u626c", "date": "2014/03/13", "type": "\u8fdf\u5230", "idc": "1"}
+*3
+$5
+LPUSH
+$17
+attend:2014/03/15
+$203
+{"ps": "dd", "nclass": "\u7b2c5-6\u8282", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "student": "\u5f90\u7433", "date": "2014/03/15", "type": "\u65e9\u9000", "idc": "1"}
+*3
+$5
+LPUSH
+$17
+attend:2014/03/15
+$203
+{"ps": "ssss", "nclass": "\u7b2c6\u8282", "class": "2013\u7ea7\u7535\u5b50\u4fe1\u606f\u5de5\u7a0b\u6280\u672f\u73ed", "student": "\u674e\u626c", "date": "2014/03/15", "type": "\u8fdf\u5230", "idc": "2"}
+*3
+$5
+LPUSH
+$17
+attend:2014/03/15
+$204
+{"ps": "xxx", "nclass": "\u7b2c5-6\u8282", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e00\u73ed", "student": "\u674e\u6d69", "date": "2014/03/15", "type": "\u65e9\u9000", "idc": "1"}
+*3
+$5
+LPUSH
+$17
+attend:2014/03/12
+$214
+{"ps": "dsdfadf", "nclass": "\u7b2c3-4\u8282", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "student": "\u7a0b\u660e\u707f", "date": "2014/03/12", "type": "\u8fdf\u5230", "idc": "2"}

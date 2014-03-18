@@ -7839,3 +7839,27 @@ $17
 attend:2014/03/12
 $214
 {"ps": "dsdfadf", "nclass": "\u7b2c3-4\u8282", "class": "2013\u7ea7\u8ba1\u7b97\u673a\u5e94\u7528\u6280\u672f\u4e8c\u73ed", "student": "\u7a0b\u660e\u707f", "date": "2014/03/12", "type": "\u8fdf\u5230", "idc": "2"}
+*2
+$6
+SELECT
+$1
+0
+*3
+$5
+LPUSH
+$17
+attend:2014/03/17
+$180
+{"ps": "sss", "nclass": "\u7b2c3-4\u8282", "class": "2013\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "student": "\u53f8\u6cd5", "date": "2014/03/17", "type": "\u65e9\u9000", "idc": "1"}
+*2
+$6
+SELECT
+$1
+0
+*3
+$5
+LPUSH
+$17
+attend:2014/03/18
+$186
+{"ps": "sss", "nclass": "\u7b2c5-6\u8282", "class": "2013\u7ea7\u7269\u6d41\u7ba1\u7406\u73ed", "student": "\u5434\u5e05\u5e05", "date": "2014/03/18", "type": "\u8fdf\u5230", "idc": "1"}

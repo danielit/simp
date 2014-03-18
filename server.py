@@ -96,7 +96,7 @@ if __name__ == "__main__":
         (r"/login",LoginHandler),
         (r"/manage",ManageHandler),
         (r"/grid",GridHandler),
-        (r"/getallstuinfo",GetAllStuInfo),
+        (r"/getallstuinfo",GetAllStuInfoHandler),
         (r"/getclassids",GetAllClassIDs),
         (r"/getquantypes",GetQuanTypesHandler),
         (r"/getstunameidsonclassid",GetStuNameIDsOnClassID),
@@ -106,6 +106,7 @@ if __name__ == "__main__":
         (r"/getquaninfos",GetQuanInfosHandler),
         (r"/getattendinfo",GetAttendInfoHandler),
         (r"/setattendinfo",SetAttendInfoHandler),
+        (r"/getheadteachers",GetHeadTeachersHandler),
         (r"/form",FormHandler)
         ],
         **settings

@@ -52,3 +52,80 @@
 [5047] 15 Mar 01:06:39.671 * DB saved on disk
 [5047] 15 Mar 01:06:39.671 * RDB: 0 MB of memory used by copy-on-write
 [2878] 15 Mar 01:06:39.702 * Background saving terminated with success
+[2950 | signal handler] (1395020588) Received SIGTERM, scheduling shutdown...
+[2950] 17 Mar 09:43:09.002 # User requested shutdown...
+[2950] 17 Mar 09:43:09.002 * Calling fsync() on the AOF file.
+[2950] 17 Mar 09:43:09.003 * Saving the final RDB snapshot before exiting.
+[2950] 17 Mar 09:43:09.098 * DB saved on disk
+[2950] 17 Mar 09:43:09.098 * Removing the pid file.
+[2950] 17 Mar 09:43:09.098 # Redis is now ready to exit, bye bye...
+[19195] 17 Mar 09:43:54.641 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
+[19195] 17 Mar 09:43:54.641 # Warning: 32 bit instance detected but no memory limit set. Setting 3 GB maxmemory limit with 'noeviction' policy now.
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 2.8.6 (00000000/0) 32 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in stand alone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 19195
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+[19195] 17 Mar 09:43:54.643 # Server started, Redis version 2.8.6
+[19195] 17 Mar 09:43:54.643 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[19195] 17 Mar 09:43:54.650 * DB loaded from append only file: 0.008 seconds
+[19195] 17 Mar 09:43:54.650 * The server is now ready to accept connections on port 6379
+[19195] 17 Mar 09:48:55.043 * 10 changes in 300 seconds. Saving...
+[19195] 17 Mar 09:48:55.043 * Background saving started by pid 19292
+[19292] 17 Mar 09:48:55.137 * DB saved on disk
+[19292] 17 Mar 09:48:55.138 * RDB: 0 MB of memory used by copy-on-write
+[19195] 17 Mar 09:48:55.144 * Background saving terminated with success
+[19195 | signal handler] (1395042156) Received SIGTERM, scheduling shutdown...
+[19195] 17 Mar 15:42:36.653 # User requested shutdown...
+[19195] 17 Mar 15:42:36.653 * Calling fsync() on the AOF file.
+[19195] 17 Mar 15:42:36.701 * Saving the final RDB snapshot before exiting.
+[19195] 17 Mar 15:42:36.776 * DB saved on disk
+[19195] 17 Mar 15:42:36.776 * Removing the pid file.
+[19195] 17 Mar 15:42:36.776 # Redis is now ready to exit, bye bye...
+[2517] 18 Mar 08:25:37.313 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
+[2517] 18 Mar 08:25:37.319 # Warning: 32 bit instance detected but no memory limit set. Setting 3 GB maxmemory limit with 'noeviction' policy now.
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 2.8.6 (00000000/0) 32 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in stand alone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 2517
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+[2517] 18 Mar 08:25:37.321 # Server started, Redis version 2.8.6
+[2517] 18 Mar 08:25:37.321 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[2517] 18 Mar 08:25:37.346 * DB loaded from append only file: 0.025 seconds
+[2517] 18 Mar 08:25:37.346 * The server is now ready to accept connections on port 6379
+[2517] 18 Mar 08:30:38.010 * 10 changes in 300 seconds. Saving...
+[2517] 18 Mar 08:30:38.011 * Background saving started by pid 2522
+[2522] 18 Mar 08:30:38.120 * DB saved on disk
+[2522] 18 Mar 08:30:38.121 * RDB: 0 MB of memory used by copy-on-write
+[2517] 18 Mar 08:30:38.211 * Background saving terminated with success
+[2517] 18 Mar 14:38:11.174 * 1 changes in 900 seconds. Saving...
+[2517] 18 Mar 14:38:11.175 * Background saving started by pid 4573
+[4573] 18 Mar 14:38:11.257 * DB saved on disk
+[4573] 18 Mar 14:38:11.258 * RDB: 0 MB of memory used by copy-on-write
+[2517] 18 Mar 14:38:11.275 * Background saving terminated with success

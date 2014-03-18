@@ -117,7 +117,8 @@ Ext.define('Attend.Form', {
 					name: 'date',
 					allowBlank: false,
 					margins: '0 6 0 0',
-					maxValue: new Date()
+					maxValue: new Date(),
+                    value: new Date()
 				}]
 
 			},
@@ -206,19 +207,7 @@ Ext.define('Attend.Form', {
             val.class = Ext.getCmp('attendform.class').getRawValue() ;
             val.student = Ext.getCmp('attendform.name').getRawValue() ;
             val.idc = ++ATTEND_COUNTER ;
-            /*
-            val.attend_type = Ext.getCmp('cbattendtype').getRawValue() ;
-            dt = Ext.getCmp('attenddate').getValue() ;
-            console.log(dt) ;
-            dtraw = Ext.getCmp('attenddate').getRawValue() ;
-            console.log(dtraw) ;
-            val.attend_date = new Date(dt).toLocaleDateString() ; 
-            val.attend_date = dtraw ; 
-            console.log(val.attend_date) ;
-            val.attend_score = Ext.getCmp('attendscore').getValue() ;
-            val.attend_reason = Ext.getCmp('attendreason').getValue() ;
-            */
-            
+           
             //attend_info_store.loadData([val]) ;
             attend_info_store.add([val]) ;
             form.reset() ;
@@ -320,7 +309,8 @@ Ext.define('Attend.Grid', {
 					name: 'edate',
 					//allowBlank: false,
 					margins: '0 6 0 0',
-					maxValue: new Date()
+					maxValue: new Date(),
+                    value: new Date()
 				},
                 {
                     xtype:'button',

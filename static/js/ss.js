@@ -1,58 +1,7 @@
-// student status statics 
-
-Ext.define('SS.StuStatusStatics', {
-	extend: 'Ext.data.Model',
-	fields: [
-    'class', //class name
-    'teacher',//班主任 
-    'total',//应到人数
-    'total_in_record',//原有在籍
-    'out_school',//不再校
-    'in_boy',//在校男
-    'in_girl',//在校女
-    'in',//在校合计
-    'live_boy',//住校男
-    'live_gril',//住校女
-    'live',//住校合计
-    'home',//走读合计
-    'longvaca',//请长假合计
-    'quitschool',//退学人数
-    'pre',//预科人数
-    '32',//32
-    'gj',//高技
-    'solider',//当兵
-    'special',//特殊情况
-    'ps'//备注
-    ]
-});
-
-var sss_store = Ext.create('Ext.data.Store', {
-    model:'SS.StuStatusStatics',
-	autoLoad: true,
-	//autoSync: true,
-	proxy: {
-		type: 'ajax',
-		api: {
-			read: SERVER + '/getsss',
-		},
-		reader: {
-			type: 'json',
-			successProperty: 'success',
-			root: 'data',
-			messageProperty: 'message'
-		},
-		listeners: {
-			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
-			}
-		}
-	},
-});
-
 //define the grid of student status statics 
 Ext.define('SS.Grid.SSS', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.quangridweek',
+	alias: 'widget.ssgrid',
 
 	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
 
@@ -65,7 +14,7 @@ Ext.define('SS.Grid.SSS', {
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
 		this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
-            id:'sss.bar',
+            id:'ss.bar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
@@ -78,7 +27,7 @@ Ext.define('SS.Grid.SSS', {
 			//closeAction: 'hiden',
             collapsible:'ture',
 			selModel: this.CboxModel,
-			bbar: this.pBar,
+			//bbar: this.pBar,
 			plugins: [this.editing],
             defaults:{
                 menuDisabled:true
@@ -87,7 +36,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '序号',
                 style:{textAlign:'center'},
                 algin:'center',
-				width: 60,
+				width: 40,
 				sortable: true,
 				resizable: false,
 				draggable: false,
@@ -112,7 +61,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '班主任',
                 style:{textAlign:'center'},
                 algin:'center',
-                width:160,
+                width:50,
 				//flex: 1,
 				sortable: true,
 				//dataIndex: 'classname',
@@ -125,7 +74,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '应到人数',
                 style:{textAlign:'center'},
                 algin:'center',
-                width:160,
+                width:55,
 				//flex: 1,
 				sortable: true,
 				//dataIndex: 'classname',
@@ -138,7 +87,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '原有在籍',
                 style:{textAlign:'center'},
                 algin:'center',
-                width:160,
+                width:55,
 				//flex: 1,
 				sortable: true,
 				//dataIndex: 'classname',
@@ -151,7 +100,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '不再校',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 50,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -164,30 +113,28 @@ Ext.define('SS.Grid.SSS', {
 				header: '在校人数',
                 menuDisabled:true,
                 columns:[
-                {text:'男',dataIndex:'in_boy',width:60,sortable:true},
-                {text:'女',dataIndex:'in_girl',width:60,sortable:true},
-                {text:'合计',dataIndex:'in',width:60,sortable:true}
+                {text:'男',dataIndex:'in_boy',width:40,sortable:true},
+                {text:'女',dataIndex:'in_girl',width:40,sortable:true},
+                {text:'合计',dataIndex:'in',width:40,sortable:true}
                 ]
 			},
             {
-				header: '住校人数',
+				header: '住校',
                 menuDisabled:true,
-				//width: 100,
-				//dataIndex: 'quantype',
+				width: 50,
                 columns:[
-                {text:'男',dataIndex:'live_boy',width:60,sortable:true},
-                {text:'女',dataIndex:'live_girl',width:60,sortable:true},
-                {text:'合计',dataIndex:'live',width:60,sortable:true}
+                {text:'男',dataIndex:'live_boy',width:40,sortable:true},
+                {text:'女',dataIndex:'live_girl',width:40,sortable:true},
+                {text:'合计',dataIndex:'live',width:40,sortable:true}
                 ]
 			},
             {
 				text: '走读',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 40,
 				sortable: true,
 				menuDisabled: false,
-				//dataIndex: 'quanreason',
 				dataIndex: 'home',
 				field: {
 					type: 'int'
@@ -197,7 +144,7 @@ Ext.define('SS.Grid.SSS', {
                 text: '请长假',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 50,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -208,10 +155,10 @@ Ext.define('SS.Grid.SSS', {
 
             },
             {
-				text: '退学人数',
+				text: '退学',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 40,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -224,7 +171,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '预科',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 40,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -237,7 +184,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '三二',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 40,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -250,7 +197,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '高技',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 40,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -263,7 +210,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '当兵',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 40,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -276,7 +223,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '特殊情况',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 55,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -285,11 +232,11 @@ Ext.define('SS.Grid.SSS', {
 					type: 'int'
 				}
 			},
-               {
+            {
 				text: '备注',
                 style:{textAlign:'center'},
                 algin:'center',
-				//width: 100,
+				width: 160,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
@@ -333,3 +280,57 @@ Ext.define('SS.Grid.SSS', {
     }
 });
 
+//define the container for ss 
+Ext.define('ss.window', {
+	extend: 'Ext.container.Container',
+	alias: 'widget.sscontainer',
+    id:'sswin',
+	initComponent: function() {
+		Ext.apply(this, {
+			padding: '0 0 0 0',
+			layout: {
+				type: 'vbox',
+				align: 'stretch',
+				pack: 'start'
+			},
+			items: [{// ss add new info grid
+				itemId: 'ssgrid',
+				id: 'ssgrid',
+				xtype: 'ssgrid',
+				title: '在校人数统计',
+				flex: 1,
+                hidden:false,
+				store:ss_statics_store,
+				listeners: {
+					selectionchange: function(selModel, selected) {}
+				}
+			}]
+		});
+		this.callParent();
+	}
+});
+
+function getSSWin(){
+    var ssWin = Ext.getCmp('sswin') ;
+    if (ssWin==null){
+        ssWin = Ext.create('ss.window',{
+            title:'在校人数统计',
+            id:'sswin',
+            itemId:'sswin',
+            xtype:'sscontainer',
+		    icon: 'static/pic/css/tabs.gif'
+        }) ; 
+    } 
+    return ssWin ;
+}
+function setWinShow(id,sure){
+    var cmp = Ext.getCmp(id) ;
+    if(cmp==null){
+        console.log('cant find the id of ext cmp') ;
+    }
+    if(sure){
+        cmp.show() ;
+    }else{
+        cmp.hide() ;
+    }
+}

@@ -178,7 +178,8 @@ Ext.define('Quan.Form', {
 					name: 'quan_date',
 					allowBlank: false,
 					margins: '0 6 0 0',
-					maxValue: new Date()
+					maxValue: new Date(),
+                    value: new Date()
 				}]
 
 			},
@@ -595,7 +596,8 @@ Ext.define('Quan.DeatilGrid', {
 					name: 'quan_date',
 					//allowBlank: false,
 					margins: '0 6 0 0',
-					maxValue: new Date()
+					maxValue: new Date(),
+                    value: new Date()
 				},
                 {
 					iconCls: 'icon-search',

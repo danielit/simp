@@ -68,12 +68,22 @@ function treeItemClick(view, record, item, index, e) {
         setQuanWinsShow(9) ; 
 
     } else if (cmpId=="sit.stuinfo"){
-        //alert(cmpId) ;
-        var sitInfoGrid = getSitInfoGrid();
-        var ret = add2tabpanel(mgrTabpanel,sitInfoGrid) ;
-        if (ret==0){
-            all_stu_info_store.load() ;
-        }
+        var sitWin = getsitWin() ;
+        stu_info_store.loadData([]) ;
+        stu_info_store.load() ;
+        add2tabpanel(mgrTabpanel,sitWin) ;
+        sitWin.show() ; 
+        
+        setsitWinsShow(false) ;
+
+    } else if (cmpId=="sit.input"){
+        var sitWin = getsitWin() ;
+        stu_info_store.loadData([]) ;
+        add2tabpanel(mgrTabpanel,sitWin) ;
+        sitWin.show() ; 
+
+        setsitWinsShow(true) ;
+
     } else if (cmpId=="sa.input"){
         var attendWin = getAttendWin() ;
         attend_info_store.loadData([]) ;
@@ -95,6 +105,45 @@ function treeItemClick(view, record, item, index, e) {
     } else if (cmpId=="si.baseinfo"){
         var siForm = getStuBaseInfoForm() ;
         add2tabpanel(mgrTabpanel,siForm) ;
+
+    } else if (cmpId=="ss.statics"){
+        //在校人数统计
+        var ssWin = getSSWin() ;
+        ss_statics_store.load() ;
+        add2tabpanel(mgrTabpanel,ssWin) ;
+        ssWin.show() ;
+
+    } else if (cmpId=="sm.lookupnotice"){
+        var noticeWin = getNoticeWin() ;
+        sm_notice_store.loadData([]) ;
+        sm_notice_store.load() ;
+        add2tabpanel(mgrTabpanel,noticeWin) ;
+        noticeWin.show() ; 
+        setAddNoticeWinsShow(false) ;
+        /*
+        setWinShow('noticesearch.class',true) ;
+        setWinShow('noticesearch.bdate',true) ;
+        setWinShow('noticesearch.edate',true) ;
+        setWinShow('noticesearch.btn',true) ;
+        setWinShow('noticegridsave',false) ;
+        setWinShow('noticeform',false) ;
+        */
+
+
+    } else if (cmpId=="sm.addnotice"){
+        var noticeWin = getNoticeWin() ;
+        sm_notice_store.loadData([]) ;
+        add2tabpanel(mgrTabpanel,noticeWin) ;
+        noticeWin.show() ; 
+        setAddNoticeWinsShow(true) ;
+        /*
+        setWinShow('noticesearch.class',false) ;
+        setWinShow('noticesearch.bdate',false) ;
+        setWinShow('noticesearch.edate',false) ;
+        setWinShow('noticesearch.btn',false) ;
+        setWinShow('noticegridsave',true) ;
+        setWinShow('noticeform',true) ;
+        */
 
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
@@ -190,7 +239,7 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 			text: '在校情况',
 			id: 'studentinschool',
 			children: [{
-				id: 's.in',
+				id: 'ss.statics',
 				text: '在校学生统计',
 				leaf: true
 			}/*,
@@ -256,25 +305,34 @@ var mgrSysTree= Ext.create('Ext.tree.Panel', {
 		text: '系统管理',
 		expanded: true,
 		children: [{
-			id: 'sm.adduser',
-			text: '添加用户',
-            leaf:true		
+            id:'sm.user',
+            text:'用户管理',
+            children:[{
+			    id: 'sm.lookupuser',
+			    text: '查看用户',
+                leaf:true		
+            },
+            {
+			    id: 'sm.adduser',
+			    text: '添加用户',
+                leaf:true		
+            }]
         },
         {
-			id: 'sm.deluser',
-			text: '删除用户',
-            leaf:true		
-        },
-		{
-			id: 'sm.addnotice',
-			text: '添加通知/公告',
-            leaf:true
-        },
-	    {
-			id: 'sm.delnotice',
-			text: '删除通知/公告',
-            leaf:true
-		}]
+            id:'sm.notice',
+            text:'通知/公告管理',
+            children:[
+		    {
+			    id: 'sm.lookupnotice',
+			    text: '查看通知/公告',
+                leaf:true
+            },
+	        {
+			    id: 'sm.addnotice',
+			    text: '添加通知/公告',
+                leaf:true
+		    }]
+        }]
 	}
 });
 

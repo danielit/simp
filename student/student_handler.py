@@ -27,7 +27,7 @@ def doPage(obj,ret) :
         start = 0
         end = len(ret)
     else:
-        end = start + page * limit
+        end = start + limit
 
     return ret[start:end]
 
@@ -70,10 +70,10 @@ def getQuanInfoBetween(begin,end):
             ret.append(qi)
     return ret
 
-class GetAllStuInfo(APIHandler):
+class GetAllStuInfoHandler(APIHandler):
     def get(self):
 
-        classid = self.get_argument('cid','')
+        classid = self.get_argument('cid','0')
 
         try:
             stu = Student.instance()
@@ -87,10 +87,8 @@ class GetAllStuInfo(APIHandler):
             idc = 0
             for r in ret:
                 cid = r['class']
-                if classid != '' and classid != cid:
+                if classid != '0' and classid != cid:
                     continue
-                idc = idc + 1
-                r['idc'] = idc
                 if not cid2cname.has_key(cid):
                     try:
                         cid2cname[cid] = stu.getClassNameOnId(cid)
@@ -98,6 +96,8 @@ class GetAllStuInfo(APIHandler):
                         stu.logger.error(e)
                         continue
 
+                idc = idc + 1
+                r['idc'] = idc
                 r['class'] = cid2cname[cid]
                 stuinfo.append(r)
 
@@ -399,10 +399,10 @@ class GetAttendInfoHandler(APIHandler):
     def getAttendInfoBetween(self,begin,end):
         stu = Student.instance()
         try:
-            if type(begin)==type(""):
+            if type(begin) != type(datetime) :
                 begin = datetime.strptime(begin,'%Y/%m/%d')
 
-            if type(end) == type("") :
+            if type(end) != type(datetime) :
                 end = datetime.strptime(end,'%Y/%m/%d')
             stu.logger.info(begin)
             stu.logger.info(end)
@@ -430,8 +430,12 @@ class GetAttendInfoHandler(APIHandler):
         stu = Student.instance()
         try:
             cname = self.get_argument('class','')
-            bdate = self.get_argument('bdate','')
-            edate = self.get_argument('edate','')
+            bdate = self.get_argument('begin','')
+            edate = self.get_argument('end','')
+
+            stu.logger.info(bdate)
+            stu.logger.info(edate)
+
 
             firstDay,lastDay = getDateOfNWeek(0)
 
@@ -447,6 +451,7 @@ class GetAttendInfoHandler(APIHandler):
             stu.logger.info(attendInfos)
             ret = []
             if cname == '':
+                stu.logger.info("class='',so get attend info or all classes")
                 ret = attendInfos
             else:
                 for ai in attendInfos :
@@ -484,7 +489,34 @@ class SetAttendInfoHandler(APIHandler):
             stu.logger.error(e)
         pass
 
+class GetHeadTeachersHandler(APIHandler):
+    def get(self):
+        try:
+            stu = Student.instance()
+            ids = stu.getAllClassIDs()
+            ret = []
+            for i in ids :
+                ti = stu.getClassInfo(i['id'])
+                if not ti :
+                    stu.logger.warning('id :'+i['id']+' of head teacher has no info')
+                    print i,' has no teacher info'
+                    continue
+                elif ti.has_key('teacher'):
+                    tname = ti['teacher']
+                    if len(tname)>0 and tname != '0' :
+                        ret.append({'id':i['id'],'name':tname})
+                else:
+                    stu.logger.warning('id :'+i['id']+' of head teacher has no \"teacher\" info')
 
+            self.finish('data',ret)
+            return
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
+            return
+
+    def post(self):
+        pass
 
 
 def main():

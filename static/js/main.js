@@ -1,6 +1,7 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
 //this tab panel is for the center 
+//var newsTab = getnewsWin() ;
 var mgrTabpanel = Ext.create('Ext.tab.Panel', {
 	id: 'mgrTabpanel',
 	renderTo: Ext.getBody(),
@@ -10,13 +11,7 @@ var mgrTabpanel = Ext.create('Ext.tab.Panel', {
 		closable: true,
 		bodyPadding: 10
 	},
-	items: [{
-		id: 'tab_notices',
-		closable: false,
-		title: '通知/公告',
-		icon: 'static/pic/css/tabs.gif',
-		html: 'A simple tab'
-	}]
+	items: []
 });
 
 
@@ -120,33 +115,16 @@ function treeItemClick(view, record, item, index, e) {
         add2tabpanel(mgrTabpanel,noticeWin) ;
         noticeWin.show() ; 
         setAddNoticeWinsShow(false) ;
-        /*
-        setWinShow('noticesearch.class',true) ;
-        setWinShow('noticesearch.bdate',true) ;
-        setWinShow('noticesearch.edate',true) ;
-        setWinShow('noticesearch.btn',true) ;
-        setWinShow('noticegridsave',false) ;
-        setWinShow('noticeform',false) ;
-        */
-
-
+    
     } else if (cmpId=="sm.addnotice"){
         var noticeWin = getNoticeWin() ;
         sm_notice_store.loadData([]) ;
         add2tabpanel(mgrTabpanel,noticeWin) ;
         noticeWin.show() ; 
         setAddNoticeWinsShow(true) ;
-        /*
-        setWinShow('noticesearch.class',false) ;
-        setWinShow('noticesearch.bdate',false) ;
-        setWinShow('noticesearch.edate',false) ;
-        setWinShow('noticesearch.btn',false) ;
-        setWinShow('noticegridsave',true) ;
-        setWinShow('noticeform',true) ;
-        */
-
-    } else if (cmpId=="ss.loan"){
-    } else if (cmpId=="ss.loan"){
+        
+    } else if (cmpId=="sm.adduser"){
+            } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
@@ -403,5 +381,8 @@ Ext.onReady(function() {
 			items: [mgrTabpanel]
 		}]
 	});
+    
+    var newsWin = getnewsWin() ;
+    add2tabpanel(mgrTabpanel,newsWin) ;
     
 });

@@ -37,3 +37,9 @@ nosetests.xml
 
 ./static/extjs
 ./static/extjs/*
+#log
+
+#Log File
+*.log
+#NOHUP Fil
+nohup.out

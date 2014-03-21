@@ -63,27 +63,6 @@ var newsListTree = Ext.create('Ext.tree.Panel', {
             nodeText = record.raw.text; //获取点击的节点text
             setNews2Form(nodeId,nodeText,'newsform') ;
             //Ext.Msg.alert('info', nodeId + nodeText);
-            /*
-            Ext.Ajax.request({
-                url: SERVER+'/getnewscontent',
-                headers: {
-                    'userHeader': 'userMsg'
-                },
-                params: { 'id': nodeId },
-                method: 'GET',
-                success: function (response, options) {
-                    newsform = Ext.getCmp('newsform') ;
-                    if (newsform){
-                        //newsform.html = response.responseText ; 
-                        newsform.update(response.responseText) ; 
-                        newsform.setTitle(nodeText) ; 
-                    }
-                    //Ext.MessageBox.alert('成功', '从服务端获取结果: ' + response.responseText);
-                },
-                failure: function (response, options) {
-                    Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：' + response.status);
-                }
-            });*/
         }
     }
 });

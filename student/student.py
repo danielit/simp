@@ -25,6 +25,7 @@ QUAN_CLASS_PREFIX=QUAN_PREFIX+"class:"
 QUAN_STU_PREFIX=QUAN_PREFIX+"student:"
 
 NOTICES="notices"
+NOTICE_PREFIX="notice:"
 BULLENTINS="bulletins"
 
 
@@ -397,8 +398,9 @@ class Student(object):
         return self.redis.hget(TABLE_TEAC_NAME2ID,name)
     #type: order set, score= time
     #key=>value
-    #notices=[{"time":''，“content”：“”，“Title”：“”,'other':''}{}{}{}{}]
+    ##notices=[{"time":''，“content”：“”，“Title”：“”,'other':''}{}{}{}{}]
     #this function may have a bug , end = 2**31 means ,the last year of earth is 2038
+    '''
     def getNotices(self,begin=0,end=2**31,start=None,num=None,order=0): #获取某个时间段的通知
         key = NOTICES
         if order == 0:
@@ -406,12 +408,28 @@ class Student(object):
         else:
             return self.redis.zrangebyscore(key,begin,end,start,num)
         pass
+    '''
     def getBullentins(self,begin=0,end=2**31,start=None,num=None,order=0): #获取某个时间段的公告
         key = BULLENTINS
         if order == 0:
             return self.redis.zrevrangebyscore(key,begin,end,start,num)
         else:
             return self.redis.zrangebyscore(key,begin,end,start,num)
+
+    def setNotice(self,info):
+        key = NOTICES
+        value = self.dict2str(info)
+        return self.redis.lpush(key,value)
+
+    def getNotices(self,fr=0,to=-1):
+        key = NOTICES
+        value = self.str2dict(self.redis.lrange(key,0,-1))
+        return value
+
+    def getNoticeCount(self):
+        key = NOTICES
+        count = self.redis.llen(key)
+        return count
 
     def setAttendInfo(self,day,info):
         key = ATTEND_PREFIX + str(day)

@@ -14,6 +14,7 @@ from datetime import *
 from handler import APIHandler,APISecureHandler
 from student import Student
 from student_config import firstDayOfTerm as firstDayTerm
+from news_template import NEWS_TEMPLATE
 
 from tornado.escape import json_encode
 # constant definitions
@@ -518,6 +519,90 @@ class GetHeadTeachersHandler(APIHandler):
     def post(self):
         pass
 
+class GetNewsListHandler(APISecureHandler):
+    def getNewsList(self,count=25):
+        stu = Student.instance()
+        news = stu.getNotices(to=count-1)
+        ret=[]
+        for new in news:
+            new = stu.str2dict(new)
+            print new
+            if new.has_key('idc') and new.has_key('title') :
+                ret.append({'id':new['idc'],'text':new['title'],'leaf':'true','icon':'static/pic/rss.gif'})
+        return ret
+
+    def get(self):
+        try:
+            stu = Student.instance()
+            newslist = self.getNewsList()
+            #print newslist
+            #treenode = [{'id':'newslistnode','rootVisible':'false','text':'','children':newslist}]
+            treenode = json.dumps(newslist)
+            self.write(treenode)
+        except Exception,e:
+            stu.logger.error(e)
+
+    def post(self):
+        pass
+
+class GetNewsContentHandler(APISecureHandler):
+    def get(self):
+        stu = Student.instance()
+        newsid = self.get_argument('id','')
+        if newsid=='':
+            stu.logger.warning('get a news id which is empty, THAT IS IMPORSSIBLE')
+        news = stu.getNotices()
+        content = NEWS_TEMPLATE
+        for n in news:
+            n = stu.str2dict(n)
+            if n.has_key('idc') and n['idc'] == newsid :
+                stu.logger.info(n)
+                content = (content) % (n['title'] ,n['author'],n['date'],n['content'])
+        self.write(content)
+
+    def post(self):
+        pass
+class GetAllNewsHandler(APIHandler):
+
+    def get(self):
+        try:
+            stu = Student.instance()
+            news = stu.getNotices()
+            ret=[]
+            for new in news:
+                new = stu.str2dict(new)
+                ret.append(new)
+
+
+            total = len(ret)
+            ret = doPage(self,ret)
+
+            self.finish("data",ret,total=total)
+            return
+        except Exception,e:
+            stu.logger.error(e)
+
+    def post(self):
+        pass
+class SetNewsHandler(APIHandler):
+    def get(self):
+        pass
+    def post(self):
+        try:
+            stu = Student.instance()
+            news = json.loads(self.request.body)
+            news = news['data']
+            if type(news)==type({}) :
+                news = [news]
+            idc = stu.getNoticeCount()
+            for n in news:
+                if n['author'] == '':
+                    n['author'] == '轶名'
+                idc = idc + 1
+                n['idc'] = 'news_'+str(idc)
+                stu.setNotice(n)
+        except Exception,e:
+            stu.logger.error(e)
 
 def main():
     stu = Student.instance()

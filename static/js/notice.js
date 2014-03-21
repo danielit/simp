@@ -22,6 +22,7 @@ Ext.define('notice.Form', {
                 anchor:'100%'
 			},
 			iconCls: 'icon-form',
+            icon:'static/pic/rss_add.gif',
 			layout: 'anchor',
 			anchor: '100%',
             collapsible:'ture',
@@ -74,16 +75,16 @@ Ext.define('notice.Form', {
 				defaultType: 'textfield',
 				margin: '0 0 5 0',
 				items: [{
-					xtype: 'textareafield',
-					id: 'noticefor.summary',
+					xtype: 'textfield',
+					id: 'noticefor.author',
 					grow: false,
 					margins: '0 6 0 0',
-					name: 'summary',
-					fieldLabel: '摘要',
-					allowBlank: true,
+					name: 'author',
+					fieldLabel: '作者',
+					allowBlank: false,
                     autoScroll: true,
 					width: 610,
-					emptyText: '如有需要，请在此填写...'
+					emptyText: '请在此填写发布者...'
 				}
                     ]
 			},
@@ -98,7 +99,7 @@ Ext.define('notice.Form', {
 					id: 'noticeform.content',
 					grow: false,
 					margins: '0 6 0 0',
-					name: 'ps',
+					name: 'content',
 					fieldLabel: '内容',
 					allowBlank: false,
                     autoScroll:true,
@@ -146,14 +147,11 @@ Ext.define('notice.Form', {
 		if (form.isValid()) {
             
             val = form.getValues() ;
-            console.log("get from form");
-            console.log(val);
-            val.class = Ext.getCmp('noticeform.class').getRawValue() ;
-            val.student = Ext.getCmp('noticeform.name').getRawValue() ;
             val.idc = ++notice_COUNTER ;
            
             //notice_info_store.loadData([val]) ;
             sm_notice_store.add([val]) ;
+            console.log(val) ;
             form.reset() ;
 		}
 	}
@@ -200,6 +198,7 @@ Ext.define('notice.Grid', {
 				},'|',*/
                 {
 					iconCls: 'icon-modify',
+                    icon:'static/pic/rss_load.gif',
 					text: '修改',
                     disabled:true,
                     itemId:'modify',
@@ -208,6 +207,7 @@ Ext.define('notice.Grid', {
 				},'|',
 				{
 					iconCls: 'icon-delete',
+                    icon:'static/pic/rss_delete.gif',
 					text: '删除',
 					disabled: true,
 					itemId: 'delete',
@@ -260,6 +260,7 @@ Ext.define('notice.Grid', {
                     xtype:'button',
                     id:'noticesearch.btn',
                     iconCls:'icon-search',
+                    icon:'static/pic/search.gif',
                     text:'查询',
                     scope:this,
                     handler:this.onSearchClick
@@ -272,6 +273,7 @@ Ext.define('notice.Grid', {
 				ui: 'footer',
 				items: ['->', {
 					iconCls: 'icon-save',
+                    icon:'static/pic/rss_add.gif',
 					text: '提交',
 				    margins: '0 0 0 50%',
 					scope: this,
@@ -279,6 +281,7 @@ Ext.define('notice.Grid', {
 					//handler: this.onSync
                     id:'noticegridsave',
                     handler:function(){
+                        //alert('sm_nontice_store sync') ;
                         ret = sm_notice_store.sync({
                             failure:function(batch){
                                 Ext.MessageBox.show({
@@ -307,45 +310,34 @@ Ext.define('notice.Grid', {
 				}]
 			}],
 			columns: [{
-				text: '序号',
+				text: '编号',
 				//width: 40,
                 style:{textAlign:'center'},
 				sortable: false,
 				resizable: false,
 				draggable: false,
-				hideable: false,
+				hideable: true,
+                hidden:true,
 				menuDisabled: true,
 				dataIndex: 'idc'
 			},
 			{
-				header: '班级',
+				header: '标题',
 				//flex: 1,
                 width:160,
 				sortable: true,
-				dataIndex: 'class',
+				dataIndex: 'title',
                 style:{textAlign:'center'},
-				dataIndex: 'class',
 				field: {
 					type: 'textfield'
 				}
 			},
 			{
-				header: '学生',
+				header: '作者',
 				//width: 100,
 				sortable: true,
                 style:{textAlign:'center'},
-				dataIndex: 'student',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '类型',
-                style:{textAlign:'center'},
-				//width: 100,
-				sortable: true,
-				dataIndex: 'type',
-				//dataIndex: 'noticetype',
+				dataIndex: 'author',
 				field: {
 					type: 'textfield'
 				}
@@ -356,30 +348,29 @@ Ext.define('notice.Grid', {
 				//width: 100,
 				sortable: true,
 				dataIndex: 'date',
+				//dataIndex: 'noticetype',
+				field: {
+					type: 'textfield'
+				}
+			},
+            {
+				header: '摘要',
+                style:{textAlign:'center'},
+				width: 200,
+				sortable: true,
+				dataIndex: 'summary',
 				//dataIndex: 'date',
 				field: {
 					type: 'textfield'
 				}
 			},
             {
-				header: '节次',
+				header: '内容',
                 style:{textAlign:'center'},
-				//width: 100,
+				width: 300,
 				sortable: true,
-				dataIndex: 'nclass',
+				dataIndex: 'content',
 				//dataIndex: 'noticescore',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '备注',
-                style:{textAlign:'center'},
-				width: 200,
-				sortable: false,
-				menuDisabled: true,
-				//dataIndex: 'noticereason',
-				dataIndex: 'ps',
 				field: {
 					type: 'textfield'
 				}
@@ -453,8 +444,8 @@ Ext.define('notice.Grid', {
 //get the data from grid to form
 	onModifyClick: function() {
         //first let modify form show
-        setnoticeWinShow('noticeform',true) ;
-        setnoticeWinShow('noticegridsave',true) ;
+        setAddNoticeWinsShow('noticeform',true) ;
+        //setnoticeWinShow('noticegridsave',true) ;
         //var selected = this.getView().getSelectionModel().getSelection()[0];
         
         var selected = Ext.getCmp('noticegrid').getSelectionModel().getSelection()[0];
@@ -466,8 +457,6 @@ Ext.define('notice.Grid', {
         console.log(selected) ;
         //Ext.getCmp('noticeform').loadRecord(value);
         Ext.getCmp('noticeform').loadRecord(selected);
-        Ext.getCmp('noticeform.class').setRawValue(value.class) ;
-        Ext.getCmp('noticeform.name').setRawValue(value.student) ;
         this.store.remove(selected) ;
         --notice_COUNTER ;
     },

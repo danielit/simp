@@ -17,7 +17,8 @@ Ext.define('news.Form', {
 		    iconCls: 'icon-form',
             collapsible:'ture',
 			//align: 'center',
-			items: []
+            //tpl:new Ext.XTemplate(),   
+			items: [],
 		});
 		this.callParent();
 	}
@@ -31,12 +32,13 @@ var newsListTree = Ext.create('Ext.tree.Panel', {
     region: 'west',
     split: true,
     width: 300,
+    icon:'static/pic/article.gif',
     maxWidth: 400,
     animCollapse: true,
     rootVisible: false,  //默认不显示根节点
     useArrows: true,
     store: news_list_store,
-    //root: {expanded: true},
+    root: {expanded: true},
     tools: [{
         type: 'refresh',
         tooltip: '刷新',
@@ -59,14 +61,29 @@ var newsListTree = Ext.create('Ext.tree.Panel', {
         'itemclick': function(view, record, item, index, e) {
             nodeId = record.raw.id; //获取点击的节点id
             nodeText = record.raw.text; //获取点击的节点text
+            setNews2Form(nodeId,nodeText,'newsform') ;
             //Ext.Msg.alert('info', nodeId + nodeText);
-            if (news_list_store.getNodeById(nodeId).hasChildNodes() === true) {
-            }
-            else {
-                Ext.Msg.alert('设备管理', nodeId + nodeText);
-            }
-            //Ext.Msg.alert('text', nodeText);
-
+            /*
+            Ext.Ajax.request({
+                url: SERVER+'/getnewscontent',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'id': nodeId },
+                method: 'GET',
+                success: function (response, options) {
+                    newsform = Ext.getCmp('newsform') ;
+                    if (newsform){
+                        //newsform.html = response.responseText ; 
+                        newsform.update(response.responseText) ; 
+                        newsform.setTitle(nodeText) ; 
+                    }
+                    //Ext.MessageBox.alert('成功', '从服务端获取结果: ' + response.responseText);
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：' + response.status);
+                }
+            });*/
         }
     }
 });
@@ -106,8 +123,29 @@ function getnewsWin(){
 		    icon: 'static/pic/css/tabs.gif'
         }) ; 
     } 
-    newsform = Ext.getCmp('newsform') ;
-    newsform.html = "<h1>helloworld</h1> <h5>helloworld</h5> </br>hello world </br>" ;
+    //newsform = Ext.getCmp('newsform') ;
+    //newsform.html = "<h1>helloworld</h1> <h5>helloworld</h5> </br>hello world </br>" ;
     return newsWin ;
 }
-
+function setNews2Form(newsid,newstitle,formid){
+            Ext.Ajax.request({
+                url: SERVER+'/getnewscontent',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'id': newsid},
+                method: 'GET',
+                success: function (response, options) {
+                    newsform = Ext.getCmp(formid) ;
+                    if (newsform){
+                        //newsform.html = response.responseText ; 
+                        newsform.update(response.responseText) ; 
+                        newsform.setTitle(newstitle) ; 
+                    }
+                    //Ext.MessageBox.alert('成功', '从服务端获取结果: ' + response.responseText);
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：' + response.status);
+                }
+            });
+}

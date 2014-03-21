@@ -107,6 +107,10 @@ if __name__ == "__main__":
         (r"/getattendinfo",GetAttendInfoHandler),
         (r"/setattendinfo",SetAttendInfoHandler),
         (r"/getheadteachers",GetHeadTeachersHandler),
+        (r"/getnewslist",GetNewsListHandler),
+        (r"/getnewscontent",GetNewsContentHandler),
+        (r"/getallnews",GetAllNewsHandler),
+        (r"/setnews",SetNewsHandler),
         (r"/form",FormHandler)
         ],
         **settings

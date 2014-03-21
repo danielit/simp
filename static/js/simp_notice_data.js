@@ -9,29 +9,25 @@ Ext.define('SM.Notice', {
         type:'string'
     },
     {
-		name: 'student', //id
+		name: 'title', //id
 		type: 'string',
 	},
     {
-        name:'class',
-        type:'string'
-    },
-    {
-        name:'type',
+        name:'author',
         type:'string'
     },
     {
         name:'date',
         type:'string'
-    },    
-    {
-        name:'nclass',
-        type:'string'
     },
     {
-        name:'ps',
+        name:'summary',
         type:'string'
-    } ]
+    },    
+    {
+        name:'content',
+        type:'string'
+    }]
 });
 
 var sm_notice_store = Ext.create('Ext.data.Store', {
@@ -42,10 +38,10 @@ var sm_notice_store = Ext.create('Ext.data.Store', {
 	proxy: {
 		type: 'ajax',
         api: {
-            read: SERVER+ '/getnotices',
-			write: SERVER + '/setnotices',
-            update: SERVER + '/setnotices',
-            create: SERVER + '/setnotices'
+            read: SERVER+ '/getallnews',
+			write: SERVER + '/setnews',
+            update: SERVER + '/setnews',
+            create: SERVER + '/setnews'
 		},
 		reader: {
 			type: 'json',
@@ -53,7 +49,7 @@ var sm_notice_store = Ext.create('Ext.data.Store', {
 			successProperty: 'success',
 			root: 'data',
 			messageProperty: 'message',
-            idProperty:'id',
+            idProperty:'id'
 		},
         writer : {
 			type: 'json',

@@ -8,5 +8,5 @@ var news_list_store = Ext.create('Ext.data.TreeStore', {
                     }
         },
         root: {expanded: true},
-        autoLoad: false
+        autoLoad:false
 });

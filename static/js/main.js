@@ -10,8 +10,7 @@ var mgrTabpanel = Ext.create('Ext.tab.Panel', {
 		autoScroll: true,
 		closable: true,
 		bodyPadding: 10
-	},
-	items: []
+	}
 });
 
 

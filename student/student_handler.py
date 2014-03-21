@@ -70,7 +70,25 @@ def getQuanInfoBetween(begin,end):
             qi['idc'] = idc
             ret.append(qi)
     return ret
+class SetStuInfoHandler(APIHandler):
+    def get(self):
+        pass
+    def post(self):
+        try:
+            stu = Student.instance()
+            stuinfo = json.loads(self.request.body)
+            if type(stuinfo)==type({}) and stuinfo.has_key('data') :
+                stuinfo = stuinfo['data']
+                #stu.logger.info('post data stuinfo class is '+stuinfo['class'])
+                #stuinfo['class'] = stu.getClassIdOnName(stuinfo['class'])
+                #stu.logger.info('after trans stuinfo class is '+stuinfo['class'])
+                stu.setStuInfo(stuinfo)
+                #print '$$$$$$$$$$$$$###############@@@@@@@@@@@',stuinfo
+        except Exception,e:
+            stu.logger.error(e)
 
+
+        pass
 class GetAllStuInfoHandler(APIHandler):
     def get(self):
 
@@ -78,11 +96,9 @@ class GetAllStuInfoHandler(APIHandler):
 
         try:
             stu = Student.instance()
+
             ret = stu.getAllStuInfo()
-        except Exception,e:
-            print e
-            raise tornado.web.HTTPError(404)
-        else:
+
             cid2cname = {}
             stuinfo=[]
             idc = 0
@@ -94,12 +110,13 @@ class GetAllStuInfoHandler(APIHandler):
                     try:
                         cid2cname[cid] = stu.getClassNameOnId(cid)
                     except Exception,e:
+                        stu.logger.error('cid is not correct ,cid:'+cid)
                         stu.logger.error(e)
                         continue
-
+                    #else:
+                    #    r['class'] = cid2cname[cid]
+                #r['idc'] = idc + 1
                 idc = idc + 1
-                r['idc'] = idc
-                r['class'] = cid2cname[cid]
                 stuinfo.append(r)
 
             total = len(stuinfo)
@@ -108,7 +125,9 @@ class GetAllStuInfoHandler(APIHandler):
             self.finish("data",stuinfo,total=total)
             return
 
-        self.finish(success=False)
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
 
 
     def post(self):
@@ -549,16 +568,17 @@ class GetNewsContentHandler(APISecureHandler):
     def get(self):
         stu = Student.instance()
         newsid = self.get_argument('id','')
-        if newsid=='':
-            stu.logger.warning('get a news id which is empty, THAT IS IMPORSSIBLE')
         news = stu.getNotices()
         content = NEWS_TEMPLATE
         for n in news:
             n = stu.str2dict(n)
-            if n.has_key('idc') and n['idc'] == newsid :
+            if n.has_key('idc') and (n['idc'] == newsid or newsid==''):
                 stu.logger.info(n)
                 content = (content) % (n['title'] ,n['author'],n['date'],n['content'])
-        self.write(content)
+                self.write(content)
+                return
+        self.write('')
+        return
 
     def post(self):
         pass

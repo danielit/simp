@@ -116,8 +116,18 @@ class Student(object):
         return self.str2dict(self.redis.get(key))
 
     #return True if done
-    def setStuInfo(self,stuid,value):
-        key = STU_PREFIX+str(stuid).strip()
+    def getStuNum(self):
+        key = STU_PREFIX+"20*"
+        return len(self.redis.keys(key))
+
+    def setStuInfo(self,value):
+        #this  student is not in the db ,it is a new one
+        stuid = str(value['stuid']).strip()
+        num = self.getStuNum()
+        value['idc'] = num + 1
+        self.setStuIdOnName(value['name'],value['stuid'])
+
+        key = STU_PREFIX+stuid
         value = self.dict2str(value)
         return self.redis.set(key,value)
 
@@ -341,7 +351,7 @@ class Student(object):
 
     def getClassIdOnName(self,cname):
         if self.redis.hexists(TABLE_CLASSNAME2ID,cname):
-            return int(self.redis.hget(TABLE_CLASSNAME2ID,cname))
+            return self.redis.hget(TABLE_CLASSNAME2ID,cname)
         return 0
 
     def setClassIdOnName(self,cname,cid):

@@ -56,14 +56,12 @@ class Student(object):
     def __init__(self):
 
         logger = logging.getLogger("student")
-        formatter = logging.Formatter('%(filename)s  %(funcName)s %(lineno)s  %(message)s')
+        formatter = logging.Formatter('%(levelname)s %(filename)s  %(funcName)s %(lineno)s  %(message)s')
             #'%a, %d %b %Y %H:%M:%S',)
-
-        stream_handler = logging.StreamHandler(sys.stderr)
-        stream_handler.setFormatter(formatter)
-        stream_handler.setLevel(logging.INFO)
+        file_handler = logging.FileHandler('./simp.log')
+        file_handler.setFormatter(formatter)
         logger.setLevel(logging.INFO)
-        logger.addHandler(stream_handler)
+        logger.addHandler(file_handler)
 
         self.logger = logger
 
@@ -98,12 +96,12 @@ class Student(object):
 
     # return None if key not exist
     def getUserInfo(self,userid):# 获取某个用户的信息
-        key = USER_PREFIX+str(userid).strip()
+        key = USER_PREFIX+unicode(userid)
         return self.redis.get(key)
 
     #return True if set done
     def setUserInfo(self,userid,value):
-        key = USER_PREFIX+str(userid).strip()
+        key = USER_PREFIX+unicode(userid)
         value = self.dict2str(value)
         return self.redis.set(key,value)
 
@@ -112,20 +110,23 @@ class Student(object):
     # The info of stu can be grouped by type ,such as ,make name,id as normal group
     #return None if key not exist
     def getStuInfo(self,stuid) : #   获取某个学生的个人信息
-        key = STU_PREFIX+str(stuid).strip()
+        key = STU_PREFIX+unicode(stuid)
         return self.str2dict(self.redis.get(key))
 
     #return True if done
     def getStuNum(self):
-        key = STU_PREFIX+"20*"
+        key = STU_PREFIX+u"20*"
         return len(self.redis.keys(key))
 
     def setStuInfo(self,value):
         #this  student is not in the db ,it is a new one
-        stuid = str(value['stuid']).strip()
+        stuid = unicode(value['stuid'])
         num = self.getStuNum()
-        value['idc'] = num + 1
-        self.setStuIdOnName(value['name'],value['stuid'])
+        if not value.has_key('idc') or not value['idc'].startswith('stu'):
+            num = str(num + 1)
+            value['idc'] = u'stu' + num
+
+        #self.setStuIdOnName(value['name'],value['stuid'])
 
         key = STU_PREFIX+stuid
         value = self.dict2str(value)
@@ -149,12 +150,10 @@ class Student(object):
         key= CLASS_PREFIX + "ids"
         classes = self.getAllClassIDs()
         if type(classes) == type([]) :
-            print "not empty :",classes
             classes.append(newClass)
         else:
             classes = []
             classes.append(newClass)
-            print "new one:",classes
         classes = json.dumps(classes)
         self.redis.set(key,classes)
         return True
@@ -170,26 +169,30 @@ class Student(object):
 # for now key=>value class:id=>{id,teacher,name,stuids=[]}
     #return None if key not exist
     def getClassInfo(self,classid): # 获取某个班级的信息
-        key = CLASS_PREFIX+str(classid).strip()
+        key = CLASS_PREFIX+unicode(classid)
         return self.str2dict(self.redis.get(key))
     def setClassInfo(self,classid,value):
-        key = CLASS_PREFIX+str(classid).strip()
+        key = CLASS_PREFIX+unicode(classid)
         value = self.dict2str(value)
         return self.redis.set(key,value)
 
     def getClassNameOnId(self,cid):
+        cid = unicode(cid)
         ret = self.getClassInfo(cid)
         if ret != None:
             return ret['name']
         else:
-            return str(cid)
+            self.logger.warning('not find the cid : %s of class name' % cid)
+            return ''
 
     # if in db ,return a int or 0
     def getClassIDbyName(self,name):
+        name = unicode(name)
         ids = self.getAllClassIDs()
         for cid in ids:
             if name==cid['name']:
-                return int(cid['id'])
+                return cid['id']
+        self.logger.warning('not find class id of %s' % name)
         return 0
 
     def getClassStudentIDs(self,classid) :
@@ -197,11 +200,11 @@ class Student(object):
     ### --section 4: student information --###
     # key=>vlaue ,teacher:[id] => {'name':"zhangsan",'id':10021213,'type':0~9,'phone':13021590177,'tel':'','office':402,'other':''}
     def getTeacInfo(self,teacid): # 获取某个老师的信息
-        key = TEAC_PREFIX+str(teacid).strip()
+        key = TEAC_PREFIX+unicode(teacid)
         return self.redis.get(key)
 
     def setTeacInfo(self,teacid,value):
-        key = TEAC_PREFIX+str(teacid).strip()
+        key = TEAC_PREFIX+unicode(teacid)
         value = self.dict2str(value)
         return self.redis.set(key,value)
 
@@ -261,13 +264,13 @@ class Student(object):
     ### -- section 7, class quan --###
     #key=>value ,quan:class:[id]=>{'discipline':40,'health':20,'activity':20,'dormitory',‘rank’：1}
     def getClassCurrentQuanInfo(self,classid): #获取某个班级的量化信息
-        classid = str(classid).strip()
+        classid = unicode(classid)
         key = QUAN_CLASS_PREFIX+classid
         return self.redis.get(key)
 
     def setClassCurrentQuanInfo(self,classid,info):
         info = self.dict2str(info)
-        classid = str(classid).strip()
+        classid = unicode(classid)
         key = QUAN_CLASS_PREFIX + classid
         return self.redis.set(key,info)
     #key=>value
@@ -275,15 +278,15 @@ class Student(object):
     def getClassWeekQuanInfo(self,classid,week):
         if week<1 or week> 50 :
             return None
-        classid = str(classid).strip()
-        key = QUAN_CLASS_PREFIX + classid + ":"+str(week)
+        classid = unicode(classid)
+        key = QUAN_CLASS_PREFIX + classid + ":"+unicode(week)
         return self.redis.get(key)
 
     def setClassWeekQuanInfo(self,classid,week,info) :
         if week<1 or week> 53 :
             return None
-        classid = str(classid).strip()
-        key = QUAN_CLASS_PREFIX + classid + ":"+str(week)
+        classid = unicode(classid)
+        key = QUAN_CLASS_PREFIX + classid + ":"+unicode(week)
 
         info = self.dict2str(info)
         return self.redis.set(key,info)
@@ -306,14 +309,15 @@ class Student(object):
         #return self.redis.hgetall(key)
     def getQuanNameOnId(self,qid):
         rets = self.getQuanTypes()
+        qid = unicode(qid)
         for r in rets:
-            if str(r['id'])== str(qid):
+            if r['id'] == qid:
                 return r['name']
         return ''
 
     #return a list, get quan info of classid
     def getQuanInfo(self,classid):
-        key = QUAN_PREFIX+CLASS_PREFIX+str(classid)
+        key = QUAN_PREFIX+CLASS_PREFIX+unicode(classid)
         ret = self.redis.lrange(key,0,-1)
         tmp=[]
         for r in ret:
@@ -323,7 +327,7 @@ class Student(object):
 
 
     def setQuanInfo(self,classid,qinfo):
-        key = QUAN_PREFIX+CLASS_PREFIX+str(classid)
+        key = QUAN_PREFIX+CLASS_PREFIX+unicode(classid)
         qinfo = self.dict2str(qinfo)
         return self.redis.lpush(key,qinfo)
 
@@ -342,70 +346,67 @@ class Student(object):
         return qinfos
 
     def getQuanIdOnName(self,qname):
+        qname = unicode(qname)
         if self.redis.hexists(TABLE_QUANNAME2ID,qname):
             return int(self.redis.hget(TABLE_QUANNAME2ID,qname))
         return 0
 
     def setQuanIdOnName(self,qname,qid):
-        return self.redis.hset(TABLE_QUANNAME2ID,qname,qid)
+        return self.redis.hset(TABLE_QUANNAME2ID,unicode(qname),unicode(qid))
 
     def getClassIdOnName(self,cname):
+        cname = unicode(cname)
         if self.redis.hexists(TABLE_CLASSNAME2ID,cname):
             return self.redis.hget(TABLE_CLASSNAME2ID,cname)
         return 0
 
     def setClassIdOnName(self,cname,cid):
-        return self.redis.hset(TABLE_QUANNAME2ID,cname,cid)
+        return self.redis.hset(TABLE_QUANNAME2ID,unicode(cname),unicode(cid))
 
 
-    #return list of stu ids
+    #return set of stu ids
     def getStuIdsofClass(self,classid) : #获取某个班级的所有学生的学号
-        classid = str(classid).strip()
-        #key = STUS_PREFIX + CLASS_PREFIX + classid
-        key = CLASS_PREFIX+classid
-        ci = self.str2dict(self.redis.get(key))
-        if ci != None:
-            return ci['stuids']
-        return []
+        classid = unicode(classid)
+        key = STUS_PREFIX + CLASS_PREFIX + classid
+        stus = self.redis.smembers(key)
+        return list(stus)
+
 
     def setStuIDofClass(self,stuid,classid):
-        classid = str(classid).strip()
+        classid = unicode(classid)
         key = STUS_PREFIX + CLASS_PREFIX + classid
-        stuid = str(stuid).strip()
-        print key,stuid
+        stuid = unicode(stuid)
         return self.redis.sadd(key,stuid)
 
     # type:hash
     #table name is stu_name2id
     def getStuIdOnName(self,name): #获取某个学生的学号
+        name = unicode(name)
         if self.redis.hexists(TABLE_STUNAME2ID,name):
             return self.redis.hget(TABLE_STUNAME2ID,name)
         return ""
 
     def setStuIdOnName(self,name,stuid):
-        return self.redis.hset(TABLE_STUNAME2ID,name,stuid)
+        return self.redis.hset(TABLE_STUNAME2ID,unicode(name),unicode(stuid))
 
     def getStuNameOnId(self,stuid):
+        stuid = unicode(stuid)
         ret = self.getStuInfo(stuid)
         if ret!=None:
             name = ret['name']
             return name
-        '''
-        if self.redis.hexists(TABLE_STUID2NAME,stuid):
-            return int(self.redis.hget(TABLE_STUID2NAME,stuid))
-        return 0
-        '''
-    '''
-    def setStuNameOnId(self,stuid,name):
-        return self.redis.hset(TABLE_STUID2NAME,stuid,name)
-    '''
-
+        else:
+            self.logger.warning('not find stu name of stuid :%s' % stuid)
+            return ''
 
 
     #type :hash
     #table name is teac_name2id
-    def getTeacIDBaseOnName(self,name): #获取某个老师的工号
-        return self.redis.hget(TABLE_TEAC_NAME2ID,name)
+    def getTeacIdOnName(self,tname): #获取某个老师的工号
+        return self.redis.hget(TABLE_TEAC_NAME2ID,unicode(tname))
+    def setTeacIDOnName(self,tname,tid):
+        self.redis.hset(TABLE_TEAC_NAME2ID,unicode(tname),unicode(tid))
+
     #type: order set, score= time
     #key=>value
     ##notices=[{"time":''，“content”：“”，“Title”：“”,'other':''}{}{}{}{}]
@@ -443,7 +444,6 @@ class Student(object):
 
     def setAttendInfo(self,day,info):
         key = ATTEND_PREFIX + str(day)
-        self.logger.info(key)
         value = self.dict2str(info)
         return self.redis.lpush(key,value)
 

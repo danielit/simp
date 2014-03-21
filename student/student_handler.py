@@ -78,7 +78,10 @@ class SetStuInfoHandler(APIHandler):
             stu = Student.instance()
             stuinfo = json.loads(self.request.body)
             if type(stuinfo)==type({}) and stuinfo.has_key('data') :
-                stuinfo = stuinfo['data']
+                si = stuinfo['data']
+                stu.setStuIdOnName(si['name'],si['stuid'])
+                si['class'] = stu.getClassIdOnName(si['class'])
+                stu.setStuIDofClass(si['stuid'],si['class'])
                 #stu.logger.info('post data stuinfo class is '+stuinfo['class'])
                 #stuinfo['class'] = stu.getClassIdOnName(stuinfo['class'])
                 #stu.logger.info('after trans stuinfo class is '+stuinfo['class'])
@@ -104,17 +107,20 @@ class GetAllStuInfoHandler(APIHandler):
             idc = 0
             for r in ret:
                 cid = r['class']
-                if classid != '0' and classid != cid:
+                if classid != '0' and classid != cid.encode():
                     continue
                 if not cid2cname.has_key(cid):
                     try:
-                        cid2cname[cid] = stu.getClassNameOnId(cid)
+                        if cid.isdigit() :
+                            cid2cname[cid] = stu.getClassNameOnId(cid)
+                        else:
+                            cid2cname[cid] = cid
                     except Exception,e:
                         stu.logger.error('cid is not correct ,cid:'+cid)
                         stu.logger.error(e)
                         continue
                     #else:
-                    #    r['class'] = cid2cname[cid]
+                r['class'] = cid2cname[cid]
                 #r['idc'] = idc + 1
                 idc = idc + 1
                 stuinfo.append(r)
@@ -616,8 +622,13 @@ class SetNewsHandler(APIHandler):
                 news = [news]
             idc = stu.getNoticeCount()
             for n in news:
+                print n
                 if n['author'] == '':
-                    n['author'] == '轶名'
+                    n['author'] == unicode('轶名')
+                if n.has_key('content'):
+                    n['content'] = n['content'].replace('\n','</p><p>')
+                    n['content'] = '<p>' +n['content']
+                    n['content'] = n['content'] + '</p>'
                 idc = idc + 1
                 n['idc'] = 'news_'+str(idc)
                 stu.setNotice(n)

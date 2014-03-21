@@ -3,7 +3,7 @@ Ext.define('Sit.StuInfo', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'idc', //id
-		type: 'int',
+		type: 'string',
 	},
     'name', //name
     'stuid',

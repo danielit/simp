@@ -22,7 +22,7 @@ def load2Redis(fileName):
                 stuinfo['name'] = info[2]
                 stuinfo['gender'] = info[3]
                 stuinfo['identify'] = info[4]
-                stuinfo['birthday'] = info[5]
+                stuinfo['birthday'] = info[5].replace('.','/')
                 stuinfo['type'] = info[6]
                 stuinfo['address'] = info[7]
                 stuinfo['homephone'] = info[8]
@@ -34,7 +34,7 @@ def load2Redis(fileName):
                 continue
 
 
-            rdb.setStuInfo(stuinfo['stuid'],stuinfo)
+            rdb.setStuInfo(stuinfo)
             rdb.logger.info(stuinfo)
 
 

@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import json
 import os
+import sys
 import tornado.httpserver
 import tornado.ioloop
 import tornado.web
@@ -85,6 +86,8 @@ class StuHandler(tornado.web.RequestHandler):
         print params
 
 if __name__ == "__main__":
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
     settings = {
         "static_path": os.path.join(os.path.dirname(__file__), "static"),
         "cookie_secret":"74deccaf0bfc574e7487f931b9c07d16=+-_"
@@ -97,6 +100,7 @@ if __name__ == "__main__":
         (r"/manage",ManageHandler),
         (r"/grid",GridHandler),
         (r"/getallstuinfo",GetAllStuInfoHandler),
+        (r"/setstuinfo",SetStuInfoHandler),
         (r"/getclassids",GetAllClassIDs),
         (r"/getquantypes",GetQuanTypesHandler),
         (r"/getstunameidsonclassid",GetStuNameIDsOnClassID),

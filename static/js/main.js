@@ -383,5 +383,6 @@ Ext.onReady(function() {
     
     var newsWin = getnewsWin() ;
     add2tabpanel(mgrTabpanel,newsWin) ;
+    setNews2Form('','','newsform') ;
     
 });

@@ -38,7 +38,7 @@ var newsListTree = Ext.create('Ext.tree.Panel', {
     rootVisible: false,  //默认不显示根节点
     useArrows: true,
     store: news_list_store,
-    root: {expanded: true},
+    root: {expanded: false},
     tools: [{
         type: 'refresh',
         tooltip: '刷新',

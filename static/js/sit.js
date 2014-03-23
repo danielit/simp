@@ -250,7 +250,6 @@ Ext.define('Sit.Form', {
 				xtype: 'container',
 				itemId: 'form.container.d',
 				layout: 'hbox',
-                width:700,
 				margin: '0 0 5 0',
 				items: [{
 					xtype: 'combobox',
@@ -394,7 +393,7 @@ Ext.define('Sit.Grid', {
 					xtype: 'combobox',
 					id: 'sitsearch.class',
 					name: 'class',
-                    width:300,
+                    width:250,
                     labelWidth:40,
 					displayField: 'name',
 					valueField: 'id',
@@ -693,6 +692,9 @@ Ext.define('Sit.Grid', {
         }
             this.store.load({
                 'params':{
+                    'page':0,
+                    'start':0,
+                    'limit':200,
                     'cid':cid
                 },
                 scope:this,
@@ -838,6 +840,7 @@ function setsitWinShow(id,sure){
 }
 
 function setsitWinsShow(mask) {
+    setsitWinShow('sitgridpbar',!mask) ;
     setsitWinShow('sitsearch.class',!mask) ;
     setsitWinShow('sitsearch.btn',!mask) ;
     setsitWinShow('sitgridsave',mask) ;

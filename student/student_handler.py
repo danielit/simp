@@ -23,13 +23,11 @@ def doPage(obj,ret) :
     page = int(obj.get_argument('page',0))
     start = int(obj.get_argument('start',0))
     limit = int(obj.get_argument('limit',0))
-
     if page == 0:
         start = 0
         end = len(ret)
     else:
         end = start + limit
-
     return ret[start:end]
 
 
@@ -78,27 +76,31 @@ class SetStuInfoHandler(APIHandler):
             stu = Student.instance()
             stuinfo = json.loads(self.request.body)
             if type(stuinfo)==type({}) and stuinfo.has_key('data') :
-                si = stuinfo['data']
-                stu.setStuIdOnName(si['name'],si['stuid'])
-                si['class'] = stu.getClassIdOnName(si['class'])
-                stu.setStuIDofClass(si['stuid'],si['class'])
-                #stu.logger.info('post data stuinfo class is '+stuinfo['class'])
-                #stuinfo['class'] = stu.getClassIdOnName(stuinfo['class'])
-                #stu.logger.info('after trans stuinfo class is '+stuinfo['class'])
-                stu.setStuInfo(stuinfo)
-                #print '$$$$$$$$$$$$$###############@@@@@@@@@@@',stuinfo
+                sis = stuinfo['data']
+                if type(sis)==type({}):
+                    sis = [sis]
+                for si in sis:
+                    stu.setStuIdOnName(si['name'],si['stuid'])
+                    si['class'] = stu.getClassIdOnName(si['class'])
+                    stu.setStuIDofClass(si['stuid'],si['class'])
+                    #stu.logger.info('post data stuinfo class is '+stuinfo['class'])
+                    #stuinfo['class'] = stu.getClassIdOnName(stuinfo['class'])
+                    #stu.logger.info('after trans stuinfo class is '+stuinfo['class'])
+                    stu.setStuInfo(stuinfo)
         except Exception,e:
             stu.logger.error(e)
+            self.finish(success=False)
+
+        self.finish()
 
 
         pass
 class GetAllStuInfoHandler(APIHandler):
     def get(self):
 
-        classid = self.get_argument('cid','0')
-
         try:
             stu = Student.instance()
+            classid = self.get_argument('cid','0')
 
             ret = stu.getAllStuInfo()
 
@@ -107,9 +109,12 @@ class GetAllStuInfoHandler(APIHandler):
             idc = 0
             for r in ret:
                 cid = r['class']
-                if classid != '0' and classid != cid.encode():
+                if classid != '0' and classid != cid :
                     continue
                 if not cid2cname.has_key(cid):
+
+                    stu.logger.info(str(type(classid))+classid)
+                    stu.logger.info(str(type(cid))+cid)
                     try:
                         if cid.isdigit() :
                             cid2cname[cid] = stu.getClassNameOnId(cid)
@@ -121,12 +126,14 @@ class GetAllStuInfoHandler(APIHandler):
                         continue
                     #else:
                 r['class'] = cid2cname[cid]
-                #r['idc'] = idc + 1
+                r['idc'] = idc + 1
                 idc = idc + 1
                 stuinfo.append(r)
-
             total = len(stuinfo)
+            stu.logger.info(total)
             stuinfo = doPage(self,stuinfo)
+
+            stu.logger.info(len(stuinfo))
 
             self.finish("data",stuinfo,total=total)
             return
@@ -312,13 +319,11 @@ class LoginHandler(APIHandler):
         else:#audit from db
             rdb.logger.info('go on check user in db')
             userInfo = rdb.getUserInfo(user)
-            rdb.logger.info("user:"+user)
             if userInfo:
-                userInfo = json.loads(userInfo)
-                rdb.logger.info("userinfo from db")
-                rdb.logger.info(userInfo)
-                if userInfo['pwd'] and userInfo['pwd'] == pwd:
-                    rdb.logger.info("login success")
+                rdb.logger.info('userinfo from db :' + userInfo)
+                userInfo = stu.str2dict(userInfo)
+                if userInfo.has_key('passwd') and userInfo['passwd'] == pwd:
+                    rdb.logger.info(user + " login success")
                     self.set_secure_cookie('remb',remb)
                     self.set_secure_cookie('user',user)
                     self.set_secure_cookie('role',userInfo['role'])
@@ -327,7 +332,7 @@ class LoginHandler(APIHandler):
                     self.finish()
                     return
         # audit login from db failed
-        rdb.logger.info("check failed in db")
+        rdb.logger.warning(user + " check failed in db")
         self.finish(success=False)
         return
 
@@ -481,9 +486,6 @@ class GetAttendInfoHandler(APIHandler):
                 ret = attendInfos
             else:
                 for ai in attendInfos :
-                    print
-                    print cname
-                    print ai['class']
                     if cname == ai['class']:
                         ret.append(ai)
 
@@ -525,7 +527,6 @@ class GetHeadTeachersHandler(APIHandler):
                 ti = stu.getClassInfo(i['id'])
                 if not ti :
                     stu.logger.warning('id :'+i['id']+' of head teacher has no info')
-                    print i,' has no teacher info'
                     continue
                 elif ti.has_key('teacher'):
                     tname = ti['teacher']
@@ -551,7 +552,6 @@ class GetNewsListHandler(APISecureHandler):
         ret=[]
         for new in news:
             new = stu.str2dict(new)
-            print new
             if new.has_key('idc') and new.has_key('title') :
                 ret.append({'id':new['idc'],'text':new['title'],'leaf':'true','icon':'static/pic/rss.gif'})
         return ret
@@ -560,7 +560,6 @@ class GetNewsListHandler(APISecureHandler):
         try:
             stu = Student.instance()
             newslist = self.getNewsList()
-            #print newslist
             #treenode = [{'id':'newslistnode','rootVisible':'false','text':'','children':newslist}]
             treenode = json.dumps(newslist)
             self.write(treenode)
@@ -588,17 +587,30 @@ class GetNewsContentHandler(APISecureHandler):
 
     def post(self):
         pass
-class GetAllNewsHandler(APIHandler):
+class GetNewsHandler(APIHandler):
 
     def get(self):
         try:
             stu = Student.instance()
+            begin = self.get_argument('begin','')
+            end = self.get_argument('end','')
+            today = datetime.today()
+            if begin == '':
+                begin = today - timedelta(365*10)
+            else:
+                begin = datetime.strptime(begin,'%Y/%m/%d')
+            if end == '':
+                end = today
+            else:
+                end = datetime.strptime(end,'%Y/%m/%d')
+
             news = stu.getNotices()
             ret=[]
             for new in news:
                 new = stu.str2dict(new)
-                ret.append(new)
-
+                date = datetime.strptime(new['date'],'%Y/%m/%d')
+                if date>= begin and date <=end :
+                    ret.append(new)
 
             total = len(ret)
             ret = doPage(self,ret)
@@ -622,7 +634,6 @@ class SetNewsHandler(APIHandler):
                 news = [news]
             idc = stu.getNoticeCount()
             for n in news:
-                print n
                 if n['author'] == '':
                     n['author'] == unicode('轶名')
                 if n.has_key('content'):
@@ -634,6 +645,58 @@ class SetNewsHandler(APIHandler):
                 stu.setNotice(n)
         except Exception,e:
             stu.logger.error(e)
+            self.finish(success=False)
+
+class SetUserHandler(APIHandler):
+    def get(self):
+        pass
+    def post(self):
+        try:
+            stu = Student.instance()
+            userinfo = json.loads(self.request.body)
+            if type(userinfo)==type({}) and userinfo.has_key('data') :
+                uis = userinfo['data']
+                if type(uis)==type({}):
+                    uis = [uis]
+                for ui in uis:
+                    count = stu.getUserCount()
+                    #check if user is exist in the db, if so ,rewrite the info
+                    ui['idc'] = 'user_'+str(count + 1)
+                    stu.logger.info(ui)
+                    stu.setUserInfo(ui)
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
+            return
+
+        self.finish()
+        return
+
+class GetUserHandler(APIHandler):
+    def get(self):
+        try:
+            stu = Student.instance()
+            user = self.get_argument('user','')
+            uis=''
+            if user=='':
+                uis = stu.getAllUserInfo()
+            else:
+                uis = stu.getUserInfo(user)
+                uis = stu.str2dict(uis)
+                uis = [uis]
+            idc = 0
+            for ui in uis:
+                ui['idc'] = idc + 1
+                idc = idc + 1
+            total = len(uis)
+            uis = doPage(self,uis)
+            self.finish('data',uis,total=total)
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
+
+    def post(self):
+        pass
 
 def main():
     stu = Student.instance()

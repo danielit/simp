@@ -2,16 +2,18 @@ Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
 
-var notice_COUNTER = 0 ;
+var user_COUNTER = 0 ;
 
-Ext.define('notice.Form', {
+Ext.define('user.Form', {
 	extend: 'Ext.form.Panel',
-	alias: 'widget.noticeform',
+	alias: 'widget.userform',
 	requires: ['Ext.data.*', 'Ext.form.*'],
-	xtype: 'form-notice',
+	xtype: 'form-user',
 	frame: true,
 	bodyPadding: 5,
-    maxHeight:200,
+    //height:350,
+    //minHeight:350,
+    //maxHeight:400,
     autoScroll:true,
 
 	initComponent: function() {
@@ -22,6 +24,7 @@ Ext.define('notice.Form', {
                 anchor:'100%'
 			},
 			iconCls: 'icon-form',
+            icon:'static/pic/rss_add.gif',
 			layout: 'anchor',
 			anchor: '100%',
             collapsible:'ture',
@@ -32,97 +35,85 @@ Ext.define('notice.Form', {
 				layout: 'hbox',
                 align:'center',
 				defaultType: 'textfield',
-				margin: '0 0 5 0',
+				margin: '20 0 10 0',
 				items: [{
-					id: 'noticehidden',
-                    width:300,
+					id: 'userhidden',
 					name: 'idc',
                     hidden:true
 				},
                 {
 					xtype: 'textfield',
-					name: 'title',
-                    width:280,
-					id: 'noticeform.title',
-					emptyText: '请输入标题...',
-					fieldLabel: '标题',
+					name: 'user',
+                    width:300,
+					id: 'userform.user',
+					emptyText: '请输入用户名...',
+					fieldLabel: '用户名',
 					margins: '0 6 0 0',
-					allowBlank: false,
-					forceSelection: true,
-					listeners: {
-						scop: this,
-						'select': function(combo, records, index) {}
-					}
+					allowBlank: false
 				},
                 {
-					xtype: 'datefield',
-					id: 'noticeform.date',
-                    format:'Y/m/d',
-					fieldLabel: '日期',
+					xtype: 'textfield',
+					name: 'passwd',
                     width:300,
-					name: 'date',
-					allowBlank: false,
+					id: 'userform.passwd',
+					emptyText: '请输入密码...',
+					fieldLabel: '初始密码',
 					margins: '0 6 0 0',
-					maxValue: new Date(),
-                    value: new Date()
+					allowBlank: false
 				}]
 			},
 			{
 				xtype: 'container',
-				itemId: 'form.container.c',
+				itemId: 'form.container.b',
 				layout: 'hbox',
 				defaultType: 'textfield',
 				margin: '0 0 5 0',
-				items: [{
-					xtype: 'textareafield',
-					id: 'noticefor.summary',
+				items: [
+                {
+                    xtype: 'combobox',
+					id: 'userform.role',
+					name: 'role',
+                    width:300,
+					displayField: 'name',
+					valueField: 'id',
+					queryMode: 'local',
+					emptyText: '请选择用户角色...',
+					fieldLabel: '用户角色',
+					hideLabel: false,
+					margins: '0 6 0 0',
+					store: user_role_store,
+					allowBlank:false,
+                    value:'学生'
+			    },
+                {
+					xtype: 'textfield',
+					id: 'userform.number',
 					grow: false,
 					margins: '0 6 0 0',
-					name: 'summary',
-					fieldLabel: '摘要',
+					name: 'number',
+					fieldLabel: '关联号码',
 					allowBlank: true,
                     autoScroll: true,
-					width: 610,
-					emptyText: '如有需要，请在此填写...'
-				}
-                    ]
-			},
-			{
-				xtype: 'container',
-				itemId: 'form.container.d',
-				layout: 'hbox',
-                width:700,
-				margin: '0 0 5 0',
-				items: [{
-					xtype: 'textareafield',
-					id: 'noticeform.content',
-					grow: false,
-					margins: '0 6 0 0',
-					name: 'ps',
-					fieldLabel: '内容',
-					allowBlank: false,
-                    autoScroll:true,
-					width: 610,
-					emptyText: '请在此填写通知/公告内容...'
+					width: 300,
+					emptyText: '请在此填写学号或教工号...'
 				}]
 			},
-            {
+			{
 				xtype: 'container',
 				itemId: 'form.container.e',
 				layout: 'hbox',
                 width:700,
-				margin: '0 0 5 0',
+				margin: '20 0 5 0',
                 align:'center',
                 defaults:{
-                    margin: '0 0 5 25',
+                    margin: '0 0 10 25',
                 },
 				items: [{
 					xtype: 'button',
                     width:80,
                     margin: '0 0 0 240',
                     text:'重置',
-                    scope:this,
-				    handler: this.onResetClick
+                    scope:this, handler: this.onResetClick
 				},
                 {
 					xtype: 'button',
@@ -146,23 +137,20 @@ Ext.define('notice.Form', {
 		if (form.isValid()) {
             
             val = form.getValues() ;
-            console.log("get from form");
-            console.log(val);
-            val.class = Ext.getCmp('noticeform.class').getRawValue() ;
-            val.student = Ext.getCmp('noticeform.name').getRawValue() ;
-            val.idc = ++notice_COUNTER ;
+            val.idc = ++user_COUNTER ;
            
-            //notice_info_store.loadData([val]) ;
-            sm_notice_store.add([val]) ;
+            //user_info_store.loadData([val]) ;
+            sm_user_store.add([val]) ;
+            console.log(val) ;
             form.reset() ;
 		}
 	}
 });
 
 //define the grid
-Ext.define('notice.Grid', {
+Ext.define('user.Grid', {
 	extend: 'Ext.grid.Panel',
-	alias: 'widget.noticegrid',
+	alias: 'widget.usergrid',
 
 	requires: ['Ext.grid.plugin.CellEditing', 'Ext.form.field.Text', 'Ext.toolbar.TextItem', 'Ext.panel.Panel', 'Ext.ux.form.SearchField', 'Ext.ux.CheckColumn', 'Ext.selection.CheckboxModel', 'Ext.selection.CellModel'],
 
@@ -175,7 +163,7 @@ Ext.define('notice.Grid', {
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
 		this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
-            id:'noticegridpbar',
+            id:'usergridpbar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
@@ -200,6 +188,7 @@ Ext.define('notice.Grid', {
 				},'|',*/
                 {
 					iconCls: 'icon-modify',
+                    icon:'static/pic/rss_load.gif',
 					text: '修改',
                     disabled:true,
                     itemId:'modify',
@@ -208,6 +197,7 @@ Ext.define('notice.Grid', {
 				},'|',
 				{
 					iconCls: 'icon-delete',
+                    icon:'static/pic/rss_delete.gif',
 					text: '删除',
 					disabled: true,
 					itemId: 'delete',
@@ -215,25 +205,12 @@ Ext.define('notice.Grid', {
 					handler: this.onDeleteClick
 				},'|',
                 {
-					xtype: 'combobox',
-					id: 'noticesearch.class',
-					name: 'class',
-                    width:300,
-                    labelWidth:40,
-					displayField: 'name',
-					valueField: 'id',
-					queryMode: 'remote',
-					emptyText: '请选择班级...',
-					fieldLabel: '班级',
-					hideLabel: false,
-					margins: '0 6 0 0',
-					store: sm_notice_store,
-					allowBlank: false,
-					forceSelection: true
-				},
+				
+                },
+                /*
                 {
 					xtype: 'datefield',
-					id: 'noticesearch.bdate',
+					id: 'usersearch.bdate',
                     format:'Y/m/d',
 					fieldLabel: '开始日期',
                     width:200,
@@ -245,7 +222,7 @@ Ext.define('notice.Grid', {
 				},
                 {
 					xtype: 'datefield',
-					id: 'noticesearch.edate',
+					id: 'usersearch.edate',
                     format:'Y/m/d',
 					fieldLabel: '结束日期',
                     width:200,
@@ -255,11 +232,22 @@ Ext.define('notice.Grid', {
 					margins: '0 6 0 0',
 					maxValue: new Date(),
                     value: new Date()
-				},
+				},*/
+                {
+                    xtype:'textfield',
+                    name:'user',
+                    id:'usersearch.user',
+                    margins:'0 5 0 5',
+                    width:300,
+                    labelWidth:50,
+                    fieldLabel:'用户名',
+                    allowBlank:false
+                },
                 {
                     xtype:'button',
-                    id:'noticesearch.btn',
+                    id:'usersearch.btn',
                     iconCls:'icon-search',
+                    icon:'static/pic/search.gif',
                     text:'查询',
                     scope:this,
                     handler:this.onSearchClick
@@ -272,14 +260,16 @@ Ext.define('notice.Grid', {
 				ui: 'footer',
 				items: ['->', {
 					iconCls: 'icon-save',
+                    icon:'static/pic/rss_add.gif',
 					text: '提交',
 				    margins: '0 0 0 50%',
 					scope: this,
                     //hidden:true,
 					//handler: this.onSync
-                    id:'noticegridsave',
+                    id:'usergridsave',
                     handler:function(){
-                        ret = sm_notice_store.sync({
+                        //alert('sm_nontice_store sync') ;
+                        ret = sm_user_store.sync({
                             failure:function(batch){
                                 Ext.MessageBox.show({
                                     title: '提交失败',
@@ -287,7 +277,7 @@ Ext.define('notice.Grid', {
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
-                                console.log("notice submit failure") ;
+                                console.log("user submit failure") ;
                             },
                             success:function(batch){
                                 Ext.MessageBox.show({
@@ -297,9 +287,9 @@ Ext.define('notice.Grid', {
 					                icon: Ext.MessageBox.INFO,
 					                buttons: Ext.Msg.OK
 			                    });
-                                sm_notice_store.loadData([],false) ;
-                                notice_COUNTER = 0 ;
-                                console.log("notice submit success") ;
+                                sm_user_store.loadData([],false) ;
+                                user_COUNTER = 0 ;
+                                console.log("user submit success") ;
                             }
                         }) ; 
                         console.log(ret) ;
@@ -307,79 +297,56 @@ Ext.define('notice.Grid', {
 				}]
 			}],
 			columns: [{
-				text: '序号',
+				text: '编号',
 				//width: 40,
                 style:{textAlign:'center'},
 				sortable: false,
 				resizable: false,
 				draggable: false,
-				hideable: false,
+				hideable: true,
+                hidden:false,
 				menuDisabled: true,
 				dataIndex: 'idc'
 			},
 			{
-				header: '班级',
+				header: '用户名',
 				//flex: 1,
                 width:160,
 				sortable: true,
-				dataIndex: 'class',
+				dataIndex: 'user',
                 style:{textAlign:'center'},
-				dataIndex: 'class',
 				field: {
 					type: 'textfield'
 				}
 			},
 			{
-				header: '学生',
+				header: '密码',
 				//width: 100,
 				sortable: true,
                 style:{textAlign:'center'},
-				dataIndex: 'student',
+				dataIndex: 'passwd',
 				field: {
 					type: 'textfield'
 				}
 			},
             {
-				header: '类型',
+				header: '用户角色',
                 style:{textAlign:'center'},
 				//width: 100,
 				sortable: true,
-				dataIndex: 'type',
-				//dataIndex: 'noticetype',
+				dataIndex: 'role',
+				//dataIndex: 'usertype',
 				field: {
 					type: 'textfield'
 				}
 			},
             {
-				header: '日期',
-                style:{textAlign:'center'},
-				//width: 100,
-				sortable: true,
-				dataIndex: 'date',
-				//dataIndex: 'date',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '节次',
-                style:{textAlign:'center'},
-				//width: 100,
-				sortable: true,
-				dataIndex: 'nclass',
-				//dataIndex: 'noticescore',
-				field: {
-					type: 'textfield'
-				}
-			},
-            {
-				header: '备注',
+				header: '关联号码',
                 style:{textAlign:'center'},
 				width: 200,
-				sortable: false,
-				menuDisabled: true,
-				//dataIndex: 'noticereason',
-				dataIndex: 'ps',
+				sortable: true,
+				dataIndex: 'number',
+				//dataIndex: 'date',
 				field: {
 					type: 'textfield'
 				}
@@ -391,25 +358,20 @@ Ext.define('notice.Grid', {
 
     onSearchClick: function(){
     
-        var cname = Ext.getCmp('noticesearch.class').getRawValue() ;
-        var bdate = Ext.getCmp('noticesearch.bdate').getRawValue() ;
-        var edate = Ext.getCmp('noticesearch.edate').getRawValue() ;
-        var cid= Ext.getCmp('noticesearch.class').getValue() ;
-        if (!bdate && !edate && !cname){
-            Ext.MessageBox.alert("提示",'至少选择一个查询条件!') ;
+        var user = Ext.getCmp('usersearch.user').getValue() ;
+        //var bdate = Ext.getCmp('usersearch.bdate').getRawValue() ;
+        //var edate = Ext.getCmp('usersearch.edate').getRawValue() ;
+        //var cid= Ext.getCmp('usersearch.class').getValue() ;
+        if (!user || user == ""){
+            Ext.MessageBox.alert("提示",'请输入要查找的用户名!') ;
             return ;
         }
-        if (cid=='0'){
-            cname='' ;
-        }
-            console.log(cname) ;
-            console.log(bdate) ;
-            console.log(edate) ;
-            this.store.load({
+        this.store.load({
                 'params':{
-                    'class':cname,
-                    'begin':bdate,
-                    'end':edate
+                    'page':1,
+                    'start':0,
+                    'limit':200,
+                    'user':user
                 },
                 scope:this,
                 callback:function(records,operations,success){
@@ -439,7 +401,7 @@ Ext.define('notice.Grid', {
 	},
 
 	onSync: function() {
-		sm_notice_store.sync();
+		sm_user_store.sync();
 	},
 
 	onDeleteClick: function() {
@@ -453,30 +415,28 @@ Ext.define('notice.Grid', {
 //get the data from grid to form
 	onModifyClick: function() {
         //first let modify form show
-        setnoticeWinShow('noticeform',true) ;
-        setnoticeWinShow('noticegridsave',true) ;
+        setAddUserWinsShow('userform',true) ;
+        //setuserWinShow('usergridsave',true) ;
         //var selected = this.getView().getSelectionModel().getSelection()[0];
         
-        var selected = Ext.getCmp('noticegrid').getSelectionModel().getSelection()[0];
+        var selected = Ext.getCmp('usergrid').getSelectionModel().getSelection()[0];
         var value = null ;
         if (selected){
             value = selected.raw ;
         }
         console.log(value) ;
         console.log(selected) ;
-        //Ext.getCmp('noticeform').loadRecord(value);
-        Ext.getCmp('noticeform').loadRecord(selected);
-        Ext.getCmp('noticeform.class').setRawValue(value.class) ;
-        Ext.getCmp('noticeform.name').setRawValue(value.student) ;
+        //Ext.getCmp('userform').loadRecord(value);
+        Ext.getCmp('userform').loadRecord(selected);
         this.store.remove(selected) ;
-        --notice_COUNTER ;
+        --user_COUNTER ;
     },
 	onAddClick: function() {
-        noticeform = Ext.getCmp('noticeform') ;
-        if (noticeform.isHidden()){
-            noticeform.show() ;
+        userform = Ext.getCmp('userform') ;
+        if (userform.isHidden()){
+            userform.show() ;
         }
-        pbar = Ext.getCmp('noticegridpbar') ;
+        pbar = Ext.getCmp('usergridpbar') ;
         if (!pbar.isHidden()){
             pbar.hide() ;
         }
@@ -485,10 +445,10 @@ Ext.define('notice.Grid', {
 
 Ext.require(['Ext.data.*', 'Ext.tip.QuickTipManager', 'Ext.window.MessageBox']);
 
-//define the container for notice 
-Ext.define('notice.window', {
+//define the container for user 
+Ext.define('user.window', {
 	extend: 'Ext.container.Container',
-	alias: 'widget.noticecontainer',
+	alias: 'widget.usercontainer',
 	initComponent: function() {
 		Ext.apply(this, {
 			padding: '0 0 0 0',
@@ -497,24 +457,24 @@ Ext.define('notice.window', {
 				align: 'stretch',
 				pack: 'start'
 			},
-			items: [{// notice add new info grid
-				itemId: 'noticegrid',
-				id: 'noticegrid',
-				xtype: 'noticegrid',
+			items: [{// user add new info grid
+				itemId: 'usergrid',
+				id: 'usergrid',
+				xtype: 'usergrid',
 				title: '通知/公告管理',
 				flex: 1,
                 hidden:false,
                 //minHeight:200,
                 //maxHeight:500,
-				store: sm_notice_store,
+				store: sm_user_store,
 				listeners: {
 					selectionchange: function(selModel, selected) {}
 				}
 			},
-            {// add new notice info form
-				itemId: 'noticeform',
-				id: 'noticeform',
-				xtype: 'noticeform',
+            {// add new user info form
+				itemId: 'userform',
+				id: 'userform',
+				xtype: 'userform',
                 title:'添加通知/公告',
                 minHeight:100,
                 maxHeight:500,
@@ -527,27 +487,27 @@ Ext.define('notice.window', {
 	}
 });
 
-function getNoticeWin(){
-    var noticeWin = Ext.getCmp('noticewin') ;
-    if (noticeWin==null){
-        noticeWin = Ext.create('notice.window',{
+function getUserWin(){
+    var userWin = Ext.getCmp('userwin') ;
+    if (userWin==null){
+        userWin = Ext.create('user.window',{
             title:'通知/公告管理',
-            id:'noticewin',
-            itemId:'noticewin',
-            xtype:'noticecontainer',
+            id:'userwin',
+            itemId:'userwin',
+            xtype:'usercontainer',
 		    icon: 'static/pic/css/tabs.gif'
         }) ; 
     } 
-    return noticeWin ;
+    return userWin ;
 }
 
 
-function setAddNoticeWinsShow(show) {
-    setWinShow('noticesearch.class',!show) ;
-    setWinShow('noticesearch.bdate',!show) ;
-    setWinShow('noticesearch.edate',!show) ;
-    setWinShow('noticesearch.btn',!show) ;
-    setWinShow('noticegridsave',show) ;
-    setWinShow('noticeform',show) ;
-    //setnoticeWinShow('noticeformdetail',mask & 16) ;
+function setAddUserWinsShow(show) {
+    setWinShow('usergridpbar',!show) ;
+    setWinShow('usersearch.btn',!show) ;
+    setWinShow('usersearch.user',!show) ;
+    setWinShow('usergridsave',show) ;
+    setWinShow('userform',show) ;
+    //setuserWinShow('userformdetail',mask & 16) ;
 } 
+					

@@ -12,13 +12,14 @@ Ext.define('SS.Grid.SSS', {
 		});
 
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
-		this.pBar = Ext.create('Ext.PagingToolbar', {
+		/*this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
             id:'ss.bar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
 		});
+        */
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
@@ -326,7 +327,8 @@ function getSSWin(){
 function setWinShow(id,sure){
     var cmp = Ext.getCmp(id) ;
     if(cmp==null){
-        console.log('cant find the id of ext cmp') ;
+        console.log('id:'+id +' cant find the id of ext cmp') ;
+        return ;
     }
     if(sure){
         cmp.show() ;

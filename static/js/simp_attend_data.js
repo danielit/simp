@@ -87,7 +87,7 @@ Ext.define('Attend.Info', {
 var attend_info_store = Ext.create('Ext.data.Store', {
     model:'Attend.Info',
 	autoLoad: false,
-    pageSize:45,
+    pageSize:30,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',

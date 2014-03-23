@@ -463,6 +463,9 @@ Ext.define('Attend.Grid', {
             console.log(edate) ;
             this.store.load({
                 'params':{
+                    'page':1,
+                    'start':0,
+                    'limit':200,
                     'class':cname,
                     'begin':bdate,
                     'end':edate
@@ -609,6 +612,7 @@ function setAttendWinShow(id,sure){
 }
 
 function setAttendWinsShow(mask) {
+    setAttendWinShow('attendgridpbar',!mask) ;
     setAttendWinShow('attendsearch.class',!mask) ;
     setAttendWinShow('attendsearch.bdate',!mask) ;
     setAttendWinShow('attendsearch.edate',!mask) ;

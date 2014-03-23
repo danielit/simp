@@ -76,7 +76,7 @@ Ext.define('notice.Form', {
 				margin: '0 0 5 0',
 				items: [{
 					xtype: 'textfield',
-					id: 'noticefor.author',
+					id: 'noticeform.author',
 					grow: false,
 					margins: '0 6 0 0',
 					name: 'author',
@@ -214,7 +214,7 @@ Ext.define('notice.Grid', {
 					scope: this,
 					handler: this.onDeleteClick
 				},'|',
-                {
+                /*{
 					xtype: 'combobox',
 					id: 'noticesearch.class',
 					name: 'class',
@@ -230,7 +230,7 @@ Ext.define('notice.Grid', {
 					store: sm_notice_store,
 					allowBlank: false,
 					forceSelection: true
-				},
+				},*/
                 {
 					xtype: 'datefield',
 					id: 'noticesearch.bdate',
@@ -382,23 +382,25 @@ Ext.define('notice.Grid', {
 
     onSearchClick: function(){
     
-        var cname = Ext.getCmp('noticesearch.class').getRawValue() ;
+        //var cname = Ext.getCmp('noticesearch.class').getRawValue() ;
         var bdate = Ext.getCmp('noticesearch.bdate').getRawValue() ;
         var edate = Ext.getCmp('noticesearch.edate').getRawValue() ;
-        var cid= Ext.getCmp('noticesearch.class').getValue() ;
-        if (!bdate && !edate && !cname){
-            Ext.MessageBox.alert("提示",'至少选择一个查询条件!') ;
-            return ;
+        //var cid= Ext.getCmp('noticesearch.class').getValue() ;
+        if (!bdate){
+            bdate = '' ;
+            //Ext.MessageBox.alert("提示",'请选择开始时间!') ;
+            //return ;
         }
-        if (cid=='0'){
-            cname='' ;
+        if  (!edate){
+            edate = '' ;
+            //Ext.MessageBox.alert("提示",'请选择结束时间!') ;
+            //return ;
         }
-            console.log(cname) ;
-            console.log(bdate) ;
-            console.log(edate) ;
             this.store.load({
                 'params':{
-                    'class':cname,
+                    'page':1,
+                    'start':0,
+                    'limit':10,
                     'begin':bdate,
                     'end':edate
                 },
@@ -532,7 +534,7 @@ function getNoticeWin(){
 
 
 function setAddNoticeWinsShow(show) {
-    setWinShow('noticesearch.class',!show) ;
+    setWinShow('noticegridpbar',!show) ;
     setWinShow('noticesearch.bdate',!show) ;
     setWinShow('noticesearch.edate',!show) ;
     setWinShow('noticesearch.btn',!show) ;

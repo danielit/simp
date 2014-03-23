@@ -33,12 +33,12 @@ Ext.define('SM.Notice', {
 var sm_notice_store = Ext.create('Ext.data.Store', {
     model:'SM.Notice',
 	autoLoad: false,
-    pageSize:45,
+    pageSize:10,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',
         api: {
-            read: SERVER+ '/getallnews',
+            read: SERVER+ '/getnews',
 			write: SERVER + '/setnews',
             update: SERVER + '/setnews',
             create: SERVER + '/setnews'

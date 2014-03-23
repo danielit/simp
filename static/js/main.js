@@ -122,8 +122,21 @@ function treeItemClick(view, record, item, index, e) {
         noticeWin.show() ; 
         setAddNoticeWinsShow(true) ;
         
+    } else if (cmpId=="sm.lookupuser"){
+        var userWin = getUserWin() ;
+        sm_user_store.loadData([]) ;
+        sm_user_store.load() ;
+        add2tabpanel(mgrTabpanel,userWin) ;
+        userWin.show() ; 
+        setAddUserWinsShow(false) ;
+
     } else if (cmpId=="sm.adduser"){
-            } else if (cmpId=="ss.loan"){
+        var userWin = getUserWin() ;
+        sm_user_store.loadData([]) ;
+        add2tabpanel(mgrTabpanel,userWin) ;
+        userWin.show() ; 
+        setAddUserWinsShow(true) ;
+
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
@@ -134,6 +147,7 @@ function treeItemClick(view, record, item, index, e) {
 var mgrTree = Ext.create('Ext.tree.Panel', {
 	title: '学生工作',
 	deferRowRender: true,
+    rootVisible:false,
 	useArrows: true,
 	listeners: {
 		itemclick: {
@@ -233,6 +247,7 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 var mgrStuInfoTree = Ext.create('Ext.tree.Panel', {
 	title: '学生信息',
 	deferRowRender: true,
+    rootVisible:false,
 	useArrows: true,
 	listeners: {
 		itemclick: {
@@ -271,7 +286,7 @@ var mgrSysTree= Ext.create('Ext.tree.Panel', {
 	title: '系统管理',
 	deferRowRender: true,
 	useArrows: true,
-    //rootVisible:false,
+    rootVisible:false,
 	listeners: {
 		itemclick: {
 			fn: treeItemClick
@@ -380,7 +395,9 @@ Ext.onReady(function() {
 			items: [mgrTabpanel]
 		}]
 	});
-    
+// show the new list 
+    news_list_store.load() ;
+    // show the news content of the first one on the list
     var newsWin = getnewsWin() ;
     add2tabpanel(mgrTabpanel,newsWin) ;
     setNews2Form('','','newsform') ;

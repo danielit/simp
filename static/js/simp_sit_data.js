@@ -25,7 +25,7 @@ Ext.define('Sit.StuInfo', {
 var stu_info_store = Ext.create('Ext.data.Store', {
     model:'Sit.StuInfo',
 	autoLoad: false,
-    pageSize:45,
+    pageSize:30,
 	proxy: {
 		type: 'ajax',
 		api: {

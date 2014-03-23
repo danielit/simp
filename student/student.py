@@ -56,7 +56,7 @@ class Student(object):
     def __init__(self):
 
         logger = logging.getLogger("student")
-        formatter = logging.Formatter('%(levelname)s %(filename)s  %(funcName)s %(lineno)s  %(message)s')
+        formatter = logging.Formatter('%(levelname)s %(filename)s %(funcName)s %(lineno)s   %(message)s')
             #'%a, %d %b %Y %H:%M:%S',)
         file_handler = logging.FileHandler('./simp.log')
         file_handler.setFormatter(formatter)
@@ -95,15 +95,33 @@ class Student(object):
     # type : string
 
     # return None if key not exist
+
     def getUserInfo(self,userid):# 获取某个用户的信息
         key = USER_PREFIX+unicode(userid)
         return self.redis.get(key)
 
+    def getAllUserInfo(self):
+        key = USER_PREFIX + '*'
+        keys = self.redis.keys(key)
+        ret = []
+        for k in keys:
+            ui = self.redis.get(k)
+            ui = json.loads(ui)
+            ret.append(ui)
+        return ret
+
     #return True if set done
-    def setUserInfo(self,userid,value):
-        key = USER_PREFIX+unicode(userid)
+#check if user is exist in db,if is ,rewrite it
+    def setUserInfo(self,value):
+        key = USER_PREFIX+unicode(value['user'])
         value = self.dict2str(value)
         return self.redis.set(key,value)
+
+    def getUserCount(self):
+        key = USER_PREFIX + '*'
+        count = len(self.redis.keys(key))
+        return count
+
 
     ### --section 2 : student information --###
     # key=>value: student:[id] => {'id':123,'name':zhang,'age':20,'sex':0,...,'other':''}

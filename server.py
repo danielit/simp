@@ -113,8 +113,10 @@ if __name__ == "__main__":
         (r"/getheadteachers",GetHeadTeachersHandler),
         (r"/getnewslist",GetNewsListHandler),
         (r"/getnewscontent",GetNewsContentHandler),
-        (r"/getallnews",GetAllNewsHandler),
+        (r"/getnews",GetNewsHandler),
         (r"/setnews",SetNewsHandler),
+        (r"/setuser",SetUserHandler),
+        (r"/getuser",GetUserHandler),
         (r"/form",FormHandler)
         ],
         **settings

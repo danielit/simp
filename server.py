@@ -26,9 +26,9 @@ class MainHandler(tornado.web.RequestHandler):
         simp.logger.info("main handler enter get")
         user = self.get_secure_cookie('user')
         if not self.current_user:
-            simp.logger.info('render to login.html')
+            simp.logger.info('render to index.html')
             #self.redirect('/login')
-            self.render('login.html')
+            self.render('index.html')
             return
         else:
             simp.logger.info('has cooki redirect')
@@ -36,11 +36,11 @@ class MainHandler(tornado.web.RequestHandler):
             self.set_cookie('uid',user)
             self.set_cookie('type',role)
             if role=="80000":#studnet
-                slef.redirect('student?student='+self.current_user)
+                slef.redirect('student?uid='+self.current_user)
             elif role=="80011": #teacher
-                self.redirect('manage?teacher='+self.current_user)
+                self.redirect('manage?uid='+self.current_user)
             elif role=="80088": #administrator ,for now it is the same to 'teacher'
-                self.redirect('manage?teacher='+self.current_user)
+                self.redirect('manage?uid='+self.current_user)
 
 class NullHandler(tornado.web.RequestHandler):
     def get(self):
@@ -115,6 +115,7 @@ if __name__ == "__main__":
         (r"/getnewscontent",GetNewsContentHandler),
         (r"/getnews",GetNewsHandler),
         (r"/setnews",SetNewsHandler),
+        (r"/deletenotice",DeleteNoticeHandler),
         (r"/setuser",SetUserHandler),
         (r"/getuser",GetUserHandler),
         (r"/form",FormHandler)

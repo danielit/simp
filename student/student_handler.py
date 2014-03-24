@@ -100,7 +100,7 @@ class GetAllStuInfoHandler(APIHandler):
 
         try:
             stu = Student.instance()
-            classid = self.get_argument('cid','0')
+            classid = self.get_argument('cid',u'0')
 
             ret = stu.getAllStuInfo()
 
@@ -308,11 +308,14 @@ class LoginHandler(APIHandler):
         #get argument
         rdb = Student.instance()
         rdb.logger.info("login handler")
-        user = self.get_argument('user',None)
-        pwd = self.get_argument('pwd',None)
+        user = self.get_argument('user','')
+        pwd = self.get_argument('pwd','')
         remb = self.get_argument('remb','0')
+        rdb.logger.info('user:' + user)
+        rdb.logger.info('pwd:' + pwd)
+        rdb.logger.info('remb:' + remb)
         #audit the user
-        if user==None or pwd==None :
+        if user==''or pwd=='':
             self.finish(success=False)
             return
 
@@ -321,7 +324,7 @@ class LoginHandler(APIHandler):
             userInfo = rdb.getUserInfo(user)
             if userInfo:
                 rdb.logger.info('userinfo from db :' + userInfo)
-                userInfo = stu.str2dict(userInfo)
+                userInfo = rdb.str2dict(userInfo)
                 if userInfo.has_key('passwd') and userInfo['passwd'] == pwd:
                     rdb.logger.info(user + " login success")
                     self.set_secure_cookie('remb',remb)
@@ -329,7 +332,9 @@ class LoginHandler(APIHandler):
                     self.set_secure_cookie('role',userInfo['role'])
                     self.set_cookie('uid',user)
                     self.set_cookie('type',userInfo['role'])
-                    self.finish()
+                    #self.finish()
+                    self.redirect('manage?uid='+user)
+                    #self.render('../main.html')
                     return
         # audit login from db failed
         rdb.logger.warning(user + " check failed in db")
@@ -340,7 +345,7 @@ class LoginHandler(APIHandler):
 
         stu = Student.instance()
         stu.logger.info("in login handler get ,render to login")
-        self.render('../login.html')
+        self.render('../index.html')
         return
 
 class GetQuanSummaryOfWeekHandler(APIHandler):
@@ -697,6 +702,41 @@ class GetUserHandler(APIHandler):
 
     def post(self):
         pass
+
+class DeleteNoticeHandler(APIHandler):
+    def get(self):
+        try:
+            stu = Student.instance()
+            noticeidc = self.get_argument('noticeidc','')
+            if noticeidc=='':
+                stu.logger.warning('notice idc is empty')
+                return
+
+            news = stu.getNotices()
+            ret=[]
+            for new in news:
+                tmp = stu.str2dict(new)
+                if tmp['idc'] == noticeidc:
+                    stu.logger.info('find the  notice of idc :%s , that is %s' % (noticeidc,new))
+                    ret = stu.deleteNotice(new)
+                    if ret>0:
+                        stu.logger.info('delete notice of idc :%s done' % noticeidc)
+                        self.finish()
+                        return
+                    else:
+                        stu.logger.warning('delete notice idc: %s failed' % noticeidc)
+                        self.finish(success=False)
+                        return
+            self.finish(success=False)
+            return
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
+            return
+
+    def post(self):
+        pass
+
 
 def main():
     stu = Student.instance()

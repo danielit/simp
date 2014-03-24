@@ -58,7 +58,7 @@ class Student(object):
         logger = logging.getLogger("student")
         formatter = logging.Formatter('%(levelname)s %(filename)s %(funcName)s %(lineno)s   %(message)s')
             #'%a, %d %b %Y %H:%M:%S',)
-        file_handler = logging.FileHandler('./simp.log')
+        file_handler = logging.FileHandler('/opt/simp/log/simp.log')
         file_handler.setFormatter(formatter)
         logger.setLevel(logging.INFO)
         logger.addHandler(file_handler)
@@ -454,6 +454,10 @@ class Student(object):
         key = NOTICES
         value = self.str2dict(self.redis.lrange(key,0,-1))
         return value
+
+    def deleteNotice(self,value):
+        key = NOTICES
+        return self.redis.lrem(key,value)
 
     def getNoticeCount(self):
         key = NOTICES

@@ -22,7 +22,7 @@ Ext.define('notice.Form', {
                 anchor:'100%'
 			},
 			iconCls: 'icon-form',
-            icon:'static/pic/rss_add.gif',
+            icon:'static/pic/addnotice.png',
 			layout: 'anchor',
 			anchor: '100%',
             collapsible:'ture',
@@ -122,12 +122,14 @@ Ext.define('notice.Form', {
                     width:80,
                     margin: '0 0 0 240',
                     text:'重置',
+                    icon:'static/pic/reset.png',
                     scope:this,
 				    handler: this.onResetClick
 				},
                 {
 					xtype: 'button',
                     text:'确认',
+                    icon:'static/pic/confirm.png',
                     width:80,
                     scope:this,
 				    handler: this.onCompleteClick
@@ -181,6 +183,7 @@ Ext.define('notice.Grid', {
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
+            icon:'static/pic/notice.png',
 			frame: true,
             closeable:true,
 			closeAction: 'hiden',
@@ -439,8 +442,25 @@ Ext.define('notice.Grid', {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
 			//console.log(this.store) ;
-			this.store.remove(selection);
-		},
+            var noticeidc = selection.data.idc ;
+            console.log(noticeidc) ;
+            Ext.Ajax.request({
+                url: SERVER+'/deletenotice',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'noticeidc': noticeidc},
+                method: 'GET',
+                success: function (response, options) {
+			       sm_notice_store.remove(selection);
+                    Ext.MessageBox.alert('成功', '删除成功');
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：');
+                }
+            });
+
+        },
 		this);
 	},
 //get the data from grid to form
@@ -506,6 +526,7 @@ Ext.define('notice.window', {
 				itemId: 'noticeform',
 				id: 'noticeform',
 				xtype: 'noticeform',
+                icon:'static/pic/addnotice.png',
                 title:'添加通知/公告',
                 minHeight:100,
                 maxHeight:500,
@@ -542,3 +563,23 @@ function setAddNoticeWinsShow(show) {
     setWinShow('noticeform',show) ;
     //setnoticeWinShow('noticeformdetail',mask & 16) ;
 } 
+function deleteNotice(noticeidc){
+    var ret = false ;
+            Ext.Ajax.request({
+                url: SERVER+'/deletenotice',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'noticeidc': noticeidc},
+                method: 'GET',
+                success: function (response, options) {
+                    //Ext.MessageBox.alert('成功', '删除成功');
+                    ret = true ;
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：' + response.status);
+                    ret = false ;
+                }
+            });
+            return ret ;
+}

@@ -27,7 +27,7 @@ Ext.define('SS.Grid.SSS', {
             //closeable:true,
 			//closeAction: 'hiden',
             collapsible:'ture',
-			selModel: this.CboxModel,
+			//selModel: this.CboxModel,
 			//bbar: this.pBar,
 			plugins: [this.editing],
             defaults:{
@@ -41,7 +41,8 @@ Ext.define('SS.Grid.SSS', {
 				sortable: true,
 				resizable: false,
 				draggable: false,
-				hideable: false,
+				//hideable: false,
+                hidden:true,
 				//menuDisabled: true,
 				dataIndex: 'idc'
 			},
@@ -49,7 +50,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '班级',
                 style:{textAlign:'center'},
                 algin:'center',
-                width:160,
+                width:60,
 				//flex: 1,
 				sortable: true,
 				//dataIndex: 'classname',
@@ -105,7 +106,7 @@ Ext.define('SS.Grid.SSS', {
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',
-				dataIndex: 'outschool',
+				dataIndex: 'out_school',
 				field: {
 					type: 'int'
 				}
@@ -120,7 +121,7 @@ Ext.define('SS.Grid.SSS', {
                 ]
 			},
             {
-				header: '住校',
+				header: '住校人数',
                 menuDisabled:true,
 				width: 50,
                 columns:[

@@ -24,7 +24,7 @@ Ext.define('user.Form', {
                 anchor:'100%'
 			},
 			iconCls: 'icon-form',
-            icon:'static/pic/rss_add.gif',
+            icon:'static/pic/user.png',
 			layout: 'anchor',
 			anchor: '100%',
             collapsible:'ture',
@@ -113,11 +113,13 @@ Ext.define('user.Form', {
                     width:80,
                     margin: '0 0 0 240',
                     text:'重置',
+                    icon:'static/pic/reset.png',
                     scope:this, handler: this.onResetClick
 				},
                 {
 					xtype: 'button',
                     text:'确认',
+                    icon:'static/pic/confirm.png',
                     width:80,
                     scope:this,
 				    handler: this.onCompleteClick
@@ -171,6 +173,7 @@ Ext.define('user.Grid', {
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
+            icon:'static/pic/userlist.png',
 			frame: true,
             closeable:true,
 			closeAction: 'hiden',
@@ -188,7 +191,7 @@ Ext.define('user.Grid', {
 				},'|',*/
                 {
 					iconCls: 'icon-modify',
-                    icon:'static/pic/rss_load.gif',
+                    icon:'static/pic/modifyuser.png',
 					text: '修改',
                     disabled:true,
                     itemId:'modify',
@@ -197,7 +200,7 @@ Ext.define('user.Grid', {
 				},'|',
 				{
 					iconCls: 'icon-delete',
-                    icon:'static/pic/rss_delete.gif',
+                    icon:'static/pic/deluser.png',
 					text: '删除',
 					disabled: true,
 					itemId: 'delete',
@@ -260,7 +263,7 @@ Ext.define('user.Grid', {
 				ui: 'footer',
 				items: ['->', {
 					iconCls: 'icon-save',
-                    icon:'static/pic/rss_add.gif',
+                    icon:'static/pic/adduser.png',
 					text: '提交',
 				    margins: '0 0 0 50%',
 					scope: this,
@@ -475,7 +478,7 @@ Ext.define('user.window', {
 				itemId: 'userform',
 				id: 'userform',
 				xtype: 'userform',
-                title:'添加通知/公告',
+                title:'添加用户',
                 minHeight:100,
                 maxHeight:500,
 				hidden: false,
@@ -491,7 +494,7 @@ function getUserWin(){
     var userWin = Ext.getCmp('userwin') ;
     if (userWin==null){
         userWin = Ext.create('user.window',{
-            title:'通知/公告管理',
+            title:'用户列表',
             id:'userwin',
             itemId:'userwin',
             xtype:'usercontainer',

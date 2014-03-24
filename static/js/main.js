@@ -103,7 +103,7 @@ function treeItemClick(view, record, item, index, e) {
     } else if (cmpId=="ss.statics"){
         //在校人数统计
         var ssWin = getSSWin() ;
-        ss_statics_store.load() ;
+        //ss_statics_store.load() ;
         add2tabpanel(mgrTabpanel,ssWin) ;
         ssWin.show() ;
 
@@ -137,6 +137,8 @@ function treeItemClick(view, record, item, index, e) {
         userWin.show() ; 
         setAddUserWinsShow(true) ;
 
+    } else if (cmpId=="sq.quit"){
+        window.location.href = SERVER ;
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
@@ -233,13 +235,7 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 				id: 'ss.statics',
 				text: '在校学生统计',
 				leaf: true
-			}/*,
-			{
-				id: 's.out',
-				text: '离校学生',
-				leaf: true
-			}*/]
-
+			}]
 		}]
 	}
 });
@@ -365,7 +361,7 @@ Ext.onReady(function() {
 			height: 130,
 			bodyPadding: 0,
 			split: false,
-			html: ['<img src=static/pic/main6.jpg width=1600 height=150 />', ''].join(''),
+			html: ['<img src=static/pic/main5.jpg width=1600 height=150 />', ''].join(''),
 		},
 		{
 			title: '工具栏',

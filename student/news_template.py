@@ -5,10 +5,10 @@ NEWS_TEMPLATE='''
         <td><h2>%s</h2></td>
     </tr>
     <tr align='center'>
-        <td><h3>%s %s</h1></td>
+        <td><font size=1>%s %s</font></td>
     </tr>
     <tr align='left'>
-        <td><h2>%s<h2></td>
+        <td><font size=2>%s</font></td>
     </tr>
 </table>
 </center>

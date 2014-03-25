@@ -51,7 +51,6 @@ def getQuanInfoBetween(begin,end):
     stu.logger.info("begin:"+str(begin)+" end:"+str(end))
     ret = []
     qinfos = stu.getAllQuanInfos()
-    idc=0
     for qi in qinfos:
         date = datetime.strptime(str(qi['quan_date']),'%Y/%m/%d')
         if begin<= date and end>= date:
@@ -64,8 +63,6 @@ def getQuanInfoBetween(begin,end):
                 stu.logger.error(e)
                 continue
 
-            idc = idc + 1
-            qi['idc'] = idc
             ret.append(qi)
     return ret
 class SetStuInfoHandler(APIHandler):
@@ -106,7 +103,6 @@ class GetAllStuInfoHandler(APIHandler):
 
             cid2cname = {}
             stuinfo=[]
-            idc = 0
             for r in ret:
                 cid = r['class']
                 if classid != '0' and classid != cid :
@@ -126,8 +122,6 @@ class GetAllStuInfoHandler(APIHandler):
                         continue
                     #else:
                 r['class'] = cid2cname[cid]
-                r['idc'] = idc + 1
-                idc = idc + 1
                 stuinfo.append(r)
             total = len(stuinfo)
             stu.logger.info(total)
@@ -420,10 +414,7 @@ class GetQuanSummaryOfWeekHandler(APIHandler):
         self.compRank(sTable,'total','rank')
 
         qWeekInfos = []
-        idc=0
         for line in sTable.values():
-            idc = idc + 1
-            line['idc'] = idc
             qWeekInfos.append(line)
 
         total = len(qWeekInfos)
@@ -637,7 +628,7 @@ class SetNewsHandler(APIHandler):
             news = news['data']
             if type(news)==type({}) :
                 news = [news]
-            idc = stu.getNoticeCount()
+            all_news = stu.getNotices()
             for n in news:
                 if n['author'] == '':
                     n['author'] == unicode('轶名')
@@ -645,8 +636,16 @@ class SetNewsHandler(APIHandler):
                     n['content'] = n['content'].replace('\n','</p><p>')
                     n['content'] = '<p>' +n['content']
                     n['content'] = n['content'] + '</p>'
-                idc = idc + 1
-                n['idc'] = 'news_'+str(idc)
+                if n.has_key('idc') and n['idc'].startswith('news_') :
+                    #modify and first del it
+                    stu.logger.info('modify the news')
+                    for ns in all_news:
+                        tmp = stu.str2dict(ns)
+                        if tmp['idc'] == n['idc']:
+                            stu.deleteNotice(ns)
+                            stu.logger.info('delete the news : %s' % ns)
+                            break
+                n['idc'] = 'news_'+ stu.getuuid()
                 stu.setNotice(n)
         except Exception,e:
             stu.logger.error(e)
@@ -663,10 +662,32 @@ class SetUserHandler(APIHandler):
                 uis = userinfo['data']
                 if type(uis)==type({}):
                     uis = [uis]
+                all_ui = stu.getAllUserInfo()
+
                 for ui in uis:
-                    count = stu.getUserCount()
                     #check if user is exist in the db, if so ,rewrite the info
-                    ui['idc'] = 'user_'+str(count + 1)
+                    if ui.has_key('idc') and ui['idc'].startswith('user_'):
+                        #modeify and first delete it
+                        stu.logger.info('modify user info')
+                        for u in all_ui :
+                            stu.logger.info(str(u))
+                            if u.has_key('idc') and ui['idc'] == u['idc']:
+                                stu.logger.info('find the user info %s' % str(u))
+                                stu.deleteUserInfo(u['user'])
+                                stu.logger.info('delete user info : %s' % str(u))
+                                break
+
+                    ui['idc'] = 'user_'+ stu.getuuid()
+                    if ui['role'].isdigit():
+                        if ui['role'] == u'0' :
+                            ui['role'] == u'管理员'
+                        elif ui['role'] == u'1' :
+                            ui['role'] == u'老师'
+                        elif ui['role'] == u'2' :
+                            ui['role'] == u'学生'
+                        else:
+                            stu.logger.warning('role type is unknow which is %s' % str(ui['role']))
+
                     stu.logger.info(ui)
                     stu.setUserInfo(ui)
         except Exception,e:
@@ -689,10 +710,12 @@ class GetUserHandler(APIHandler):
                 uis = stu.getUserInfo(user)
                 uis = stu.str2dict(uis)
                 uis = [uis]
+            '''
             idc = 0
             for ui in uis:
                 ui['idc'] = idc + 1
                 idc = idc + 1
+            '''
             total = len(uis)
             uis = doPage(self,uis)
             self.finish('data',uis,total=total)

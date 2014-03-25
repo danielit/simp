@@ -2,7 +2,6 @@ Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
 
-var notice_COUNTER = 0 ;
 
 Ext.define('notice.Form', {
 	extend: 'Ext.form.Panel',
@@ -149,7 +148,7 @@ Ext.define('notice.Form', {
 		if (form.isValid()) {
             
             val = form.getValues() ;
-            val.idc = ++notice_COUNTER ;
+            //val.idc = ++notice_COUNTER ;
            
             //notice_info_store.loadData([val]) ;
             sm_notice_store.add([val]) ;
@@ -304,7 +303,8 @@ Ext.define('notice.Grid', {
 					                buttons: Ext.Msg.OK
 			                    });
                                 sm_notice_store.loadData([],false) ;
-                                notice_COUNTER = 0 ;
+                                sm_notice_store.load() ;
+                                //notice_COUNTER = 0 ;
                                 console.log("notice submit success") ;
                             }
                         }) ; 
@@ -456,7 +456,7 @@ Ext.define('notice.Grid', {
                     Ext.MessageBox.alert('成功', '删除成功');
                 },
                 failure: function (response, options) {
-                    Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：');
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障');
                 }
             });
 
@@ -480,7 +480,8 @@ Ext.define('notice.Grid', {
         //Ext.getCmp('noticeform').loadRecord(value);
         Ext.getCmp('noticeform').loadRecord(selected);
         this.store.remove(selected) ;
-        --notice_COUNTER ;
+        this.store.loadData([])
+        //--notice_COUNTER ;
     },
 	onAddClick: function() {
         noticeform = Ext.getCmp('noticeform') ;

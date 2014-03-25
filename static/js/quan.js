@@ -953,29 +953,7 @@ Ext.define('Quan.window', {
                 //maxHeight:500,
 				store: quan_info_store,
 				listeners: {
-					selectionchange: function(selModel, selected) {
-						/*value = null
-						if (selected && selected[0]) {
-							console.log(selected[0]);
-							value = selected[0].raw;
-						}
-						//Ext.getCmp('quanform').setValue(value);
-                        if (value != null){ 
-                            console.log(value) ;
-                            Ext.getCmp('cbclass').setRawValue(value.class) ;
-                            Ext.getCmp('cbname').setRawValue(value.student) ;
-                            Ext.getCmp('cbquantype').setRawValue(value.quan_type) ;
-                            Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
-                            Ext.getCmp('quanreason').setValue(value.quan_reason) ;
-
-                            date = value.quan_date ;
-                            date = date.replace('年','/') ;
-                            date = date.replace('月','/') ;
-                            date = date.replace('日','') ;
-                            Ext.getCmp('quandate').setRawValue(date) ;
-
-                        }
-					*/}
+					selectionchange: function(selModel, selected) {}
 				}
 			},
             {// quan add new info grid

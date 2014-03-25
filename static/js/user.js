@@ -363,6 +363,9 @@ Ext.define('user.Grid', {
 
     onSearchClick: function(){
     
+        //hide the form
+        setWinShow('userform',false) ;
+        //deal search
         var user = Ext.getCmp('usersearch.user').getValue() ;
         //var bdate = Ext.getCmp('usersearch.bdate').getRawValue() ;
         //var edate = Ext.getCmp('usersearch.edate').getRawValue() ;
@@ -423,16 +426,22 @@ Ext.define('user.Grid', {
         setAddUserWinsShow('userform',true) ;
         
         var selected = Ext.getCmp('usergrid').getSelectionModel().getSelection()[0];
-        var value = null ;
-        if (selected){
-            value = selected.raw ;
+        if (selected) {
+            console.log(selected) ;
+            Ext.getCmp('userform').loadRecord(selected);
+            this.store.remove(selected) ;
+            this.store.loadData([]) ;
+        } else {
+            console.log('selected row is none') ;
+            /*
+            Ext.MessageBox.show({
+                title: '提',
+                msg: '远程服务器错误，<br/>请联系系统管理员！',
+				icon: Ext.MessageBox.ERROR,
+				buttons: Ext.Msg.OK
+			 });
+             */
         }
-        console.log(value) ;
-        console.log(selected) ;
-        //Ext.getCmp('userform').loadRecord(value);
-        Ext.getCmp('userform').loadRecord(selected);
-        this.store.remove(selected) ;
-        this.store.loadData([])
     },
 	onAddClick: function() {
         userform = Ext.getCmp('userform') ;
@@ -507,8 +516,8 @@ function getUserWin(){
 
 function setAddUserWinsShow(show) {
     setWinShow('usergridpbar',!show) ;
-    setWinShow('usersearch.btn',!show) ;
-    setWinShow('usersearch.user',!show) ;
+    //setWinShow('usersearch.btn',!show) ;
+    //setWinShow('usersearch.user',!show) ;
     setWinShow('usergridsave',show) ;
     setWinShow('userform',show) ;
     //setuserWinShow('userformdetail',mask & 16) ;

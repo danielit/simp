@@ -269,6 +269,7 @@ Ext.define('Quan.Form', {
             val.class = Ext.getCmp('cbclass').getRawValue() ;
             val.student = Ext.getCmp('cbname').getRawValue() ;
             val.quan_type = Ext.getCmp('cbquantype').getRawValue() ;
+/*
             dt = Ext.getCmp('quandate').getValue() ;
             console.log(dt) ;
             dtraw = Ext.getCmp('quandate').getRawValue() ;
@@ -280,7 +281,8 @@ Ext.define('Quan.Form', {
             val.quan_reason = Ext.getCmp('quanreason').getValue() ;
             //val.idc = ++QUAN_COUNTER ;
             
-            quan_info_store.add(val) ;
+*/
+            quan_info_store.add([val]) ;
 
             form.reset() ;
             
@@ -420,7 +422,8 @@ Ext.define('Quan.Grid', {
 					                buttons: Ext.Msg.OK
 			                    });
                                 //quan_info_store.removeAll() ;
-                                quan_info_store.loadData([],false) ;
+                                //quan_info_store.loadData([],false) ;
+                                quan_info_store.load() ;
                                 //QUAN_COUNTER = 0 ;
                                 console.log("quan submit success") ;
                             }
@@ -458,7 +461,6 @@ Ext.define('Quan.Grid', {
 				sortable: true,
                 style:{textAlign:'center'},
 				dataIndex: 'student',
-				//dataIndex: 'stuname',
 				field: {
 					type: 'textfield'
 				}
@@ -469,7 +471,6 @@ Ext.define('Quan.Grid', {
 				//width: 100,
 				sortable: true,
 				dataIndex: 'quan_type',
-				//dataIndex: 'quantype',
 				field: {
 					type: 'textfield'
 				}
@@ -491,7 +492,6 @@ Ext.define('Quan.Grid', {
 				//width: 100,
 				sortable: true,
 				dataIndex: 'quan_score',
-				//dataIndex: 'quanscore',
 				field: {
 					type: 'textfield'
 				}
@@ -539,10 +539,12 @@ Ext.define('Quan.Grid', {
         if (selected){
             value = selected.raw ;
         }
-        console.log(value) ;
-        //Ext.getCmp('quanform').show();
+
         setQuanWinsShow(9) ;
-        this.store.loadData([])
+        Ext.getCmp('quanform').loadRecord(selected);
+
+        //this.store.loadData([]) ;
+
         if (value != null){ 
             console.log(value) ;
 
@@ -550,19 +552,19 @@ Ext.define('Quan.Grid', {
             cbclass.setRawValue(value.class) ;
             Ext.getCmp('cbname').setRawValue(value.student) ;
             Ext.getCmp('cbquantype').setRawValue(value.quan_type) ;
-            Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
-            Ext.getCmp('quanreason').setValue(value.quan_reason) ;
-            Ext.getCmp('quandate').setRawValue(value.quan_date) ;
+            //Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
+            //Ext.getCmp('quanreason').setValue(value.quan_reason) ;
+            //Ext.getCmp('quandate').setRawValue(value.quan_date) ;
             
-            cbclass.fireEvent('select',cbclass) ;
+            //cbclass.fireEvent('select',cbclass) ;
             
-            this.store.remove(selected) ;
+            //this.store.remove(selected) ;
+            this.store.loadData([]) ;
             //--QUAN_COUNTER ;
         }else {
             Ext.MessageBox.alert('提示',' 请选择需要修改的行') ;
             console.log("the selected record is null or somthing") ;
         }
-        console.log(selected);
         /**/
 	},
 	onAddClick: function() {
@@ -576,6 +578,9 @@ Ext.define('Quan.Grid', {
         }
     },
     onSearchClick: function(){
+        // hide the form
+        setQuanWinShow('quanform',false) ;
+        //deal search 
         var bdate = Ext.getCmp('quan.detail.bdate').getRawValue() ;
         var edate = Ext.getCmp('quan.detail.edate').getRawValue() ;
         if (bdate && edate) {
@@ -1135,14 +1140,17 @@ function setQuanWinsShow(mask) {
     setQuanWinShow('quanform',mask & 8) ;
     if (mask & 8){ // form show 
         setQuanWinShow('quangridpbar',false) ;
-        setQuanWinShow('quan.detail.bdate',false) ;
+        /*
+         * setQuanWinShow('quan.detail.bdate',false) ;
         setQuanWinShow('quan.detail.edate',false) ;
         setQuanWinShow('quan.detail.search',false) ;
+        */
     }else {
         setQuanWinShow('quangridpbar',true) ;
-        setQuanWinShow('quan.detail.bdate',true) ;
+        /*setQuanWinShow('quan.detail.bdate',true) ;
         setQuanWinShow('quan.detail.edate',true) ;
         setQuanWinShow('quan.detail.search',true) ;
+        */
     } 
     //setQuanWinShow('quanformdetail',mask & 16) ;
 } 

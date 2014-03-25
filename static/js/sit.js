@@ -2,7 +2,6 @@ Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
 
-var SIT_COUNTER = 0 ;
 
 Ext.define('Sit.Form', {
 	extend: 'Ext.form.Panel',
@@ -289,7 +288,7 @@ Ext.define('Sit.Form', {
 					name: 'other',
 					fieldLabel: '备注',
 					allowBlank: true,
-					width: 450,
+					width: 505,
 					emptyText: '如有需要，请在此填写...'
 				}]
 			},
@@ -338,14 +337,16 @@ Ext.define('Sit.Form', {
             val.status = Ext.getCmp('sitform.status').getRawValue() ;
             val.gender = Ext.getCmp('sitform.gender').getRawValue() ;
             val.type = Ext.getCmp('sitform.type').getRawValue() ;
-            val.student = Ext.getCmp('sitform.name').getRawValue() ;
-            val.teacher = Ext.getCmp('sitform.teacher').getRawValue() ;
-            val.idc = ++SIT_COUNTER ;
+            //val.student = Ext.getCmp('sitform.name').getRawValue() ;
+            //val.teacher = Ext.getCmp('sitform.teacher').getRawValue() ;
+            //val.idc = ++SIT_COUNTER ;
            
             //sit_info_store.loadData([val]) ;
             stu_info_store.add([val]) ;
             form.reset() ;
-		}
+		}else {
+            console.log('form is not valid') ;
+        }
 	}
 });
 
@@ -487,9 +488,9 @@ Ext.define('Sit.Grid', {
 					                icon: Ext.MessageBox.INFO,
 					                buttons: Ext.Msg.OK
 			                    });
-                                stu_info_store.loadData([],false) ;
-                                SIT_COUNTER = 0 ;
-                                console.log("sit submit success") ;
+                                //stu_info_store.loadData([],false) ;
+                                //SIT_COUNTER = 0 ;
+                                stu_info_store.load() ;
                             }
                         }) ; 
                         console.log(ret) ;
@@ -697,6 +698,8 @@ Ext.define('Sit.Grid', {
 
     onSearchClick: function(){
     
+        //hide the form
+        setsitWinShow('sitform',false) ;
         //var cname = Ext.getCmp('sitsearch.class').getRawValue() ;
         //var bdate = Ext.getCmp('sitsearch.bdate').getRawValue() ;
         //var edate = Ext.getCmp('sitsearch.edate').getRawValue() ;
@@ -766,14 +769,16 @@ Ext.define('Sit.Grid', {
         console.log(selected) ;
         //Ext.getCmp('sitform').loadRecord(value);
         Ext.getCmp('sitform').loadRecord(selected);
+        
         Ext.getCmp('sitform.class').setRawValue(value.class) ;
-        Ext.getCmp('sitform.name').setRawValue(value.student) ;
+        //Ext.getCmp('sitform.name').setRawValue(value.student) ;
         Ext.getCmp('sitform.status').setRawValue(value.status) ;
         Ext.getCmp('sitform.gender').setRawValue(value.gender) ;
-        Ext.getCmp('sitform.teacher').setRawValue(value.teacher) ;
+        //Ext.getCmp('sitform.teacher').setRawValue(value.teacher) ;
         Ext.getCmp('sitform.type').setRawValue(value.type) ;
-        this.store.remove(selected) ;
-        --SIT_COUNTER ;
+        //this.store.remove(selected) ;
+        //--SIT_COUNTER ;
+        this.store.loadData([]) ;
     },
 	onAddClick: function() {
         sitform = Ext.getCmp('sitform') ;
@@ -856,8 +861,8 @@ function setsitWinShow(id,sure){
 
 function setsitWinsShow(mask) {
     setsitWinShow('sitgridpbar',!mask) ;
-    setsitWinShow('sitsearch.class',!mask) ;
-    setsitWinShow('sitsearch.btn',!mask) ;
+    //setsitWinShow('sitsearch.class',!mask) ;
+    //setsitWinShow('sitsearch.btn',!mask) ;
     setsitWinShow('sitgridsave',mask) ;
     setsitWinShow('sitform',mask) ;
     //setsitWinShow('sitformdetail',mask & 16) ;

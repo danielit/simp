@@ -44,7 +44,7 @@ Ext.define('Writer.Person', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'id',
-		type: 'int',
+		type: 'string',
 		useNull: true
 	},
 	'email', 'first', 'last'],
@@ -62,7 +62,7 @@ Ext.define('Quan.Info', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'idc',
-		type: 'int',
+		type: 'string',
 	},
     {
         //name:'classname',
@@ -87,7 +87,7 @@ Ext.define('Quan.Info', {
     {
         name:'quan_score',
         //name:'quanscore',
-        type:'int'
+        type:'string'
     },
     {
         //name:'quanreason',
@@ -101,7 +101,7 @@ Ext.define('Quan.WeekInfo', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'idc', //id
-		type: 'int',
+		type: 'string',
 	},
     'class', //class name
     'disp_score',// dicpline
@@ -129,7 +129,7 @@ Ext.define('Quan.WeekList', {
 	},
     {
         name:'id',
-        type:'int'
+        type:'string'
     }]
 });
 

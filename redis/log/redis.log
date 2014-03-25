@@ -207,3 +207,77 @@
 [23667] 25 Mar 16:47:15.782 * RDB: 0 MB of memory used by copy-on-write
 [1901] 25 Mar 16:47:15.804 * Background saving terminated with success
 [1901] 25 Mar 16:47:18.695 * DB saved on disk
+[3132] 25 Mar 19:29:24.600 # Unable to set the max number of files limit to 10032 (Operation not permitted), setting the max clients configuration to 3984.
+[3132] 25 Mar 19:29:24.600 # Warning: 32 bit instance detected but no memory limit set. Setting 3 GB maxmemory limit with 'noeviction' policy now.
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 2.8.7 (00000000/0) 32 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in stand alone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 3132
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+[3132] 25 Mar 19:29:24.601 # Server started, Redis version 2.8.7
+[3132] 25 Mar 19:29:24.601 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[3132] 25 Mar 19:29:24.604 * DB loaded from append only file: 0.002 seconds
+[3132] 25 Mar 19:29:24.604 * The server is now ready to accept connections on port 6379
+[3132] 25 Mar 19:34:25.011 * 10 changes in 300 seconds. Saving...
+[3132] 25 Mar 19:34:25.011 * Background saving started by pid 3634
+[3634] 25 Mar 19:34:25.049 * DB saved on disk
+[3634] 25 Mar 19:34:25.050 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 19:34:25.111 * Background saving terminated with success
+[3132] 25 Mar 20:24:10.920 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 20:24:10.920 * Background saving started by pid 3711
+[3711] 25 Mar 20:24:10.945 * DB saved on disk
+[3711] 25 Mar 20:24:10.945 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 20:24:11.020 * Background saving terminated with success
+[3132] 25 Mar 21:18:12.085 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 21:18:12.085 * Background saving started by pid 3780
+[3780] 25 Mar 21:18:12.109 * DB saved on disk
+[3780] 25 Mar 21:18:12.110 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 21:18:12.185 * Background saving terminated with success
+[3132] 25 Mar 22:01:53.630 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 22:01:53.630 * Background saving started by pid 4055
+[4055] 25 Mar 22:01:53.654 * DB saved on disk
+[4055] 25 Mar 22:01:53.655 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 22:01:53.731 * Background saving terminated with success
+[3132] 25 Mar 22:16:54.010 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 22:16:54.010 * Background saving started by pid 4179
+[4179] 25 Mar 22:16:54.054 * DB saved on disk
+[4179] 25 Mar 22:16:54.055 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 22:16:54.110 * Background saving terminated with success
+[3132] 25 Mar 22:31:55.095 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 22:31:55.096 * Background saving started by pid 4279
+[4279] 25 Mar 22:31:55.125 * DB saved on disk
+[4279] 25 Mar 22:31:55.126 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 22:31:55.196 * Background saving terminated with success
+[3132] 25 Mar 22:46:56.085 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 22:46:56.086 * Background saving started by pid 4371
+[4371] 25 Mar 22:46:56.127 * DB saved on disk
+[4371] 25 Mar 22:46:56.127 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 22:46:56.186 * Background saving terminated with success
+[3132] 25 Mar 23:01:57.076 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 23:01:57.076 * Background saving started by pid 4538
+[4538] 25 Mar 23:01:57.122 * DB saved on disk
+[4538] 25 Mar 23:01:57.122 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 23:01:57.177 * Background saving terminated with success
+[3132] 25 Mar 23:15:43.574 * 10 changes in 300 seconds. Saving...
+[3132] 25 Mar 23:15:43.574 * Background saving started by pid 4634
+[4634] 25 Mar 23:15:43.601 * DB saved on disk
+[4634] 25 Mar 23:15:43.602 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 23:15:43.675 * Background saving terminated with success
+[3132] 25 Mar 23:30:44.050 * 1 changes in 900 seconds. Saving...
+[3132] 25 Mar 23:30:44.050 * Background saving started by pid 4749
+[4749] 25 Mar 23:30:44.096 * DB saved on disk
+[4749] 25 Mar 23:30:44.096 * RDB: 0 MB of memory used by copy-on-write
+[3132] 25 Mar 23:30:44.150 * Background saving terminated with success

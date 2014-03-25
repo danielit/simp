@@ -206,7 +206,6 @@ Ext.define('Attend.Form', {
             console.log(val);
             val.class = Ext.getCmp('attendform.class').getRawValue() ;
             val.student = Ext.getCmp('attendform.name').getRawValue() ;
-            val.idc = ++ATTEND_COUNTER ;
            
             //attend_info_store.loadData([val]) ;
             attend_info_store.add([val]) ;
@@ -354,7 +353,8 @@ Ext.define('Attend.Grid', {
 					                icon: Ext.MessageBox.INFO,
 					                buttons: Ext.Msg.OK
 			                    });
-                                attend_info_store.loadData([],false) ;
+                                //attend_info_store.loadData([],false) ;
+                                attend_info_store.load() ;
                                 ATTEND_COUNTER = 0 ;
                                 console.log("attend submit success") ;
                             }
@@ -447,7 +447,9 @@ Ext.define('Attend.Grid', {
 	},
 
     onSearchClick: function(){
-    
+        //hide the form 
+        setAttendWinShow('attendform',false) ;
+        //deal search
         var cname = Ext.getCmp('attendsearch.class').getRawValue() ;
         var bdate = Ext.getCmp('attendsearch.bdate').getRawValue() ;
         var edate = Ext.getCmp('attendsearch.edate').getRawValue() ;
@@ -524,12 +526,11 @@ Ext.define('Attend.Grid', {
         }
         console.log(value) ;
         console.log(selected) ;
-        //Ext.getCmp('attendform').loadRecord(value);
         Ext.getCmp('attendform').loadRecord(selected);
         Ext.getCmp('attendform.class').setRawValue(value.class) ;
         Ext.getCmp('attendform.name').setRawValue(value.student) ;
-        this.store.remove(selected) ;
-        --ATTEND_COUNTER ;
+        //this.store.remove(selected) ;
+        this.store.loadData([]) ;
     },
 	onAddClick: function() {
         attendform = Ext.getCmp('attendform') ;
@@ -614,10 +615,10 @@ function setAttendWinShow(id,sure){
 
 function setAttendWinsShow(mask) {
     setAttendWinShow('attendgridpbar',!mask) ;
-    setAttendWinShow('attendsearch.class',!mask) ;
-    setAttendWinShow('attendsearch.bdate',!mask) ;
-    setAttendWinShow('attendsearch.edate',!mask) ;
-    setAttendWinShow('attendsearch.btn',!mask) ;
+    //setAttendWinShow('attendsearch.class',!mask) ;
+    //setAttendWinShow('attendsearch.bdate',!mask) ;
+    //setAttendWinShow('attendsearch.edate',!mask) ;
+    //setAttendWinShow('attendsearch.btn',!mask) ;
     setAttendWinShow('attendgridsave',mask) ;
     setAttendWinShow('attendform',mask) ;
     //setattendWinShow('attendformdetail',mask & 16) ;

@@ -78,26 +78,31 @@ class SetStuInfoHandler(APIHandler):
                     sis = [sis]
                 for si in sis:
                     ret = stu.getStuInfo(si['stuid'])
+                    '''
                     if ret != None :
                         #modify stuinfo
                         stu.logger.info('modify stu info whose stuid is %s, so just rewrite the info' % si['stuid'])
                         si['idc'] = ret['idc']
                     else:
                         si['idc'] = u'stu_' +stu.getuuid()
+                    '''
 
+                    si['idc'] = u'stu_' +stu.getuuid()
                     if si.has_key('class') and not si['class'].isdigit() :
                         si['class'] = stu.getClassIdOnName(si['class'])
                     stu.setStuIdOnName(si['name'],si['stuid'])
                     stu.logger.info('set stu id(%s) on name(%s) ' % (si['stuid'],si['name']))
                     stu.setStuIDofClass(si['stuid'],si['class'])
                     stu.logger.info('set stu id(%s) on class id (%s) ' % (si['stuid'],si['class']))
-                    stu.setStuInfo(stuinfo)
-                    stu.logger.info('set stu info %s' % str(stuinfo))
+
+                    stu.logger.info('set stu info %s' % str(si))
+                    stu.setStuInfo(si)
         except Exception,e:
             stu.logger.error(e)
             self.finish(success=False)
+            return
 
-        self.finish()
+        self.finish(success=True)
 
 
 class GetAllStuInfoHandler(APIHandler):
@@ -112,13 +117,11 @@ class GetAllStuInfoHandler(APIHandler):
             cid2cname = {}
             stuinfo=[]
             for r in ret:
-                cid = r['class']
+                cid = unicode(r['class'])
                 if classid != '0' and classid != cid :
                     continue
                 if not cid2cname.has_key(cid):
 
-                    stu.logger.info(str(type(classid))+classid)
-                    stu.logger.info(str(type(cid))+cid)
                     try:
                         if cid.isdigit() :
                             cid2cname[cid] = stu.getClassNameOnId(cid)
@@ -131,11 +134,9 @@ class GetAllStuInfoHandler(APIHandler):
                     #else:
                 r['class'] = cid2cname[cid]
                 stuinfo.append(r)
-            total = len(stuinfo)
-            stu.logger.info(total)
-            stuinfo = doPage(self,stuinfo)
 
-            stu.logger.info(len(stuinfo))
+            total = len(stuinfo)
+            stuinfo = doPage(self,stuinfo)
 
             self.finish("data",stuinfo,total=total)
             return
@@ -397,6 +398,8 @@ class GetQuanSummaryOfWeekHandler(APIHandler):
                 self.finish(success=False)
                 return
             qtype = stu.getQuanIdOnName(qi['quan_type'])
+            qi['quan_score'] = int(qi['quan_score'])
+
             if qtype==1001: # discipline
                 sTable[cname]['disp_score'] += qi['quan_score']
                 sTable[cname]['disp_quan'] += qi['quan_score'] *0.3
@@ -680,7 +683,6 @@ class SetUserHandler(APIHandler):
                     if ui.has_key('idc') and ui['idc'].startswith('user_'):
                         pass
                         #modeify and first delete it
-                        '''
                         stu.logger.info('modify user info')
                         for u in all_ui :
                             stu.logger.info(str(u))
@@ -691,9 +693,8 @@ class SetUserHandler(APIHandler):
                                 stu.deleteUserInfo(u['user'])
                                 stu.logger.info('delete user info : %s' % str(u))
                                 break
-                        '''
-                    else:
-                        ui['idc'] = 'user_'+ stu.getuuid()
+                            else:
+                                ui['idc'] = 'user_'+ stu.getuuid()
                     #number to text
                     if ui['role'].isdigit():
                         if ui['role'] == u'0' :

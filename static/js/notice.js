@@ -385,6 +385,8 @@ Ext.define('notice.Grid', {
 
     onSearchClick: function(){
     
+        //hide the form
+        setWinShow('noticeform',false) ;
         //var cname = Ext.getCmp('noticesearch.class').getRawValue() ;
         var bdate = Ext.getCmp('noticesearch.bdate').getRawValue() ;
         var edate = Ext.getCmp('noticesearch.edate').getRawValue() ;
@@ -557,9 +559,9 @@ function getNoticeWin(){
 
 function setAddNoticeWinsShow(show) {
     setWinShow('noticegridpbar',!show) ;
-    setWinShow('noticesearch.bdate',!show) ;
-    setWinShow('noticesearch.edate',!show) ;
-    setWinShow('noticesearch.btn',!show) ;
+    //setWinShow('noticesearch.bdate',!show) ;
+    //setWinShow('noticesearch.edate',!show) ;
+    //setWinShow('noticesearch.btn',!show) ;
     setWinShow('noticegridsave',show) ;
     setWinShow('noticeform',show) ;
     //setnoticeWinShow('noticeformdetail',mask & 16) ;

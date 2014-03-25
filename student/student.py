@@ -7,6 +7,7 @@ import sys
 import json
 import datetime
 import logging
+import uuid
 
 from student_config import redisMasterHosts as redisHost
 from student_config import LogConfiguration
@@ -90,6 +91,9 @@ class Student(object):
     def getDB(self):
         return self.redis
 
+    def getuuid(self):
+        return str(uuid.uuid4())
+
     ### --section 1 : system user information --###
     # key=>value : user:[id]=>{"user":stuid,pwd":"","role":""}
     # type : string
@@ -116,6 +120,10 @@ class Student(object):
         key = USER_PREFIX+unicode(value['user'])
         value = self.dict2str(value)
         return self.redis.set(key,value)
+
+    def deleteUserInfo(self,user):
+        key = USER_PREFIX+unicode(user)
+        return self.redis.delete(key)
 
     def getUserCount(self):
         key = USER_PREFIX + '*'

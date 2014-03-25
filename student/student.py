@@ -147,16 +147,13 @@ class Student(object):
     def setStuInfo(self,value):
         #this  student is not in the db ,it is a new one
         stuid = unicode(value['stuid'])
-        num = self.getStuNum()
-        if not value.has_key('idc') or not value['idc'].startswith('stu'):
-            num = str(num + 1)
-            value['idc'] = u'stu' + num
-
-        #self.setStuIdOnName(value['name'],value['stuid'])
-
         key = STU_PREFIX+stuid
         value = self.dict2str(value)
         return self.redis.set(key,value)
+
+    def deleteStuInfo(self,stuid):
+        key = STU_PREFIX+stuid
+        return self.redis.delete(key)
 
     def getAllStuInfo(self) :
         rets = []
@@ -197,6 +194,7 @@ class Student(object):
     def getClassInfo(self,classid): # 获取某个班级的信息
         key = CLASS_PREFIX+unicode(classid)
         return self.str2dict(self.redis.get(key))
+
     def setClassInfo(self,classid,value):
         key = CLASS_PREFIX+unicode(classid)
         value = self.dict2str(value)
@@ -400,8 +398,8 @@ class Student(object):
 
     def setStuIDofClass(self,stuid,classid):
         classid = unicode(classid)
-        key = STUS_PREFIX + CLASS_PREFIX + classid
         stuid = unicode(stuid)
+        key = STUS_PREFIX + CLASS_PREFIX + classid
         return self.redis.sadd(key,stuid)
 
     # type:hash

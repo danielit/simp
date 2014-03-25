@@ -274,7 +274,7 @@ Ext.define('Attend.Grid', {
 					xtype: 'combobox',
 					id: 'attendsearch.class',
 					name: 'class',
-                    width:300,
+                    width:230,
                     labelWidth:40,
 					displayField: 'name',
 					valueField: 'id',
@@ -316,6 +316,7 @@ Ext.define('Attend.Grid', {
                     xtype:'button',
                     id:'attendsearch.btn',
                     iconCls:'icon-search',
+                    icon:'static/pic/search.gif',
                     text:'查询',
                     scope:this,
                     handler:this.onSearchClick

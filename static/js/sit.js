@@ -227,7 +227,7 @@ Ext.define('Sit.Form', {
 					store: sit_type_store,
 					//allowBlank: false,
 					forceSelection: true
-				},
+				},/*
                 {
 					xtype: 'combobox',
 					id: 'sitform.teacher',
@@ -242,16 +242,8 @@ Ext.define('Sit.Form', {
 					store: sit_teacher_store,
 					//allowBlank: false,
 					forceSelection: true
-				}
-                ]
-			},
-
-			{
-				xtype: 'container',
-				itemId: 'form.container.d',
-				layout: 'hbox',
-				margin: '0 0 5 0',
-				items: [{
+				}*/
+                {
 					xtype: 'combobox',
 					id: 'sitform.status',
 					name: 'status',
@@ -265,7 +257,30 @@ Ext.define('Sit.Form', {
 					store: sit_status_store,
 					//allowBlank: false,
 					forceSelection: true
-				},
+				}
+                ]
+			},
+
+			{
+				xtype: 'container',
+				itemId: 'form.container.d',
+				layout: 'hbox',
+				margin: '0 0 5 0',
+				items: [/*{
+					xtype: 'combobox',
+					id: 'sitform.status',
+					name: 'status',
+                    width:250,
+					displayField: 'name',
+					valueField: 'id',
+					queryMode: 'local',
+					emptyText: '请选择在校状态...',
+					fieldLabel: '在校状态',
+					margins: '0 6 0 0',
+					store: sit_status_store,
+					//allowBlank: false,
+					forceSelection: true
+				},*/
                 {
 					xtype: 'textfield',
 					id: 'sitform.other',
@@ -274,7 +289,7 @@ Ext.define('Sit.Form', {
 					name: 'other',
 					fieldLabel: '备注',
 					allowBlank: true,
-					width: 250,
+					width: 450,
 					emptyText: '如有需要，请在此填写...'
 				}]
 			},

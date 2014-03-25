@@ -1,0 +1,150 @@
+.bt01 {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 22px;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+	padding-left: 10px;
+
+}
+.box01 {
+	margin: auto;
+	height: 20px;
+	width: 180px;
+	border: 1px solid #999999;
+	background-color: #F3F3F3;
+	
+}
+.box02 {
+	margin: auto;
+	height: 20px;
+	width: 50px;
+	border: 1px solid #999999;
+	background-color: #F3F3F3;
+	
+}
+.bt02 {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 20px;
+	color: #CC0000;
+	text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+
+
+
+}
+.bt03 {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 20px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.table01 {
+	border:1px solid #D4D0C8;
+	padding: 1px;
+	background-color: #FCFCFC;
+}
+
+}
+.dh01 {
+	font-family: "ËÎÌå";
+	font-size: 14px;
+	font-style: normal;
+	line-height: 20px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+.dh02 {
+	font-family: "ËÎÌå";
+	font-size: 14px;
+	font-style: normal;
+	line-height: 20px;
+	color: #003366;
+	text-decoration: none;
+}
+.bt04 {
+	font-family: "ËÎÌå";
+	font-size: 16px;
+	font-style: normal;
+	line-height: 25px;
+	font-weight: bold;
+	color: #283D68;
+}
+.bt05 {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 20px;
+	color: #006699;
+	text-decoration: none;
+	padding-left: 15px;
+	padding-right: 15px;
+
+}
+.bt06 {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 25px;
+	font-weight: normal;
+	color: #313131;
+	text-decoration: none;
+	padding-left: 15px;
+	padding-right: 15px;
+
+
+}
+.bt07 {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 20px;
+	font-weight: bold;
+	color: #006699;
+	text-decoration: none;
+}
+a.dh01:hover {
+	font-family: "ËÎÌå";
+	font-size: 14px;
+	font-style: normal;
+	line-height: 20px;
+	color: #003399;
+	text-decoration: underline;
+}
+a.dh02:hover {
+	font-family: "ËÎÌå";
+	font-size: 14px;
+	font-style: normal;
+	line-height: 20px;
+	color: #FF6600;
+	text-decoration: none;
+}
+a.bt01:hover {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 20px;
+	font-weight: normal;
+	color: #CC0000;
+	text-decoration: none;
+}
+.bt08 {
+	font-family: "ËÎÌå";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 20px;
+	color: #FF6600;
+	text-decoration: none;
+	padding-top: 5px;
+	padding-right: 15px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+}

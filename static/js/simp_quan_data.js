@@ -239,6 +239,7 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 	model: 'Quan.Info',
 	//autoLoad: true,
 	//autoSync: true,
+    pageSize:30,
 	proxy: {
 		type: 'ajax',
         
@@ -273,7 +274,7 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 
 var quan_detail_store = Ext.create('Ext.data.Store', {
 	model: 'Quan.Info', autoLoad: false,
-    pageSize:45,
+    pageSize:30,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',
@@ -311,7 +312,7 @@ var quan_detail_store = Ext.create('Ext.data.Store', {
 var quan_week_store = Ext.create('Ext.data.Store', {
     model:'Quan.WeekInfo',
 	autoLoad: false,
-    pageSize:45,
+    pageSize:30,
 	//autoSync: true,
 	proxy: {
 		type: 'ajax',

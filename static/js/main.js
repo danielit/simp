@@ -51,10 +51,12 @@ function treeItemClick(view, record, item, index, e) {
         var ret = add2tabpanel(mgrTabpanel,quanWin) ;
         if (ret == 0){
             quan_week_store.load() ;
-            quan_detail_store.load() ;
+            //quan_detail_store.load() ;
+            quan_info_store.load() ;
+
         }
         //show quangriddetail
-        setQuanWinsShow(4) ; 
+        setQuanWinsShow(1) ; 
     } else if (cmpId=="q.fillin"){
         var quanWin = getQuanWin() ;
         add2tabpanel(mgrTabpanel,quanWin) ;

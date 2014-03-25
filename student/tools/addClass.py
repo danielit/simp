@@ -46,9 +46,10 @@ def setStuInfo2Class():
             continue
         ci['teacher'] = ct
         ci['stuids'].append(stuid)
-        stu.setClassInfo(cid,ci)
+        #stu.setClassInfo(cid,ci)
+        stu.setStuIDofClass(stuid,cid)
 
-#initClass()
-#setStuInfo2Class()
+initClass()
+setStuInfo2Class()
 
 

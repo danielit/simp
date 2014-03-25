@@ -77,13 +77,22 @@ class SetStuInfoHandler(APIHandler):
                 if type(sis)==type({}):
                     sis = [sis]
                 for si in sis:
+                    ret = stu.getStuInfo(si['stuid'])
+                    if ret != None :
+                        #modify stuinfo
+                        stu.logger.info('modify stu info whose stuid is %s, so just rewrite the info' % si['stuid'])
+                        si['idc'] = ret['idc']
+                    else:
+                        si['idc'] = u'stu_' +stu.getuuid()
+
+                    if si.has_key('class') and not si['class'].isdigit() :
+                        si['class'] = stu.getClassIdOnName(si['class'])
                     stu.setStuIdOnName(si['name'],si['stuid'])
-                    si['class'] = stu.getClassIdOnName(si['class'])
+                    stu.logger.info('set stu id(%s) on name(%s) ' % (si['stuid'],si['name']))
                     stu.setStuIDofClass(si['stuid'],si['class'])
-                    #stu.logger.info('post data stuinfo class is '+stuinfo['class'])
-                    #stuinfo['class'] = stu.getClassIdOnName(stuinfo['class'])
-                    #stu.logger.info('after trans stuinfo class is '+stuinfo['class'])
+                    stu.logger.info('set stu id(%s) on class id (%s) ' % (si['stuid'],si['class']))
                     stu.setStuInfo(stuinfo)
+                    stu.logger.info('set stu info %s' % str(stuinfo))
         except Exception,e:
             stu.logger.error(e)
             self.finish(success=False)
@@ -91,7 +100,6 @@ class SetStuInfoHandler(APIHandler):
         self.finish()
 
 
-        pass
 class GetAllStuInfoHandler(APIHandler):
     def get(self):
 
@@ -180,11 +188,14 @@ class GetStuNameIDsOnClassID(APIHandler):
         try:
             stu = Student.instance()
             classid = self.get_argument('classid','')
-            stu.logger.info("############classid="+classid)
+            stu.logger.info("classid="+classid)
             if classid == '':
-                stu.logger.warning('classid has no value')
+                stu.logger.warning('the request param classid is empty')
                 self.finish(success=False)
                 return
+            if not classid.isdigit() :
+                classid = stu.getClassIdOnName(classid)
+            stu.logger.info('the request class id is %s' % classid)
             #classid = stu.getClassIdOnName(classid)
             #stu.logger.info("############classname="+str(classid))
             stuids = stu.getStuIdsofClass(classid)
@@ -667,17 +678,23 @@ class SetUserHandler(APIHandler):
                 for ui in uis:
                     #check if user is exist in the db, if so ,rewrite the info
                     if ui.has_key('idc') and ui['idc'].startswith('user_'):
+                        pass
                         #modeify and first delete it
+                        '''
                         stu.logger.info('modify user info')
                         for u in all_ui :
                             stu.logger.info(str(u))
                             if u.has_key('idc') and ui['idc'] == u['idc']:
                                 stu.logger.info('find the user info %s' % str(u))
+
+                                ui['idc'] = u['idc']
                                 stu.deleteUserInfo(u['user'])
                                 stu.logger.info('delete user info : %s' % str(u))
                                 break
-
-                    ui['idc'] = 'user_'+ stu.getuuid()
+                        '''
+                    else:
+                        ui['idc'] = 'user_'+ stu.getuuid()
+                    #number to text
                     if ui['role'].isdigit():
                         if ui['role'] == u'0' :
                             ui['role'] == u'管理员'

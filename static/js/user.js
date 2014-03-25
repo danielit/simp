@@ -464,7 +464,7 @@ Ext.define('user.window', {
 				itemId: 'usergrid',
 				id: 'usergrid',
 				xtype: 'usergrid',
-				title: '通知/公告管理',
+                title:'用户列表',
 				flex: 1,
                 hidden:false,
                 //minHeight:200,
@@ -494,7 +494,7 @@ function getUserWin(){
     var userWin = Ext.getCmp('userwin') ;
     if (userWin==null){
         userWin = Ext.create('user.window',{
-            title:'用户列表',
+            title:'用户管理',
             id:'userwin',
             itemId:'userwin',
             xtype:'usercontainer',

@@ -82,6 +82,7 @@ Ext.define('Quan.Form', {
                 anchor:'100%'
 			},
 			iconCls: 'icon-form',
+            icon:'static/pic/quanwrite.png',
 			layout: 'anchor',
 			anchor: '100%',
             collapsible:'ture',
@@ -164,7 +165,6 @@ Ext.define('Quan.Form', {
 				},
                 {
 					id: 'quanhidden',
-					//fieldLabel: '日期',
                     width:300,
 					name: 'idc',
                     hidden:true
@@ -236,12 +236,14 @@ Ext.define('Quan.Form', {
                     width:80,
                     margin: '0 0 0 240',
                     text:'重置',
+                    icon:'static/pic/reset.png',
                     scope:this,
 				    handler: this.onResetClick
 				},
                 {
 					xtype: 'button',
                     text:'确认',
+                    icon:'static/pic/confirm.png',
                     width:80,
                     scope:this,
 				    handler: this.onCompleteClick
@@ -276,7 +278,7 @@ Ext.define('Quan.Form', {
             console.log(val.quan_date) ;
             val.quan_score = Ext.getCmp('quanscore').getValue() ;
             val.quan_reason = Ext.getCmp('quanreason').getValue() ;
-            val.idc = ++QUAN_COUNTER ;
+            //val.idc = ++QUAN_COUNTER ;
             
             quan_info_store.add(val) ;
 
@@ -303,22 +305,23 @@ Ext.define('Quan.Grid', {
 		});
 
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
-		/*this.pBar = Ext.create('Ext.PagingToolbar', {
+		this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
             id:'quangridpbar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
-		});*/
+		});
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
+            icon:'static/pic/quangrid.png',
 			frame: true,
             //closeable:true,
 			//closeAction: 'hiden',
             collapsible:'ture',
 			selModel: this.CboxModel,
-			//bbar: this.pBar,
+			bbar: this.pBar,
 			plugins: [this.editing],
 			dockedItems: [{
 				xtype: 'toolbar',
@@ -331,25 +334,53 @@ Ext.define('Quan.Grid', {
                 {
 					iconCls: 'icon-modify',
 					text: '修改',
+                    icon:'static/pic/modifyuser.png',
 					scope: this,
 					handler: this.onModifyClick
 				},'|',
 				{
 					iconCls: 'icon-delete',
 					text: '删除',
+                    icon:'static/pic/deluser.png',
 					disabled: true,
 					itemId: 'delete',
 					scope: this,
 					handler: this.onDeleteClick
-				}/*,'|', 
+				},'|', 
                 {
-					//iconCls: 'icon-search',
-					width: 300,
-					fieldLabel: '搜索',
-					labelWidth: 50,
-					xtype: 'searchfield',
-					store: this.store
-				}*/]
+					xtype: 'datefield',
+					id: 'quan.detail.bdate',
+                    format:'Y/m/d',
+					fieldLabel: '开始日期',
+                    width:200,
+                    labelWidth:60,
+					name: 'bdate',
+					//allowBlank: false,
+					margins: '0 6 0 0',
+					maxValue: new Date()
+				},
+                {
+					xtype: 'datefield',
+					id: 'quan.detail.edate',
+                    format:'Y/m/d',
+					fieldLabel: '结束日期',
+                    width:200,
+                    labelWidth:60,
+                    //labelWidth:'60',
+					name: 'edate',
+					//allowBlank: false,
+					margins: '0 6 0 0',
+					maxValue: new Date(),
+                    value: new Date()
+				},
+                {
+					iconCls: 'icon-search',
+                    id:'quan.detail.search',
+					text: '查询',
+                    icon:'static/pic/search.gif',
+					scope: this,
+					handler: this.onSearchClick
+				}]
 			},
 			{
 				weight: 1,
@@ -358,6 +389,7 @@ Ext.define('Quan.Grid', {
 				ui: 'footer',
 				items: ['->', {
 					iconCls: 'icon-save',
+                    icon:'static/pic/quansave.png',
 					text: '提交',
 				    margins: '0 0 0 50%',
                     /*style:{
@@ -389,7 +421,7 @@ Ext.define('Quan.Grid', {
 			                    });
                                 //quan_info_store.removeAll() ;
                                 quan_info_store.loadData([],false) ;
-                                QUAN_COUNTER = 0 ;
+                                //QUAN_COUNTER = 0 ;
                                 console.log("quan submit success") ;
                             }
                         }) ; 
@@ -501,30 +533,31 @@ Ext.define('Quan.Grid', {
 	},
 //get the data from grid to form
 	onModifyClick: function() {
-		/*
-         *this is not finished , first set the value to form  
-         *then set value back to grid
-         *
-         */ 
-        //var selected = this.getView().getSelectionModel().getSelection()[0];
+        
         var selected = Ext.getCmp('quangrid').getSelectionModel().getSelection()[0];
         var value = null ;
         if (selected){
             value = selected.raw ;
         }
         console.log(value) ;
-        //Ext.getCmp('quanform').setValue(value);
+        //Ext.getCmp('quanform').show();
+        setQuanWinsShow(9) ;
+        this.store.loadData([])
         if (value != null){ 
             console.log(value) ;
-            Ext.getCmp('cbclass').setRawValue(value.class) ;
+
+            var cbclass = Ext.getCmp('cbclass');
+            cbclass.setRawValue(value.class) ;
             Ext.getCmp('cbname').setRawValue(value.student) ;
             Ext.getCmp('cbquantype').setRawValue(value.quan_type) ;
             Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
             Ext.getCmp('quanreason').setValue(value.quan_reason) ;
             Ext.getCmp('quandate').setRawValue(value.quan_date) ;
-
+            
+            cbclass.fireEvent('select',cbclass) ;
+            
             this.store.remove(selected) ;
-            --QUAN_COUNTER ;
+            //--QUAN_COUNTER ;
         }else {
             Ext.MessageBox.alert('提示',' 请选择需要修改的行') ;
             console.log("the selected record is null or somthing") ;
@@ -541,7 +574,41 @@ Ext.define('Quan.Grid', {
         if (!pbar.isHidden()){
             pbar.hide() ;
         }
-      	}
+    },
+    onSearchClick: function(){
+        var bdate = Ext.getCmp('quan.detail.bdate').getRawValue() ;
+        var edate = Ext.getCmp('quan.detail.edate').getRawValue() ;
+        if (bdate && edate) {
+            console.log(bdate) ;
+            console.log(edate) ;
+            this.store.load({
+                'params':{
+                    'begin':bdate,
+                    'end':edate,
+                    'limit':100
+                },
+                scope:this,
+                callback:function(records,operations,success){
+                    if (success === false){
+                        Ext.MessageBox.show({
+                            title: '量化查询失败',
+                            msg: '远程服务器错误，<br/>请联系系统管理员！',
+					        //msg: operation.getError(),
+					        icon: Ext.MessageBox.ERROR,
+					        buttons: Ext.Msg.OK
+			            });
+                        console.log(operation.getError()) ;
+                        return ; 
+                    }
+                    if (records && records.length === 0){
+                        console.log(records) ;
+                    }
+                }
+            }) ;
+        } else {
+            Ext.MessageBox.alert("提示",'请选“开始日期” 和 “结束日期”') ;
+        }
+    }
 });
 
 Ext.define('Quan.DeatilGrid', {
@@ -557,13 +624,14 @@ Ext.define('Quan.DeatilGrid', {
 		});
 
 		this.CboxModel = Ext.create('Ext.selection.CheckboxModel');
-		this.pBar = Ext.create('Ext.PagingToolbar', {
+		/*this.pBar = Ext.create('Ext.PagingToolbar', {
 			store: this.store,
             id:'quangridpbar',
 			displayInfo: true,
 			displayMsg: '显示 {0} - {1} 条，共计 {2} 条',
 			emptyMsg: "没有数据"
 		});
+        */
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
@@ -572,11 +640,11 @@ Ext.define('Quan.DeatilGrid', {
 			//closeAction: 'hiden',
             collapsible:'ture',
 			selModel: this.CboxModel,
-			bbar: this.pBar,
+			//bbar: this.pBar,
 			plugins: [this.editing],
 			dockedItems: [{
 				xtype: 'toolbar',
-				items: [{
+				items: [/*{
 					xtype: 'datefield',
 					id: 'quan.detail.bdate',
                     format:'Y/m/d',
@@ -604,7 +672,7 @@ Ext.define('Quan.DeatilGrid', {
 					text: '查询',
 					scope: this,
 					handler: this.onSearchClick
-				}]
+				}*/]
 			}],
 			columns: [{
 				text: '序号',
@@ -736,6 +804,7 @@ Ext.define('Quan.Grid.Week', {
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
+            icon:'static/pic/quanweek.png',
 			frame: true,
             //closeable:true,
 			//closeAction: 'hiden',
@@ -749,7 +818,8 @@ Ext.define('Quan.Grid.Week', {
                 	xtype: 'combobox',
                     id:'quan.grid.cb.week',
 					name: 'week',
-                    width:300,
+                    width:200,
+                    labelWidth:60,
 					displayField: 'week',
 					valueField: 'id',
 					queryMode: 'local',
@@ -765,6 +835,7 @@ Ext.define('Quan.Grid.Week', {
 					}
                 },{
 					iconCls: 'icon-add',
+                    icon:'static/pic/search.gif',
 					text: '查看',
 					scope: this,
 					handler: this.onLookOverWeekQuan
@@ -946,7 +1017,7 @@ Ext.define('Quan.window', {
 				itemId: 'quangrid',
 				id: 'quangrid',
 				xtype: 'quangrid',
-				title: '量化信息登记表',
+				title: '量化信息表',
 				flex: 1,
                 hidden:true,
                 //minHeight:200,
@@ -1060,7 +1131,18 @@ function setQuanWinShow(id,sure){
 function setQuanWinsShow(mask) {
     setQuanWinShow('quangrid',mask & 1) ;
     setQuanWinShow('quangridweek',mask & 2) ;
-    setQuanWinShow('quangriddetail',mask & 4) ;
+    //setQuanWinShow('quangriddetail',mask & 4) ;
     setQuanWinShow('quanform',mask & 8) ;
+    if (mask & 8){ // form show 
+        setQuanWinShow('quangridpbar',false) ;
+        setQuanWinShow('quan.detail.bdate',false) ;
+        setQuanWinShow('quan.detail.edate',false) ;
+        setQuanWinShow('quan.detail.search',false) ;
+    }else {
+        setQuanWinShow('quangridpbar',true) ;
+        setQuanWinShow('quan.detail.bdate',true) ;
+        setQuanWinShow('quan.detail.edate',true) ;
+        setQuanWinShow('quan.detail.search',true) ;
+    } 
     //setQuanWinShow('quanformdetail',mask & 16) ;
 } 

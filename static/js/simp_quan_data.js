@@ -171,8 +171,7 @@ var class_id_store = Ext.create('Ext.data.Store', {
 		api: {
 			read: SERVER + '/getclassids',
 		},
-		reader: {
-			type: 'json',
+		reader: { type: 'json',
 			successProperty: 'success',
 			root: 'classids',
 			messageProperty: 'message',
@@ -244,9 +243,9 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 		type: 'ajax',
         
 		api: {
-            //read: SERVER+ '/getquaninfos',
+            read: SERVER+ '/getquaninfos',
 			write: SERVER + '/addquaninfos',
-            //update: SERVER + '/updatequaninfos',
+            update: SERVER + '/addquaninfos',
             create: SERVER + '/addquaninfos'
 		},
 		reader: {
@@ -273,8 +272,7 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 });
 
 var quan_detail_store = Ext.create('Ext.data.Store', {
-	model: 'Quan.Info',
-	autoLoad: false,
+	model: 'Quan.Info', autoLoad: false,
     pageSize:45,
 	//autoSync: true,
 	proxy: {

@@ -2,7 +2,6 @@ Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
 
-var user_COUNTER = 0 ;
 
 Ext.define('user.Form', {
 	extend: 'Ext.form.Panel',
@@ -139,9 +138,11 @@ Ext.define('user.Form', {
 		if (form.isValid()) {
             
             val = form.getValues() ;
-            val.idc = ++user_COUNTER ;
+            //val.idc = ++user_COUNTER ;
            
             //user_info_store.loadData([val]) ;
+            
+            val.role = Ext.getCmp('userform.role').getRawValue() ;
             sm_user_store.add([val]) ;
             console.log(val) ;
             form.reset() ;
@@ -291,7 +292,8 @@ Ext.define('user.Grid', {
 					                buttons: Ext.Msg.OK
 			                    });
                                 sm_user_store.loadData([],false) ;
-                                user_COUNTER = 0 ;
+                                sm_user_store.load() ;
+                                //user_COUNTER = 0 ;
                                 console.log("user submit success") ;
                             }
                         }) ; 
@@ -419,8 +421,6 @@ Ext.define('user.Grid', {
 	onModifyClick: function() {
         //first let modify form show
         setAddUserWinsShow('userform',true) ;
-        //setuserWinShow('usergridsave',true) ;
-        //var selected = this.getView().getSelectionModel().getSelection()[0];
         
         var selected = Ext.getCmp('usergrid').getSelectionModel().getSelection()[0];
         var value = null ;
@@ -432,7 +432,7 @@ Ext.define('user.Grid', {
         //Ext.getCmp('userform').loadRecord(value);
         Ext.getCmp('userform').loadRecord(selected);
         this.store.remove(selected) ;
-        --user_COUNTER ;
+        this.store.loadData([])
     },
 	onAddClick: function() {
         userform = Ext.getCmp('userform') ;

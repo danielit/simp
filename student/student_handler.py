@@ -78,16 +78,11 @@ class SetStuInfoHandler(APIHandler):
                     sis = [sis]
                 for si in sis:
                     ret = stu.getStuInfo(si['stuid'])
-                    '''
-                    if ret != None :
-                        #modify stuinfo
-                        stu.logger.info('modify stu info whose stuid is %s, so just rewrite the info' % si['stuid'])
-                        si['idc'] = ret['idc']
-                    else:
+                    if si.has_key('idc') and not si['idc'].startswith('stu_'):
                         si['idc'] = u'stu_' +stu.getuuid()
-                    '''
+                    if not si.has_key('idc'):
+                        si['idc'] = u'stu_' +stu.getuuid()
 
-                    si['idc'] = u'stu_' +stu.getuuid()
                     if si.has_key('class') and not si['class'].isdigit() :
                         si['class'] = stu.getClassIdOnName(si['class'])
                     stu.setStuIdOnName(si['name'],si['stuid'])
@@ -104,6 +99,24 @@ class SetStuInfoHandler(APIHandler):
 
         self.finish(success=True)
 
+class DeleteStuHandler(APIHandler):
+    def get(self):
+        stuid = self.get_argument('stuid','')
+        stuidc = self.get_argument('stuidc','')
+        stu = Student.instance()
+
+        if stuid == '':
+            stu.logger.warning('request param stuid is empty')
+            self.finish(success=False)
+            return
+        ret = stu.deleteStuInfo(stuid)
+        if ret == 0:
+            stu.logger.error('delete stu info failed ,stuid :%s is not in the db' % stuid)
+            self.finish(success=False)
+            return
+        stu.logger.info('delete stu info done ,stuid: %s' % stuid)
+        self.finish(success=True)
+        return
 
 class GetAllStuInfoHandler(APIHandler):
     def get(self):
@@ -265,6 +278,22 @@ class GetQuanInfosHandler(APIHandler):
 
 #set quan infos
 class AddQuanInfosHandler(APIHandler):
+    def searchAndDelQI(self,cid,idc):
+        try:
+            stu = Student.instance()
+            qs = stu.getQuanInfo(cid)
+            for q in qs:
+                tmp = stu.str2dict(q)
+                if tmp.has_key('idc') and tmp['idc'] == idc :
+                    stu.deleteQuanInfo(cid,q)
+                    return 0
+
+            return 1
+
+        except Exception,e:
+            stu.logger.error(e)
+            return -1
+
     def get(self):
         pass
     def post(self):
@@ -303,11 +332,67 @@ class AddQuanInfosHandler(APIHandler):
                 qi['class'] = int(cid)
                 qi['student'] = int(sid)
                 qi['quan_type'] = int(qid)
-
+                stu.logger.info('###########test ponit 1')
+                if qi.has_key('idc') and qi['idc'].startswith('quan_'):
+                    stu.logger.info('modify,delete first')
+                    self.searchAndDelQI(cid,qi['idc'])
+                else:
+                    stu.logger.info('new one ,set idc')
+                    qi['idc'] = 'quan_'+stu.getuuid()
+                stu.logger.info(qi)
                 stu.setQuanInfo(cid,qi)
             stu.logger.info(stu.getQuanInfo(cid))
         except Exception,e:
             stu.logger.error(e)
+
+class DeleteQuanHandler(APIHandler):
+    def searchAndDelQI(self,cid,idc):
+        try:
+            stu = Student.instance()
+            qs = stu.getQuanInfo(cid)
+            for q in qs:
+                tmp = stu.str2dict(q)
+                if tmp.has_key('idc') and tmp['idc'] == idc :
+                    stu.deleteQuanInfo(cid,q)
+                    return 0
+
+            return 1
+
+        except Exception,e:
+            stu.logger.error(e)
+            return -1
+
+
+    def get(self):
+        try:
+            stu = Student.instance()
+            quanidc = self.get_argument('idc','')
+            cname = self.get_argument('cname','')
+            if quanidc == '':
+                stu.logger.warning('request param idc is empty')
+                self.finish(success=False)
+                return
+            if cname == '':
+                stu.logger.warning('request param cname is empty')
+                self.finish(success=False)
+                return
+
+            cid = stu.getClassIDbyName(cname)
+            ret = self.searchAndDelQI(cid,quanidc)
+            if ret == 0:
+                stu.logger.info('delete qi done')
+                self.finish(success=True)
+                return
+            self.finish(success=False)
+            return
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
+            return
+
+    def post(self):
+        pass
+
 
 class LoginHandler(APIHandler):
     def post(self):
@@ -511,21 +596,82 @@ class GetAttendInfoHandler(APIHandler):
 
 
 class SetAttendInfoHandler(APIHandler):
+    def searchAndDelAI(self,day,idc) :
+        try:
+            stu = Student.instance()
+            ais = stu.getAttendInfo(day)
+            for ai in ais:
+                tmp = stu.str2dict(ai)
+                if tmp.has_key('idc') and tmp['idc'] == idc :
+                    stu.deleteAttendInfo(day,ai)
+                    return 0
+            return 1
+
+        except Exception,e:
+            stu.logger.info(e)
+            return -1
+
     def get(self):
         pass
     def post(self):
         try:
             stu = Student.instance()
+            stu.logger.info('set attend info')
             ais = json.loads(self.request.body)['data']
             if type(ais) == type({}):
                 ais= [ais]
             for ai in ais :
                 day = ai['date']
+                if ai.has_key('idc') and ai['idc'].startswith('attend_'):
+                    stu.logger.info('modify attend info,first delete')
+                    self.searchAndDelAI(day,ai['idc'])
+                else:
+                    stu.logger.info('a new attend info')
+                    ai['idc'] = 'attend_' + stu.getuuid()
+
                 ret = stu.setAttendInfo(day,ai)
 
         except Exception,e:
             stu.logger.error(e)
         pass
+
+class DeleteAttendHandler(APIHandler):
+    def searchAndDelAI(self,day,idc) :
+        try:
+            stu = Student.instance()
+            ais = stu.getAttendInfo(day)
+            for ai in ais:
+                tmp = stu.str2dict(ai)
+                if tmp.has_key('idc') and tmp['idc'] == idc :
+                    stu.deleteAttendInfo(day,ai)
+                    return 0
+            return 1
+
+        except Exception,e:
+            stu.logger.info(e)
+            return -1
+
+    def get(self):
+        day = self.get_argument('date','')
+        idc = self.get_argument('idc','')
+
+        stu = Student.instance()
+
+        if day == '':
+            stu.logger.warning('request param day is empty')
+            self.finish(success=False)
+            return
+        if idc == '' :
+            stu.logger.warning('request param idc is empty')
+            self.finish(success=False)
+            return
+        ret = self.searchAndDelAI(day,idc)
+        if ret == 0 :
+            stu.logger.info('Delete attend info done')
+            self.finish(success=True)
+            return
+        self.finish(success=False)
+        return
 
 class GetHeadTeachersHandler(APIHandler):
     def get(self):
@@ -688,13 +834,12 @@ class SetUserHandler(APIHandler):
                             stu.logger.info(str(u))
                             if u.has_key('idc') and ui['idc'] == u['idc']:
                                 stu.logger.info('find the user info %s' % str(u))
-
-                                ui['idc'] = u['idc']
                                 stu.deleteUserInfo(u['user'])
                                 stu.logger.info('delete user info : %s' % str(u))
                                 break
-                            else:
-                                ui['idc'] = 'user_'+ stu.getuuid()
+
+                    if not ui['idc'].startswith('user_'):
+                        ui['idc'] = stu.getuuid()
                     #number to text
                     if ui['role'].isdigit():
                         if ui['role'] == u'0' :
@@ -715,6 +860,28 @@ class SetUserHandler(APIHandler):
 
         self.finish()
         return
+class DeleteUserHandler(APIHandler):
+    def get(self):
+        try:
+            user = self.get_argument('user','')
+            stu = Student.instance()
+            if user == '':
+                stu.logger.warning('request param user is empty')
+                self.finish(success=False)
+                return
+            ret = stu.deleteUserInfo(user)
+            if ret == 0:
+                stu.logger.error('delete user failed ,user:%s is not in db' % user)
+                self.finish(success=False)
+                return
+
+            self.finish(success=True)
+            return
+
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
+            return
 
 class GetUserHandler(APIHandler):
     def get(self):

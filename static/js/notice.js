@@ -558,7 +558,7 @@ function getNoticeWin(){
 
 
 function setAddNoticeWinsShow(show) {
-    setWinShow('noticegridpbar',!show) ;
+    //setWinShow('noticegridpbar',!show) ;
     //setWinShow('noticesearch.bdate',!show) ;
     //setWinShow('noticesearch.edate',!show) ;
     //setWinShow('noticesearch.btn',!show) ;

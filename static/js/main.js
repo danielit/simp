@@ -41,8 +41,8 @@ function treeItemClick(view, record, item, index, e) {
         var ret = add2tabpanel(mgrTabpanel,quanWin) ;
         if (ret==0){
             quan_week_store.load() ;
-            quan_detail_store.load() ;
         }
+        quan_detail_store.load() ;
          
         //show quangridweek and quanformdetail
         setQuanWinsShow(2) ; 
@@ -52,9 +52,9 @@ function treeItemClick(view, record, item, index, e) {
         if (ret == 0){
             quan_week_store.load() ;
             //quan_detail_store.load() ;
-            quan_info_store.load() ;
 
         }
+        quan_info_store.load() ;
         //show quangriddetail
         setQuanWinsShow(1) ; 
     } else if (cmpId=="q.fillin"){

@@ -508,7 +508,29 @@ Ext.define('Attend.Grid', {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
 			//console.log(this.store) ;
-			this.store.remove(selection);
+			//this.store.remove(selection);
+            var attendidc = selection.data.idc ;
+            var attenddate = selection.data.date ;
+            //console.log(noticeidc) ;
+            Ext.Ajax.request({
+                url: SERVER+'/deleteattend',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'idc': attendidc,
+                    'date':attenddate
+                },
+                method: 'GET',
+                success: function (response, options) {
+			        //attend_info_store.remove(selection);
+                    attend_info_store.load() ;
+                    //setAttendWinShow('attendform',false) ;
+                    Ext.MessageBox.alert('成功', '删除成功');
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障');
+                }
+            });
 		},
 		this);
 	},
@@ -614,7 +636,7 @@ function setAttendWinShow(id,sure){
 }
 
 function setAttendWinsShow(mask) {
-    setAttendWinShow('attendgridpbar',!mask) ;
+    //setAttendWinShow('attendgridpbar',!mask) ;
     //setAttendWinShow('attendsearch.class',!mask) ;
     //setAttendWinShow('attendsearch.bdate',!mask) ;
     //setAttendWinShow('attendsearch.edate',!mask) ;

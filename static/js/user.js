@@ -416,7 +416,28 @@ Ext.define('user.Grid', {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
 			//console.log(this.store) ;
-			this.store.remove(selection);
+			//this.store.remove(selection);
+            var idc = selection.data.idc ;
+            var user = selection.data.user;
+            //console.log(noticeidc) ;
+            Ext.Ajax.request({
+                url: SERVER+'/deleteuser',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'idc': idc,
+                'user':user},
+                method: 'GET',
+                success: function (response, options) {
+			       //sm_notice_store.remove(selection);
+                    sm_user_store.load() ;
+                    Ext.MessageBox.alert('成功', '删除成功');
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障');
+                }
+            });
+
 		},
 		this);
 	},
@@ -515,7 +536,7 @@ function getUserWin(){
 
 
 function setAddUserWinsShow(show) {
-    setWinShow('usergridpbar',!show) ;
+    //setWinShow('usergridpbar',!show) ;
     //setWinShow('usersearch.btn',!show) ;
     //setWinShow('usersearch.user',!show) ;
     setWinShow('usergridsave',show) ;

@@ -196,10 +196,20 @@ class Student(object):
         return self.str2dict(self.redis.get(key))
 
     def setClassInfo(self,classid,value):
-        key = CLASS_PREFIX+unicode(classid)
-        value = self.dict2str(value)
-        return self.redis.set(key,value)
+        classid = unicode(classid)
+        self.setClassIdOnName(value['name'],classid)
 
+        key = CLASS_PREFIX+classid
+        value = self.dict2str(value)
+        self.redis.set(key,value)
+
+    def getClassNameOnId(self,cid):
+        cid = unicode(cid)
+        if self.redis.hexists(TABLE_CLASSID2NAME,cid):
+            return self.redis.hget(TABLE_CLASSID2NAME,cid)
+        return 0
+
+    '''
     def getClassNameOnId(self,cid):
         cid = unicode(cid)
         ret = self.getClassInfo(cid)
@@ -208,7 +218,7 @@ class Student(object):
         else:
             self.logger.warning('not find the cid : %s of class name' % cid)
             return ''
-
+    '''
     # if in db ,return a int or 0
     def getClassIDbyName(self,name):
         name = unicode(name)
@@ -343,17 +353,24 @@ class Student(object):
     def getQuanInfo(self,classid):
         key = QUAN_PREFIX+CLASS_PREFIX+unicode(classid)
         ret = self.redis.lrange(key,0,-1)
+        return ret
+        '''
         tmp=[]
         for r in ret:
             r = json.loads(r)
             tmp.append(r)
         return tmp
+        '''
 
 
     def setQuanInfo(self,classid,qinfo):
         key = QUAN_PREFIX+CLASS_PREFIX+unicode(classid)
         qinfo = self.dict2str(qinfo)
         return self.redis.lpush(key,qinfo)
+
+    def deleteQuanInfo(self,cid,qi):
+        key = QUAN_PREFIX+CLASS_PREFIX+unicode(cid)
+        return self.redis.lrem(key,qi)
 
     #get all classes of quaninfos
     def getAllQuanInfos(self):
@@ -385,7 +402,15 @@ class Student(object):
         return 0
 
     def setClassIdOnName(self,cname,cid):
-        return self.redis.hset(TABLE_QUANNAME2ID,unicode(cname),unicode(cid))
+        self.redis.hset(TABLE_CLASSNAME2ID,unicode(cname),unicode(cid))
+        self.redis.hset(TABLE_CLASSID2NAME,unicode(cid),unicode(cname))
+        return True
+
+    def setClassNameOnId(self,cname,cid):
+        self.redis.hset(TABLE_CLASSNAME2ID,unicode(cname),unicode(cid))
+        self.redis.hset(TABLE_CLASSID2NAME,unicode(cid),unicode(cname))
+        return True
+
 
 
     #return set of stu ids
@@ -477,9 +502,12 @@ class Student(object):
 
     def getAttendInfo(self,day):
         key = ATTEND_PREFIX + str(day)
-        self.logger.info(key)
         value = self.str2dict(self.redis.lrange(key,0,-1))
         return value
+    def deleteAttendInfo(self,day,ai):
+        key = ATTEND_PREFIX + str(day)
+        return self.redis.lrem(key,ai)
+
 
 
 

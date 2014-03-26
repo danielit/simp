@@ -282,6 +282,7 @@ Ext.define('Quan.Form', {
             //val.idc = ++QUAN_COUNTER ;
             
 */
+            quan_info_store.loadData([]) ;
             quan_info_store.add([val]) ;
 
             form.reset() ;
@@ -526,8 +527,30 @@ Ext.define('Quan.Grid', {
 	onDeleteClick: function() {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
+			//this.store.remove(selection);
 			//console.log(this.store) ;
-			this.store.remove(selection);
+            var quanidc = selection.data.idc ;
+            var cname = selection.data.class;
+            //console.log(noticeidc) ;
+            Ext.Ajax.request({
+                url: SERVER+'/deletequan',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'idc': quanidc,
+                    'cname':cname
+                },
+                method: 'GET',
+                success: function (response, options) {
+			        quan_info_store.remove(selection);
+                    Ext.MessageBox.alert('成功', '删除成功');
+                    quan_info_store.loadData([]) ;
+                    quan_info_store.load() ;
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障');
+                }
+            });
 		},
 		this);
 	},
@@ -1139,14 +1162,14 @@ function setQuanWinsShow(mask) {
     //setQuanWinShow('quangriddetail',mask & 4) ;
     setQuanWinShow('quanform',mask & 8) ;
     if (mask & 8){ // form show 
-        setQuanWinShow('quangridpbar',false) ;
+        //setQuanWinShow('quangridpbar',false) ;
         /*
          * setQuanWinShow('quan.detail.bdate',false) ;
         setQuanWinShow('quan.detail.edate',false) ;
         setQuanWinShow('quan.detail.search',false) ;
         */
     }else {
-        setQuanWinShow('quangridpbar',true) ;
+        //setQuanWinShow('quangridpbar',true) ;
         /*setQuanWinShow('quan.detail.bdate',true) ;
         setQuanWinShow('quan.detail.edate',true) ;
         setQuanWinShow('quan.detail.search',true) ;

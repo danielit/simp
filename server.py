@@ -116,6 +116,10 @@ if __name__ == "__main__":
         (r"/getnews",GetNewsHandler),
         (r"/setnews",SetNewsHandler),
         (r"/deletenotice",DeleteNoticeHandler),
+        (r"/deletequan",DeleteQuanHandler),
+        (r"/deleteattend",DeleteAttendHandler),
+        (r"/deletestu",DeleteStuHandler),
+        (r"/deleteuser",DeleteUserHandler),
         (r"/setuser",SetUserHandler),
         (r"/getuser",GetUserHandler),
         (r"/form",FormHandler)

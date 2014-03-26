@@ -100,7 +100,7 @@ Ext.define('Sit.Form', {
 				layout: 'hbox',
 				defaultType: 'textfield',
 				margin: '0 0 5 0',
-				items: [                {
+				items: [{
 					xtype: 'textfield',
 					name: 'address',
                     width:250,
@@ -280,6 +280,13 @@ Ext.define('Sit.Form', {
 					//allowBlank: false,
 					forceSelection: true
 				},*/
+                {
+					xtype: 'textfield',
+					id: 'sitform.teacher',
+					name: 'teacher',
+					allowBlank: true,
+                    hidden:true
+				},
                 {
 					xtype: 'textfield',
 					id: 'sitform.other',
@@ -750,7 +757,28 @@ Ext.define('Sit.Grid', {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
 			//console.log(this.store) ;
-			this.store.remove(selection);
+			//this.store.remove(selection);
+            var stuidc = selection.data.idc ;
+            var stuid = selection.data.stuid ;
+            //console.log(noticeidc) ;
+            Ext.Ajax.request({
+                url: SERVER+'/deletestu',
+                headers: {
+                    'userHeader': 'userMsg'
+                },
+                params: { 'idc': stuidc,
+                'stuid':stuid},
+                method: 'GET',
+                success: function (response, options) {
+			        //sit_info_store.remove(selection);
+			        stu_info_store.load();
+                    Ext.MessageBox.alert('成功', '删除成功');
+                },
+                failure: function (response, options) {
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障');
+                }
+            });
+
 		},
 		this);
 	},
@@ -860,7 +888,7 @@ function setsitWinShow(id,sure){
 }
 
 function setsitWinsShow(mask) {
-    setsitWinShow('sitgridpbar',!mask) ;
+    //setsitWinShow('sitgridpbar',!mask) ;
     //setsitWinShow('sitsearch.class',!mask) ;
     //setsitWinShow('sitsearch.btn',!mask) ;
     setsitWinShow('sitgridsave',mask) ;

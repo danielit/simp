@@ -550,7 +550,7 @@ function getNoticeWin(){
             id:'noticewin',
             itemId:'noticewin',
             xtype:'noticecontainer',
-		    icon: 'static/pic/css/tabs.gif'
+		    icon: 'static/pic/noticewin.png'
         }) ; 
     } 
     return noticeWin ;

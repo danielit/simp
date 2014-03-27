@@ -44,9 +44,13 @@ class MainHandler(tornado.web.RequestHandler):
 
 class NullHandler(tornado.web.RequestHandler):
     def get(self):
+        self.render("upload.html") ;
         pass
 
     def post(self):
+        files = self.request.files['file']
+        for f in files:
+            print f['filename'],f['content_type']
         pass
 
 class ManageHandler(tornado.web.RequestHandler):
@@ -84,6 +88,15 @@ class StuHandler(tornado.web.RequestHandler):
         self.write(json.dumps(params))
         print "get"
         print params
+class DownloadHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.set_header('Content-Type','application/msexcel')
+        self.set_header('Content-Disposition','attachment;filename="abc.xls"')
+        len =str(os.path.getsize('abc.xls'))
+        self.set_header('Content-Length',len)
+        with open('abc.xls','rb') as f:
+            self.write(f.read())
+
 
 if __name__ == "__main__":
     reload(sys)
@@ -95,7 +108,7 @@ if __name__ == "__main__":
 
     application = tornado.web.Application([
         (r"/",MainHandler,),
-        (r"/null",NullHandler),
+        (r"/upload",NullHandler),
         (r"/login",LoginHandler),
         (r"/manage",ManageHandler),
         (r"/grid",GridHandler),
@@ -122,9 +135,10 @@ if __name__ == "__main__":
         (r"/deleteuser",DeleteUserHandler),
         (r"/setuser",SetUserHandler),
         (r"/getuser",GetUserHandler),
-        (r"/form",FormHandler)
+        (r"/form",FormHandler),
+        (r"/download",DownloadHandler)
         ],
         **settings
         )
-    application.listen(8888)
+    application.listen(80)
     tornado.ioloop.IOLoop.instance().start()

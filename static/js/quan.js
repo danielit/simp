@@ -1139,7 +1139,7 @@ function getQuanWin(){
             id:'quanwin',
             itemId:'quanwin',
             xtype:'quancontainer',
-		    icon: 'static/pic/css/tabs.gif'
+		    icon: 'static/pic/quanwin.png'
         }) ; 
     } 
     return quanWin ;

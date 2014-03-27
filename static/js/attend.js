@@ -22,6 +22,7 @@ Ext.define('Attend.Form', {
                 anchor:'100%'
 			},
 			iconCls: 'icon-form',
+            icon:'static/pic/attendform.png',
 			layout: 'anchor',
 			anchor: '100%',
             collapsible:'ture',
@@ -175,6 +176,7 @@ Ext.define('Attend.Form', {
 				items: [{
 					xtype: 'button',
                     width:80,
+                    icon:'static/pic/reset.png',
                     margin: '0 0 0 240',
                     text:'重置',
                     scope:this,
@@ -182,6 +184,7 @@ Ext.define('Attend.Form', {
 				},
                 {
 					xtype: 'button',
+                    icon:'static/pic/confirm.png',
                     text:'确认',
                     width:80,
                     scope:this,
@@ -238,6 +241,7 @@ Ext.define('Attend.Grid', {
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
+            icon:'static/pic/attendgrid.png',
 			frame: true,
             closeable:true,
 			closeAction: 'hiden',
@@ -255,6 +259,7 @@ Ext.define('Attend.Grid', {
 				},'|',*/
                 {
 					iconCls: 'icon-modify',
+                    icon:'static/pic/attendmodify.png',
 					text: '修改',
                     disabled:true,
                     itemId:'modify',
@@ -263,6 +268,7 @@ Ext.define('Attend.Grid', {
 				},'|',
 				{
 					iconCls: 'icon-delete',
+                    icon:'static/pic/deluser.png',
 					text: '删除',
 					disabled: true,
 					itemId: 'delete',
@@ -328,6 +334,7 @@ Ext.define('Attend.Grid', {
 				ui: 'footer',
 				items: ['->', {
 					iconCls: 'icon-save',
+                    icon:'static/pic/quansave.png',
 					text: '提交',
 				    margins: '0 0 0 50%',
 					scope: this,
@@ -402,8 +409,8 @@ Ext.define('Attend.Grid', {
 				//width: 100,
 				sortable: true,
 				dataIndex: 'type',
-				//dataIndex: 'attendtype',
-				field: {
+				//dataIndex: 'attendtype', 
+                field: {
 					type: 'textfield'
 				}
 			},
@@ -566,6 +573,44 @@ Ext.define('Attend.Grid', {
       	}
 });
 
+Ext.define('Attend.Upload', {
+	extend: 'Ext.form.Panel',
+	alias: 'widget.attendupload',
+//Ext.create('Ext.form.Panel', {
+        title: '文件上传',
+        width: 400,
+        bodyPadding: 10,
+        frame: true,
+        renderTo: Ext.getBody(),
+        items: [{
+            xtype: 'filefield',
+            name: 'file',
+            fieldLabel: '文件',
+            labelWidth: 50,
+            msgTarget: 'side',
+            allowBlank: false,
+            anchor: '100%',
+            buttonText: '选着要上传的文件...'
+        }],
+
+        buttons: [{
+            text: 'Upload',
+            handler: function() {
+                var form = this.up('form').getForm();
+                if(form.isValid()){
+                    form.submit({
+                        url: 'photo-upload.php',
+                        waitMsg: 'Uploading your photo...',
+                        success: function(fp, o) {
+                        Ext.Msg.alert('Success', 'Your photo "' + o.result.file + '" has been uploaded.');
+                        }
+                    });
+                }
+            }
+        }]
+});
+
+
 Ext.require(['Ext.data.*', 'Ext.tip.QuickTipManager', 'Ext.window.MessageBox']);
 
 //define the container for attend 
@@ -584,7 +629,7 @@ Ext.define('attend.window', {
 				itemId: 'attendgrid',
 				id: 'attendgrid',
 				xtype: 'attendgrid',
-				title: '学生考勤',
+				title: '学生考勤列表',
 				flex: 1,
                 hidden:false,
                 //minHeight:200,
@@ -598,7 +643,7 @@ Ext.define('attend.window', {
 				itemId: 'attendform',
 				id: 'attendform',
 				xtype: 'attendform',
-                title:'学生考勤',
+                title:'学生考勤编辑',
                 minHeight:100,
                 maxHeight:500,
 				hidden: false,
@@ -616,6 +661,7 @@ function getAttendWin(){
         attendWin = Ext.create('attend.window',{
             title:'学生考勤管理',
             id:'attendwin',
+            icon:'static/pic/attendwin.png',
             itemId:'attendwin',
             xtype:'attendcontainer',
 		    icon: 'static/pic/css/tabs.gif'

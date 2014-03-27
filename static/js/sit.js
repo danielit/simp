@@ -21,6 +21,7 @@ Ext.define('Sit.Form', {
                 anchor:'100%'
 			},
 			iconCls: 'icon-form',
+            icon:'static/pic/sitform.png',
 			layout: 'anchor',
 			anchor: '100%',
             collapsible:'ture',
@@ -312,12 +313,14 @@ Ext.define('Sit.Form', {
 					xtype: 'button',
                     width:80,
                     margin: '0 0 0 480',
+                    icon:'static/pic/reset.png',
                     text:'重置',
                     scope:this,
 				    handler: this.onResetClick
 				},
                 {
 					xtype: 'button',
+                    icon:'static/pic/confirm.png',
                     text:'确认',
                     width:80,
                     scope:this,
@@ -381,6 +384,7 @@ Ext.define('Sit.Grid', {
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
+            icon:'static/pic/sitgrid.png',
 			frame: true,
             closeable:true,
 			closeAction: 'hiden',
@@ -390,14 +394,14 @@ Ext.define('Sit.Grid', {
 			plugins: [this.editing],
 			dockedItems: [{
 				xtype: 'toolbar',
-				items: [/*{
-					iconCls: 'icon-add',
+				items: [/*{ iconCls: 'icon-add',
 					text: '增加',
 					scope: this,
 					handler: this.onAddClick
 				},'|',*/
                 {
 					iconCls: 'icon-modify',
+                    icon:'static/pic/modifyuser.png',
 					text: '修改',
                     disabled:true,
                     itemId:'modify',
@@ -406,6 +410,7 @@ Ext.define('Sit.Grid', {
 				},'|',
 				{
 					iconCls: 'icon-delete',
+                    icon:'static/pic/deluser.png',
 					text: '删除',
 					disabled: true,
 					itemId: 'delete',
@@ -470,6 +475,7 @@ Ext.define('Sit.Grid', {
 				ui: 'footer',
 				items: ['->', {
 					iconCls: 'icon-save',
+                    icon:'static/pic/quansave.png',
 					text: '提交',
 				    margins: '0 0 0 50%',
 					scope: this,
@@ -829,6 +835,7 @@ Ext.define('sit.window', {
 	initComponent: function() {
 		Ext.apply(this, {
 			padding: '0 0 0 0',
+            icon:'static/pic/sitwin.png',
 			layout: {
 				type: 'vbox',
 				align: 'stretch',

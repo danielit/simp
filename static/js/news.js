@@ -15,6 +15,7 @@ Ext.define('news.Form', {
 	initComponent: function() {
 		Ext.apply(this, {
 		    iconCls: 'icon-form',
+            icon:'static/pic/notice.png',
             collapsible:'ture',
 			//align: 'center',
             //tpl:new Ext.XTemplate(),   
@@ -127,4 +128,10 @@ function setNews2Form(newsid,newstitle,formid){
                     Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：' + response.status);
                 }
             });
+}
+function setNewsOnFirstPage() {
+    var newsWin = getnewsWin() ;
+    add2tabpanel(mgrTabpanel,newsWin) ;
+    news_list_store.load() ;
+    setNews2Form('','','newsform') ;
 }

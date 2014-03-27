@@ -306,7 +306,7 @@ class AddQuanInfosHandler(APIHandler):
             if type(qis)==type({}):
                 qis = [qis]
             for qi in qis:
-                cn = qi['class']
+                cn = unicode(qi['class'])
                 cid = stu.getClassIDbyName(cn)
                 stu.logger.info(cid)
                 stu.logger.info(cn)
@@ -407,7 +407,8 @@ class LoginHandler(APIHandler):
         rdb.logger.info('remb:' + remb)
         #audit the user
         if user==''or pwd=='':
-            self.finish(success=False)
+            #self.finish(success=False)
+            self.redirect('/')
             return
 
         else:#audit from db
@@ -429,7 +430,8 @@ class LoginHandler(APIHandler):
                     return
         # audit login from db failed
         rdb.logger.warning(user + " check failed in db")
-        self.finish(success=False)
+        self.redirect('/')
+        #self.finish(success=False)
         return
 
     def get(self):
@@ -475,29 +477,31 @@ class GetQuanSummaryOfWeekHandler(APIHandler):
 
             sTable[cname]['class'] = cname
 
-
+        stu.logger.info(len(qinfos))
         for qi in qinfos:
-            cname = qi['class']
+            cname = unicode(qi['class'])
             if not sTable.has_key(cname):
-                stu.logger.error('There is no class has a name :' + str(cname))
-                self.finish(success=False)
-                return
+                stu.logger.warning('There is no class has a name : %s, quan info : %s' % (str(cname),str(qi)))
+                #self.finish(success=False)
+                #return
+                continue
             qtype = stu.getQuanIdOnName(qi['quan_type'])
             qi['quan_score'] = int(qi['quan_score'])
-
+            stu.logger.info('begin to compu quan')
             if qtype==1001: # discipline
+                stu.logger.info('begin to compu quan of disp')
                 sTable[cname]['disp_score'] += qi['quan_score']
                 sTable[cname]['disp_quan'] += qi['quan_score'] *0.3
-                pass
             elif qtype==1002: #health
+                stu.logger.info('begin to compu quan of heal')
                 sTable[cname]['heal_score'] += qi['quan_score']
                 sTable[cname]['heal_quan'] += qi['quan_score'] *0.2
-                pass
             elif qtype==1003: # domi
+                stu.logger.info('begin to compu quan of domi')
                 sTable[cname]['domi_score'] += qi['quan_score']
                 sTable[cname]['domi_quan'] += qi['quan_score'] *0.4
-                pass
             elif qtype==1004: #activity
+                stu.logger.info('begin to compu quan of acti')
                 sTable[cname]['acti_score'] += qi['quan_score']
                 sTable[cname]['acti_quan'] += qi['quan_score'] *0.1
             else:

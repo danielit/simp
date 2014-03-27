@@ -206,8 +206,9 @@ class Student(object):
     def getClassNameOnId(self,cid):
         cid = unicode(cid)
         if self.redis.hexists(TABLE_CLASSID2NAME,cid):
-            return self.redis.hget(TABLE_CLASSID2NAME,cid)
-        return 0
+            cn = self.redis.hget(TABLE_CLASSID2NAME,cid)
+            return unicode(cn)
+        return unicode(0)
 
     '''
     def getClassNameOnId(self,cid):
@@ -398,8 +399,9 @@ class Student(object):
     def getClassIdOnName(self,cname):
         cname = unicode(cname)
         if self.redis.hexists(TABLE_CLASSNAME2ID,cname):
-            return self.redis.hget(TABLE_CLASSNAME2ID,cname)
-        return 0
+            cid = self.redis.hget(TABLE_CLASSNAME2ID,cname)
+            return unicode(cid)
+        return unicode(0)
 
     def setClassIdOnName(self,cname,cid):
         self.redis.hset(TABLE_CLASSNAME2ID,unicode(cname),unicode(cid))

@@ -1,7 +1,7 @@
 Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
 ]);
+
 //this tab panel is for the center 
-//var newsTab = getnewsWin() ;
 var mgrTabpanel = Ext.create('Ext.tab.Panel', {
 	id: 'mgrTabpanel',
 	renderTo: Ext.getBody(),
@@ -39,9 +39,10 @@ function treeItemClick(view, record, item, index, e) {
     if(cmpId=="q.weeksummary"){         
         var quanWin = getQuanWin() ;
         var ret = add2tabpanel(mgrTabpanel,quanWin) ;
-        if (ret==0){
+        /*if (ret==0){
             quan_week_store.load() ;
-        }
+        }*/
+        quan_week_store.load() ;
         quan_detail_store.load() ;
          
         //show quangridweek and quanformdetail
@@ -49,11 +50,10 @@ function treeItemClick(view, record, item, index, e) {
     } else if (cmpId=="q.detail"){
         var quanWin = getQuanWin() ;
         var ret = add2tabpanel(mgrTabpanel,quanWin) ;
-        if (ret == 0){
+        /*if (ret == 0){
             quan_week_store.load() ;
             //quan_detail_store.load() ;
-
-        }
+        }*/
         quan_info_store.load() ;
         //show quangriddetail
         setQuanWinsShow(1) ; 
@@ -180,25 +180,7 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
                 text:'量化信息登记',
                 leaf:true
             }]
-		},/*
-		{
-			id: 'scholarship',
-			text: '奖助学金',
-            children:[{
-                id:'ss.reward',
-                text:'奖学金',
-                leaf:true
-            },{
-                id:'ss.help',
-                text:'助学金',
-                leaf:true
-            },{
-                id:'ss.loan',
-                text:'助学贷款',
-                leaf:true
-            }]
-		},*/
-        {
+		},{
 			id: 'studentattend',
 			text: '学生考勤',
             children:[{
@@ -223,12 +205,7 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 				id: 'sit.input',
 				text: '信息录入',
 				leaf: true
-			}/*,
-			{
-				id: 'sit.score',
-				text: '学生成绩',
-				leaf: true
-			}*/]
+			}]
 		},
 		{
 			text: '在校情况',
@@ -351,7 +328,7 @@ var mgrQuitTree= Ext.create('Ext.tree.Panel', {
 
 
 Ext.onReady(function() {
-    Ext.Loader.injectScriptElement("static/extjs/locale/ext-lang-zh_CN.js") ;
+    //Ext.Loader.injectScriptElement("static/extjs/locale/ext-lang-zh_CN.js") ;
 	
 	Ext.create('Ext.container.Viewport', {
 		layout: {
@@ -378,13 +355,8 @@ Ext.onReady(function() {
 
 			items: [
 			mgrTree,
-            //mgrStuInfoTree,
             mgrSysTree,
-			/*{
-				title: '在线帮助',
-				html: 'Online Help'
-			},*/
-            mgrQuitTree
+			mgrQuitTree
             ]
 		},
 		{
@@ -393,11 +365,14 @@ Ext.onReady(function() {
 			items: [mgrTabpanel]
 		}]
 	});
+    setNewsOnFirstPage() ;
 // show the new list 
-    news_list_store.load() ;
     // show the news content of the first one on the list
+    /*
     var newsWin = getnewsWin() ;
     add2tabpanel(mgrTabpanel,newsWin) ;
+    news_list_store.load() ;
     setNews2Form('','','newsform') ;
-    
+    */
 });
+

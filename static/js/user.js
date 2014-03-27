@@ -508,7 +508,7 @@ Ext.define('user.window', {
 				itemId: 'userform',
 				id: 'userform',
 				xtype: 'userform',
-                title:'添加用户',
+                title:'编辑用户',
                 minHeight:100,
                 maxHeight:500,
 				hidden: false,
@@ -528,7 +528,7 @@ function getUserWin(){
             id:'userwin',
             itemId:'userwin',
             xtype:'usercontainer',
-		    icon: 'static/pic/css/tabs.gif'
+		    icon: 'static/pic/userwin.png'
         }) ; 
     } 
     return userWin ;

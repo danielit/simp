@@ -23,6 +23,7 @@ Ext.define('SS.Grid.SSS', {
 
 		Ext.apply(this, {
 			iconCls: 'icon-grid',
+            icon:'static/pic/ssgrid.png',
 			frame: true,
             //closeable:true,
 			//closeAction: 'hiden',
@@ -290,6 +291,7 @@ Ext.define('ss.window', {
 	initComponent: function() {
 		Ext.apply(this, {
 			padding: '0 0 0 0',
+            icon:'static/pic/stustatic.png',
 			layout: {
 				type: 'vbox',
 				align: 'stretch',

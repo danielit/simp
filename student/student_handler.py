@@ -68,6 +68,7 @@ def getQuanInfoBetween(begin,end):
 class SetStuInfoHandler(APIHandler):
     def get(self):
         pass
+    @tornado.web.authenticated
     def post(self):
         try:
             stu = Student.instance()
@@ -100,6 +101,8 @@ class SetStuInfoHandler(APIHandler):
         self.finish(success=True)
 
 class DeleteStuHandler(APIHandler):
+
+    @tornado.web.authenticated
     def get(self):
         stuid = self.get_argument('stuid','')
         stuidc = self.get_argument('stuidc','')
@@ -119,6 +122,7 @@ class DeleteStuHandler(APIHandler):
         return
 
 class GetAllStuInfoHandler(APIHandler):
+    @tornado.web.authenticated
     def get(self):
 
         try:
@@ -159,6 +163,7 @@ class GetAllStuInfoHandler(APIHandler):
             self.finish(success=False)
 
 
+    @tornado.web.authenticated
     def post(self):
         try:
             stuid = self.get_argument('stuid')
@@ -174,6 +179,7 @@ class GetAllStuInfoHandler(APIHandler):
             self.finish("users",ret)
 
 class GetAllClassIDs(APIHandler):
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()
@@ -185,6 +191,7 @@ class GetAllClassIDs(APIHandler):
             raise tornado.web.HTTPError(404)
 
 class GetQuanTypesHandler(APIHandler):
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()
@@ -197,6 +204,7 @@ class GetQuanTypesHandler(APIHandler):
 
 #get stu name and id of some class
 class GetStuNameIDsOnClassID(APIHandler):
+    @tornado.web.authenticated
     def get(self):
         stu = None
         try:
@@ -232,6 +240,7 @@ class GetStuNameIDsOnClassID(APIHandler):
             raise tornado.web.HTTPError(404)
 
 class GetQuanInfosHandler(APIHandler):
+    @tornado.web.authenticated
     def get(self):
         stu = Student.instance()
         begin = self.get_argument('begin','0')
@@ -296,6 +305,7 @@ class AddQuanInfosHandler(APIHandler):
 
     def get(self):
         pass
+    @tornado.web.authenticated
     def post(self):
         try:
             stu = Student.instance()
@@ -363,6 +373,7 @@ class DeleteQuanHandler(APIHandler):
             return -1
 
 
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()
@@ -394,7 +405,7 @@ class DeleteQuanHandler(APIHandler):
         pass
 
 
-class LoginHandler(APIHandler):
+class LoginHandler(APISecureHandler):
     def post(self):
         #get argument
         rdb = Student.instance()
@@ -425,7 +436,8 @@ class LoginHandler(APIHandler):
                     self.set_cookie('uid',user)
                     self.set_cookie('type',userInfo['role'])
                     #self.finish()
-                    self.redirect('manage?uid='+user)
+                    rdb.logger.info("redirect to /manage")
+                    self.redirect('/manage?uid='+user)
                     #self.render('../main.html')
                     return
         # audit login from db failed
@@ -438,7 +450,7 @@ class LoginHandler(APIHandler):
 
         stu = Student.instance()
         stu.logger.info("in login handler get ,render to login")
-        self.render('../index.html')
+        self.redirect('/')
         return
 
 class GetQuanSummaryOfWeekHandler(APIHandler):
@@ -556,6 +568,7 @@ class GetAttendInfoHandler(APIHandler):
         except Exception,e:
             stu.logger.error(e)
 
+    @tornado.web.authenticated
     def get(self):
         stu = Student.instance()
         try:
@@ -617,6 +630,8 @@ class SetAttendInfoHandler(APIHandler):
 
     def get(self):
         pass
+
+    @tornado.web.authenticated
     def post(self):
         try:
             stu = Student.instance()
@@ -655,6 +670,7 @@ class DeleteAttendHandler(APIHandler):
             stu.logger.info(e)
             return -1
 
+    @tornado.web.authenticated
     def get(self):
         day = self.get_argument('date','')
         idc = self.get_argument('idc','')
@@ -678,6 +694,7 @@ class DeleteAttendHandler(APIHandler):
         return
 
 class GetHeadTeachersHandler(APIHandler):
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()
@@ -716,6 +733,7 @@ class GetNewsListHandler(APISecureHandler):
                 ret.append({'id':new['idc'],'text':new['title'],'leaf':'true','icon':'static/pic/rss.gif'})
         return ret
 
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()
@@ -730,6 +748,8 @@ class GetNewsListHandler(APISecureHandler):
         pass
 
 class GetNewsContentHandler(APISecureHandler):
+
+    @tornado.web.authenticated
     def get(self):
         stu = Student.instance()
         newsid = self.get_argument('id','')
@@ -749,6 +769,7 @@ class GetNewsContentHandler(APISecureHandler):
         pass
 class GetNewsHandler(APIHandler):
 
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()
@@ -785,6 +806,8 @@ class GetNewsHandler(APIHandler):
 class SetNewsHandler(APIHandler):
     def get(self):
         pass
+
+    @tornado.web.authenticated
     def post(self):
         try:
             stu = Student.instance()
@@ -818,6 +841,7 @@ class SetNewsHandler(APIHandler):
 class SetUserHandler(APIHandler):
     def get(self):
         pass
+    @tornado.web.authenticated
     def post(self):
         try:
             stu = Student.instance()
@@ -865,6 +889,8 @@ class SetUserHandler(APIHandler):
         self.finish()
         return
 class DeleteUserHandler(APIHandler):
+
+    @tornado.web.authenticated
     def get(self):
         try:
             user = self.get_argument('user','')
@@ -888,6 +914,8 @@ class DeleteUserHandler(APIHandler):
             return
 
 class GetUserHandler(APIHandler):
+
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()
@@ -916,6 +944,7 @@ class GetUserHandler(APIHandler):
         pass
 
 class DeleteNoticeHandler(APIHandler):
+    @tornado.web.authenticated
     def get(self):
         try:
             stu = Student.instance()

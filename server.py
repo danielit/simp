@@ -12,14 +12,7 @@ from student.student import Student
 from student.student_handler import *
 
 
-class MainHandler(tornado.web.RequestHandler):
-    def get_current_user(self):
-        rem = self.get_secure_cookie('remb')
-        user = self.get_secure_cookie('user')
-        if rem == '0' or rem== None:
-            return None
-        elif rem=='1':
-            return user
+class MainHandler(APISecureHandler):
 
     def get(self):
         simp = Student.instance()
@@ -35,12 +28,17 @@ class MainHandler(tornado.web.RequestHandler):
             role = self.get_secure_cookie('role')
             self.set_cookie('uid',user)
             self.set_cookie('type',role)
+
+            self.redirect('/manage?uid='+self.current_user)
+            return
+            '''
             if role=="80000":#studnet
                 slef.redirect('student?uid='+self.current_user)
             elif role=="80011": #teacher
                 self.redirect('manage?uid='+self.current_user)
             elif role=="80088": #administrator ,for now it is the same to 'teacher'
                 self.redirect('manage?uid='+self.current_user)
+                '''
 
 class NullHandler(tornado.web.RequestHandler):
     def get(self):
@@ -53,7 +51,9 @@ class NullHandler(tornado.web.RequestHandler):
             print f['filename'],f['content_type']
         pass
 
-class ManageHandler(tornado.web.RequestHandler):
+#class ManageHandler(tornado.web.RequestHandler):
+class ManageHandler(APISecureHandler):
+    @tornado.web.authenticated
     def get(self):
         stu = Student.instance()
         self.render("main.html") ;
@@ -88,7 +88,9 @@ class StuHandler(tornado.web.RequestHandler):
         self.write(json.dumps(params))
         print "get"
         print params
-class DownloadHandler(tornado.web.RequestHandler):
+class DownloadHandler(APISecureHandler):
+
+    @tornado.web.authenticated
     def get(self):
         self.set_header('Content-Type','application/msexcel')
         self.set_header('Content-Disposition','attachment;filename="abc.xls"')
@@ -103,7 +105,8 @@ if __name__ == "__main__":
     sys.setdefaultencoding('utf-8')
     settings = {
         "static_path": os.path.join(os.path.dirname(__file__), "static"),
-        "cookie_secret":"74deccaf0bfc574e7487f931b9c07d16=+-_"
+        "cookie_secret":"74deccaf0bfc574e7487f931b9c07d16=+-_",
+        'login_url':'/login'
         }
 
     application = tornado.web.Application([

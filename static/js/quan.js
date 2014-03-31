@@ -1,7 +1,7 @@
 
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 
 Ext.define('Quan.DetailForm', {
@@ -229,7 +229,7 @@ Ext.define('Quan.Form', {
 				margin: '0 0 5 0',
                 align:'center',
                 defaults:{
-                    margin: '0 0 5 25',
+                    margin: '0 0 5 25'
                 },
 				items: [{
 					xtype: 'button',
@@ -264,19 +264,19 @@ Ext.define('Quan.Form', {
 			//Ext.MessageBox.alert('Submitted Values', form.getValues(true));
             
             val = form.getValues() ;
-            console.log("get from form");
-            console.log(val)
-            val.class = Ext.getCmp('cbclass').getRawValue() ;
+            //console.log("get from form");
+            //console.log(val) ;
+            val['class'] = Ext.getCmp('cbclass').getRawValue() ;
             val.student = Ext.getCmp('cbname').getRawValue() ;
             val.quan_type = Ext.getCmp('cbquantype').getRawValue() ;
 /*
             dt = Ext.getCmp('quandate').getValue() ;
-            console.log(dt) ;
+            //console.log(dt) ;
             dtraw = Ext.getCmp('quandate').getRawValue() ;
-            console.log(dtraw) ;
+            //console.log(dtraw) ;
             val.quan_date = new Date(dt).toLocaleDateString() ; 
             val.quan_date = dtraw ; 
-            console.log(val.quan_date) ;
+            //console.log(val.quan_date) ;
             val.quan_score = Ext.getCmp('quanscore').getValue() ;
             val.quan_reason = Ext.getCmp('quanreason').getValue() ;
             //val.idc = ++QUAN_COUNTER ;
@@ -288,7 +288,7 @@ Ext.define('Quan.Form', {
             form.reset() ;
             
             //quangrid = Ext.getCmp('quangrid') ;
-            //console.log(quangrid.getHeight()) ;
+            ////console.log(quangrid.getHeight()) ;
 
 		}
 	}
@@ -412,7 +412,7 @@ Ext.define('Quan.Grid', {
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
-                                console.log("quan submit failure") ;
+                                //console.log("quan submit failure") ;
                             },
                             success:function(batch){
                                 Ext.MessageBox.show({
@@ -426,10 +426,10 @@ Ext.define('Quan.Grid', {
                                 //quan_info_store.loadData([],false) ;
                                 quan_info_store.load() ;
                                 //QUAN_COUNTER = 0 ;
-                                console.log("quan submit success") ;
+                                //console.log("quan submit success") ;
                             }
                         }) ; 
-                        console.log(ret) ;
+                        //console.log(ret) ;
                     }
 				}]
 			}],
@@ -528,10 +528,10 @@ Ext.define('Quan.Grid', {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
 			//this.store.remove(selection);
-			//console.log(this.store) ;
+			////console.log(this.store) ;
             var quanidc = selection.data.idc ;
-            var cname = selection.data.class;
-            //console.log(noticeidc) ;
+            var cname = selection.data['class'];
+            ////console.log(noticeidc) ;
             Ext.Ajax.request({
                 url: SERVER+'/deletequan',
                 headers: {
@@ -569,10 +569,10 @@ Ext.define('Quan.Grid', {
         //this.store.loadData([]) ;
 
         if (value != null){ 
-            console.log(value) ;
+            //console.log(value) ;
 
             var cbclass = Ext.getCmp('cbclass');
-            cbclass.setRawValue(value.class) ;
+            cbclass.setRawValue(value['class']) ;
             Ext.getCmp('cbname').setRawValue(value.student) ;
             Ext.getCmp('cbquantype').setRawValue(value.quan_type) ;
             //Ext.getCmp('quanscore').setRawValue(value.quan_score) ;
@@ -586,7 +586,7 @@ Ext.define('Quan.Grid', {
             //--QUAN_COUNTER ;
         }else {
             Ext.MessageBox.alert('提示',' 请选择需要修改的行') ;
-            console.log("the selected record is null or somthing") ;
+            //console.log("the selected record is null or somthing") ;
         }
         /**/
 	},
@@ -607,8 +607,8 @@ Ext.define('Quan.Grid', {
         var bdate = Ext.getCmp('quan.detail.bdate').getRawValue() ;
         var edate = Ext.getCmp('quan.detail.edate').getRawValue() ;
         if (bdate && edate) {
-            console.log(bdate) ;
-            console.log(edate) ;
+            //console.log(bdate) ;
+            //console.log(edate) ;
             this.store.load({
                 'params':{
                     'begin':bdate,
@@ -625,11 +625,11 @@ Ext.define('Quan.Grid', {
 					        icon: Ext.MessageBox.ERROR,
 					        buttons: Ext.Msg.OK
 			            });
-                        console.log(operation.getError()) ;
+                        //console.log(operation.getError()) ;
                         return ; 
                     }
                     if (records && records.length === 0){
-                        console.log(records) ;
+                        //console.log(records) ;
                     }
                 }
             }) ;
@@ -778,8 +778,8 @@ Ext.define('Quan.DeatilGrid', {
         var bdate = Ext.getCmp('quan.detail.bdate').getRawValue() ;
         var edate = Ext.getCmp('quan.detail.edate').getRawValue() ;
         if (bdate && edate) {
-            console.log(bdate) ;
-            console.log(edate) ;
+            //console.log(bdate) ;
+            //console.log(edate) ;
             this.store.load({
                 'params':{
                     'begin':bdate,
@@ -795,11 +795,11 @@ Ext.define('Quan.DeatilGrid', {
 					        icon: Ext.MessageBox.ERROR,
 					        buttons: Ext.Msg.OK
 			            });
-                        console.log(operation.getError()) ;
+                        //console.log(operation.getError()) ;
                         return ; 
                     }
                     if (records && records.length === 0){
-                        console.log(records) ;
+                        //console.log(records) ;
                     }
                 }
             }) ;
@@ -888,7 +888,7 @@ Ext.define('Quan.Grid.Week', {
 					//handler: this.onSync
                     id:'quangridweeksave',
                     handler:function(){
-                        console.log(ret) ;
+                        //console.log(ret) ;
                     }
 				}*/]
 			}],
@@ -997,7 +997,7 @@ Ext.define('Quan.Grid.Week', {
 	},
     onLookOverWeekQuan: function(){
         var week = Ext.getCmp('quan.grid.cb.week').getValue() ;
-        console.log('look over week quan of',week) ; 
+        //console.log('look over week quan of',week) ; 
         //quan_week_store.loadData([],false) ;
         quan_week_store.load({
             'params':{
@@ -1016,7 +1016,7 @@ Ext.define('Quan.Grid.Week', {
                     return ; 
                 }
                 if (records && records.length === 0){
-                    console.log(records) ;
+                    //console.log(records) ;
                 }
             }
         }) ;
@@ -1070,9 +1070,9 @@ Ext.define('Quan.window', {
 						/*
                         value = null
 						if (selected && selected[0]) {
-							console.log(selected[0]);
+							//console.log(selected[0]);
 							value = selected[0].raw;
-                            console.log(value) ;
+                            //console.log(value) ;
 						}
 						//Ext.getCmp('quanform').setValue(value);
                         */
@@ -1147,7 +1147,7 @@ function getQuanWin(){
 function setQuanWinShow(id,sure){
     var cmp = Ext.getCmp(id) ;
     if(cmp==null){
-        console.log('cant find the id of ext cmp') ;
+        //console.log('cant find the id of ext cmp') ;
     }
     if(sure){
         cmp.show() ;

@@ -1,11 +1,11 @@
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 
 Ext.define('Attend.NClass', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'nclass', //id
-		type: 'string',
+		type: 'string'
 	},
     {
         name:'id',
@@ -32,7 +32,7 @@ Ext.define('Attend.Type', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'type', //id
-		type: 'string',
+		type: 'string'
 	},
     {
         name:'id',
@@ -60,7 +60,7 @@ Ext.define('Attend.Info', {
     },
     {
 		name: 'student', //id
-		type: 'string',
+		type: 'string'
 	},
     {
         name:'class',
@@ -103,7 +103,7 @@ var attend_info_store = Ext.create('Ext.data.Store', {
 			successProperty: 'success',
 			root: 'data',
 			messageProperty: 'message',
-            idProperty:'id',
+            idProperty:'id'
 		},
         writer : {
 			type: 'json',
@@ -113,8 +113,8 @@ var attend_info_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });

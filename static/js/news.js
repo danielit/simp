@@ -1,6 +1,6 @@
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 Ext.define('news.Form', {
 	extend: 'Ext.form.Panel',
@@ -19,7 +19,7 @@ Ext.define('news.Form', {
             collapsible:'ture',
 			//align: 'center',
             //tpl:new Ext.XTemplate(),   
-			items: [],
+			items: []
 		});
 		this.callParent();
 	}
@@ -117,8 +117,11 @@ function setNews2Form(newsid,newstitle,formid){
                 method: 'GET',
                 success: function (response, options) {
                     newsform = Ext.getCmp(formid) ;
-                    if (newsform){
+
+                    if (newsform != null){
+                        //newsform.setHTML(response.responseText) ; 
                         //newsform.html = response.responseText ; 
+                        //newsform.doLayout() ;
                         newsform.update(response.responseText) ; 
                         newsform.setTitle(newstitle) ; 
                     }

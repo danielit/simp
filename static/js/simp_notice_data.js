@@ -1,4 +1,4 @@
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 
 Ext.define('SM.Notice', {
@@ -10,7 +10,7 @@ Ext.define('SM.Notice', {
     },
     {
 		name: 'title', //id
-		type: 'string',
+		type: 'string'
 	},
     {
         name:'author',
@@ -59,8 +59,8 @@ var sm_notice_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });

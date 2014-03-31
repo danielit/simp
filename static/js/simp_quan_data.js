@@ -1,18 +1,18 @@
 var QUAN_COUNTER = 0
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 
 Ext.define('Quan.ClassID', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'name',
-		type: 'string',
+		type: 'string'
 	},
 	{
 		name: 'id',
-		type: 'string',
+		type: 'string'
 	}]
 });
 
@@ -20,11 +20,11 @@ Ext.define('Quan.StudentID', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'name',
-		type: 'string',
+		type: 'string'
 	},
 	{
 		name: 'id',
-		type: 'string',
+		type: 'string'
 	}]
 });
 
@@ -32,11 +32,11 @@ Ext.define('Quan.Type', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'name',
-		type: 'string',
+		type: 'string'
 	},
 	{
 		name: 'id',
-		type: 'string',
+		type: 'string'
 	}]
 });
 
@@ -62,7 +62,7 @@ Ext.define('Quan.Info', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'idc',
-		type: 'string',
+		type: 'string'
 	},
     {
         //name:'classname',
@@ -82,7 +82,7 @@ Ext.define('Quan.Info', {
     {
         //name:'date',
         name:'quan_date',
-        type:'string',
+        type:'string'
     },
     {
         name:'quan_score',
@@ -101,7 +101,7 @@ Ext.define('Quan.WeekInfo', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'idc', //id
-		type: 'string',
+		type: 'string'
 	},
     'class', //class name
     'disp_score',// dicpline
@@ -125,7 +125,7 @@ Ext.define('Quan.WeekList', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'week', //id
-		type: 'string',
+		type: 'string'
 	},
     {
         name:'id',
@@ -169,7 +169,7 @@ var class_id_store = Ext.create('Ext.data.Store', {
 	proxy: {
 		type: 'ajax',
 		api: {
-			read: SERVER + '/getclassids',
+			read: SERVER + '/getclassids'
 		},
 		reader: { type: 'json',
 			successProperty: 'success',
@@ -179,10 +179,10 @@ var class_id_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                ////console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });
 
 var student_name_id_store = Ext.create('Ext.data.Store', {
@@ -193,7 +193,7 @@ var student_name_id_store = Ext.create('Ext.data.Store', {
 	proxy: {
 		type: 'ajax',
 		api: {
-			read: SERVER + '/getstunameidsonclassid',
+			read: SERVER + '/getstunameidsonclassid'
 		},
 		reader: {
 			type: 'json',
@@ -204,10 +204,10 @@ var student_name_id_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                ////console.log(operation.getError()) ;
 				}
 		}
-	},
+	}
 });
 
 var quan_type_store = Ext.create('Ext.data.Store', {
@@ -218,7 +218,7 @@ var quan_type_store = Ext.create('Ext.data.Store', {
 	proxy: {
 		type: 'ajax',
 		api: {
-			read: SERVER + '/getquantypes',
+			read: SERVER + '/getquantypes'
 		},
 		reader: {
 			type: 'json',
@@ -229,10 +229,10 @@ var quan_type_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });
 
 var quan_info_store = Ext.create('Ext.data.Store', {
@@ -255,7 +255,7 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 			successProperty: 'success',
 			root: 'quan',
 			messageProperty: 'message',
-            idProperty:'id',
+            idProperty:'id'
 		},
         writer : {
 			type: 'json',
@@ -266,10 +266,10 @@ var quan_info_store = Ext.create('Ext.data.Store', {
 
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                ////console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });
 
 var quan_detail_store = Ext.create('Ext.data.Store', {
@@ -291,7 +291,7 @@ var quan_detail_store = Ext.create('Ext.data.Store', {
 			successProperty: 'success',
 			root: 'quan',
 			messageProperty: 'message',
-            idProperty:'id',
+            idProperty:'id'
 		},
         writer : {
 			type: 'json',
@@ -302,10 +302,10 @@ var quan_detail_store = Ext.create('Ext.data.Store', {
 
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });
 
 
@@ -317,7 +317,7 @@ var quan_week_store = Ext.create('Ext.data.Store', {
 	proxy: {
 		type: 'ajax',
 		api: {
-			read: SERVER + '/getclassquanofweek',
+			read: SERVER + '/getclassquanofweek'
 		},
 		reader: {
 			type: 'json',
@@ -328,8 +328,8 @@ var quan_week_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                //console.log(operation.getError()) ;
+                ////console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });

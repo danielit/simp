@@ -1,6 +1,6 @@
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 
 Ext.define('notice.Form', {
@@ -114,7 +114,7 @@ Ext.define('notice.Form', {
 				margin: '0 0 5 0',
                 align:'center',
                 defaults:{
-                    margin: '0 0 5 25',
+                    margin: '0 0 5 25'
                 },
 				items: [{
 					xtype: 'button',
@@ -152,7 +152,7 @@ Ext.define('notice.Form', {
            
             //notice_info_store.loadData([val]) ;
             sm_notice_store.add([val]) ;
-            console.log(val) ;
+            //console.log(val) ;
             form.reset() ;
 		}
 	}
@@ -292,7 +292,7 @@ Ext.define('notice.Grid', {
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
-                                console.log("notice submit failure") ;
+                                //console.log("notice submit failure") ;
                             },
                             success:function(batch){
                                 Ext.MessageBox.show({
@@ -305,10 +305,10 @@ Ext.define('notice.Grid', {
                                 sm_notice_store.loadData([],false) ;
                                 sm_notice_store.load() ;
                                 //notice_COUNTER = 0 ;
-                                console.log("notice submit success") ;
+                                //console.log("notice submit success") ;
                             }
                         }) ; 
-                        console.log(ret) ;
+                        //console.log(ret) ;
                     }
 				}]
 			}],
@@ -419,11 +419,11 @@ Ext.define('notice.Grid', {
 					        icon: Ext.MessageBox.ERROR,
 					        buttons: Ext.Msg.OK
 			            });
-                        console.log(operation.getError()) ;
+                        //console.log(operation.getError()) ;
                         return ; 
                     }
                     if (records && records.length === 0){
-                        console.log(records) ;
+                        //console.log(records) ;
                     }
                 }
             }) ;
@@ -443,9 +443,9 @@ Ext.define('notice.Grid', {
 	onDeleteClick: function() {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
-			//console.log(this.store) ;
+			////console.log(this.store) ;
             var noticeidc = selection.data.idc ;
-            console.log(noticeidc) ;
+            //console.log(noticeidc) ;
             Ext.Ajax.request({
                 url: SERVER+'/deletenotice',
                 headers: {
@@ -477,8 +477,8 @@ Ext.define('notice.Grid', {
         if (selected){
             value = selected.raw ;
         }
-        console.log(value) ;
-        console.log(selected) ;
+        ////console.log(value) ;
+        ////console.log(selected) ;
         //Ext.getCmp('noticeform').loadRecord(value);
         Ext.getCmp('noticeform').loadRecord(selected);
         this.store.remove(selected) ;

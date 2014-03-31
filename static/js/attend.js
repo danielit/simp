@@ -1,6 +1,6 @@
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model']);
 
 var ATTEND_COUNTER = 0 ;
 
@@ -171,7 +171,7 @@ Ext.define('Attend.Form', {
 				margin: '0 0 5 0',
                 align:'center',
                 defaults:{
-                    margin: '0 0 5 25',
+                    margin: '0 0 5 25'
                 },
 				items: [{
 					xtype: 'button',
@@ -205,9 +205,9 @@ Ext.define('Attend.Form', {
 		if (form.isValid()) {
             
             val = form.getValues() ;
-            console.log("get from form");
-            console.log(val);
-            val.class = Ext.getCmp('attendform.class').getRawValue() ;
+            //console.log("get from form");
+            //console.log(val);
+            val['class'] = Ext.getCmp('attendform.class').getRawValue() ;
             val.student = Ext.getCmp('attendform.name').getRawValue() ;
            
             //attend_info_store.loadData([val]) ;
@@ -350,7 +350,7 @@ Ext.define('Attend.Grid', {
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
-                                console.log("attend submit failure") ;
+                                //console.log("attend submit failure") ;
                             },
                             success:function(batch){
                                 Ext.MessageBox.show({
@@ -363,10 +363,10 @@ Ext.define('Attend.Grid', {
                                 //attend_info_store.loadData([],false) ;
                                 attend_info_store.load() ;
                                 ATTEND_COUNTER = 0 ;
-                                console.log("attend submit success") ;
+                                //console.log("attend submit success") ;
                             }
                         }) ; 
-                        console.log(ret) ;
+                        //console.log(ret) ;
                     }
 				}]
 			}],
@@ -468,9 +468,9 @@ Ext.define('Attend.Grid', {
         if (cid=='0'){
             cname='' ;
         }
-            console.log(cname) ;
-            console.log(bdate) ;
-            console.log(edate) ;
+            //console.log(cname) ;
+            //console.log(bdate) ;
+            //console.log(edate) ;
             this.store.load({
                 'params':{
                     'page':1,
@@ -490,11 +490,11 @@ Ext.define('Attend.Grid', {
 					        icon: Ext.MessageBox.ERROR,
 					        buttons: Ext.Msg.OK
 			            });
-                        console.log(operation.getError()) ;
+                        //console.log(operation.getError()) ;
                         return ; 
                     }
                     if (records && records.length === 0){
-                        console.log(records) ;
+                        //console.log(records) ;
                     }
                 }
             }) ;
@@ -514,11 +514,11 @@ Ext.define('Attend.Grid', {
 	onDeleteClick: function() {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
-			//console.log(this.store) ;
+			////console.log(this.store) ;
 			//this.store.remove(selection);
             var attendidc = selection.data.idc ;
             var attenddate = selection.data.date ;
-            //console.log(noticeidc) ;
+            ////console.log(noticeidc) ;
             Ext.Ajax.request({
                 url: SERVER+'/deleteattend',
                 headers: {
@@ -553,10 +553,10 @@ Ext.define('Attend.Grid', {
         if (selected){
             value = selected.raw ;
         }
-        console.log(value) ;
-        console.log(selected) ;
+        //console.log(value) ;
+        //console.log(selected) ;
         Ext.getCmp('attendform').loadRecord(selected);
-        Ext.getCmp('attendform.class').setRawValue(value.class) ;
+        Ext.getCmp('attendform.class').setRawValue(value['class']) ;
         Ext.getCmp('attendform.name').setRawValue(value.student) ;
         //this.store.remove(selected) ;
         this.store.loadData([]) ;
@@ -672,7 +672,7 @@ function getAttendWin(){
 function setAttendWinShow(id,sure){
     var cmp = Ext.getCmp(id) ;
     if(cmp==null){
-        console.log('cant find the id of ext cmp') ;
+        //console.log('cant find the id of ext cmp') ;
     }
     if(sure){
         cmp.show() ;

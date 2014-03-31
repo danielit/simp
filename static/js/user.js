@@ -1,6 +1,6 @@
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 
 Ext.define('user.Form', {
@@ -105,7 +105,7 @@ Ext.define('user.Form', {
 				margin: '20 0 5 0',
                 align:'center',
                 defaults:{
-                    margin: '0 0 10 25',
+                    margin: '0 0 10 25'
                 },
 				items: [{
 					xtype: 'button',
@@ -144,7 +144,7 @@ Ext.define('user.Form', {
             
             val.role = Ext.getCmp('userform.role').getRawValue() ;
             sm_user_store.add([val]) ;
-            console.log(val) ;
+            //console.log(val) ;
             form.reset() ;
 		}
 	}
@@ -281,7 +281,7 @@ Ext.define('user.Grid', {
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
-                                console.log("user submit failure") ;
+                                //console.log("user submit failure") ;
                             },
                             success:function(batch){
                                 Ext.MessageBox.show({
@@ -294,10 +294,10 @@ Ext.define('user.Grid', {
                                 sm_user_store.loadData([],false) ;
                                 sm_user_store.load() ;
                                 //user_COUNTER = 0 ;
-                                console.log("user submit success") ;
+                                //console.log("user submit success") ;
                             }
                         }) ; 
-                        console.log(ret) ;
+                        //console.log(ret) ;
                     }
 				}]
 			}],
@@ -391,11 +391,11 @@ Ext.define('user.Grid', {
 					        icon: Ext.MessageBox.ERROR,
 					        buttons: Ext.Msg.OK
 			            });
-                        console.log(operation.getError()) ;
+                        //console.log(operation.getError()) ;
                         return ; 
                     }
                     if (records && records.length === 0){
-                        console.log(records) ;
+                        //console.log(records) ;
                     }
                 }
             }) ;
@@ -415,11 +415,11 @@ Ext.define('user.Grid', {
 	onDeleteClick: function() {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
-			//console.log(this.store) ;
+			////console.log(this.store) ;
 			//this.store.remove(selection);
             var idc = selection.data.idc ;
             var user = selection.data.user;
-            //console.log(noticeidc) ;
+            ////console.log(noticeidc) ;
             Ext.Ajax.request({
                 url: SERVER+'/deleteuser',
                 headers: {
@@ -448,12 +448,12 @@ Ext.define('user.Grid', {
         
         var selected = Ext.getCmp('usergrid').getSelectionModel().getSelection()[0];
         if (selected) {
-            console.log(selected) ;
+            //console.log(selected) ;
             Ext.getCmp('userform').loadRecord(selected);
             this.store.remove(selected) ;
             this.store.loadData([]) ;
         } else {
-            console.log('selected row is none') ;
+            //console.log('selected row is none') ;
             /*
             Ext.MessageBox.show({
                 title: '提',

@@ -1,6 +1,6 @@
 Ext.Loader.setPath('Ext.ux', './static/extjs/examples/ux');
 
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model', ]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.container.Container', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model' ]);
 
 
 Ext.define('Sit.Form', {
@@ -307,7 +307,7 @@ Ext.define('Sit.Form', {
 				margin: '0 0 5 0',
                 align:'center',
                 defaults:{
-                    margin: '0 0 5 25',
+                    margin: '0 0 5 25'
                 },
 				items: [{
 					xtype: 'button',
@@ -341,10 +341,10 @@ Ext.define('Sit.Form', {
 		if (form.isValid()) {
             
             val = form.getValues() ;
-            console.log("get from form");
-            console.log(val);
-            val.class = Ext.getCmp('sitform.class').getRawValue() ;
-            val.status = Ext.getCmp('sitform.status').getRawValue() ;
+            //console.log("get from form");
+            //console.log(val);
+            val['class'] = Ext.getCmp('sitform.class').getRawValue() ;
+            val['status'] = Ext.getCmp('sitform.status').getRawValue() ;
             val.gender = Ext.getCmp('sitform.gender').getRawValue() ;
             val.type = Ext.getCmp('sitform.type').getRawValue() ;
             //val.student = Ext.getCmp('sitform.name').getRawValue() ;
@@ -355,7 +355,7 @@ Ext.define('Sit.Form', {
             stu_info_store.add([val]) ;
             form.reset() ;
 		}else {
-            console.log('form is not valid') ;
+            //console.log('form is not valid') ;
         }
 	}
 });
@@ -491,7 +491,7 @@ Ext.define('Sit.Grid', {
 					                icon: Ext.MessageBox.ERROR,
 					                buttons: Ext.Msg.OK
 			                    });
-                                console.log("sit submit failure") ;
+                                //console.log("sit submit failure") ;
                             },
                             success:function(batch){
                                 Ext.MessageBox.show({
@@ -506,7 +506,7 @@ Ext.define('Sit.Grid', {
                                 stu_info_store.load() ;
                             }
                         }) ; 
-                        console.log(ret) ;
+                        //console.log(ret) ;
                     }
 				}]
 			}],
@@ -530,7 +530,7 @@ Ext.define('Sit.Grid', {
                 algin:'center',
                 width:60,
 				//flex: 1,
-				sortable: true,
+				sortable: 'true',
 				//dataIndex: 'classname',
 				dataIndex: 'name',
 				field: {
@@ -738,11 +738,11 @@ Ext.define('Sit.Grid', {
 					        icon: Ext.MessageBox.ERROR,
 					        buttons: Ext.Msg.OK
 			            });
-                        console.log(operation.getError()) ;
+                        //console.log(operation.getError()) ;
                         return ; 
                     }
                     if (records && records.length === 0){
-                        console.log(records) ;
+                        //console.log(records) ;
                     }
                 }
             }) ;
@@ -762,11 +762,11 @@ Ext.define('Sit.Grid', {
 	onDeleteClick: function() {
 		var selections = this.getView().getSelectionModel().getSelection();
 		Ext.Array.forEach(selections, function(selection, index) {
-			//console.log(this.store) ;
+			////console.log(this.store) ;
 			//this.store.remove(selection);
             var stuidc = selection.data.idc ;
             var stuid = selection.data.stuid ;
-            //console.log(noticeidc) ;
+            ////console.log(noticeidc) ;
             Ext.Ajax.request({
                 url: SERVER+'/deletestu',
                 headers: {
@@ -799,14 +799,14 @@ Ext.define('Sit.Grid', {
         if (selected){
             value = selected.raw ;
         }
-        console.log(value) ;
-        console.log(selected) ;
+        //console.log(value) ;
+        //console.log(selected) ;
         //Ext.getCmp('sitform').loadRecord(value);
         Ext.getCmp('sitform').loadRecord(selected);
         
-        Ext.getCmp('sitform.class').setRawValue(value.class) ;
+        Ext.getCmp('sitform.class').setRawValue(value['class']) ;
         //Ext.getCmp('sitform.name').setRawValue(value.student) ;
-        Ext.getCmp('sitform.status').setRawValue(value.status) ;
+        Ext.getCmp('sitform.status').setRawValue(value['status']) ;
         Ext.getCmp('sitform.gender').setRawValue(value.gender) ;
         //Ext.getCmp('sitform.teacher').setRawValue(value.teacher) ;
         Ext.getCmp('sitform.type').setRawValue(value.type) ;
@@ -885,7 +885,7 @@ function getsitWin(){
 function setsitWinShow(id,sure){
     var cmp = Ext.getCmp(id) ;
     if(cmp==null){
-        console.log('cant find the id of ext cmp') ;
+        //console.log('cant find the id of ext cmp') ;
     }
     if(sure){
         cmp.show() ;

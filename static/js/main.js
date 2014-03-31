@@ -1,5 +1,4 @@
-Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model',
-]);
+Ext.require(['Ext.grid.Panel', 'Ext.grid.*', 'Ext.window.Window', 'Ext.container.Viewport', 'Ext.layout.container.Border', 'Ext.state.*', 'Ext.data.*', 'Ext.tab.*', 'Ext.util.*', 'Ext.toolbar.Paging', 'Ext.String.*', 'Ext.selection.Model']);
 
 //this tab panel is for the center 
 var mgrTabpanel = Ext.create('Ext.tab.Panel', {
@@ -12,7 +11,6 @@ var mgrTabpanel = Ext.create('Ext.tab.Panel', {
 		bodyPadding: 10
 	}
 });
-
 
 /*
  * add tab to a tabpanel
@@ -156,7 +154,7 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 	listeners: {
 		itemclick: {
 			fn: treeItemClick
-		},
+		}
 	},
 	root: {
 		id: 'stuMangeRoot',
@@ -227,7 +225,7 @@ var mgrStuInfoTree = Ext.create('Ext.tree.Panel', {
 	listeners: {
 		itemclick: {
 			fn: treeItemClick
-		},
+		}
 	},
 	root: {
 		id: 'stuInfoRoot',
@@ -265,7 +263,7 @@ var mgrSysTree= Ext.create('Ext.tree.Panel', {
 	listeners: {
 		itemclick: {
 			fn: treeItemClick
-		},
+		}
 	},
 	root: {
 		id: 'sysMangeRoot',
@@ -311,7 +309,7 @@ var mgrQuitTree= Ext.create('Ext.tree.Panel', {
 	listeners: {
 		itemclick: {
 			fn: treeItemClick
-		},
+		}
 	},
 	root: {
 		id: 'sysQuitRoot',
@@ -340,7 +338,7 @@ Ext.onReady(function() {
 			height: 130,
 			bodyPadding: 0,
 			split: false,
-			html: ['<img src=static/pic/main5.jpg width=1600 height=150 />', ''].join(''),
+			html: ['<img src=static/pic/main5.jpg width=1600 height=150 />', ''].join('')
 		},
 		{
 			title: '工具栏',
@@ -365,14 +363,12 @@ Ext.onReady(function() {
 			items: [mgrTabpanel]
 		}]
 	});
-    setNewsOnFirstPage() ;
+    //setNewsOnFirstPage() ;
 // show the new list 
     // show the news content of the first one on the list
-    /*
     var newsWin = getnewsWin() ;
     add2tabpanel(mgrTabpanel,newsWin) ;
     news_list_store.load() ;
     setNews2Form('','','newsform') ;
-    */
 });
 

@@ -47,7 +47,7 @@ var ss_statics_store = Ext.create('Ext.data.Store', {
 		type: 'ajax',
 
 		api: {
-			read: SERVER + '/getstudentstatics',
+			read: SERVER + '/getstudentstatics'
 		},
 		reader: {
 			type: 'json',
@@ -57,7 +57,7 @@ var ss_statics_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		} 
 	},*/

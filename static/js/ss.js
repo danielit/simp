@@ -257,7 +257,7 @@ Ext.define('SS.Grid.SSS', {
 	},
     onLookOverWeekQuan: function(){
         var week = Ext.getCmp('quan.grid.cb.week').getValue() ;
-        console.log('look over week quan of',week) ; 
+        //console.log('look over week quan of',week) ; 
         //quan_week_store.loadData([],false) ;
         quan_week_store.load({
             'params':{
@@ -276,7 +276,7 @@ Ext.define('SS.Grid.SSS', {
                     return ; 
                 }
                 if (records && records.length === 0){
-                    console.log(records) ;
+                    //console.log(records) ;
                 }
             }
         }) ;
@@ -330,7 +330,7 @@ function getSSWin(){
 function setWinShow(id,sure){
     var cmp = Ext.getCmp(id) ;
     if(cmp==null){
-        console.log('id:'+id +' cant find the id of ext cmp') ;
+        //console.log('id:'+id +' cant find the id of ext cmp') ;
         return ;
     }
     if(sure){

@@ -3,7 +3,7 @@ Ext.define('Sit.StuInfo', {
 	extend: 'Ext.data.Model',
 	fields: [{
 		name: 'idc', //id
-		type: 'string',
+		type: 'string'
 	},
     'name', //name
     'stuid',
@@ -50,10 +50,10 @@ var stu_info_store = Ext.create('Ext.data.Store', {
 
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });
 
 Ext.define('Sit.ClassList', {
@@ -81,10 +81,10 @@ var class_list_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });
 
 Ext.define('Sit.Gender', {
@@ -151,10 +151,10 @@ var sit_teacher_store = Ext.create('Ext.data.Store', {
 		},
 		listeners: {
 			exception: function(proxy, response, operation) {
-                console.log(operation.getError()) ;
+                //console.log(operation.getError()) ;
 			}
 		}
-	},
+	}
 });
 
 Ext.define('Sit.Status', {

@@ -39,24 +39,31 @@ class RequestHandler(BaseHandler):
 class APISecureHandler(BaseHandler):
 
     def get_current_user(self):
+        return self.get_secure_cookie("user")
+        '''
         rem = self.get_secure_cookie("remb")
         user = self.get_secure_cookie("user")
         if rem=='0' or rem==None:
             return None
         elif rem=='1' :
             return user
+        '''
 
 
 
 class APIHandler(BaseHandler):
 
     def get_current_user(self):
+        return self.get_secure_cookie("user")
+
+        '''
         rem = self.get_secure_cookie("remb")
         user = self.get_secure_cookie("user")
         if rem=='0' or rem==None:
             return None
         elif rem=='1' :
             return user
+       '''
 
     def finish(self, key=None,chunk=None, notification=None,success=True,total=0):
         if chunk is None:

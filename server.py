@@ -12,6 +12,7 @@ from student.student import Student
 from student.student_handler import *
 
 
+
 class MainHandler(APISecureHandler):
 
     def get(self):
@@ -111,7 +112,7 @@ if __name__ == "__main__":
 
     application = tornado.web.Application([
         (r"/",MainHandler,),
-        (r"/upload",NullHandler),
+        (r"/upload",UploadFileHandler),
         (r"/login",LoginHandler),
         (r"/manage",ManageHandler),
         (r"/grid",GridHandler),

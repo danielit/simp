@@ -16,6 +16,8 @@ from student import Student
 from student_config import firstDayOfTerm as firstDayTerm
 from news_template import NEWS_TEMPLATE
 
+from uploadfiles import *
+
 from tornado.escape import json_encode
 # constant definitions
 
@@ -977,6 +979,17 @@ class DeleteNoticeHandler(APIHandler):
 
     def post(self):
         pass
+
+class UploadFileHandler(APISecureHandler):
+    def get(self):
+        self.render('../upload.html')
+        pass
+
+    def post(self):
+        stu = Student.instance()
+        fileMetas = self.request.files['file']
+        ret = uploadFiles(fileMetas,logger=stu.logger)
+        return
 
 
 def main():

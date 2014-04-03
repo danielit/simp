@@ -396,6 +396,15 @@ class Student(object):
     def setQuanIdOnName(self,qname,qid):
         return self.redis.hset(TABLE_QUANNAME2ID,unicode(qname),unicode(qid))
 
+    def setQuanNameOnId(self,qname,qid):
+        return self.redis.hset(TABLE_QUANID2NAME,unicode(qname),unicode(qid))
+
+    def getQuanNameOnId(self,qid):
+        qid = unicode(qid)
+        if self.redis.hexists(TABLE_QUANID2NAME,qid):
+            return int(self.redis.hget(TABLE_QUANID2NAME,qid))
+        return 0
+
     def getClassIdOnName(self,cname):
         cname = unicode(cname)
         if self.redis.hexists(TABLE_CLASSNAME2ID,cname):

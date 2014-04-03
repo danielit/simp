@@ -16,8 +16,11 @@ def initClass():
         ci={}
         ci['id'] = c['id']
         ci['name'] = c['name']
-        ci['teacher']=''
-        ci['stuids']=[]
+        ci['teacher']='' #head teacher
+        ci['telephone']='' # teacher's phone number
+        ci['master']='' # master of the class
+        ci['mphone'] ='' # master 's phone
+        ci['stuids']=[] # all stu id
         stu.setClassInfo(c['id'],ci)
 
 def setStuInfo2Class():

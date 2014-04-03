@@ -30,6 +30,9 @@ def load2Redis(fileName):
                 stuinfo['class'] = info[10]
                 stuinfo['teacher'] = info[11]
                 stuinfo['field'] = info[12]
+
+                stuinfo['telephone'] = ''
+                stuinfo['status'] = ''
             else:
                 continue
 

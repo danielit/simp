@@ -116,19 +116,30 @@ function setNews2Form(newsid,newstitle,formid){
                 params: { 'id': newsid},
                 method: 'GET',
                 success: function (response, options) {
-                    newsform = Ext.getCmp(formid) ;
 
+                    newsform = Ext.getCmp(formid) ;
                     if (newsform != null){
                         //newsform.setHTML(response.responseText) ; 
                         //newsform.html = response.responseText ; 
                         //newsform.doLayout() ;
-                        newsform.update(response.responseText) ; 
+                        //if (newsform.body.update){
+                        newsform.body.update(response.responseText) ; 
+                            //newsform.innerHTML = response.responseText ; 
+                        //}else{
+
+                            //getElementById(formid).innerHTML = response.responseText ;
+                            //newsform.innerHTML = response.responseText ;
+                            //newsform.doLayout() ;
+                        //}
+                        newsform.body.update(response.responseText) ; 
                         newsform.setTitle(newstitle) ; 
+                    //}else{
+                    //    getElementById(formid).innerHTML = response.responseText ;
                     }
                     //Ext.MessageBox.alert('成功', '从服务端获取结果: ' + response.responseText);
                 },
                 failure: function (response, options) {
-                    Ext.MessageBox.alert('失败', '请求超时或网络故障,错误编号：' + response.status);
+                    Ext.MessageBox.alert('失败', '请求超时或网络故障');
                 }
             });
 }

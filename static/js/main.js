@@ -363,12 +363,14 @@ Ext.onReady(function() {
 			items: [mgrTabpanel]
 		}]
 	});
-    //setNewsOnFirstPage() ;
+    setNewsOnFirstPage() ;
 // show the new list 
     // show the news content of the first one on the list
+    /*
     var newsWin = getnewsWin() ;
     add2tabpanel(mgrTabpanel,newsWin) ;
     news_list_store.load() ;
     setNews2Form('','','newsform') ;
+    */
 });
 

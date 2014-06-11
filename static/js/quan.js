@@ -282,7 +282,7 @@ Ext.define('Quan.Form', {
             //val.idc = ++QUAN_COUNTER ;
             
 */
-            quan_info_store.loadData([]) ;
+            //quan_info_store.loadData([]) ;
             quan_info_store.add([val]) ;
 
             form.reset() ;

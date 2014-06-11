@@ -51,7 +51,7 @@ Ext.define('SS.Grid.SSS', {
 				text: '班级',
                 style:{textAlign:'center'},
                 algin:'center',
-                width:60,
+                width:160,
 				//flex: 1,
 				sortable: true,
 				//dataIndex: 'classname',
@@ -77,11 +77,24 @@ Ext.define('SS.Grid.SSS', {
 				text: '应到人数',
                 style:{textAlign:'center'},
                 algin:'center',
-                width:55,
+                width:60,
 				//flex: 1,
 				sortable: true,
 				//dataIndex: 'classname',
 				dataIndex: 'total',
+				field: {
+					type: 'int'
+				}
+			},
+            {
+				text: '实到人数',
+                style:{textAlign:'center'},
+                algin:'center',
+                width:60,
+				//flex: 1,
+				sortable: true,
+				//dataIndex: 'classname',
+				dataIndex: 'total_in_real',
 				field: {
 					type: 'int'
 				}
@@ -235,11 +248,21 @@ Ext.define('SS.Grid.SSS', {
 					type: 'int'
 				}
 			},
+           /* {
+				text: '考勤信息',
+                style:{textAlign:'center'},
+                algin:'center',
+				width: 200,
+				sortable: true,
+				menuDisabled: false,
+				//dataIndex: 'quanreason',
+				dataIndex: 'attend_info'
+			},*/
             {
 				text: '备注',
                 style:{textAlign:'center'},
                 algin:'center',
-				width: 160,
+				width: 200,
 				sortable: true,
 				menuDisabled: false,
 				//dataIndex: 'quanreason',

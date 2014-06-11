@@ -8,18 +8,52 @@ import logging
 import logging.handlers
 import json
 import tornado
+import xlwt
 
 from datetime import *
 
 from handler import APIHandler,APISecureHandler
 from student import Student
 from student_config import firstDayOfTerm as firstDayTerm
+from student_config import studentStatics
+from student_config import init_statics
+from student_config import comp_statics
+from student_config import cstuinfo,cattendinfo,cquaninfo,cquanweekinfo
+
 from news_template import NEWS_TEMPLATE
 
 from uploadfiles import *
 
 from tornado.escape import json_encode
 # constant definitions
+def genxls(filename,cols,data):
+    if data!=None  and len(cols)<=len(data[0]) :
+        try:
+            if os.path.exists(filename):
+                os.remove(filename)
+                print 'remove %s success' % filename
+            wb = xlwt.Workbook() # a new workbook
+            s1 = wb.add_sheet('sheet1',cell_overwrite_ok=True) # a new sheet which named 'sheet1'
+            cns = []
+            for c in cols:
+                if data[0].has_key(c):
+                    cns.append(c)
+            for i in range(0,len(cns)):
+                s1.write(0,i,cns[i]) # write the title at the first line
+
+            rnum = len(data)
+            cnum = len(cns)
+            for i in range(0,rnum):
+                for j in range(0,cnum):
+                    s1.write(i+1,j,data[i][cns[j]])
+
+            wb.save(filename)
+        except Exception,e:
+            print e
+            return False
+        return True
+    else:
+        return False
 
 def doPage(obj,ret) :
     page = int(obj.get_argument('page',0))
@@ -56,17 +90,19 @@ def getQuanInfoBetween(begin,end):
     for qi in qinfos:
         date = datetime.strptime(str(qi['quan_date']),'%Y/%m/%d')
         if begin<= date and end>= date:
-            stu.logger.info(qi['quan_date'])
+            stu.logger.info('quaninfo:'+str(qi))
             try:
                 qi['student'] = stu.getStuNameOnId(qi['student'])
-                qi['quan_type'] = stu.getQuanNameOnId(qi['quan_type'])
+                qi['quan_type']= stu.getQuanNameOnId(qi['quan_type'])
                 qi['class'] = stu.getClassNameOnId(qi['class'])
+                stu.logger.info('qinfo : %s' % str(qi))
             except Exception,e:
                 stu.logger.error(e)
                 continue
 
             ret.append(qi)
     return ret
+
 class SetStuInfoHandler(APIHandler):
     def get(self):
         pass
@@ -130,7 +166,7 @@ class GetAllStuInfoHandler(APIHandler):
         try:
             stu = Student.instance()
             classid = self.get_argument('cid',u'0')
-
+            stu.logger.info('get all stuinfo handler cid: %s' % classid)
             ret = stu.getAllStuInfo()
 
             cid2cname = {}
@@ -144,7 +180,9 @@ class GetAllStuInfoHandler(APIHandler):
                     try:
                         if cid.isdigit() :
                             cid2cname[cid] = stu.getClassNameOnId(cid)
+                            stu.logger.info('get class name on id: %s, and name is %s' % (cid,cid2cname[cid]))
                         else:
+                            stu.logger.info('class id  and name is the same %s' % cid)
                             cid2cname[cid] = cid
                     except Exception,e:
                         stu.logger.error('cid is not correct ,cid:'+cid)
@@ -154,6 +192,12 @@ class GetAllStuInfoHandler(APIHandler):
                 r['class'] = cid2cname[cid]
                 stuinfo.append(r)
 
+
+            ret = genxls(r'/opt/simp/static/downloads/stuinfo.xls',cstuinfo,stuinfo)
+            if ret:
+                stu.logger.info('generate xls file success')
+            else:
+                stu.logger.error('generate xls file failed')
             total = len(stuinfo)
             stuinfo = doPage(self,stuinfo)
 
@@ -259,6 +303,14 @@ class GetQuanInfosHandler(APIHandler):
             end = datetime.strptime(end,'%Y/%m/%d')
 
         ret = getQuanInfoBetween(begin,end)
+
+        #generate xls
+        r = genxls(r'/opt/simp/static/downloads/quaninfo.xls',cquaninfo,ret)
+        if r:
+            stu.logger.info('generate xls file success')
+        else:
+            stu.logger.error('generate xls file failed')
+
 
         total = len(ret)
         ret = doPage(self,ret)
@@ -534,6 +586,14 @@ class GetQuanSummaryOfWeekHandler(APIHandler):
         for line in sTable.values():
             qWeekInfos.append(line)
 
+        #generate xls
+        r = genxls(r'/opt/simp/static/downloads/quanweekinfo.xls',cquanweekinfo,qWeekInfos)
+        if r:
+            stu.logger.info('generate xls file success')
+        else:
+            stu.logger.error('generate xls file failed')
+
+
         total = len(qWeekInfos)
         qWeekInfos = doPage(self,qWeekInfos)
 
@@ -602,6 +662,12 @@ class GetAttendInfoHandler(APIHandler):
                 for ai in attendInfos :
                     if cname == ai['class']:
                         ret.append(ai)
+            #generate xls
+            r = genxls(r'/opt/simp/static/downloads/attendinfo.xls',cattendinfo,ret)
+            if r:
+                stu.logger.info('generate xls file success')
+            else:
+                stu.logger.error('generate xls file failed')
 
             total = len(ret)
             ret = doPage(self,ret)
@@ -980,6 +1046,50 @@ class DeleteNoticeHandler(APIHandler):
     def post(self):
         pass
 
+class GetStudentStaticsHandler(APIHandler):
+    @tornado.web.authenticated
+    def get(self):
+        try:
+            stu = Student.instance()
+
+            day = datetime.today()
+            day = day.strftime('%Y/%m/%d')
+            ais = stu.getAttendInfo(day)
+            ss = init_statics(studentStatics)
+            for ai in ais:
+                ai = json.loads(ai)
+                cid = stu.getClassIdOnName(ai['class'])
+                stu.logger.info(cid)
+                if cid.isdigit():
+                    cid = int(cid)
+                else:
+                    stu.logger.error('cid should be a number')
+                    return
+                if ss.has_key(cid):
+                    stu.logger.info('ss has key %d' % cid)
+                    ss[cid]['total_in_real'] -= 1
+                    ps = ";%s %s %s %s" % (ai['student'],ai['nclass'],ai['type'],ai['ps'])
+                    stu.logger.info(ps)
+                    ss[cid]['ps'] += ps
+                else:
+                    stu.logger.warning('ss do not has key %d' % cid)
+            ss = comp_statics(ss)
+            ret = []
+            for key in ss:
+                if key=='total':
+                    continue
+                ret.append(ss[key])
+            ret.append(ss['total'])
+
+            self.finish('data',ret,total=len(ret))
+
+        except Exception,e:
+            stu.logger.error(e)
+            self.finish(success=False)
+            return
+
+
+        pass
 class UploadFileHandler(APISecureHandler):
     def get(self):
         self.render('../upload.html')

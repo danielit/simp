@@ -5,6 +5,7 @@ Ext.define('SS.StuStatusStatics', {
     'class', //class nam
     'teacher',//班主任
     'total',//应到人数
+    'total_in_real',//应到人数
     'total_in_record',//原有在籍
     'out_school',//不再校
     'in_boy',//在校男
@@ -28,7 +29,7 @@ Ext.define('SS.StuStatusStatics', {
 var ss_statics_store = Ext.create('Ext.data.Store', {
     model:'SS.StuStatusStatics',
 	//autoLoad: false,
-    data:[
+    /*data:[
 {'class':'12计一','teacher':'胡向颖','total':'27','total_in_record':'27','out_school':'3','in_boy':'22','in_girl':'5','in':'24','live_boy':'0','live_girl':'0','live':'20','home':'4','longvaca':'0','quitschool':'0','pre':'4','32':'0','gj':'1','solider':'2','special':'1','ps':'预科：（徐象梅、纪康、马艳鹏、李宗超）当兵：陈朋、张志远  特殊情况：张培'}, {'class':'12计二','teacher':'张峰连','total':'34','total_in_record':'36','out_school':'8','in_boy':'0','in_girl':'0','in':'13','live_boy':'0','live_girl':'0','live':'6','home':'7','longvaca':'0','quitschool':'2','pre':'0','32':'0','gj':'0','solider':'0','special':'0','ps':'0'}, {'class':'12电信','teacher':'林宏伟','total':'11','total_in_record':'11','out_school':'1','in_boy':'8','in_girl':'3','in':'9','live_boy':'8','live_girl':'3','live':'9','home':'0','longvaca':'0','quitschool':'0','pre':'0','32':'0','gj':'0','solider':'1','special':'0','ps':'当兵：姜坤'}, {'class':'12物流','teacher':'马培幸','total':'16','total_in_record':'16','out_school':'','in_boy':'0','in_girl':'0','in':'16','live_boy':'0','live_girl':'0','live':'15','home':'1','longvaca':'0','quitschool':'0','pre':'1','32':'0','gj':'0','solider':'0','special':'0','ps':'预科：徐硕'},
 {'class':'12图像','teacher':'雷利香','total':'11','total_in_record':'11','out_school':'2','in_boy':'0','in_girl':'0','in':'9','live_boy':'0','live_girl':'0','live':'7','home':'2','longvaca':'2','quitschool':'0','pre':'','32':'0','gj':'0','solider':'0','special':'0','ps':'请长假：（罗茜、巩思雨）'},
 {'class':'12艺术','teacher':'张  涛','total':'7','total_in_record':'7','out_school':'0','in_boy':'0','in_girl':'0','in':'7','live_boy':'0','live_girl':'0','live':'7','home':'0','longvaca':'0','quitschool':'0','pre':'1','32':'0','gj':'0','solider':'0','special':'0','ps':'0'},
@@ -42,8 +43,8 @@ var ss_statics_store = Ext.create('Ext.data.Store', {
 {'class':'13图像','teacher':'宋元鹏','total':'18','total_in_record':'18','out_school':'2','in_boy':'5','in_girl':'11','in':'16','live_boy':'4','live_girl':'8','live':'12','home':'4','longvaca':'0','quitschool':'0','pre':'2','32':'7','gj':'0','solider':'0','special':'2','ps':'0'},
 {'class':'13电信','teacher':'甘信强','total':'7','total_in_record':'7','out_school':'0','in_boy':'6','in_girl':'1','in':'7','live_boy':'6','live_girl':'1','live':'7','home':'0','longvaca':'0','quitschool':'0','pre':'3','32':'0','gj':'0','solider':'0','special':'0','ps':'0'},
 {'class':'合计','teacher':'','total':'362','total_in_record':'295','out_school':'38','in_boy':'89','in_girl':'49','in':'276','live_boy':'42','live_girl':'25','live':'223','home':'62','longvaca':'21','quitschool':'2','pre':'0','32':'0','gj':'0','solider':'5','special':'8','ps':'0'}
-    ]
-/*	proxy: {
+    ]*/
+	proxy: {
 		type: 'ajax',
 
 		api: {
@@ -60,6 +61,6 @@ var ss_statics_store = Ext.create('Ext.data.Store', {
                 //console.log(operation.getError()) ;
 			}
 		} 
-	},*/
+	},
 });
 

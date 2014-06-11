@@ -139,6 +139,7 @@ if __name__ == "__main__":
         (r"/deleteuser",DeleteUserHandler),
         (r"/setuser",SetUserHandler),
         (r"/getuser",GetUserHandler),
+        (r"/getstudentstatics",GetStudentStaticsHandler),
         (r"/form",FormHandler),
         (r"/download",DownloadHandler)
         ],

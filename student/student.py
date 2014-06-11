@@ -57,7 +57,7 @@ class Student(object):
     def __init__(self):
 
         logger = logging.getLogger("student")
-        formatter = logging.Formatter('%(levelname)s %(filename)s %(funcName)s %(lineno)s   %(message)s')
+        formatter = logging.Formatter('%(name)s %(asctime)s %(levelname)s %(filename)s %(funcName)s %(lineno)s   %(message)s')
             #'%a, %d %b %Y %H:%M:%S',)
         file_handler = logging.FileHandler('/opt/simp/log/simp.log')
         file_handler.setFormatter(formatter)
@@ -149,6 +149,7 @@ class Student(object):
         stuid = unicode(value['stuid'])
         key = STU_PREFIX+stuid
         value = self.dict2str(value)
+        self.setStuIDofClass(value['stuid'],value['class'])
         return self.redis.set(key,value)
 
     def deleteStuInfo(self,stuid):
@@ -402,8 +403,8 @@ class Student(object):
     def getQuanNameOnId(self,qid):
         qid = unicode(qid)
         if self.redis.hexists(TABLE_QUANID2NAME,qid):
-            return int(self.redis.hget(TABLE_QUANID2NAME,qid))
-        return 0
+            return self.redis.hget(TABLE_QUANID2NAME,qid)
+        return ''
 
     def getClassIdOnName(self,cname):
         cname = unicode(cname)
@@ -452,6 +453,7 @@ class Student(object):
     def getStuNameOnId(self,stuid):
         stuid = unicode(stuid)
         ret = self.getStuInfo(stuid)
+        #print ret
         if ret!=None:
             name = ret['name']
             return name

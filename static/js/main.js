@@ -57,6 +57,7 @@ function treeItemClick(view, record, item, index, e) {
         setQuanWinsShow(1) ; 
     } else if (cmpId=="q.fillin"){
         var quanWin = getQuanWin() ;
+        quan_info_store.loadData([]) ;
         add2tabpanel(mgrTabpanel,quanWin) ;
         //show quangridweek and quanformdetail
         setQuanWinsShow(9) ; 
@@ -103,7 +104,7 @@ function treeItemClick(view, record, item, index, e) {
     } else if (cmpId=="ss.statics"){
         //在校人数统计
         var ssWin = getSSWin() ;
-        //ss_statics_store.load() ;
+        ss_statics_store.load() ;
         add2tabpanel(mgrTabpanel,ssWin) ;
         ssWin.show() ;
 
@@ -290,9 +291,8 @@ var mgrSysTree= Ext.create('Ext.tree.Panel', {
 		    {
 			    id: 'sm.lookupnotice',
 			    text: '查看通知/公告',
-                leaf:true
-            },
-	        {
+                leaf:true 
+            },{
 			    id: 'sm.addnotice',
 			    text: '添加通知/公告',
                 leaf:true

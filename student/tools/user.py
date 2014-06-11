@@ -22,7 +22,7 @@ def addUser():
                 value['user'] = stuInfo['stuid']
                 value['role'] = '80000' #student
                 value['pwd'] = stuInfo['identify'][-8:]
-                stu.setUserInfo(stuInfo['stuid'],value)
+                stu.setUserInfo(stuInfo['user'],value)
                 print stuInfo['stuid'],value
 
 addUser()

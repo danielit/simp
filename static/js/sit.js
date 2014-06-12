@@ -462,7 +462,8 @@ Ext.define('Sit.Grid', {
                 {
                     xtype:'button',
                     id:'sitsearch.btn',
-                    iconCls:'icon-search',
+                    //iconCls:'icon-search',
+                    icon:'static/pic/search.gif',
                     text:'查询',
                     scope:this,
                     handler:this.onSearchClick

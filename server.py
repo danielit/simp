@@ -93,12 +93,15 @@ class DownloadHandler(APISecureHandler):
 
     @tornado.web.authenticated
     def get(self):
+        stu = Student.instance()
+        stu.logger.info('download....')
+        stu.logger.info(self.get_argument('id'))
         self.set_header('Content-Type','application/msexcel')
         self.set_header('Content-Disposition','attachment;filename="abc.xls"')
-        len =str(os.path.getsize('abc.xls'))
-        self.set_header('Content-Length',len)
-        with open('abc.xls','rb') as f:
-            self.write(f.read())
+        #len =str(os.path.getsize('/opt/simp/static/downloads/attendinfo.xls'))
+        #self.set_header('Content-Length',len)
+        #with open('/opt/simp/static/downloads/attendinfo.xls','rb') as f:
+        self.write({'path':'/static/downloads/attendinfo.xls'})
 
 
 if __name__ == "__main__":

@@ -867,7 +867,13 @@ Ext.define('Quan.Grid.Week', {
 					text: '查看',
 					scope: this,
 					handler: this.onLookOverWeekQuan
-				}/*,
+				},{
+                    icon:'static/pic/search.gif',
+					text: '下载',
+					scope: this,
+					handler: this.onDownloadWeekQuan
+				}
+                    /*,
                 {
 					iconCls: 'icon-detail',
 					text: '显示量化详单',
@@ -995,7 +1001,19 @@ Ext.define('Quan.Grid.Week', {
 		    this.down('#delete').setDisabled(selections.length === 0);
         }*/
 	},
-    onLookOverWeekQuan: function(){
+    onDownloadWeekQuan: function(){
+        window.location.href= '/static/downloads/quanweekinfo.xls' ;
+        /*
+        Ext.Ajax.request({
+            url:SERVER+'/download',
+            method:'GET',
+            params:{id:1},
+            success:function(response,option){},
+            failure:function(response,option){}
+        }) ;
+        */
+    }
+    ,onLookOverWeekQuan: function(){
         var week = Ext.getCmp('quan.grid.cb.week').getValue() ;
         //console.log('look over week quan of',week) ; 
         //quan_week_store.loadData([],false) ;

@@ -27,13 +27,20 @@ from uploadfiles import *
 from tornado.escape import json_encode
 # constant definitions
 def genxls(filename,cols,data):
-    if data!=None  and len(cols)<=len(data[0]) :
+    wb = xlwt.Workbook() # a new workbook
+    s1 = wb.add_sheet('sheet1',cell_overwrite_ok=True) # a new sheet which named 'sheet1'
+
+    if data!=None and len(data)==0:
+        wb.save(filename)
+        return True
+
+    if data!=None and len(cols)<=len(data[0]) :
         try:
             if os.path.exists(filename):
                 os.remove(filename)
                 print 'remove %s success' % filename
-            wb = xlwt.Workbook() # a new workbook
-            s1 = wb.add_sheet('sheet1',cell_overwrite_ok=True) # a new sheet which named 'sheet1'
+            #wb = xlwt.Workbook() # a new workbook
+            #s1 = wb.add_sheet('sheet1',cell_overwrite_ok=True) # a new sheet which named 'sheet1'
             cns = []
             for c in cols:
                 if data[0].has_key(c):
@@ -93,7 +100,7 @@ def getQuanInfoBetween(begin,end):
             stu.logger.info('quaninfo:'+str(qi))
             try:
                 qi['student'] = stu.getStuNameOnId(qi['student'])
-                qi['quan_type']= stu.getQuanNameOnId(qi['quan_type'])
+                qi['quan_type']= stu.getQuanNameOnId(qi['quan_type']).decode('utf-8')
                 qi['class'] = stu.getClassNameOnId(qi['class'])
                 stu.logger.info('qinfo : %s' % str(qi))
             except Exception,e:

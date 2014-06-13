@@ -467,6 +467,14 @@ Ext.define('Sit.Grid', {
                     text:'查询',
                     scope:this,
                     handler:this.onSearchClick
+                },
+                {
+                    xtype:'button',
+                    id:'stuinfo.download',
+                    icon:'static/pic/download.png',
+                    text:'下载',
+                    scope:this,
+                    handler:this.onDownloadStu
                 }]
 			},
 			{
@@ -709,7 +717,9 @@ Ext.define('Sit.Grid', {
 		this.callParent();
 		this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
 	},
-
+    onDownloadStu: function(){
+        window.location.href = '/static/downloads/stuinfo.xls' ;
+    },
     onSearchClick: function(){
     
         //hide the form

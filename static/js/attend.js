@@ -325,7 +325,16 @@ Ext.define('Attend.Grid', {
                     text:'查询',
                     scope:this,
                     handler:this.onSearchClick
-                }]
+                },
+                {
+                    xtype:'button',
+                    icon:'static/pic/download.png',
+                    id:'attend.download',
+					text: '下载',
+					scope: this,
+					handler: this.onDownloadAttend
+				}]
+
 			},
 			{
 				weight: 1,
@@ -452,7 +461,9 @@ Ext.define('Attend.Grid', {
 		this.callParent();
 		this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
 	},
-
+    onDownloadAttend:function(){
+        window.location.href = '/static/downloads/attendinfo.xls' ;
+    },
     onSearchClick: function(){
         //hide the form 
         setAttendWinShow('attendform',false) ;

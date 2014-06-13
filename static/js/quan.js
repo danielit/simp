@@ -383,6 +383,13 @@ Ext.define('Quan.Grid', {
                     icon:'static/pic/search.gif',
 					scope: this,
 					handler: this.onSearchClick
+				},
+                {
+                    icon:'static/pic/download.png',
+                    id:'quan.detail.download',
+					text: '下载',
+					scope: this,
+					handler: this.onDownloadQuan
 				}]
 			},
 			{
@@ -600,6 +607,9 @@ Ext.define('Quan.Grid', {
             pbar.hide() ;
         }
     },
+    onDownloadQuan: function(){
+        window.open('/static/downloads/quaninfo.xls') ;
+    }, 
     onSearchClick: function(){
         // hide the form
         setQuanWinShow('quanform',false) ;
@@ -842,7 +852,7 @@ Ext.define('Quan.Grid.Week', {
 			plugins: [this.editing],
 			dockedItems: [{
 				xtype: 'toolbar',
-				items: [                {
+				items: [{
                 	xtype: 'combobox',
                     id:'quan.grid.cb.week',
 					name: 'week',
@@ -868,18 +878,12 @@ Ext.define('Quan.Grid.Week', {
 					scope: this,
 					handler: this.onLookOverWeekQuan
 				},{
-                    icon:'static/pic/search.gif',
+                    icon:'static/pic/download.png',
+                    id:'quan.week.download',
 					text: '下载',
 					scope: this,
 					handler: this.onDownloadWeekQuan
-				}
-                    /*,
-                {
-					iconCls: 'icon-detail',
-					text: '显示量化详单',
-					scope: this,
-					handler: this.onLookOverWeekQuan
-				}*/]
+				}]
 			},
 			{
 				weight: 1,
@@ -1002,18 +1006,15 @@ Ext.define('Quan.Grid.Week', {
         }*/
 	},
     onDownloadWeekQuan: function(){
-        window.location.href= '/static/downloads/quanweekinfo.xls' ;
-        /*
-        Ext.Ajax.request({
-            url:SERVER+'/download',
-            method:'GET',
-            params:{id:1},
-            success:function(response,option){},
-            failure:function(response,option){}
-        }) ;
+        /*var ifr = document.createElement('iframe');
+        ifr.src = '/static/downloads/quanweekinfo.xls' ;
+        ifr.style.display = 'none';       
+        document.getElementByTagName('body')[0].appendChild(ifr) ;
         */
-    }
-    ,onLookOverWeekQuan: function(){
+ 
+        window.location= '/static/downloads/quanweekinfo.xls' ;
+    },
+    onLookOverWeekQuan: function(){
         var week = Ext.getCmp('quan.grid.cb.week').getValue() ;
         //console.log('look over week quan of',week) ; 
         //quan_week_store.loadData([],false) ;

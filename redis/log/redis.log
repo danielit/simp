@@ -1386,3 +1386,8 @@
 [11449] 14 Sep 01:45:10.925 * DB saved on disk
 [11449] 14 Sep 01:45:10.926 * RDB: 0 MB of memory used by copy-on-write
 [17707] 14 Sep 01:45:11.009 * Background saving terminated with success
+[17707] 14 Sep 02:00:12.066 * 1 changes in 900 seconds. Saving...
+[17707] 14 Sep 02:00:12.066 * Background saving started by pid 12061
+[12061] 14 Sep 02:00:12.081 * DB saved on disk
+[12061] 14 Sep 02:00:12.081 * RDB: 0 MB of memory used by copy-on-write
+[17707] 14 Sep 02:00:12.166 * Background saving terminated with success

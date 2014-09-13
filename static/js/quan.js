@@ -377,6 +377,18 @@ Ext.define('Quan.Grid', {
                     value: new Date()
 				},
                 {
+                    xtype: 'textfield',
+					name: 'name',
+                    width:200,
+                    labelWidth:60,
+                    id:'quan.detail.name',
+					emptyText: '此项可以为空',
+					fieldLabel: '姓&nbsp&nbsp&nbsp&nbsp&nbsp名',
+					margins: '0 6 0 0',
+					allowBlank: true,
+					forceSelection: true
+                },
+                {
 					iconCls: 'icon-search',
                     id:'quan.detail.search',
 					text: '查询',
@@ -616,6 +628,8 @@ Ext.define('Quan.Grid', {
         //deal search 
         var bdate = Ext.getCmp('quan.detail.bdate').getRawValue() ;
         var edate = Ext.getCmp('quan.detail.edate').getRawValue() ;
+        var name = Ext.getCmp('quan.detail.name').getRawValue() ;
+        console.log(name);
         if (bdate && edate) {
             //console.log(bdate) ;
             //console.log(edate) ;
@@ -623,6 +637,7 @@ Ext.define('Quan.Grid', {
                 'params':{
                     'begin':bdate,
                     'end':edate,
+                    'name':name,
                     'limit':100
                 },
                 scope:this,

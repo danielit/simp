@@ -39,15 +39,13 @@ class RequestHandler(BaseHandler):
 class APISecureHandler(BaseHandler):
 
     def get_current_user(self):
-        return self.get_secure_cookie("user")
-        '''
+        #return self.get_secure_cookie("user")
         rem = self.get_secure_cookie("remb")
         user = self.get_secure_cookie("user")
         if rem=='0' or rem==None:
             return None
         elif rem=='1' :
             return user
-        '''
 
 
 

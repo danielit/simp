@@ -318,6 +318,18 @@ Ext.define('Attend.Grid', {
                     value: new Date()
 				},
                 {
+                    xtype: 'textfield',
+					name: 'name',
+                    width:200,
+                    labelWidth:60,
+                    id:'attendsearch.name',
+					emptyText: '此项可以为空',
+					fieldLabel: '姓&nbsp&nbsp&nbsp&nbsp&nbsp名',
+					margins: '0 6 0 0',
+					allowBlank: true,
+					forceSelection: true
+                },
+                {
                     xtype:'button',
                     id:'attendsearch.btn',
                     iconCls:'icon-search',
@@ -471,7 +483,8 @@ Ext.define('Attend.Grid', {
         var cname = Ext.getCmp('attendsearch.class').getRawValue() ;
         var bdate = Ext.getCmp('attendsearch.bdate').getRawValue() ;
         var edate = Ext.getCmp('attendsearch.edate').getRawValue() ;
-        var cid= Ext.getCmp('attendsearch.class').getValue() ;
+        var cid = Ext.getCmp('attendsearch.class').getValue() ;
+        var name = Ext.getCmp('attendsearch.name').getValue() ;
         if (!bdate && !edate && !cname){
             Ext.MessageBox.alert("提示",'至少选择一个查询条件!') ;
             return ;
@@ -489,7 +502,8 @@ Ext.define('Attend.Grid', {
                     'limit':200,
                     'class':cname,
                     'begin':bdate,
-                    'end':edate
+                    'end':edate,
+                    'name':name
                 },
                 scope:this,
                 callback:function(records,operations,success){

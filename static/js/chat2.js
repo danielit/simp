@@ -98,7 +98,7 @@ Ext.define('Chat.Form', {
         //alert(msg) ;
         msg = msg+"     <br/>" ;
         var msg_send_tpl = '<div style="text-align:right;align:right;margin:5px 5px 5px 5px"><tr><td>{0}<img src="../pic/rss.gif"/><br/><font size=4>{1}</font></td><tr/></div>';
-        var mmsg = Ext.String.format(msg_send_tpl,'2014-2-3',msg) ;
+        var mmsg = Ext.String.format(msg_send_tpl,(new Date()).toLocaleString(),msg) ;
         talkWin.body.insertHtml('beforeEnd',mmsg);
         talkWin.updateLayout() ;
         talkWin.body.scroll('b', 10000, {duration: 0.1});

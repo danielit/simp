@@ -433,7 +433,21 @@ Ext.define('Sit.Grid', {
 					store: class_id_store,
 					allowBlank: false,
 					forceSelection: true
-				},/*
+				},
+                {
+                    xtype: 'textfield',
+					name: 'name',
+                    width:200,
+                    labelWidth:60,
+                    id:'sitsearch.name',
+					emptyText: '此项可以为空',
+					fieldLabel: '姓&nbsp&nbsp&nbsp&nbsp&nbsp名',
+					margins: '0 6 0 0',
+					allowBlank: true,
+					forceSelection: true
+                },
+
+                /*
                 {
 					xtype: 'datefield',
 					id: 'sitsearch.bdate',
@@ -728,6 +742,7 @@ Ext.define('Sit.Grid', {
         //var bdate = Ext.getCmp('sitsearch.bdate').getRawValue() ;
         //var edate = Ext.getCmp('sitsearch.edate').getRawValue() ;
         var cid= Ext.getCmp('sitsearch.class').getValue() ;
+        var name = Ext.getCmp('sitsearch.name').getValue() ;
         if (!cid){
             //Ext.MessageBox.alert("提示",'请选择班级!') ;
             cid='0' ;
@@ -737,7 +752,8 @@ Ext.define('Sit.Grid', {
                     'page':0,
                     'start':0,
                     'limit':200,
-                    'cid':cid
+                    'cid':cid,
+                    'name':name
                 },
                 scope:this,
                 callback:function(records,operations,success){

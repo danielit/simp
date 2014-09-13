@@ -95,8 +95,25 @@ function treeItemClick(view, record, item, index, e) {
         attendWin.show() ; 
         
         setAttendWinsShow(false) ;
-} else if (cmpId=="ss.loan"){ } else if (cmpId=="ss.loan"){
-        // student information
+    } else if (cmpId=="sr.lookup"){ 
+        var rewardWin = getrewardWin() ;
+        reward_info_store.loadData([]) ;
+        reward_info_store.load() ;
+        add2tabpanel(mgrTabpanel,rewardWin) ;
+        rewardWin.show() ; 
+        
+        setrewardWinsShow(false) ;
+
+    } else if (cmpId=="sr.input"){
+        var rewardWin = getrewardWin() ;
+        reward_info_store.loadData([]) ;
+        add2tabpanel(mgrTabpanel,rewardWin) ;
+        rewardWin.show() ; 
+
+        setrewardWinsShow(true) ;
+
+
+
     } else if (cmpId=="si.baseinfo"){
         var siForm = getStuBaseInfoForm() ;
         add2tabpanel(mgrTabpanel,siForm) ;
@@ -139,8 +156,7 @@ function treeItemClick(view, record, item, index, e) {
         setAddUserWinsShow(true) ;
 
     } else if (cmpId=="sq.quit"){
-        window.location.href = SERVER ;
-    } else if (cmpId=="ss.loan"){
+        window.location.href = SERVER+"/quit" ;
     } else if (cmpId=="ss.loan"){
     } else if (cmpId=="ss.loan"){
     } else {
@@ -157,65 +173,8 @@ var mgrTree = Ext.create('Ext.tree.Panel', {
 			fn: treeItemClick
 		}
 	},
-	root: {
-		id: 'stuMangeRoot',
-		text: '学生管理',
-		expanded: true,
-		children: [{
-			id: 'quan',
-			text: '日常量化',
-            children:[{
-                id:'q.weeksummary',
-                text:'周量化汇总表',
-                leaf:true
-            },
-            {
-                id:'q.detail',
-                text:'量化详单',
-                leaf:true
-            },
-            {
-                id:'q.fillin',
-                text:'量化信息登记',
-                leaf:true
-            }]
-		},{
-			id: 'studentattend',
-			text: '学生考勤',
-            children:[{
-                id:'sa.lookup',
-                text:'考勤查询',
-                leaf:true
-            },{
-                id:'sa.input',
-                text:'考勤录入',
-                leaf:true
-            }]
-		},
-	    {
-			id: 'sit.info',
-			text: '学生信息',
-			children: [{
-				id: 'sit.stuinfo',
-				text: '学生信息',
-				leaf: true
-			},
-            {
-				id: 'sit.input',
-				text: '信息录入',
-				leaf: true
-			}]
-		},
-		{
-			text: '在校情况',
-			id: 'studentinschool',
-			children: [{
-				id: 'ss.statics',
-				text: '在校学生统计',
-				leaf: true
-			}]
-		}]
-	}
+    store:stu_tree_list_store
+	
 });
 
 var mgrStuInfoTree = Ext.create('Ext.tree.Panel', {
@@ -255,7 +214,7 @@ var mgrStuInfoTree = Ext.create('Ext.tree.Panel', {
 		}]
 	}
 });
-
+/*
 var mgrSysTree= Ext.create('Ext.tree.Panel', {
 	title: '系统管理',
 	deferRowRender: true,
@@ -301,6 +260,7 @@ var mgrSysTree= Ext.create('Ext.tree.Panel', {
 	}
 });
 
+*/
 var mgrQuitTree= Ext.create('Ext.tree.Panel', {
 	title: '退出系统',
 	deferRowRender: true,
@@ -353,7 +313,7 @@ Ext.onReady(function() {
 
 			items: [
 			mgrTree,
-            mgrSysTree,
+            //mgrSysTree,
 			mgrQuitTree
             ]
 		},

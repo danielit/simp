@@ -19,6 +19,9 @@ from student_config import studentStatics
 from student_config import init_statics
 from student_config import comp_statics
 from student_config import cstuinfo,cattendinfo,cquaninfo,cquanweekinfo
+from student_config import adminStuTreeList, teacStuTreeList, stuStuTreeList
+
+
 
 from news_template import NEWS_TEMPLATE
 
@@ -73,6 +76,9 @@ def doPage(obj,ret) :
         end = start + limit
     return ret[start:end]
 
+def isStudent(obj):
+    role = unicode(obj.get_secure_cookie('role'))
+    return role==unicode('学生')
 
 def getDateOfNWeek(nWeek):
     global firstDayTerm
@@ -116,6 +122,9 @@ class SetStuInfoHandler(APIHandler):
     @tornado.web.authenticated
     def post(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
             stu = Student.instance()
             stuinfo = json.loads(self.request.body)
             if type(stuinfo)==type({}) and stuinfo.has_key('data') :
@@ -149,6 +158,10 @@ class DeleteStuHandler(APIHandler):
 
     @tornado.web.authenticated
     def get(self):
+        if isStudent(self):
+            self.finish(success=False,notification='权限不足,无法修改数据')
+            return
+
         stuid = self.get_argument('stuid','')
         stuidc = self.get_argument('stuidc','')
         stu = Student.instance()
@@ -173,6 +186,7 @@ class GetAllStuInfoHandler(APIHandler):
         try:
             stu = Student.instance()
             classid = self.get_argument('cid',u'0')
+            name = self.get_argument('name','')
             stu.logger.info('get all stuinfo handler cid: %s' % classid)
             ret = stu.getAllStuInfo()
 
@@ -207,7 +221,11 @@ class GetAllStuInfoHandler(APIHandler):
                 stu.logger.error('generate xls file failed')
             total = len(stuinfo)
             stuinfo = doPage(self,stuinfo)
+            if name != '' :
+                stuinfo = filter(lambda info: info.has_key('name') and info['name']==name ,stuinfo)
 
+            stu.logger.info(stuinfo)
+            stu.logger.info(name)
             self.finish("data",stuinfo,total=total)
             return
 
@@ -293,6 +311,16 @@ class GetStuNameIDsOnClassID(APIHandler):
             raise tornado.web.HTTPError(404)
 
 class GetQuanInfosHandler(APIHandler):
+    '''
+    def filterStuName(infos,name):
+        ret = []
+        for info in infos:
+            if info.has_key('student') and info['student']==name:
+                ret.append(info)
+        return ret
+    '''
+
+
     @tornado.web.authenticated
     def get(self):
         stu = Student.instance()
@@ -300,6 +328,7 @@ class GetQuanInfosHandler(APIHandler):
         stu.logger.info(begin)
         end = self.get_argument('end','0')
         stu.logger.info(end)
+        name = self.get_argument('name','').strip()
         if begin=='0' and end=='0':
             stu.logger.info('begin =0 and end =0,so return the lastest 7 days quaninfo')
             #get the last week quan info
@@ -321,6 +350,11 @@ class GetQuanInfosHandler(APIHandler):
 
         total = len(ret)
         ret = doPage(self,ret)
+        #stu.logger.info(ret)
+        #stu.logger.info(name)
+        #ret = self.filterStuName()
+        if name != '' :
+            ret = filter(lambda info: info.has_key('student') and info['student']==name ,ret)
 
         self.finish('quan',ret,total=total)
 '''
@@ -350,6 +384,7 @@ class GetQuanInfosHandler(APIHandler):
 class AddQuanInfosHandler(APIHandler):
     def searchAndDelQI(self,cid,idc):
         try:
+
             stu = Student.instance()
             qs = stu.getQuanInfo(cid)
             for q in qs:
@@ -369,6 +404,10 @@ class AddQuanInfosHandler(APIHandler):
     @tornado.web.authenticated
     def post(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
             stu = Student.instance()
             #infos = self.get_argument('quaninfos')
             #for k,v in self.request.arguments:
@@ -437,6 +476,11 @@ class DeleteQuanHandler(APIHandler):
     @tornado.web.authenticated
     def get(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
+
             stu = Student.instance()
             quanidc = self.get_argument('idc','')
             cname = self.get_argument('cname','')
@@ -466,6 +510,12 @@ class DeleteQuanHandler(APIHandler):
         pass
 
 
+class QuitHandler(APISecureHandler):
+    def get(self):
+        self.set_secure_cookie('remb','0')
+        self.redirect('/')
+        return
+
 class LoginHandler(APISecureHandler):
     def post(self):
         #get argument
@@ -491,7 +541,7 @@ class LoginHandler(APISecureHandler):
                 userInfo = rdb.str2dict(userInfo)
                 if userInfo.has_key('passwd') and userInfo['passwd'] == pwd:
                     rdb.logger.info(user + " login success")
-                    self.set_secure_cookie('remb',remb)
+                    self.set_secure_cookie('remb','1')
                     self.set_secure_cookie('user',user)
                     self.set_secure_cookie('role',userInfo['role'])
                     self.set_cookie('uid',user)
@@ -641,9 +691,10 @@ class GetAttendInfoHandler(APIHandler):
     def get(self):
         stu = Student.instance()
         try:
-            cname = self.get_argument('class','')
-            bdate = self.get_argument('begin','')
-            edate = self.get_argument('end','')
+            cname = self.get_argument('class','').strip()
+            bdate = self.get_argument('begin','').strip()
+            edate = self.get_argument('end','').strip()
+            name = self.get_argument('name','').strip()
 
             stu.logger.info(bdate)
             stu.logger.info(edate)
@@ -678,7 +729,11 @@ class GetAttendInfoHandler(APIHandler):
 
             total = len(ret)
             ret = doPage(self,ret)
-            stu.logger.info(ret)
+            #stu.logger.info(ret)
+            stu.logger.info(name)
+            if name != '' :
+                ret = filter(lambda info: info.has_key('student') and info['student']==name ,ret)
+
             self.finish('data',ret,total=total)
         except Exception,e :
             stu.logger.error(e)
@@ -709,6 +764,10 @@ class SetAttendInfoHandler(APIHandler):
     @tornado.web.authenticated
     def post(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
             stu = Student.instance()
             stu.logger.info('set attend info')
             ais = json.loads(self.request.body)['data']
@@ -747,6 +806,11 @@ class DeleteAttendHandler(APIHandler):
 
     @tornado.web.authenticated
     def get(self):
+        if isStudent(self):
+            self.finish(success=False,notification='权限不足,无法修改数据')
+            return
+
+
         day = self.get_argument('date','')
         idc = self.get_argument('idc','')
 
@@ -767,6 +831,151 @@ class DeleteAttendHandler(APIHandler):
             return
         self.finish(success=False)
         return
+
+class GetRewardInfoHandler(APIHandler):
+
+    def filterRewardInfoBetween(self,ris,bdate,edate):
+        if bdate == '':
+            bdate = '2000/01/01'
+        bdate = datetime.strptime(bdate,'%Y/%m/%d')
+
+        if edate == '':
+            edate = datetime.today()
+        else:
+            edate = datetime.strptime(edate,'%Y/%m/%d')
+
+
+        ret = []
+        for ri in ris:
+            rdate = datetime.strptime(ri['date'],'%Y/%m/%d')
+            if rdate >= bdate and rdate <= edate:
+                ret.append(ri)
+        return ret
+
+    def get(self):
+        stu = Student.instance()
+        try:
+            cname = self.get_argument('class','').strip()
+            bdate = self.get_argument('begin','').strip()
+            edate = self.get_argument('end','').strip()
+            name = self.get_argument('name','').strip()
+
+            #rinfos = stu.getAllRewardInfo()
+            ris = []
+            if name != '':
+                sid = stu.getStuIdOnName(name)
+                if sid != '':
+                    ris = stu.getRewardInfo2(sid)
+            else:
+                ris = stu.getAllRewardInfo2()
+
+            stu.logger.info(ris)
+            ris = self.filterRewardInfoBetween(ris,bdate,edate)
+            stu.logger.info(ris)
+            if cname != '':
+                ris = filter(lambda ri: ri['class']==cname,ris)
+            stu.logger.info(ris)
+
+            total = len(ris)
+            ris = doPage(self,ris)
+
+            self.finish('data',ris,total=total)
+        except Exception,e:
+            stu.logger.error(e)
+
+class SetRewardInfoHandler(APIHandler):
+    def get(self):
+        pass
+
+    def searchAndDelRI(self,sid,idc):
+        try:
+            stu = Student.instance()
+            ris = stu.getRewardInfo(sid)
+            for ri in ris:
+                tmp = stu.str2dict(ri)
+                if idc == tmp['idc'] :
+                    stu.deleteRewardInfo(sid,ri)
+                    break
+        except Exception,e:
+            stu.logger.error(e)
+
+    def post(self):
+        try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
+            stu = Student.instance()
+            stu.logger.info('set attend info')
+            ris = json.loads(self.request.body)['data']
+            if type(ris) == type({}):
+                ris= [ris]
+            for ri in ris :
+                #day = ri['date']
+                name = ri['student']
+                sid = stu.getStuIdOnName(name)
+                if sid == '':
+                    stu.logger.error('cant find stu id of '+name)
+                    self.finish(success=False,notification='姓名错误')
+                    return
+
+                stu.logger.info(ri['idc'])
+                if ri.has_key('idc') and ri['idc'].startswith('reward_'):
+                    stu.logger.info('modify reward info,first delete')
+                    self.searchAndDelRI(sid,ri['idc'])
+                else:
+                    stu.logger.info('a new reward info')
+                    ri['idc'] = 'reward_' + stu.getuuid()
+
+                ret = stu.setRewardInfo(sid,ri)
+
+        except Exception,e:
+            stu.logger.error(e)
+
+
+class DeleteRewardHandler(APIHandler):
+    def searchAndDelRI(self,sid,idc):
+        try:
+            stu = Student.instance()
+            ris = stu.getRewardInfo(sid)
+            for ri in ris:
+                tmp = stu.str2dict(ri)
+                if idc == tmp['idc'] :
+                    stu.deleteRewardInfo(sid,ri)
+                    break
+        except Exception,e:
+            stu.logger.error(e)
+
+    @tornado.web.authenticated
+    def get(self):
+        if isStudent(self):
+            self.finish(success=False,notification='权限不足,无法修改数据')
+            return
+
+        idc = self.get_argument('idc','')
+        name = self.get_argument('name','')
+
+        stu = Student.instance()
+
+        if name == '' :
+            stu.logger.warning('request param name is empty')
+            self.finish(success=False)
+            return
+        if idc == '' :
+            stu.logger.warning('request param idc is empty')
+            self.finish(success=False)
+            return
+        sid = stu.getStuIdOnName(name)
+        ret = self.searchAndDelRI(sid,idc)
+        if ret == 0 :
+            stu.logger.info('Delete reward info done')
+            self.finish(success=True)
+            return
+
+        self.finish(success=False)
+        return
+
+
 
 class GetHeadTeachersHandler(APIHandler):
     @tornado.web.authenticated
@@ -885,6 +1094,11 @@ class SetNewsHandler(APIHandler):
     @tornado.web.authenticated
     def post(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
+
             stu = Student.instance()
             news = json.loads(self.request.body)
             news = news['data']
@@ -919,6 +1133,10 @@ class SetUserHandler(APIHandler):
     @tornado.web.authenticated
     def post(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
             stu = Student.instance()
             userinfo = json.loads(self.request.body)
             if type(userinfo)==type({}) and userinfo.has_key('data') :
@@ -968,6 +1186,10 @@ class DeleteUserHandler(APIHandler):
     @tornado.web.authenticated
     def get(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
             user = self.get_argument('user','')
             stu = Student.instance()
             if user == '':
@@ -1022,6 +1244,10 @@ class DeleteNoticeHandler(APIHandler):
     @tornado.web.authenticated
     def get(self):
         try:
+            if isStudent(self):
+                self.finish(success=False,notification='权限不足,无法修改数据')
+                return
+
             stu = Student.instance()
             noticeidc = self.get_argument('noticeidc','')
             if noticeidc=='':
@@ -1097,6 +1323,28 @@ class GetStudentStaticsHandler(APIHandler):
 
 
         pass
+class GetStuTreeListHandler(APISecureHandler):
+    def get(self):
+
+        requestNode = self.get_argument('node','')
+        if requestNode != 'root':
+            return
+        role = unicode(self.get_secure_cookie('role'))
+        stuTreeList = []
+        if role==unicode('管理员') :
+            stuTreeList = adminStuTreeList
+        elif role == unicode('教师'):
+            stuTreeList = teacStuTreeList
+        elif role == '学生':
+            stuTreeList = stuStuTreeList
+        else:
+            pass
+
+        stuTreeList = json.dumps(stuTreeList)
+        #self.finish('data',stuTreeList,total=len(stuTreeList))
+        #self.write(role) ;
+        self.write(stuTreeList)
+
 class UploadFileHandler(APISecureHandler):
     def get(self):
         self.render('../upload.html')

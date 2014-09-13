@@ -18,6 +18,7 @@ STUS_PREFIX="students:"
 TEAC_PREFIX="teacher:"
 CLASS_PREFIX="class:"
 ATTEND_PREFIX="attend:"
+REWARD_PREFIX="reward:"
 
 VACATION_PREFIX="vacation:"
 
@@ -85,6 +86,14 @@ class Student(object):
             value = json.loads(value)
         return value
 
+    def strInArray2dict(self,values):
+        ret = []
+        if type(values)==type([]):
+            for v in values:
+                ret.append(self.str2dict(v))
+        return ret
+
+
     def today(self):
         #print datetime.date.today()
         return str(datetime.date.today())
@@ -147,9 +156,13 @@ class Student(object):
     def setStuInfo(self,value):
         #this  student is not in the db ,it is a new one
         stuid = unicode(value['stuid'])
+        cls   = unicode(value['class'])
         key = STU_PREFIX+stuid
         value = self.dict2str(value)
-        self.setStuIDofClass(value['stuid'],value['class'])
+        #try:
+        self.setStuIDofClass(stuid,cls)
+        #except Exception, e:
+        #    print e
         return self.redis.set(key,value)
 
     def deleteStuInfo(self,stuid):
@@ -434,6 +447,7 @@ class Student(object):
 
 
     def setStuIDofClass(self,stuid,classid):
+        ret = None
         classid = unicode(classid)
         stuid = unicode(stuid)
         key = STUS_PREFIX + CLASS_PREFIX + classid
@@ -521,8 +535,62 @@ class Student(object):
         key = ATTEND_PREFIX + str(day)
         return self.redis.lrem(key,ai)
 
+    def setRewardInfo(self,sid,info):
+        key = REWARD_PREFIX+str(sid)
+        value = self.dict2str(info)
+        return self.redis.lpush(key,value)
+
+    def getRewardInfo(self,sid):
+        key = REWARD_PREFIX + str(sid)
+        values = self.redis.lrange(key,0,-1)
+        return values
+        '''
+        ret = []
+        for v in values:
+            ret.append(self.str2dict(v))
+        return ret
+
+        '''
+    def getRewardInfo2(self,sid):
+        key = REWARD_PREFIX + str(sid)
+        values = self.redis.lrange(key,0,-1)
+        ret = []
+        for v in values:
+            ret.append(self.str2dict(v))
+        return ret
 
 
+
+    def deleteRewardInfo(self,sid,info):
+        key = REWARD_PREFIX + str(sid)
+        return self.redis.lrem(key,info)
+
+    def getAllRewardInfo(self):
+        keyP = REWARD_PREFIX + '*'
+        keys = self.redis.keys(keyP)
+        ret = []
+        for key in keys:
+            values = self.redis.lrange(key,0,-1)
+            for v in values:
+                ret.append(v)
+        return ret
+
+
+    def getAllRewardInfo2(self):
+        keyP = REWARD_PREFIX + '*'
+        keys = self.redis.keys(keyP)
+        '''
+        ret = {}
+        for key in keys:
+            values = self.lrange(key,0,-1)
+            ret[key[7:]] = self.strInArray2dict(values)
+        '''
+        ret = []
+        for key in keys:
+            values = self.redis.lrange(key,0,-1)
+            for v in values:
+                ret.append(self.str2dict(v))
+        return ret
 
 def main():
     #dbOp = DBOperation()

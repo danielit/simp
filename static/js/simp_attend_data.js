@@ -22,9 +22,9 @@ var attend_nclass_store = Ext.create('Ext.data.Store',{
         {id:'4',nclass:'第4节'},
         {id:'5',nclass:'第5节'},
         {id:'6',nclass:'第6节'},
-        {id:'2',nclass:'第1-2节'},
-        {id:'7',nclass:'第3-4节'},
-        {id:'8',nclass:'第5-6节'}
+        {id:'7',nclass:'第1-2节'},
+        {id:'8',nclass:'第3-4节'},
+        {id:'9',nclass:'第5-6节'}
     ]
 }) ;
 

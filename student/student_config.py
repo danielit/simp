@@ -115,3 +115,240 @@ cquanweekinfo = ['class',#class name
         'total',
         'rank'
     ]
+
+stuStuTreeList = [{
+		'id': 'stuMangeRoot',
+		'text': '学生管理',
+		'expanded': True,
+		'children': [{
+
+            'id': 'quan',
+			'text': '日常量化',
+            'children':[{
+                'id':'q.weeksummary',
+                'text':'周量化汇总表', 'leaf':True
+            },
+            {
+                'id':'q.detail',
+                'text':'量化详单',
+                'leaf':True
+            }]
+		},{
+			'id': 'studentattend',
+			'text': '学生考勤',
+            'children':[{
+                'id':'sa.lookup',
+                'text':'考勤查询',
+                'leaf':True
+            }]
+		},
+        {
+			'id': 'studentreward',
+            'text': '学生奖惩',
+            'children':[{
+                'id':'sr.lookup',
+                'text':'奖惩查询',
+                'leaf':True
+            }]
+		},
+
+	    {
+			'id': 'sit.info',
+			'text': '学生信息',
+			'children': [{
+				'id': 'sit.stuinfo',
+				'text': '学生信息',
+				'leaf': True
+			}]
+		},
+		{
+			'text': '在校情况',
+			'id': 'studentinschool',
+			'children': [{
+				'id': 'ss.statics',
+				'text': '在校学生统计',
+				'leaf': True
+			}]
+		}]
+	}]
+
+teacStuTreeList = [{
+		'id': 'stuMangeRoot',
+		'text': '学生管理',
+		'expanded': True,
+		'children': [{
+
+            'id': 'quan',
+			'text': '日常量化',
+            'children':[{
+                'id':'q.weeksummary',
+                'text':'周量化汇总表', 'leaf':True
+            },
+            {
+                'id':'q.detail',
+                'text':'量化详单',
+                'leaf':True
+            }]
+		},{
+			'id': 'studentattend',
+			'text': '学生考勤',
+            'children':[{
+                'id':'sa.lookup',
+                'text':'考勤查询',
+                'leaf':True
+            },{
+                'id':'sa.input',
+                'text':'考勤录入',
+                'leaf':True
+            }]
+		},
+        {
+			'id': 'studentreward',
+            'text': '学生奖惩',
+            'children':[{
+                'id':'sr.lookup',
+                'text':'奖惩查询',
+                'leaf':True
+            },{
+                'id':'sr.input',
+                'text':'奖惩录入',
+                'leaf':True
+            }]
+		},
+
+
+	    {
+			'id': 'sit.info',
+			'text': '学生信息',
+			'children': [{
+				'id': 'sit.stuinfo',
+				'text': '学生信息',
+				'leaf': True
+			},
+            {
+				'id': 'sit.input',
+				'text': '信息录入',
+				'leaf': True
+			}]
+		},
+		{
+			'text': '在校情况',
+			'id': 'studentinschool',
+			'children': [{
+				'id': 'ss.statics',
+				'text': '在校学生统计',
+				'leaf': True
+			}]
+		}]
+	}]
+
+sysManageTree= {
+		'id': 'sysMangeRoot',
+		'text': '系统管理',
+		'expanded': True,
+		'children': [{
+            'id':'sm.user',
+            'text':'用户管理',
+            'children':[{
+			    'id': 'sm.lookupuser',
+			    'text': '查看用户',
+                'leaf':True
+            },
+            {
+			    'id': 'sm.adduser',
+			    'text': '添加用户',
+                'leaf':True
+            }]
+        },
+        {
+            'id':'sm.notice',
+            'text':'通知/公告管理',
+            'children':[
+		    {
+			    'id': 'sm.lookupnotice',
+			    'text': '查看通知/公告',
+                'leaf':True
+            },{
+			    'id': 'sm.addnotice',
+			    'text': '添加通知/公告',
+                'leaf':True
+		    }]
+        }]
+	}
+
+
+adminStuTreeList = [{
+		'id': 'stuMangeRoot',
+		'text': '学生管理',
+		'expanded': True,
+		'children': [{
+
+            'id': 'quan',
+			'text': '日常量化',
+            'children':[{
+                'id':'q.weeksummary',
+                'text':'周量化汇总表', 'leaf':True
+            },
+            {
+                'id':'q.detail',
+                'text':'量化详单',
+                'leaf':True
+            },
+            {
+                'id':'q.fillin',
+                'text':'量化信息登记',
+                'leaf':True
+            }]
+		},{
+			'id': 'studentattend',
+			'text': '学生考勤',
+            'children':[{
+                'id':'sa.lookup',
+                'text':'考勤查询',
+                'leaf':True
+            },{
+                'id':'sa.input',
+                'text':'考勤录入',
+                'leaf':True
+            }]
+		},
+        {
+			'id': 'studentreward',
+            'text': '学生奖惩',
+            'children':[{
+                'id':'sr.lookup',
+                'text':'奖惩查询',
+                'leaf':True
+            },{
+                'id':'sr.input',
+                'text':'奖惩录入',
+                'leaf':True
+            }]
+		},
+	    {
+			'id': 'sit.info',
+			'text': '学生信息',
+			'children': [{
+				'id': 'sit.stuinfo',
+				'text': '学生信息',
+				'leaf': True
+			},
+            {
+				'id': 'sit.input',
+				'text': '信息录入',
+				'leaf': True
+			}]
+		},
+		{
+			'text': '在校情况',
+			'id': 'studentinschool',
+			'children': [{
+				'id': 'ss.statics',
+				'text': '在校学生统计',
+				'leaf': True
+			}]
+		}]
+	},sysManageTree]
+
+if __name__=='__main__':
+    print adminStuTreeList

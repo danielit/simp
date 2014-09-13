@@ -130,6 +130,8 @@ if __name__ == "__main__":
         (r"/getquaninfos",GetQuanInfosHandler),
         (r"/getattendinfo",GetAttendInfoHandler),
         (r"/setattendinfo",SetAttendInfoHandler),
+        (r"/getrewardinfo",GetRewardInfoHandler),
+        (r"/setrewardinfo",SetRewardInfoHandler),
         (r"/getheadteachers",GetHeadTeachersHandler),
         (r"/getnewslist",GetNewsListHandler),
         (r"/getnewscontent",GetNewsContentHandler),
@@ -138,15 +140,18 @@ if __name__ == "__main__":
         (r"/deletenotice",DeleteNoticeHandler),
         (r"/deletequan",DeleteQuanHandler),
         (r"/deleteattend",DeleteAttendHandler),
+        (r"/deletereward",DeleteRewardHandler),
         (r"/deletestu",DeleteStuHandler),
         (r"/deleteuser",DeleteUserHandler),
         (r"/setuser",SetUserHandler),
         (r"/getuser",GetUserHandler),
         (r"/getstudentstatics",GetStudentStaticsHandler),
         (r"/form",FormHandler),
+        (r"/getStuTreeList",GetStuTreeListHandler),
+        (r"/quit",QuitHandler),
         (r"/download",DownloadHandler)
         ],
         **settings
         )
-    application.listen(80)
+    application.listen(8080)
     tornado.ioloop.IOLoop.instance().start()
